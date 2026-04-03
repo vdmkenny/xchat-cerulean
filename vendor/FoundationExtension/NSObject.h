@@ -13,13 +13,8 @@
  *      [1]: https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Protocols/NSObject_Protocol/Reference/NSObject.html
  */
 
-#if __has_feature(modules)
-@import Foundation;
-@import ObjectiveC.runtime;
-#else
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
-#endif
 
 
 NS_ASSUME_NONNULL_BEGIN

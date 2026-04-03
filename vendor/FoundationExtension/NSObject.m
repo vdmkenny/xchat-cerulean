@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 youknowone.org All rights reserved.
 //
 
-@import ObjectiveC.runtime;
-@import ObjectiveC.message;
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 #import "NSObject.h"
 

@@ -835,7 +835,7 @@
 		0F8F08280E1FE06800359159 /* tclplugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tclplugin.c; path = ../../../xchat/plugins/tcl/tclplugin.c; sourceTree = "<group>"; };
 		0F8F08290E1FE06800359159 /* tclplugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tclplugin.h; path = ../../../xchat/plugins/tcl/tclplugin.h; sourceTree = "<group>"; };
 		0FC8F3E80DEEDA0C00504F31 /* python.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = python.c; path = ../../../xchat/plugins/python/python.c; sourceTree = "<group>"; usesTabs = 1; };
-		0FC8F3F50DEEDAB300504F31 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		0FC8F3F50DEEDAB300504F31 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = "/opt/homebrew/opt/python@3/Frameworks/Python.framework"; sourceTree = "<absolute>"; };
 		0FC8F4AE0DEEE51700504F31 /* libxchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libxchat.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -3290,10 +3290,6 @@
 			name = "XChat Azure";
 			productInstallPath = "$(HOME)/Applications";
 			productName = "X-Chat Aqua";
-			packageProductDependencies = (
-				A769E10F0996C40E6211E1FB /* FirebaseCrashlytics */,
-				774F87359A8DB53069E96F23 /* FirebaseCore */,
-			);
 			productReference = 3876258B13C7024F00850913 /* XChat Azure.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -3352,16 +3348,11 @@
 				38B0B60C1E54B9D4003C7405 /* PBXTargetDependency */,
 				0FC8F5C30DEEEA3B00504F31 /* PBXTargetDependency */,
 				38BC97A9154A9937005894EF /* PBXTargetDependency */,
-				38BC97AB154A9937005894EF /* PBXTargetDependency */,
 				38BC97B3154A9937005894EF /* PBXTargetDependency */,
 			);
 			name = "XChat Aqua";
 			productInstallPath = "$(HOME)/Applications";
 			productName = "X-Chat Aqua";
-			packageProductDependencies = (
-				015E598DA1170251858192EF /* FirebaseCrashlytics */,
-				030C463B23A233F69EE42E07 /* FirebaseCore */,
-			);
 			productReference = 8D1107320486CEB800E47090 /* X-Chat Aqua.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -3461,7 +3452,6 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* X-Chat Aqua */;
 			packageReferences = (
-				97F68C75F151F87657BD3953 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
@@ -5278,7 +5268,7 @@
 				HEADER_SEARCH_PATHS = (
 					Mac,
 					Mac/contrib/include,
-					/System/Library/Frameworks/Python.framework/Versions/Current/Headers,
+					"/opt/homebrew/opt/python@3/Frameworks/Python.framework/Versions/Current/Headers",
 					glib,
 					glib/glib,
 				);
@@ -5306,7 +5296,7 @@
 				HEADER_SEARCH_PATHS = (
 					Mac,
 					Mac/contrib/include,
-					/System/Library/Frameworks/Python.framework/Versions/Current/Headers,
+					"/opt/homebrew/opt/python@3/Frameworks/Python.framework/Versions/Current/Headers",
 					glib,
 					glib/glib,
 				);
@@ -5512,6 +5502,7 @@
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				HEADER_SEARCH_PATHS = (
 					glib,
+					glib/glib,
 					"${inherited}",
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
@@ -5544,6 +5535,7 @@
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				HEADER_SEARCH_PATHS = (
 					glib,
+					glib/glib,
 					"${inherited}",
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
@@ -5730,8 +5722,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					xchat/src,
+					xchat/src/common,
 					glib,
-					libintl,
+					glib/glib,
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -5760,8 +5753,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					xchat/src,
+					xchat/src/common,
 					glib,
-					libintl,
+					glib/glib,
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
 				LIBRARY_SEARCH_PATHS = (
