@@ -679,7 +679,7 @@ static NSCursor *XAChatTextViewSizableCursor;
                 return [[MenuMaker defaultMenuMaker] menuForChannel:word inSession:sess];
 
             case WORD_EMAIL:
-                return [[MenuMaker defaultMenuMaker] menuForURL:[@"mailto:%@" format:word] inSession:sess];
+                return [[MenuMaker defaultMenuMaker] menuForURL:[NSString stringWithFormat:@"mailto:%@", word] inSession:sess];
         }
     }
 
