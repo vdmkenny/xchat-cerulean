@@ -5510,7 +5510,7 @@
 					"$(inherited)",
 					"\"$(BUILT_PRODUCTS_DIR)/openssl\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.3rddev.xchatazure;
 				PRODUCT_CODE = Azure;
@@ -5543,7 +5543,7 @@
 					"$(inherited)",
 					"\"$(BUILT_PRODUCTS_DIR)/openssl\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.3rddev.xchatazure;
 				PRODUCT_CODE = Azure;
@@ -5812,7 +5812,7 @@
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
@@ -5864,7 +5864,7 @@
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				SDKROOT = macosx;
