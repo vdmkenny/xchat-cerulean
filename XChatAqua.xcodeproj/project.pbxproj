@@ -46,6 +46,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0214DE0BEB8578FAD7CF3841 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 306879E971090AC303CDD120 /* OpenSSL */; };
 		0F2FEF340E1FAB9100DE4D41 /* python.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC8F3E80DEEDA0C00504F31 /* python.c */; };
 		0F2FEFBD0E1FC8E900DE4D41 /* SystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2FEFB70E1FC5A800DE4D41 /* SystemVersion.m */; };
 		0F7065540E1FA32E00FEA21C /* Changes in Resources */ = {isa = PBXBuildFile; fileRef = 0F7065530E1FA32E00FEA21C /* Changes */; };
@@ -103,6 +104,7 @@
 		0FC8F6AF0DEEF3AC00504F31 /* AquaChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F80CFB2500001AE9AE /* AquaChat.m */; };
 		0FC8F6ED0DEEF64200504F31 /* fe-aqua.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3CE0CFAF7E2001AE9AE /* fe-aqua.m */; };
 		2D7817CA10E872D200C71AF8 /* fe-aqua_utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7817C910E872D200C71AF8 /* fe-aqua_utility.m */; };
+		2E024D40BE1C1EF329DAAC10 /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
 		380AD19213C6984D003EEE3D /* cfgfiles.c in Sources */ = {isa = PBXBuildFile; fileRef = 380AD18C13C6984D003EEE3D /* cfgfiles.c */; };
 		380AD19313C6984D003EEE3D /* cfgfiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 380AD18D13C6984D003EEE3D /* cfgfiles.h */; };
 		380AD19413C6984D003EEE3D /* chanopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 380AD18E13C6984D003EEE3D /* chanopt.c */; };
@@ -153,10 +155,6 @@
 		380AD1F413C698E1003EEE3D /* xchat.h in Headers */ = {isa = PBXBuildFile; fileRef = 380AD1E813C698E1003EEE3D /* xchat.h */; };
 		380AD1F513C698E1003EEE3D /* xchatc.h in Headers */ = {isa = PBXBuildFile; fileRef = 380AD1E913C698E1003EEE3D /* xchatc.h */; };
 		382F50D51949BDD800ACEA18 /* perl.bundle in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 38B20083183BDF56006C1EA1 /* perl.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		383064231E50698D005D6C8D /* libcrypto.3.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C31D726E7A008F982D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		383064241E506994005D6C8D /* libssl.3.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C41D726E7A008F982D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		383064261E506BDD005D6C8D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C31D726E7A008F982D /* libcrypto.3.dylib */; };
-		383064271E506BE0005D6C8D /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C41D726E7A008F982D /* libssl.3.dylib */; };
 		3839010413C06619004D20BC /* CLTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839010313C06619004D20BC /* CLTabCell.m */; };
 		3839010713C0667B004D20BC /* CLTabViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839010613C0667B004D20BC /* CLTabViewButtonCell.m */; };
 		384A96461588F2CC00268814 /* xchat-ruby.c in Sources */ = {isa = PBXBuildFile; fileRef = 384A963E1588F2CC00268814 /* xchat-ruby.c */; };
@@ -496,10 +494,6 @@
 		3894C1B41590D93D00BCD762 /* NSPanelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3894C1B21590D6F400BCD762 /* NSPanelAdditions.m */; };
 		38A690A015A84485008CC31F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A6909F15A84485008CC31F /* QuartzCore.framework */; };
 		38A690A115A844A4008CC31F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A6909F15A84485008CC31F /* QuartzCore.framework */; };
-		38B0B6021E54B8C3003C7405 /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C41D726E7A008F982D /* libssl.3.dylib */; };
-		38B0B6031E54B8C5003C7405 /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C31D726E7A008F982D /* libcrypto.3.dylib */; };
-		38B0B60D1E54BA24003C7405 /* libcrypto.3.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C31D726E7A008F982D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		38B0B60E1E54BA2B003C7405 /* libssl.3.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3A10C41D726E7A008F982D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		38B0B60F1E54BA57003C7405 /* cert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5BEA62C51D72A76700846DC7 /* cert.pem */; };
 		38B2007C183BDF56006C1EA1 /* perl.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F06C10E1FDA5E00359159 /* perl.c */; };
 		38B248631F3709D800C7D20E /* libperl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B248621F3709D800C7D20E /* libperl.dylib */; };
@@ -528,22 +522,25 @@
 		38F069C016386905002723AB /* gquark.c in Sources */ = {isa = PBXBuildFile; fileRef = 38F069BE16386904002723AB /* gquark.c */; };
 		38F700771BD0340800379EE7 /* python.bundle in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 0F2FEF2B0E1FAB1500DE4D41 /* python.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38F700781BD034F400379EE7 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F3F50DEEDAB300504F31 /* Python.framework */; };
+		A1B2C3D4E5F60718293A4B5C /* Python.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F3F50DEEDAB300504F31 /* Python.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1B2C3D4E5F60718293A4B5D /* Python.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F3F50DEEDAB300504F31 /* Python.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38FC93CA13CAF46E006CB5C8 /* locale in Resources */ = {isa = PBXBuildFile; fileRef = 38FC93C913CAF46E006CB5C8 /* locale */; };
 		38FC93CB13CAF46E006CB5C8 /* locale in Resources */ = {isa = PBXBuildFile; fileRef = 38FC93C913CAF46E006CB5C8 /* locale */; };
 		3B4D30BA15F5314600704C98 /* XAFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D30B915F5314600704C98 /* XAFileUtil.m */; };
 		3B4D30BB15F5314600704C98 /* XAFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D30B915F5314600704C98 /* XAFileUtil.m */; };
+		519957D4092B7AA3DED6ADEE /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FDE153F56DFDA56731C2EA /* NSObject.m */; };
+		558E941D0B70C7854EF7175A /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
 		5BEA62C61D72A79C00846DC7 /* cert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5BEA62C51D72A76700846DC7 /* cert.pem */; };
+		62E5ADD14449C4EFF860C575 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 48F5EFE7D8E03DAA82F278BF /* OpenSSL */; };
+		6E26433DC0D0E301BA8F3E27 /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FDE153F56DFDA56731C2EA /* NSObject.m */; };
+		7168E6933C24B84711952388 /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
+		84F0D056B3C0E9E1AC7FAC4C /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		D163510996758A32E8372A96 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 09F77ED94D0EE7C60EE4A437 /* OpenSSL */; };
 		D487239E128F9DBC00647D7B /* UtilityWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D487239D128F9DBC00647D7B /* UtilityWindow.m */; };
 		D4FBD93E12E449D5003EA441 /* ViewerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD93D12E449D5003EA441 /* ViewerWindow.xib */; };
 		D4FBD95912E44CD0003EA441 /* ViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD93912E44946003EA441 /* ViewerWindow.m */; };
 		D4FBD9C612E458C4003EA441 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBD9C512E458C4003EA441 /* WebKit.framework */; };
-		6E26433DC0D0E301BA8F3E27 /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FDE153F56DFDA56731C2EA /* NSObject.m */; };
-		519957D4092B7AA3DED6ADEE /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FDE153F56DFDA56731C2EA /* NSObject.m */; };
-		84F0D056B3C0E9E1AC7FAC4C /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
-		2E024D40BE1C1EF329DAAC10 /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
-		7168E6933C24B84711952388 /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
-		558E941D0B70C7854EF7175A /* libintl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA42FE20F99EED446F4C925 /* libintl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -575,20 +572,6 @@
 			remoteGlobalIDString = 2DDC6FD91231BCA00015A26C;
 			remoteInfo = Prebuild;
 		};
-		38B0B6091E54B9CB003C7405 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38B0B6041E54B961003C7405;
-			remoteInfo = openssl;
-		};
-		38B0B60B1E54B9D4003C7405 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38B0B6041E54B961003C7405;
-			remoteInfo = openssl;
-		};
 		38B20092183BE23A006C1EA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -602,13 +585,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0F8F08100E1FE00800359159;
 			remoteInfo = tcl;
-		};
-		38BC97AA154A9937005894EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F2FEF2A0E1FAB1500DE4D41;
-			remoteInfo = python;
 		};
 		38BC97B2154A9937005894EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -661,8 +637,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38B0B60E1E54BA2B003C7405 /* libssl.3.dylib in Copy Frameworks */,
-				38B0B60D1E54BA24003C7405 /* libcrypto.3.dylib in Copy Frameworks */,
+				A1B2C3D4E5F60718293A4B5D /* Python.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,8 +659,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				383064241E506994005D6C8D /* libssl.3.dylib in Copy Frameworks */,
-				383064231E50698D005D6C8D /* libcrypto.3.dylib in Copy Frameworks */,
+				A1B2C3D4E5F60718293A4B5C /* Python.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,6 +709,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00BEBB947A2A0F6D8C3922FD /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		06FDE153F56DFDA56731C2EA /* NSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject.m; sourceTree = "<group>"; };
 		0F2FEF2B0E1FAB1500DE4D41 /* python.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = python.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2FEFB60E1FC5A800DE4D41 /* SystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemVersion.h; sourceTree = "<group>"; };
 		0F2FEFB70E1FC5A800DE4D41 /* SystemVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemVersion.m; sourceTree = "<group>"; };
@@ -835,12 +811,14 @@
 		0F8F08280E1FE06800359159 /* tclplugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tclplugin.c; path = ../../../xchat/plugins/tcl/tclplugin.c; sourceTree = "<group>"; };
 		0F8F08290E1FE06800359159 /* tclplugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tclplugin.h; path = ../../../xchat/plugins/tcl/tclplugin.h; sourceTree = "<group>"; };
 		0FC8F3E80DEEDA0C00504F31 /* python.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = python.c; path = ../../../xchat/plugins/python/python.c; sourceTree = "<group>"; usesTabs = 1; };
-		0FC8F3F50DEEDAB300504F31 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = "/opt/homebrew/opt/python@3/Frameworks/Python.framework"; sourceTree = "<absolute>"; };
+		0FC8F3F50DEEDAB300504F31 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = vendor/Python.framework; sourceTree = SOURCE_ROOT; };
 		0FC8F4AE0DEEE51700504F31 /* libxchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libxchat.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1A42B0AD8696B71EAA5EDA80 /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2AA42FE20F99EED446F4C925 /* libintl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libintl.m; sourceTree = "<group>"; };
 		2D6D421E121E85470082F2EF /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		2D7817C810E872D200C71AF8 /* fe-aqua_utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fe-aqua_utility.h"; sourceTree = "<group>"; };
 		2D7817C910E872D200C71AF8 /* fe-aqua_utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "fe-aqua_utility.m"; sourceTree = "<group>"; };
@@ -2161,17 +2139,18 @@
 		38FC93C913CAF46E006CB5C8 /* locale */ = {isa = PBXFileReference; lastKnownFileType = folder; name = locale; path = ../../Resources/locale; sourceTree = "<group>"; };
 		3B4D30B815F5314600704C98 /* XAFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XAFileUtil.h; path = Mac/XALibrary/XAFileUtil.h; sourceTree = "<group>"; };
 		3B4D30B915F5314600704C98 /* XAFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XAFileUtil.m; path = Mac/XALibrary/XAFileUtil.m; sourceTree = "<group>"; };
-		5B3A10C31D726E7A008F982D /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = openssl/libcrypto.3.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B3A10C41D726E7A008F982D /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = openssl/libssl.3.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEA62C51D72A76700846DC7 /* cert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cert.pem; path = /etc/ssl/cert.pem; sourceTree = "<absolute>"; };
 		6E6378DBCA67376E8789F24C /* libPods-glib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-glib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CD7716F9104D8AEE53764C /* libPods-XChat Azure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XChat Azure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8612B1121EDE1E9D0AD33248 /* libPods-XChat Aqua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XChat Aqua.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A148F6A5C10D1E7E9D11805 /* NSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMacro.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* X-Chat Aqua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "X-Chat Aqua.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9649725B501C3776B6A073F /* FoundationExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationExtension.h; sourceTree = "<group>"; };
 		B07C7AB20F4395E200E11B58 /* BuildNumber.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = BuildNumber.xcconfig; sourceTree = "<group>"; };
 		B07C7AD60F4398FC00E11B58 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		B07C7AD70F4398FC00E11B58 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		B267A3D9D784B9A2E6DCDBFF /* libPods-xchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE21165584C418D9434C6EE2 /* libintl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libintl.h; sourceTree = "<group>"; };
 		D406B462129D789400EF6B2B /* fe-aqua_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fe-aqua_common.h"; sourceTree = "<group>"; };
 		D439129912DE2569009BE73C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Mac/Azure/Info.plist; sourceTree = "<group>"; };
 		D46631D3129DC3B1004B66B8 /* UtilityTableViewDragAndDrop.inc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityTableViewDragAndDrop.inc.m; sourceTree = "<group>"; };
@@ -2181,13 +2160,6 @@
 		D4FBD93912E44946003EA441 /* ViewerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewerWindow.m; sourceTree = "<group>"; };
 		D4FBD93D12E449D5003EA441 /* ViewerWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewerWindow.xib; sourceTree = "<group>"; };
 		D4FBD9C512E458C4003EA441 /* WebKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		00BEBB947A2A0F6D8C3922FD /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
-		A9649725B501C3776B6A073F /* FoundationExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationExtension.h; sourceTree = "<group>"; };
-		1A42B0AD8696B71EAA5EDA80 /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
-		06FDE153F56DFDA56731C2EA /* NSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject.m; sourceTree = "<group>"; };
-		8A148F6A5C10D1E7E9D11805 /* NSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMacro.h; sourceTree = "<group>"; };
-		CE21165584C418D9434C6EE2 /* libintl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libintl.h; sourceTree = "<group>"; };
-		2AA42FE20F99EED446F4C925 /* libintl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libintl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2220,13 +2192,12 @@
 			files = (
 				38A690A015A84485008CC31F /* QuartzCore.framework in Frameworks */,
 				385F81471551616800689E6E /* libiconv.dylib in Frameworks */,
-				383064261E506BDD005D6C8D /* libcrypto.3.dylib in Frameworks */,
-				383064271E506BE0005D6C8D /* libssl.3.dylib in Frameworks */,
 				385F783A15515CE500689E6E /* libglib.a in Frameworks */,
 				3876253D13C7024F00850913 /* libxchat.a in Frameworks */,
 				3876253E13C7024F00850913 /* Cocoa.framework in Frameworks */,
 				3876253F13C7024F00850913 /* Carbon.framework in Frameworks */,
 				3876254613C7024F00850913 /* WebKit.framework in Frameworks */,
+				D163510996758A32E8372A96 /* OpenSSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2250,6 +2221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0214DE0BEB8578FAD7CF3841 /* OpenSSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2259,19 +2231,37 @@
 			files = (
 				38A690A115A844A4008CC31F /* QuartzCore.framework in Frameworks */,
 				385F8153155167C200689E6E /* libiconv.dylib in Frameworks */,
-				38B0B6031E54B8C5003C7405 /* libcrypto.3.dylib in Frameworks */,
-				38B0B6021E54B8C3003C7405 /* libssl.3.dylib in Frameworks */,
 				385F8151155167B800689E6E /* libglib.a in Frameworks */,
 				0FC8F5C40DEEEA3E00504F31 /* libxchat.a in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0F8EA70B0CFB384A001AE9AE /* Carbon.framework in Frameworks */,
 				D4FBD9C612E458C4003EA441 /* WebKit.framework in Frameworks */,
+				62E5ADD14449C4EFF860C575 /* OpenSSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		047D57F3B3A100D98B6AD157 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				B0A79214C3FAFE2C9BF9DFBB /* cdebug */,
+				65A876502C8AFAF86E82E7A2 /* FoundationExtension */,
+				0D75C58483B14D544ED420E8 /* libintl */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		0D75C58483B14D544ED420E8 /* libintl */ = {
+			isa = PBXGroup;
+			children = (
+				CE21165584C418D9434C6EE2 /* libintl.h */,
+				2AA42FE20F99EED446F4C925 /* libintl.m */,
+			);
+			path = libintl;
+			sourceTree = "<group>";
+		};
 		0F2FEF860E1FB5BF00DE4D41 /* python */ = {
 			isa = PBXGroup;
 			children = (
@@ -2437,8 +2427,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B3A10C31D726E7A008F982D /* libcrypto.3.dylib */,
-				5B3A10C41D726E7A008F982D /* libssl.3.dylib */,
 				385F766D155148FC00689E6E /* libiconv.dylib */,
 				0F8EA70A0CFB384A001AE9AE /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -2474,7 +2462,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* X-Chat Aqua */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				38771A4415A7C0090046929E /* Aqua */,
@@ -3010,24 +2998,6 @@
 			name = XALibrary;
 			sourceTree = "<group>";
 		};
-		047D57F3B3A100D98B6AD157 /* vendor */ = {
-			isa = PBXGroup;
-			children = (
-				B0A79214C3FAFE2C9BF9DFBB /* cdebug */,
-				65A876502C8AFAF86E82E7A2 /* FoundationExtension */,
-				0D75C58483B14D544ED420E8 /* libintl */,
-			);
-			path = vendor;
-			sourceTree = "<group>";
-		};
-		B0A79214C3FAFE2C9BF9DFBB /* cdebug */ = {
-			isa = PBXGroup;
-			children = (
-				00BEBB947A2A0F6D8C3922FD /* debug.h */,
-			);
-			path = cdebug;
-			sourceTree = "<group>";
-		};
 		65A876502C8AFAF86E82E7A2 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -3039,13 +3009,12 @@
 			path = FoundationExtension;
 			sourceTree = "<group>";
 		};
-		0D75C58483B14D544ED420E8 /* libintl */ = {
+		B0A79214C3FAFE2C9BF9DFBB /* cdebug */ = {
 			isa = PBXGroup;
 			children = (
-				CE21165584C418D9434C6EE2 /* libintl.h */,
-				2AA42FE20F99EED446F4C925 /* libintl.m */,
+				00BEBB947A2A0F6D8C3922FD /* debug.h */,
 			);
-			path = libintl;
+			path = cdebug;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3244,6 +3213,9 @@
 				38E0F8CD15519B7200B4BD82 /* PBXTargetDependency */,
 			);
 			name = xchat;
+			packageProductDependencies = (
+				306879E971090AC303CDD120 /* OpenSSL */,
+			);
 			productName = xchat;
 			productReference = 0FC8F4AE0DEEE51700504F31 /* libxchat.a */;
 			productType = "com.apple.product-type.library.static";
@@ -3280,7 +3252,6 @@
 			);
 			dependencies = (
 				384FCB141E548A2600F51524 /* PBXTargetDependency */,
-				38B0B60A1E54B9CB003C7405 /* PBXTargetDependency */,
 				387624F913C7024F00850913 /* PBXTargetDependency */,
 				38E4A0E315CBABA5000312D1 /* PBXTargetDependency */,
 				38B20093183BE23A006C1EA1 /* PBXTargetDependency */,
@@ -3288,6 +3259,9 @@
 				38E4A0EB15CBABA5000312D1 /* PBXTargetDependency */,
 			);
 			name = "XChat Azure";
+			packageProductDependencies = (
+				09F77ED94D0EE7C60EE4A437 /* OpenSSL */,
+			);
 			productInstallPath = "$(HOME)/Applications";
 			productName = "X-Chat Aqua";
 			productReference = 3876258B13C7024F00850913 /* XChat Azure.app */;
@@ -3345,12 +3319,14 @@
 			);
 			dependencies = (
 				38B0B6011E54B779003C7405 /* PBXTargetDependency */,
-				38B0B60C1E54B9D4003C7405 /* PBXTargetDependency */,
 				0FC8F5C30DEEEA3B00504F31 /* PBXTargetDependency */,
 				38BC97A9154A9937005894EF /* PBXTargetDependency */,
 				38BC97B3154A9937005894EF /* PBXTargetDependency */,
 			);
 			name = "XChat Aqua";
+			packageProductDependencies = (
+				48F5EFE7D8E03DAA82F278BF /* OpenSSL */,
+			);
 			productInstallPath = "$(HOME)/Applications";
 			productName = "X-Chat Aqua";
 			productReference = 8D1107320486CEB800E47090 /* X-Chat Aqua.app */;
@@ -3450,8 +3426,9 @@
 				zh_CN,
 				zh_TW,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* X-Chat Aqua */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
 			packageReferences = (
+				56C7224A52480F2715C077F1 /* XCLocalSwiftPackageReference "OpenSSL-SPM" */,
 			);
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
@@ -4043,16 +4020,6 @@
 			target = 2DDC6FD91231BCA00015A26C /* Prebuild */;
 			targetProxy = 38B0B6001E54B779003C7405 /* PBXContainerItemProxy */;
 		};
-		38B0B60A1E54B9CB003C7405 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 38B0B6041E54B961003C7405 /* openssl */;
-			targetProxy = 38B0B6091E54B9CB003C7405 /* PBXContainerItemProxy */;
-		};
-		38B0B60C1E54B9D4003C7405 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 38B0B6041E54B961003C7405 /* openssl */;
-			targetProxy = 38B0B60B1E54B9D4003C7405 /* PBXContainerItemProxy */;
-		};
 		38B20093183BE23A006C1EA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 38B20078183BDF56006C1EA1 /* perl */;
@@ -4062,11 +4029,6 @@
 			isa = PBXTargetDependency;
 			target = 0F8F08100E1FE00800359159 /* tcl */;
 			targetProxy = 38BC97A8154A9937005894EF /* PBXContainerItemProxy */;
-		};
-		38BC97AB154A9937005894EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F2FEF2A0E1FAB1500DE4D41 /* python */;
-			targetProxy = 38BC97AA154A9937005894EF /* PBXContainerItemProxy */;
 		};
 		38BC97B3154A9937005894EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5259,6 +5221,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/vendor",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5268,12 +5234,17 @@
 				HEADER_SEARCH_PATHS = (
 					Mac,
 					Mac/contrib/include,
-					"/opt/homebrew/opt/python@3/Frameworks/Python.framework/Versions/Current/Headers",
+					"$(PROJECT_DIR)/vendor/Python.framework/Versions/Current/Headers",
 					glib,
 					glib/glib,
 				);
 				INFOPLIST_FILE = "Mac/Plugins/python/python-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../../../../Frameworks",
+					"@executable_path/../Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -5289,6 +5260,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/vendor",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -5296,12 +5271,17 @@
 				HEADER_SEARCH_PATHS = (
 					Mac,
 					Mac/contrib/include,
-					"/opt/homebrew/opt/python@3/Frameworks/Python.framework/Versions/Current/Headers",
+					"$(PROJECT_DIR)/vendor/Python.framework/Versions/Current/Headers",
 					glib,
 					glib/glib,
 				);
 				INFOPLIST_FILE = "Mac/Plugins/python/python-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../../../../Frameworks",
+					"@executable_path/../Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -5506,11 +5486,8 @@
 					"${inherited}",
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(BUILT_PRODUCTS_DIR)/openssl\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.3rddev.xchatazure;
 				PRODUCT_CODE = Azure;
@@ -5539,11 +5516,8 @@
 					"${inherited}",
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(BUILT_PRODUCTS_DIR)/openssl\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.3rddev.xchatazure;
 				PRODUCT_CODE = Azure;
@@ -5727,10 +5701,8 @@
 					glib/glib,
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(BUILT_PRODUCTS_DIR)/openssl\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = net.sourceforge.xchataqua;
 				PRODUCT_CODE = Aqua;
 				PRODUCT_NAME = "X-Chat Aqua";
@@ -5758,10 +5730,8 @@
 					glib/glib,
 				);
 				INFOPLIST_FILE = "$(TARGET_PLATFORM)/${PRODUCT_CODE}/Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(BUILT_PRODUCTS_DIR)/openssl\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = net.sourceforge.xchataqua;
 				PRODUCT_CODE = Aqua;
 				PRODUCT_NAME = "X-Chat Aqua";
@@ -5804,15 +5774,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					Mac,
-					"/opt/homebrew/opt/openssl@3/include",
-					"/usr/local/opt/openssl@3/include",
 					vendor,
 					vendor/cdebug,
 					vendor/libintl,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
@@ -5856,15 +5824,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					Mac,
-					"/opt/homebrew/opt/openssl@3/include",
-					"/usr/local/opt/openssl@3/include",
 					vendor,
 					vendor/cdebug,
 					vendor/libintl,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				SDKROOT = macosx;
@@ -5985,6 +5951,32 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		56C7224A52480F2715C077F1 /* XCLocalSwiftPackageReference "OpenSSL-SPM" */ = {
+			isa = XCLocalSwiftPackageReference;
+			path = "vendor/OpenSSL-SPM";
+			relativePath = "vendor/OpenSSL-SPM";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		09F77ED94D0EE7C60EE4A437 /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56C7224A52480F2715C077F1 /* XCLocalSwiftPackageReference "OpenSSL-SPM" */;
+			productName = OpenSSL;
+		};
+		306879E971090AC303CDD120 /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56C7224A52480F2715C077F1 /* XCLocalSwiftPackageReference "OpenSSL-SPM" */;
+			productName = OpenSSL;
+		};
+		48F5EFE7D8E03DAA82F278BF /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56C7224A52480F2715C077F1 /* XCLocalSwiftPackageReference "OpenSSL-SPM" */;
+			productName = OpenSSL;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }
