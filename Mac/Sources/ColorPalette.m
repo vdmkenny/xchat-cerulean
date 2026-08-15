@@ -220,20 +220,21 @@ static int color_remap [] =
  * text colours, which stays light no matter the system appearance. When those
  * two entries are still at their stock values, use the semantic colours so the
  * chat view follows light and dark mode. A customised palette is left alone. */
+- (BOOL)color:(NSColor *)color matchesDefaultAtIndex:(NSInteger)index {
+    NSColor *rgb = [color colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    if (rgb == nil) return NO;
+
+    struct GdkColor *stock = &ColorPalleteDefaultColors[index];
+    const CGFloat tolerance = 1.0f / 255.0f;
+
+    return fabs(rgb.redComponent   - (CGFloat)stock->red   / 0xffff) < tolerance &&
+           fabs(rgb.greenComponent - (CGFloat)stock->green / 0xffff) < tolerance &&
+           fabs(rgb.blueComponent  - (CGFloat)stock->blue  / 0xffff) < tolerance;
+}
+
 - (void)adoptSystemTextColorsIfDefault {
-    NSColor *foreground = [colors[XAColorForeground] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
-    NSColor *background = [colors[XAColorBackground] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
-    if (foreground == nil || background == nil) return;
-
-    const CGFloat tolerance = 0.02f;
-    BOOL foregroundIsBlack = foreground.redComponent   < tolerance &&
-                             foreground.greenComponent < tolerance &&
-                             foreground.blueComponent  < tolerance;
-    BOOL backgroundIsWhite = background.redComponent   > 1.0f - tolerance &&
-                             background.greenComponent > 1.0f - tolerance &&
-                             background.blueComponent  > 1.0f - tolerance;
-
-    if (!foregroundIsBlack || !backgroundIsWhite) return;
+    if (![self color:colors[XAColorForeground] matchesDefaultAtIndex:XAColorForeground]) return;
+    if (![self color:colors[XAColorBackground] matchesDefaultAtIndex:XAColorBackground]) return;
 
     [colors[XAColorForeground] release];
     [colors[XAColorBackground] release];
@@ -256,6 +257,21 @@ static int color_remap [] =
     [self loadFromXChatFile:file];
 }
 
+/* Component accessors are only valid on an RGB colour, and the text colours
+ * may be dynamic system colours, so resolve to a concrete space first. */
+static void write_color (int file, NSColor *color, const char *name)
+{
+    NSColor *rgb = [color colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    if (rgb == nil)
+        rgb = [NSColor blackColor];
+
+    cfg_put_color (file,
+                   rgb.redComponent   * 0xffff,
+                   rgb.greenComponent * 0xffff,
+                   rgb.blueComponent  * 0xffff,
+                   (char *)name);
+}
+
 - (void) save
 {
     int file = xchat_open_file ("colors.conf", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
@@ -265,16 +281,16 @@ static int color_remap [] =
 		for (int i = 0; i < 32; i++)
 		{
             const char *name = [[NSString stringWithFormat:@"color_%d", i] UTF8String];
-			cfg_put_color(file, colors[i].redComponent * 0xffff, colors[i].greenComponent * 0xffff, colors[i].blueComponent * 0xffff, (char *)name);
+			write_color (file, colors[i], name);
 		}
-        
+
 		/* our special colors are mapped at 256+ */
 		for (unsigned i = 256, j = 32; j < self.numberOfColors; i++, j++)
 		{
 			const char *name = [[NSString stringWithFormat:@"color_%d", i] UTF8String];
-			cfg_put_color (file, colors[j].redComponent * 0xffff, colors[j].greenComponent * 0xffff, colors[j].blueComponent * 0xffff, (char *)name);
+			write_color (file, colors[j], name);
 		}
-        
+
 		close (file);
 	}
 }

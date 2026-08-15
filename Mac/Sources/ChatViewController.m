@@ -671,9 +671,9 @@ static NSImage *emptyBulletImage;
         nickTextField.font = [[AquaChat sharedAquaChat] font];
         if (prefs.tab_layout == 2) {
             [inputContainerView setWantsLayer:YES];
-            CGColorRef bgcolor = CGColorCreateGenericRGB(backgroundColor.redComponent, backgroundColor.greenComponent, backgroundColor.blueComponent, backgroundColor.alphaComponent);
-            [inputContainerView.layer setBackgroundColor:bgcolor];
-            CGColorRelease(bgcolor);
+            // -CGColor resolves dynamic system colours in the current
+            // appearance; reading .redComponent on one would throw.
+            [inputContainerView.layer setBackgroundColor:backgroundColor.CGColor];
             nickTextField.backgroundColor = backgroundColor;
         } else {
             [inputContainerView setWantsLayer:NO];
