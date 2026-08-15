@@ -1,89 +1,100 @@
-[![Build Status](https://travis-ci.org/xchataqua/xchataqua.svg?branch=master)](https://travis-ci.org/xchataqua/xchataqua)
+# XChat Cerulean
 
-# X-Chat Aqua
+An IRC client for macOS, native and Apple Silicon only.
 
-X-Chat Aqua is a XChat front-end for Mac OS X.
-Visit us [http://xchataqua.github.io/](http://xchataqua.github.io/) (Moved from [http://sourceforge.net/projects/xchataqua/](http://sourceforge.net/projects/xchataqua/))
+Cerulean is a fork of [X-Chat Aqua](https://github.com/xchataqua/xchataqua),
+the Cocoa front-end for XChat. Upstream stopped moving in 2017 and no longer
+builds: it wanted a 2013 snapshot of glib, OpenSSL 1.0, CocoaPods, and a
+Crashlytics SDK that was switched off in 2020. With Apple winding down Intel
+support, an Intel-only client that cannot be compiled is a client that
+quietly disappears. This fork exists so it does not.
 
-# XChat Azure
+> **Disclosure:** this port was carried out using an LLM (Claude). Treat the
+> changes as you would any large automated refactor: the app builds, launches
+> and connects, but it has not been through the kind of long-tail human
+> testing the original had. Bug reports welcome.
 
-XChat Azure is a new brand of X-Chat Aqua, especially for Apple Appstore. See below for details.
+## What changed
 
-# Downloads
-* 10.7/10.8: Official appstore release is working on latest 2 versions of OS X. Download it from [Appstore](http://itunes.apple.com/app/id447521961)
-* For older OS X versions or development version, visit [http://xchataqua.github.io/#Download](http://xchataqua.github.io/#Download)
+**It builds on a current Mac.** arm64 native, macOS 26 (Tahoe) deployment
+target, current Xcode.
 
+**Modern libraries instead of vendored ones.** The 13-year-old bundled glib
+fork is gone in favour of Homebrew's glib 2.88. OpenSSL 1.0 became OpenSSL 3,
+which meant porting the code off the now-opaque `SSL`, `SSL_CTX` and `X509`
+structs.
 
-# I lost all configurations after update to 1.11 or later
+**CocoaPods is gone.** Fabric and Crashlytics were dead services; the only
+thing still needed from the pods was two debug macros, which are now a single
+local header. Building needs Xcode and Homebrew, nothing else.
 
-* Your configuration has gone?
-* Your configuration is not saved when you quit the application?
+**TLS actually works, and actually verifies.** The old code sent no SNI, so
+modern IRC networks handed back the wrong certificate or refused the
+handshake. It also never checked that the certificate matched the host you
+dialled, so a valid certificate for any domain would have passed. Both are
+fixed, and the TLS floor is now 1.2. Libera.Chat and Undernet default to TLS.
 
-## Auto-recovery script
-  0. WARNING: DO NOT RUN THIS SCRIPT WHILE RUNNING XCHAT AZURE
-  1. Download the [Script](http://xchataqua.github.com/downloads/fixdata.tar)
-  2. Run the script: It will show the result. No bad message means Good result.
+**Notifications work again.** `NSUserNotification` was removed by Apple;
+Cerulean uses `UNUserNotificationCenter`, including inline replies.
 
-## For profesional
+**A pile of dead weight removed.** The GTK and terminal front-ends, the
+abandoned iOS port, the Python 2 plugin, and 103MB of vendored Perl headers.
 
-After Azure 1.11, it is using App sandboxing by Mac Appstore policy.
+See [CHANGELOG.md](CHANGELOG.md) for the full list, including the bug fixes
+found along the way.
 
-In most of case, this is occured because your Azure configuration directory is symlink to other one.
+## Building
 
-To recover this, find the original configuration and replace symlink to original one.
+Requires Xcode and [Homebrew](https://brew.sh).
 
-1. Quit Azure
-2. Remove all the configurations from sandbox container
-  * rm -rf ~/Library/Containers/org.3rddev.xchatazure
-3. Find your original configuration. Candidates are:
-  1. ~/.xchat2 (If you moved from ancient Aqua or GTK)
-  2. ~/Library/Application Support/X-Chat Aqua (If you moved from Aqua)
-  3. ~/Library/Application Support/XChat Azure (If something goes wrong with Azure)
+```bash
+brew install glib gettext openssl@3
+```
 
-# Where is my config files? Where is my log files?
+```bash
+git clone https://github.com/vdmkenny/xchataqua.git
+cd xchataqua
+xcodebuild -project XChatAqua.xcodeproj -scheme 'XChat Cerulean' -configuration Release build
+```
 
-Look in
+The built app lands in Xcode's DerivedData; `-derivedDataPath build` will put
+it somewhere more predictable instead.
 
-> \~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application Support/XChat Azure/
+If your Homebrew lives outside `/opt/homebrew`, override the prefix:
 
-Where "~" means your home directory. (For example, /Users/myname.)
+```bash
+xcodebuild -project XChatAqua.xcodeproj -scheme 'XChat Cerulean' HOMEBREW_PREFIX=/usr/local build
+```
 
-# Move GTK xchat2 or XChat Aqua to Azure
+## Where your files live
 
-NOTE: DO NOT TRY THIS IF YOU DON'T UNDERSTAND WHAT YOU ARE DOING
+Settings and logs:
 
-If you are now using XChat GTK or X-Chat Aqua, and now you want to move to XChat Azure, you should do some work.
+```
+~/Library/Application Support/XChat Cerulean/
+```
 
-Unlike XChat GTK and X-Chat Aqua, XChat Azure do not share the traditional configuration direcotry ~/.xchat2 because of Mac App Store guideline.
+Cerulean does not read X-Chat Aqua's or XChat Azure's old configuration
+directories. To carry settings over, copy the old folder to the path above
+before first launch.
 
-So if you want to keep your configuration, you should move it, copy it, or make hard link.
+## Licence and credits
 
-1. Quit Azure
-2. Open Terminal.app to do this job. You can find it on Spotlight.
-3. Did you run XChat Azure already? Remove its configuration to do other job
-  * rm -rf ~/Library/Containers/org.3rddev.xchatazure
-4. Move, if you will not use XChat GTK or X-Chat Aqua again
-  * For GTK: mv ~/.xchat2 ~/Library/Application\ Support/XChat\ Azure
-  * For Aqua: mv ~/Library/Application\ Support/X-Chat\ Aqua ~/Library/Application\ Support/XChat\ Azure
-5. Copy, if you will use different configuration on Aqua and Azure, or you want to test Azure and get back to original X-Chat Aqua.
-  * For GTK: cp -R ~/.xchat2 ~/Library/Application\ Support/XChat\ Azure
-  * For Aqua: cp -R ~/Library/Application\ Support/X-Chat\ Aqua ~/Library/Application\ Support/XChat\ Azure
+XChat Cerulean is licensed under the **GNU General Public License, version 2
+or later** — the same terms it inherited. See [COPYING](COPYING).
 
-# Why has X-Chat Aqua been renamed?
+It stands on other people's work:
 
-Mac App Store is very useful place to distribute applications for non-geek users. Most of Debian/Ubuntu users do not want to search applications on broad Internet world, if you can access alternative (or even the same) applications on Aptitude. So Mac OS X users got the Mac App Store.
+- **XChat** — © 1998-2010 Peter Zelezny and contributors. The IRC engine.
+- **X-Chat Aqua** — © 2002-2013 Steve Green and contributors, with later
+  maintenance by Jeong YunWon and others. The Cocoa front-end this forks.
+- Additional contributions from Camillo Lugaresi, Terje Bless,
+  Eugene Pimenov, and others named in the source headers.
+- **Solarized** colour theme — © Ethan Schoonover.
 
-But I should keep Mac App Store guidelines to submit X-Chat Aqua. There were some issues.
+Modifications for Cerulean are © 2026 its contributors, under the same
+licence. This is a fork; it is not endorsed by, affiliated with, or supported
+by the original authors.
 
-**Main Reason**: Any application on Mac App Store may not use names that include 'Mac', 'OS X', 'Aqua' or any other of Apples trademarks.
-
-There was no way. So I dropped the name.
-Also, there was several other issues because I didn't want to change X-Chat Aqua developement policy.
-
-* We should remove whole ppc/ppc64 support
-* We should support only OS X 10.6 or later
-* We should remove update module (Sparkle, in this case)
-* We should not work on ~/.xchat2 the traditional configutaion directory.
-
-It should be annoying job to keep these on X-Chat Aqua.
-
+Third-party libraries are linked, not vendored: glib (LGPL-2.1-or-later) and
+OpenSSL (Apache-2.0) come from Homebrew and are not redistributed here.

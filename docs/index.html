@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XChat Cerulean — a native IRC client for Apple Silicon</title>
+<meta name="description" content="XChat Cerulean is a maintained fork of X-Chat Aqua, rebuilt to run natively on Apple Silicon with modern glib, OpenSSL 3 and working TLS.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f5f8fb;
+    --fg: #16242e;
+    --fg-muted: #55707f;
+    --accent: #0a84c8;
+    --accent-deep: #02537f;
+    --border: #dbe6ee;
+    --code-bg: #0f2430;
+    --code-fg: #d8ecf7;
+    --warn-bg: #fff8e6;
+    --warn-border: #e8c86a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1720;
+      --bg-alt: #131f2a;
+      --fg: #e6f0f6;
+      --fg-muted: #9ab3c2;
+      --accent: #38bdf8;
+      --accent-deep: #7dd3fc;
+      --border: #23343f;
+      --code-bg: #08131b;
+      --code-fg: #d8ecf7;
+      --warn-bg: #2a2413;
+      --warn-border: #6b5a24;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1720;
+    --bg-alt: #131f2a;
+    --fg: #e6f0f6;
+    --fg-muted: #9ab3c2;
+    --accent: #38bdf8;
+    --accent-deep: #7dd3fc;
+    --border: #23343f;
+    --code-bg: #08131b;
+    --code-fg: #d8ecf7;
+    --warn-bg: #2a2413;
+    --warn-border: #6b5a24;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+
+  header { text-align: center; padding: 72px 0 56px; }
+  header img { width: 128px; height: 128px; }
+  h1 { font-size: 2.6rem; margin: 20px 0 8px; letter-spacing: -0.02em; }
+  .tagline { font-size: 1.2rem; color: var(--fg-muted); margin: 0 0 10px; }
+  .fork-note {
+    display: inline-block; margin-top: 18px; padding: 10px 16px;
+    border: 1px solid var(--border); border-radius: 10px;
+    background: var(--bg-alt); color: var(--fg-muted); font-size: 0.95rem;
+  }
+  .fork-note strong { color: var(--fg); }
+
+  .cta { margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 22px; border-radius: 9px;
+    text-decoration: none; font-weight: 600; border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-secondary { border-color: var(--border); color: var(--fg); }
+
+  section { padding: 40px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 1.45rem; margin: 0 0 18px; letter-spacing: -0.01em; }
+
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 1rem; }
+  .card p { margin: 0; color: var(--fg-muted); font-size: 0.94rem; }
+
+  pre {
+    background: var(--code-bg); color: var(--code-fg);
+    padding: 16px 18px; border-radius: 10px; overflow-x: auto;
+    font: 13.5px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  p code { background: var(--bg-alt); padding: 2px 6px; border-radius: 5px; font-size: 0.9em; }
+
+  .note {
+    background: var(--warn-bg); border: 1px solid var(--warn-border);
+    border-radius: 10px; padding: 14px 18px; font-size: 0.94rem;
+  }
+
+  footer { padding: 40px 0 64px; color: var(--fg-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+  footer p { margin: 6px 0; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <img src="icon.svg" alt="XChat Cerulean icon">
+    <h1>XChat Cerulean</h1>
+    <p class="tagline">A native IRC client for Apple Silicon.</p>
+    <div class="fork-note">
+      This is a <strong>fork</strong> of
+      <a href="https://github.com/xchataqua/xchataqua">X-Chat Aqua</a>.
+      It is not endorsed by or affiliated with the original authors.
+    </div>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/vdmkenny/xchataqua">View on GitHub</a>
+      <a class="btn btn-secondary" href="https://github.com/vdmkenny/xchataqua/blob/main/CHANGELOG.md">Changelog</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why this exists</h2>
+    <p>
+      X-Chat Aqua stopped moving in 2017. It no longer compiles: it expects a
+      2013 snapshot of glib, OpenSSL 1.0, CocoaPods, and a Crashlytics SDK
+      that was switched off in 2020. With Apple winding down Intel support, an
+      Intel-only client that cannot be built is a client that quietly
+      disappears.
+    </p>
+    <p>
+      Cerulean rebuilds it on current foundations so it keeps working.
+    </p>
+  </section>
+
+  <section>
+    <h2>What changed</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Apple Silicon native</h3>
+        <p>arm64, built against the current SDK, targeting macOS 26.</p>
+      </div>
+      <div class="card">
+        <h3>TLS that actually verifies</h3>
+        <p>The old build sent no SNI and never checked the certificate matched the host, so any valid certificate passed. Both fixed.</p>
+      </div>
+      <div class="card">
+        <h3>Modern libraries</h3>
+        <p>Homebrew glib 2.88 and OpenSSL 3 replace the vendored 2013 glib and OpenSSL 1.0.</p>
+      </div>
+      <div class="card">
+        <h3>No CocoaPods</h3>
+        <p>Fabric and Crashlytics are gone. Building needs Xcode and Homebrew, nothing else.</p>
+      </div>
+      <div class="card">
+        <h3>Notifications restored</h3>
+        <p>Rebuilt on UserNotifications, with inline replies. The old API was removed by Apple.</p>
+      </div>
+      <div class="card">
+        <h3>Lighter tree</h3>
+        <p>The GTK and terminal front-ends, the iOS port and 103MB of vendored Perl headers are gone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Build it</h2>
+    <p>Requires Xcode and <a href="https://brew.sh">Homebrew</a>.</p>
+<pre><code>brew install glib gettext openssl@3
+
+git clone https://github.com/vdmkenny/xchataqua.git
+cd xchataqua
+xcodebuild -project XChatAqua.xcodeproj \
+  -scheme 'XChat Cerulean' -configuration Release build</code></pre>
+    <p>
+      Settings live in
+      <code>~/Library/Application&nbsp;Support/XChat&nbsp;Cerulean/</code>.
+      Old X-Chat Aqua configuration is not read automatically; copy it across
+      before first launch if you want to keep it.
+    </p>
+  </section>
+
+  <section>
+    <h2>A note on how this was built</h2>
+    <div class="note">
+      This port was carried out using an LLM (Claude). The app builds,
+      launches and connects, but it has not had the long-tail human testing
+      the original accumulated over the years. Bug reports are welcome.
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      XChat Cerulean is licensed under the
+      <a href="https://github.com/vdmkenny/xchataqua/blob/main/COPYING">GNU GPL, version 2 or later</a>.
+    </p>
+    <p>
+      XChat &copy; 1998–2010 Peter Zelezny and contributors.
+      X-Chat Aqua &copy; 2002–2013 Steve Green and contributors.
+      Modifications for Cerulean &copy; 2026 its contributors.
+    </p>
+    <p>
+      glib and OpenSSL are linked from Homebrew, not redistributed here.
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <!-- Cerulean, light at the top so the icon reads as lit from above. -->
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#38BDF8"/>
+      <stop offset="55%"  stop-color="#0A84C8"/>
+      <stop offset="100%" stop-color="#02537F"/>
+    </linearGradient>
+
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.26"/>
+      <stop offset="45%"  stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="drop" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#01324D" flood-opacity="0.30"/>
+    </filter>
+
+    <filter id="bubbleLift" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#01324D" flood-opacity="0.22"/>
+    </filter>
+
+    <!-- The X is knocked out of the balloon, the way the original had the
+         X sitting in front of it. -->
+    <mask id="knockout">
+      <rect x="0" y="0" width="1024" height="1024" fill="#000"/>
+      <g fill="#fff">
+        <rect x="196" y="196" width="632" height="452" rx="116" ry="116"/>
+        <path d="M368 604 L516 604 L372 806 Z"/>
+      </g>
+      <g stroke="#000" stroke-width="92" stroke-linecap="round">
+        <line x1="424" y1="330" x2="600" y2="514"/>
+        <line x1="600" y1="330" x2="424" y2="514"/>
+      </g>
+    </mask>
+  </defs>
+
+  <!-- macOS app icons sit inset on the 1024 canvas with rounded corners. -->
+  <g filter="url(#drop)">
+    <rect x="100" y="90" width="824" height="824" rx="185" ry="185" fill="url(#body)"/>
+    <rect x="100" y="90" width="824" height="824" rx="185" ry="185" fill="url(#sheen)"/>
+  </g>
+
+  <!-- Speech balloon with the X cut out of it. -->
+  <g filter="url(#bubbleLift)">
+    <rect x="0" y="0" width="1024" height="1024" fill="#FFFFFF" mask="url(#knockout)"/>
+  </g>
+</svg>

@@ -786,7 +786,7 @@ static NSString *charsets[] =
     if ( [self->networkTableView selectedRow] < 0 ) return NO;
     
     [tableView registerForDraggedTypes:@[DraggingDataType]];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes requiringSecureCoding:YES error:nil];
     [pboard declareTypes:@[DraggingDataType] owner:self];
     [pboard setData:data forType:DraggingDataType];
     return YES;
@@ -798,7 +798,7 @@ static NSString *charsets[] =
 
 - (BOOL) tableView:(NSTableView *)tableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
     NSData *rowData = [[info draggingPasteboard] dataForType:DraggingDataType];
-    NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
+    NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSIndexSet class] fromData:rowData error:nil];
     NSInteger selectedRow = [rowIndexes firstIndex];
     
     NetworkItem *network = filteredNetworks[[networkTableView selectedRow]];
