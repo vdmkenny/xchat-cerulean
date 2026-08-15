@@ -67,7 +67,7 @@ static inline CGRect CGRectFromNSRect(NSRect nsRect)
 		drawInfo.attributes = kThemeTrackHorizontal;
 		drawInfo.enableState = [[controlView window] isMainWindow] ? kThemeTrackActive : kThemeTrackInactive;
 		
-		OSStatus err = HIThemeDrawTrack(&drawInfo, NULL, (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort], [controlView isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
+		OSStatus err = HIThemeDrawTrack(&drawInfo, NULL, [[NSGraphicsContext currentContext] CGContext], [controlView isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
 		if (err != noErr) [NSException raise:NSGenericException format:@"CLLevelIndicatorCell: HIThemeDrawTrack returned %d", err];
 	}
 }

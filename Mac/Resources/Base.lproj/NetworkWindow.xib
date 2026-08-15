@@ -315,7 +315,7 @@
             <connections>
                 <outlet property="charsetComboBox" destination="330" id="589"/>
                 <outlet property="connectNewButton" destination="20" id="590"/>
-                <outlet property="detailDrawer" destination="268" id="595"/>
+                <outlet property="detailContentView" destination="271" id="595"/>
                 <outlet property="networkAcceptInvalidCertificationToggleButton" destination="322" id="598"/>
                 <outlet property="networkAutoConnectToggleButton" destination="323" id="599"/>
                 <outlet property="networkCommandTableView" destination="280" id="600"/>
@@ -342,15 +342,6 @@
                 <outlet property="usernameTextField" destination="169" id="619"/>
             </connections>
         </window>
-        <drawer trailingOffset="15" id="268" userLabel="Drawer">
-            <size key="contentSize" width="389" height="420"/>
-            <size key="minContentSize" width="50" height="50"/>
-            <size key="maxContentSize" width="389" height="420"/>
-            <connections>
-                <outlet property="contentView" destination="271" id="592"/>
-                <outlet property="parentWindow" destination="41" id="593"/>
-            </connections>
-        </drawer>
         <customView id="271" userLabel="DrawContentView">
             <rect key="frame" x="0.0" y="0.0" width="389" height="462"/>
             <autoresizingMask key="autoresizingMask"/>

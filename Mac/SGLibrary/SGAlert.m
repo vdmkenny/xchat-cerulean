@@ -17,38 +17,6 @@
 
 #import "SGAlert.h"
 
-@interface SGAlertConfirmDelegate : NSObject
-{
-  @public
-    id object;
-    SEL yesSel;
-    SEL noSel;
-}
-@property (atomic, retain) id object;
-
-@end
-
-@implementation SGAlertConfirmDelegate
-@synthesize object;
-
-- (void) alertDidEnd:(NSAlert *)alert
-          returnCode:(NSInteger)returnCode 
-         contextInfo:(void *)contextInfo
-{
-    if (returnCode == NSAlertFirstButtonReturn)
-        [object performSelector:noSel];
-    else if (returnCode == NSAlertSecondButtonReturn)
-        [object performSelector:yesSel];
-    [self release];
-}
-
-- (void) dealloc {
-    // self.object = nil; // memory leak expected but no crash
-    [super dealloc];
-}
-
-@end
-
 #pragma mark -
 
 @implementation SGAlert
@@ -116,18 +84,26 @@
     [panel addButtonWithTitle:NSLocalizedStringFromTable(@"Yes",@"libsg", @"button")];
     [panel setMessageText:alertText];
     [panel setAlertStyle:NSAlertStyleInformational];
-    
-    SGAlertConfirmDelegate *confirmDelegate = [[SGAlertConfirmDelegate alloc] init];
-    [confirmDelegate setObject:obj];
-    confirmDelegate->yesSel = yesSel;
-    confirmDelegate->noSel = noSel;
-    
-    // Modal, but non-blocking
-    [panel beginSheetModalForWindow:nil
-                      modalDelegate:confirmDelegate
-                     didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo:nil];
-    [panel release];
+
+    id target = [obj retain];
+    void (^report)(NSModalResponse) = ^(NSModalResponse response) {
+        SEL selector = (response == NSAlertSecondButtonReturn) ? yesSel : noSel;
+        if (selector != NULL && [target respondsToSelector:selector]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [target performSelector:selector];
+#pragma clang diagnostic pop
+        }
+        [target release];
+        [panel release];
+    };
+
+    NSWindow *parent = [NSApp keyWindow] ?: [NSApp mainWindow];
+    if (parent != nil) {
+        [panel beginSheetModalForWindow:parent completionHandler:report];
+    } else {
+        report([panel runModal]);
+    }
 }
 
 @end

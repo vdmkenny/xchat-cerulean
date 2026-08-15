@@ -38,11 +38,9 @@
 		NSView *superview = [self superview];
 		[superview displayRectWithoutSubviews:[self convertRect:aRect toView:superview]];
 	}
-	if ([self lockFocusIfCanDraw]) {
-		[[NSBezierPath bezierPathWithRect:aRect] setClip];
-		[self drawRect:aRect];
-		[self unlockFocus];
-	}
+	/* Drawing outside of -drawRect: is no longer allowed; let AppKit
+	 * schedule the redraw instead. */
+	[self setNeedsDisplayInRect:aRect];
 }
 
 @end
@@ -178,7 +176,7 @@
 	}
 #endif
     
-	err = HIThemeDrawTab(&cellRect, &drawInfo, (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort],
+	err = HIThemeDrawTab(&cellRect, &drawInfo, [[NSGraphicsContext currentContext] CGContext],
                          orientation, &labelRect);
 	if (err != noErr) [NSException raise:NSGenericException format:@"CLTabCell: HIThemeDrawTab returned %d", err];
     

@@ -93,7 +93,7 @@ launch_identd_helper ()
 	int fds [2];
 	socketpair (AF_UNIX, SOCK_STREAM, 0, fds);
 
-	pid_t pid = vfork ();
+	pid_t pid = fork ();
 	
 	if (pid == 0)
 	{

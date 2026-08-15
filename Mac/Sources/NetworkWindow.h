@@ -50,13 +50,15 @@
     IBOutlet NSTextField    *usernameTextField;
     IBOutlet NSButton       *showDetailButton;
     
-    IBOutlet NSDrawer       *detailDrawer;
-    
+    /* Shown in an attached panel; NSDrawer no longer exists on macOS. */
+    IBOutlet NSView         *detailContentView;
+    NSPanel                 *detailPanel;
+
     NSMutableArray *allNetworks, *filteredNetworks;
     struct session *sess;
 }
 
-@property (nonatomic, retain) NSDrawer *detailDrawer;
+@property (nonatomic, retain) NSView *detailContentView;
 
 - (void)showForSession:(struct session *) sess;
 

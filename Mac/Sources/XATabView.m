@@ -977,7 +977,7 @@ typedef OSStatus
     drawInfo.kind = kHIThemeTabKindNormal;
     drawInfo.adornment = kHIThemeTabPaneAdornmentNormal;
     
-    OSStatus err = HIThemeDrawTabPane(&paneRect, &drawInfo, (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort],
+    OSStatus err = HIThemeDrawTabPane(&paneRect, &drawInfo, [[NSGraphicsContext currentContext] CGContext],
                                       [self isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
     if (err != noErr) [NSException raise:NSGenericException format:@"XATabView: HIThemeDrawTabPane returned %d", err];
 #elif BACKGROUND_VERSION == kBackgroundStyleGroup
@@ -987,7 +987,7 @@ typedef OSStatus
     drawInfo.state = [[self window] isMainWindow] ? kThemeStateActive : kThemeStateInactive;
     drawInfo.kind = kHIThemeGroupBoxKindPrimary;
     
-    HIThemeDrawGroupBox(&paneRect, &drawInfo, (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort],
+    HIThemeDrawGroupBox(&paneRect, &drawInfo, [[NSGraphicsContext currentContext] CGContext],
                         [self isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
 #elif BACKGROUND_VERSION == kBackgroundStyleCL
     [[[NSColor blackColor] colorWithAlphaComponent:0.05] set];

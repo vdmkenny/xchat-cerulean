@@ -106,7 +106,7 @@
         lockCell = nil;
     }
     
-    [(NSControl *)[self controlView] calcSize];
+    [[self controlView] invalidateIntrinsicContentSize];
     [[self controlView] setNeedsDisplay:YES];
     
     [super setEditable:(isEditable && ![self isLocked])];
@@ -193,7 +193,7 @@
      [NSString stringWithFormat:@"(%@)", NSLocalizedStringFromTable(@"Topic is not set", @"xchataqua", @"Blank title on channel")]];
     [self setCell:cell];
     [cell release];
-    [self calcSize];
+    [self invalidateIntrinsicContentSize];
 }
 
 - (id) initWithFrame:(NSRect)frameRect
@@ -292,7 +292,9 @@
     [alert setMessageText:NSLocalizedStringFromTable(@"Do you want to set the topic?", @"xchataqua", @"")];
     [alert setInformativeText:NSLocalizedStringFromTable(@"You have changed the topic. Do you want to save the changes and set the topic for this channel?", @"xchataqua", @"")];
     [alert setAlertStyle:NSAlertStyleWarning];
-    [alert beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    [alert beginSheetModalForWindow:[self window] completionHandler:^(NSModalResponse response) {
+        [self alertDidEnd:alert returnCode:response contextInfo:NULL];
+    }];
     
     // Return NO so the focus stays on the text field. We'll remove focus from
     // the alertDidEnd:returnCode:contextInfo: selector if appropriate.

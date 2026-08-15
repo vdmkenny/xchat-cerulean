@@ -1011,6 +1011,25 @@ void fe_get_file (const char *title, char *initial,
                     callback:callback userdata:userdata flags:flags];
 }
 
+/* Posts a plain notification with no actions attached. */
+static void XADeliverNotification (const char *title, const char *text)
+{
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    if (title != NULL)
+        content.title = @(title);
+    if (text != NULL)
+        content.body = @(text);
+    content.userInfo = @{ @"setting": @1 };
+
+    UNNotificationRequest *request =
+        [UNNotificationRequest requestWithIdentifier:[[NSUUID UUID] UUIDString]
+                                             content:content
+                                             trigger:nil];
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
+                                                          withCompletionHandler:nil];
+    [content release];
+}
+
 void fe_tray_set_flash (const char *filename1, const char *filename2, int timeout)
 {
     NOT_IMPLEMENTED_FUNCTION("fe_tray_set_flash");
@@ -1028,16 +1047,7 @@ void fe_tray_set_tooltip (const char *text)
     #if ENABLE_GROWL
     [[AquaChat sharedAquaChat] growl:@(text) title:nil];
     #endif
-    {
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.informativeText = @(text);
-
-        NSMutableDictionary *settings = [NSMutableDictionary dictionary];
-        settings[@"setting"] = [NSNumber numberWithInteger:1];
-        notification.userInfo = settings;
-
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-    }
+    XADeliverNotification(nil, text);
 }
 
 void fe_tray_set_balloon (const char *title, const char *text)
@@ -1045,15 +1055,5 @@ void fe_tray_set_balloon (const char *title, const char *text)
     #if ENABLE_GROWL
     [[AquaChat sharedAquaChat] growl:@(text) title:@(title)];
     #endif
-    {
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.title = @(title);
-        notification.informativeText = @(text);
-
-        NSMutableDictionary *settings = [NSMutableDictionary dictionary];
-        settings[@"setting"] = [NSNumber numberWithInteger:1];
-        notification.userInfo = settings;
-
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-    }
+    XADeliverNotification(title, text);
 }

@@ -403,7 +403,7 @@ static NSString *charsets[] =
 @end
 
 @implementation NetworkWindow
-@synthesize detailDrawer;
+@synthesize detailContentView;
 
 - (void) showForSession:(struct session *)aSession
 {
@@ -412,10 +412,11 @@ static NSString *charsets[] =
 }
 
 - (void) dealloc
-{    
+{
     [filteredNetworks release];
     [allNetworks release];
-    
+    [detailPanel release];
+
     [super dealloc];
 }
 
@@ -489,15 +490,49 @@ static NSString *charsets[] =
 
 #pragma mark IBAction
 
+/* Panel is a child of the network list, so it travels with it and closes
+ * alongside it, which is what the old drawer gave us. */
+- (NSPanel *)detailPanelForWindow:(NSWindow *)parent
+{
+    if (detailPanel != nil) return detailPanel;
+    if (detailContentView == nil || parent == nil) return nil;
+
+    NSRect frame = detailContentView.bounds;
+    detailPanel = [[NSPanel alloc] initWithContentRect:frame
+                                             styleMask:(NSWindowStyleMaskTitled |
+                                                        NSWindowStyleMaskClosable |
+                                                        NSWindowStyleMaskUtilityWindow |
+                                                        NSWindowStyleMaskResizable)
+                                               backing:NSBackingStoreBuffered
+                                                 defer:YES];
+    detailPanel.title = NSLocalizedStringFromTable(@"Network Details", @"xchataqua",
+                                                   @"Title of the network detail panel");
+    detailPanel.releasedWhenClosed = NO;
+    detailPanel.hidesOnDeactivate = NO;
+    detailPanel.contentView = detailContentView;
+    return detailPanel;
+}
+
 - (void) showDetail:(id)sender
 {
+    NSWindow *parent = [self window];
+    NSPanel *panel = [self detailPanelForWindow:parent];
+    if (panel == nil) return;
+
     if ([sender intValue])
     {
-        [detailDrawer open];
+        // Sit just to the right of the list, the way the drawer slid out.
+        NSRect parentFrame = parent.frame;
+        NSRect panelFrame = panel.frame;
+        [panel setFrameOrigin:NSMakePoint(NSMaxX(parentFrame) + 12.0,
+                                          NSMaxY(parentFrame) - NSHeight(panelFrame))];
+        [parent addChildWindow:panel ordered:NSWindowAbove];
+        [panel orderFront:sender];
     }
     else
     {
-        [detailDrawer close];
+        [parent removeChildWindow:panel];
+        [panel orderOut:sender];
     }
 }
 
