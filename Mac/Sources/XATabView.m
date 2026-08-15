@@ -237,15 +237,58 @@ NSImage *XATabViewOutlineCellCloseImage;
     NSLayoutManager *layoutManager=[[NSLayoutManager new] autorelease];
     [self setRowHeight:[layoutManager defaultLineHeightForFont:font] * 1.2 + 1];
     
+    // Source list styling: inset rounded selection, sidebar metrics.
+    self.style = NSTableViewStyleSourceList;
+    self.floatsGroupRows = NO;
+
     ColorPalette *p = [[AquaChat sharedAquaChat] palette];
     if (prefs.style_namelistgad) {
         dataCell.textColor = [p getColor:XAColorForeground];
         self.backgroundColor = [p getColor:XAColorBackground];
+        [self setSidebarMaterialEnabled:NO];
     } else {
         dataCell.textColor = [NSColor textColor];
-        self.backgroundColor = [NSColor textBackgroundColor];
+        // Let the vibrant sidebar material behind the list show through.
+        [self setSidebarMaterialEnabled:YES];
     }
-    [self drawRect:self.bounds];
+    [self setNeedsDisplay:YES];
+}
+
+/* Places a vibrant sidebar behind the list, the way a stock source list sits
+ * on the window's material. */
+- (void)setSidebarMaterialEnabled:(BOOL)enabled {
+    NSScrollView *scrollView = [self enclosingScrollView];
+    if (scrollView == nil) return;
+
+    if (!enabled) {
+        self.backgroundColor = [NSColor textBackgroundColor];
+        scrollView.drawsBackground = YES;
+        return;
+    }
+
+    self.backgroundColor = [NSColor clearColor];
+    scrollView.drawsBackground = NO;
+
+    NSView *parent = scrollView.superview;
+    if (parent == nil) return;
+
+    NSVisualEffectView *material = nil;
+    for (NSView *sibling in parent.subviews) {
+        if ([sibling isKindOfClass:[NSVisualEffectView class]]) {
+            material = (NSVisualEffectView *)sibling;
+            break;
+        }
+    }
+
+    if (material == nil) {
+        material = [[[NSVisualEffectView alloc] initWithFrame:scrollView.frame] autorelease];
+        material.material = NSVisualEffectMaterialSidebar;
+        material.blendingMode = NSVisualEffectBlendingModeBehindWindow;
+        material.state = NSVisualEffectStateFollowsWindowActiveState;
+        material.autoresizingMask = scrollView.autoresizingMask;
+        [parent addSubview:material positioned:NSWindowBelow relativeTo:scrollView];
+    }
+    material.frame = scrollView.frame;
 }
 
 - (void)selectRowForTabViewItem:(XATabViewItem *)tabViewItem {

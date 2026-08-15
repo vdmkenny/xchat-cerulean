@@ -14,16 +14,14 @@
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSWindowStyleMask)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
     contentRect = NSMakeRect(prefs.mainwindow_left, prefs.mainwindow_top, prefs.mainwindow_width, prefs.mainwindow_height);
+
     self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
     if (self != nil) {
-        // animation!
-        NSRect to = self.frame;
-        NSRect from = to;
-        from.origin.y += from.size.height - 1;
-        from.size.height = 1;
-        [self setFrame:from display:NO];
-        [self makeKeyAndOrderFront:self];
-        [self setFrame:to display:YES animate:YES];
+        // The content view lays itself out manually and has no constraints
+        // tying it below the titlebar, so it must not extend under it.
+        self.titlebarAppearsTransparent = NO;
+        self.toolbarStyle = NSWindowToolbarStyleUnified;
+
         [self makeKeyAndOrderFront:self];
     }
     return self;

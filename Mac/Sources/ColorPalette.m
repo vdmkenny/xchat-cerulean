@@ -212,6 +212,33 @@ static int color_remap [] =
         free(cfg);
     }
     close(file);
+
+    [self adoptSystemTextColorsIfDefault];
+}
+
+/* Stored palettes predate dark mode and hold a literal black on white for the
+ * text colours, which stays light no matter the system appearance. When those
+ * two entries are still at their stock values, use the semantic colours so the
+ * chat view follows light and dark mode. A customised palette is left alone. */
+- (void)adoptSystemTextColorsIfDefault {
+    NSColor *foreground = [colors[XAColorForeground] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    NSColor *background = [colors[XAColorBackground] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    if (foreground == nil || background == nil) return;
+
+    const CGFloat tolerance = 0.02f;
+    BOOL foregroundIsBlack = foreground.redComponent   < tolerance &&
+                             foreground.greenComponent < tolerance &&
+                             foreground.blueComponent  < tolerance;
+    BOOL backgroundIsWhite = background.redComponent   > 1.0f - tolerance &&
+                             background.greenComponent > 1.0f - tolerance &&
+                             background.blueComponent  > 1.0f - tolerance;
+
+    if (!foregroundIsBlack || !backgroundIsWhite) return;
+
+    [colors[XAColorForeground] release];
+    [colors[XAColorBackground] release];
+    colors[XAColorForeground] = [[NSColor textColor] retain];
+    colors[XAColorBackground] = [[NSColor textBackgroundColor] retain];
 }
 
 - (void)loadFromURL:(NSURL *)fileURL {

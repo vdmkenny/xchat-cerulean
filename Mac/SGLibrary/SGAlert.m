@@ -62,19 +62,20 @@
     [panel addButtonWithTitle:NSLocalizedStringFromTable(@"OK", @"libsg", @"button")];
     [panel setMessageText:alertText];
     
-    if (wait)
+    NSWindow *parent = [NSApp keyWindow] ?: [NSApp mainWindow];
+
+    if (wait || parent == nil)
     {
         [panel runModal];
+        [panel release];
     }
     else
     {
-        // Modal, but not blocking
-        [panel beginSheetModalForWindow:nil
-                          modalDelegate:nil
-                         didEndSelector:nil
-                            contextInfo:nil];
+        // Sheet on the front window; does not block the caller.
+        [panel beginSheetModalForWindow:parent completionHandler:^(NSModalResponse response) {
+            [panel release];
+        }];
     }
-    [panel release];
 }
 
 + (void) alertWithString:(NSString *)alertText andWait:(BOOL)wait

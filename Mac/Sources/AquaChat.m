@@ -1256,7 +1256,17 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
             NSString *nm = [[NSString alloc] initWithBytes:fontName
                                                     length:space - fontName
                                                   encoding:NSUTF8StringEncoding];
-            f = [NSFont fontWithName:nm size:sz];
+
+            /* Courier and the unresolvable "Monospace" alias are what older
+             * configurations fell back to rather than chose, so upgrade them
+             * to the system monospaced face. */
+            static NSSet *legacyFamilies = nil;
+            if (legacyFamilies == nil)
+                legacyFamilies = [[NSSet alloc] initWithObjects:@"Courier", @"Monospace", @"Monaco", nil];
+
+            if (![legacyFamilies containsObject:nm])
+                f = [NSFont fontWithName:nm size:sz];
+
             [nm release];
         }
     }
