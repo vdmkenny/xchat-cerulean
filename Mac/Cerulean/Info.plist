@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>${XCHAT_AQUA_VERSION}</string>
+	<string>${XCHAT_AQUA_VERSION_BUNDLE}</string>
 	<key>CFBundleVersion</key>
 	<string>${XCHAT_AQUA_VERSION_INTERNAL}</string>
 	<key>CFBundleURLTypes</key>

@@ -193,8 +193,8 @@ static const char * strip_crap (const char *s)
     self->allChannels = [[NSMutableArray alloc] init];
     self->colorPalette = [[[AquaChat sharedAquaChat] palette] copy];
     
-    [self->colorPalette setColor:XAColorForeground color:[NSColor blackColor]];
-    [self->colorPalette setColor:XAColorBackground color:[NSColor whiteColor]];
+    [self->colorPalette setColor:XAColorForeground color:[NSColor textColor]];
+    [self->colorPalette setColor:XAColorBackground color:[NSColor textBackgroundColor]];
 }
 
 - (id) initWithFrame:(NSRect)frameRect {
@@ -361,8 +361,7 @@ static const char * strip_crap (const char *s)
         [aTableView setHighlightedTableColumn:aTableColumn];
     }
 
-    // NSImage flippedness is gone, so use the two standard sort indicators
-    // instead of vertically flipping one arrow.
+    // Standard ascending/descending sort indicators.
     NSImage *indicator = [NSImage imageNamed:(sortDirection[column]
                                               ? @"NSAscendingSortIndicator"
                                               : @"NSDescendingSortIndicator")];

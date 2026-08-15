@@ -213,7 +213,6 @@ static const struct defaultserver def[] =
 	{0,			"irc.ggn.net"},
 	{0,			"irc.vendetta.com"},
 
-	/* freenode collapsed in 2021; Libera.Chat is where its communities went. */
 	{"Libera.Chat",	0, 0, 0, FLAG_USE_SSL},
 	{0,				"irc.libera.chat/6697"},
 
@@ -922,8 +921,6 @@ servlist_load_defaults (void)
 				free (net->encoding);
 				net->encoding = strdup (def[i].charset);
 			}
-			/* Was a bare g_str_hash() magic number, which silently stopped
-			 * matching whenever the network was renamed. */
 			if (!strcmp (def[i].network, "Libera.Chat"))
 				prefs.slist_select = j;
 			j++;

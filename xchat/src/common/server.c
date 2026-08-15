@@ -550,7 +550,7 @@ server_stopconnecting (server * serv)
 	}
 
 #if defined (FORK_DISABLED)
-	/* the "child" is a thread here, so there is no pid to signal */
+	/* The connect worker is a thread, so cancel it rather than signal a pid. */
 	if (serv->childthread)
 	{
 		pthread_cancel (serv->childthread);
@@ -736,7 +736,6 @@ ssl_do_connect (server * serv)
 		return (0);					  /* remove it (0) */
 	} else
 	{
-		/* SSL_SESSION is opaque since OpenSSL 1.1 */
 		SSL_SESSION *sess = SSL_get_session (serv->ssl);
 
 #if OPENSSL_VERSION_NUMBER >= 0x30400000L
@@ -1653,8 +1652,7 @@ xit:
 
 	/* no need to free ip/real_hostname, this process is exiting */
 #if defined (WIN32) || defined (FORK_DISABLED)
-	/* ...unless we ran as a thread, in which case it is shared memory
-	 * and leaks once per connection attempt. */
+	/* When run as a thread this memory is shared, so it must be freed. */
 	if (proxy_ip)
 		free (proxy_ip);
 	if (ip)
@@ -1667,8 +1665,7 @@ xit:
 }
 
 #ifdef FORK_DISABLED
-/* fork() is not usable from a Cocoa app, so the "child" is a thread.
- * This trampoline just adapts server_child() to pthread_create(). */
+/* Adapts server_child() to the pthread_create() signature. */
 static void *
 server_child_thread (void *arg)
 {
@@ -1781,8 +1778,7 @@ server_connect (server *serv, char *hostname, int port, int no_login)
 										(LPTHREAD_START_ROUTINE)server_child,
 										serv, 0, (DWORD *)&pid));
 #elif defined (FORK_DISABLED)
-	/* No pid exists for a thread; server_stopconnecting() cancels the
-	 * thread instead of signalling serv->childpid. */
+	/* server_stopconnecting() cancels this thread on teardown. */
 	if (pthread_create (&serv->childthread, NULL, server_child_thread, serv) != 0)
 		return;
 	pid = 0;

@@ -123,7 +123,7 @@ dcc_calc_cps (struct DCC *dcc)
 	int glob_limit;
 	DCC_SIZE pos, posdiff;
 
-	/* Monotonic: transfer rates must not be skewed by clock changes. */
+	/* Monotonic clock, so rates are unaffected by clock adjustments. */
 	now = g_get_monotonic_time ();
 
 	/* the pos we use for sends is an average

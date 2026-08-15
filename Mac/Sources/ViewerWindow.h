@@ -8,7 +8,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
@@ -25,7 +25,9 @@
 
 @interface ViewerWindow : UtilityWindow
 {
-    IBOutlet WebView *webView;
+    /* Container from the nib; the WKWebView is added to it at runtime. */
+    IBOutlet NSView *webView;
+    WKWebView *_webContent;
 }
 
 - (void)showURL:(NSURL *)imageURL;

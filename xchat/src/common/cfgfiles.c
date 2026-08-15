@@ -36,8 +36,6 @@
 #else
 #define XCHAT_DIR ".xchat2"
 #endif
-/* "Monospace" is a GTK fontconfig alias and resolves to nothing on macOS,
- * which silently dropped the UI back to Courier. */
 #define DEF_FONT "SFMono-Regular 13"
 
 #ifdef FE_AQUA
@@ -734,8 +732,7 @@ load_config (void)
 #else
 	snprintf (prefs.sounddir, sizeof (prefs.sounddir), "%s/sounds", get_xdir_utf8 ());
 #ifdef FE_AQUA
-	/* Land received files somewhere the user will actually look, rather
-	 * than buried inside Application Support. */
+	/* Received files go to the user's Downloads folder. */
 	snprintf (prefs.dccdir, sizeof (prefs.dccdir), "%s/Downloads", g_get_home_dir ());
 #else
 	snprintf (prefs.dccdir, sizeof (prefs.dccdir), "%s/downloads", get_xdir_utf8 ());

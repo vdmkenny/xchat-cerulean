@@ -274,7 +274,7 @@ AquaChat *AquaChatSharedObject;
                     o[sizeof(o) - 1] = '\0';
                 }
 
-                // Gives the notification its inline reply field.
+                // Adds the inline reply field.
                 content.categoryIdentifier = XAMessageNotificationCategory;
             }
 
@@ -1253,8 +1253,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         CGFloat sz = atof (space + 1);
         if (sz)
         {
-            // Read from the argument, not the global: they are not always
-            // the same string.
             NSString *nm = [[NSString alloc] initWithBytes:fontName
                                                     length:space - fontName
                                                   encoding:NSUTF8StringEncoding];
@@ -1263,7 +1261,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         }
     }
 
-    // Falls back to SF Mono, the system monospaced face, rather than Courier.
+    // Fall back to the system monospaced face.
     if (!f)
         f = [NSFont monospacedSystemFontOfSize:13 weight:NSFontWeightRegular];
 

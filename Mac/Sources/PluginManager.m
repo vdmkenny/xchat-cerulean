@@ -339,9 +339,7 @@ void UserPluginManagerLoadCallback(char *filename) {
     NSString *pluginDirectory = [[[XAFileUtil findSupportFolderFor:@PRODUCT_NAME] path] stringByAppendingPathComponent:@"plugins"];
     NSString *pluginFilename = [pluginDirectory stringByAppendingPathComponent:name];
 
-    // Copy through NSFileManager rather than shelling out: the old code built
-    // "rm -rf '%@'" / "cp -R '%@' '%@'" and handed them to system(), so any
-    // quote in a plugin's filename would have run as shell.
+    // Copy through NSFileManager so filenames are never interpreted as shell.
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error = nil;
 

@@ -134,6 +134,13 @@ static int color_remap [] =
                                             blue:(CGFloat)defaultColor->blue / 0xffff
                                            alpha:1.0f] retain];
     }
+
+    // Text and background track the system appearance, so the chat view
+    // follows light and dark mode instead of being fixed black on white.
+    [colors[XAColorForeground] release];
+    [colors[XAColorBackground] release];
+    colors[XAColorForeground] = [[NSColor textColor] retain];
+    colors[XAColorBackground] = [[NSColor textBackgroundColor] retain];
 }
 
 - (void) loadLegacy // load palette.conf

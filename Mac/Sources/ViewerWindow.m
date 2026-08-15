@@ -8,7 +8,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
@@ -21,12 +21,36 @@
  */
 
 #import "ViewerWindow.h"
+#import "Branding.h"
 
 @implementation ViewerWindow
 
+- (void)dealloc
+{
+    [_webContent release];
+    [super dealloc];
+}
+
+/* Lazily builds the web view inside the container supplied by the nib. */
+- (WKWebView *)webContent
+{
+    if (_webContent == nil && webView != nil) {
+        WKWebViewConfiguration *configuration = [[[WKWebViewConfiguration alloc] init] autorelease];
+
+        _webContent = [[WKWebView alloc] initWithFrame:webView.bounds
+                                         configuration:configuration];
+        _webContent.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+        _webContent.allowsBackForwardNavigationGestures = YES;
+
+        [webView addSubview:_webContent];
+    }
+    return _webContent;
+}
+
 - (void)showURL:(NSURL *)URL {
-    [self setTitle:[NSString stringWithFormat:@"Cerulean: Viewer / %@", [URL absoluteString]]];
-    [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:URL]];
+    [self setTitle:[NSString stringWithFormat:@"%s: Viewer / %@",
+                    XA_PRODUCT_SHORT, [URL absoluteString]]];
+    [[self webContent] loadRequest:[NSURLRequest requestWithURL:URL]];
 }
 
 @end

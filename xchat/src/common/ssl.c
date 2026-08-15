@@ -31,7 +31,7 @@
 #define snprintf g_snprintf
 #endif
 
-/* OpenSSL 3.0 renamed this; keep building against 1.1.x too. */
+/* Name of the peer-certificate getter differs across OpenSSL versions. */
 #if OPENSSL_VERSION_NUMBER < 0x30000000L
 #define SSL_get1_peer_certificate SSL_get_peer_certificate
 #endif
@@ -78,7 +78,7 @@ _SSL_context_init (void (*info_cb_func), int server)
 	OPENSSL_init_ssl (OPENSSL_INIT_LOAD_SSL_STRINGS |
 							OPENSSL_INIT_LOAD_CRYPTO_STRINGS, NULL);
 	ctx = SSL_CTX_new (server ? TLS_server_method () : TLS_client_method ());
-	/* SSLv2/SSLv3 are gone; refuse the long-broken TLS versions too. */
+	/* Refuse anything below TLS 1.2. */
 	SSL_CTX_set_min_proto_version (ctx, TLS1_2_VERSION);
 
 	SSL_CTX_set_session_cache_mode (ctx, SSL_SESS_CACHE_BOTH);
@@ -164,7 +164,7 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 	broke_oneline (cert_info->subject, cert_info->subject_word);
 	broke_oneline (cert_info->issuer, cert_info->issuer_word);
 
-	/* X509 is opaque since OpenSSL 1.1, so ask for the fields by accessor. */
+	/* Public-key and signature algorithms of the peer certificate. */
 	{
 		ASN1_OBJECT *algo_obj = NULL;
 
@@ -298,15 +298,12 @@ _SSL_socket (SSL_CTX *ctx, int sd, const char *hostname)
 
 	if (hostname && hostname[0])
 	{
-		/* Server Name Indication: most modern IRC networks share an
-		 * address between several certificates and will hand back the
-		 * wrong one (or refuse outright) without this. */
+		/* Tell the server which name we asked for, so it can pick the
+		 * matching certificate when several share one address. */
 		SSL_set_tlsext_host_name (ssl, hostname);
 
-		/* Tie the certificate to the name we dialled. Without this a
-		 * valid certificate for *any* host would be accepted, which
-		 * makes the whole handshake pointless against an active
-		 * attacker. The result is reported by SSL_get_verify_result(). */
+		/* Require the certificate to be issued for this host.
+		 * SSL_get_verify_result() reports the outcome. */
 		SSL_set_hostflags (ssl, X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS);
 		SSL_set1_host (ssl, hostname);
 	}
@@ -351,5 +348,5 @@ _SSL_close (SSL * ssl)
 {
 	SSL_set_shutdown (ssl, SSL_SENT_SHUTDOWN | SSL_RECEIVED_SHUTDOWN);
 	SSL_free (ssl);
-	ERR_clear_error ();			  /* ERR_remove_state() went away in 1.1 */
+	ERR_clear_error ();			  /* drop any error left on this thread */
 }

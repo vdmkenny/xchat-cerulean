@@ -85,4 +85,4 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 - Shell command construction from filenames removed from plugin installation.
 - The dead Crashlytics API key is no longer shipped.
 
-[2.0.0]: https://github.com/vdmkenny/xchataqua/releases/tag/v2.0.0
+[2.0.0]: https://github.com/vdmkenny/xchataqua/releases/tag/2.0.0

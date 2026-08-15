@@ -396,8 +396,7 @@ fe_main (void)
 
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *pemPath = [mainBundle pathForResource:@"cert" ofType:@"pem"];
-    // No CA bundle ships with the app any more: OpenSSL's own default store is
-    // used instead. Only override it if someone did bundle one.
+    // Only override OpenSSL's default trust store if a CA bundle is bundled.
     if (pemPath != nil) {
         setenv("SSL_CERT_FILE", [pemPath UTF8String], 0);
     }
