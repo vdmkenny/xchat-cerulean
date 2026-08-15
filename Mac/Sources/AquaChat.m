@@ -1253,19 +1253,22 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         CGFloat sz = atof (space + 1);
         if (sz)
         {
-            NSString *nm = [[NSString alloc] initWithBytes:prefs.font_normal
+            // Read from the argument, not the global: they are not always
+            // the same string.
+            NSString *nm = [[NSString alloc] initWithBytes:fontName
                                                     length:space - fontName
                                                   encoding:NSUTF8StringEncoding];
             f = [NSFont fontWithName:nm size:sz];
             [nm release];
         }
     }
-    
+
+    // Falls back to SF Mono, the system monospaced face, rather than Courier.
     if (!f)
-        f = [NSFont fontWithName:@"Courier" size:12];
-    
+        f = [NSFont monospacedSystemFontOfSize:13 weight:NSFontWeightRegular];
+
     if (!f)
-        f = [NSFont systemFontOfSize:12];
+        f = [NSFont systemFontOfSize:13];
     
     NSFontManager *fontManager = [NSFontManager sharedFontManager];
     
