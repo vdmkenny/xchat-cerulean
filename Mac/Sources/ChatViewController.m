@@ -181,6 +181,17 @@
 
 @implementation ChatSplitView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    /* subview 0 is the conversation, subview 1 is the user list. Without
+     * holding priorities NSSplitView shares out extra width proportionally,
+     * so widening the window widened the user list too. Pin the user list
+     * and let the conversation take the space. */
+    [self setHoldingPriority:NSLayoutPriorityDefaultLow forSubviewAtIndex:0];
+    [self setHoldingPriority:NSLayoutPriorityDefaultHigh forSubviewAtIndex:1];
+}
+
 - (void)viewDidResize:(id)sender {
     NSSplitViewDividerStyle dividerStyle;
     if (self.splitPosition < 10) {
@@ -644,6 +655,11 @@ static NSImage *emptyBulletImage;
     self.keyTextField = [self modeTextFieldForSelector:@selector (doKeyTextField:)];
     self.keyTextField.stringValue = @(self->sess->channelkey);
     
+    // Breathing room around the topic row and between its controls.
+    headerBoxView.majorOutterMargin = 8.0;
+    headerBoxView.majorInnerMargin = 6.0;
+    headerBoxView.minorMargin = 4.0;
+
     [headerBoxView sizeToFit];
 }
 

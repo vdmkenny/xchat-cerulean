@@ -235,7 +235,9 @@ NSImage *XATabViewOutlineCellCloseImage;
     dataCell.font = font;
     
     NSLayoutManager *layoutManager=[[NSLayoutManager new] autorelease];
-    [self setRowHeight:[layoutManager defaultLineHeightForFont:font] * 1.2 + 1];
+    // Source list rows want noticeably more height than a dense table row.
+    [self setRowHeight:round([layoutManager defaultLineHeightForFont:font] * 1.6) + 2];
+    [self setIntercellSpacing:NSMakeSize(3.0, 2.0)];
     
     // Source list styling: inset rounded selection, sidebar metrics.
     self.style = NSTableViewStyleSourceList;
