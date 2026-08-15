@@ -57,7 +57,7 @@ enum {
     hasCloseCell = has;
     if (hasCloseCell && !closeCell) {
         closeCell = [[NSButtonCell alloc] initImageCell:[NSImage imageNamed:@"close.tiff"]];
-        [closeCell setButtonType:NSMomentaryLightButton];
+        [closeCell setButtonType:NSButtonTypeMomentaryLight];
         [closeCell setImagePosition:NSImageOnly];
         [closeCell setBordered:false];
         [closeCell setHighlightsBy:NSContentsCellMask];
@@ -163,7 +163,7 @@ enum {
         trackCell = closeCell;
         trackFrame = closeRect;
     } else {
-        if ([self state] == NSOnState) return;
+        if ([self state] == NSControlStateValueOn) return;
         trackCell = self;
         trackFrame = cellFrame;
     }

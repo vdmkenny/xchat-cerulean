@@ -56,7 +56,7 @@ static NSCursor *XAChatTextViewSizableCursor;
         [self setRichText:YES];
         [self setEditable:NO];
 
-        [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
     }
     return self;
 }
@@ -100,7 +100,7 @@ static NSCursor *XAChatTextViewSizableCursor;
     // Setup the pasteboard
     NSPasteboard *pb = [NSPasteboard generalPasteboard];
 
-    NSArray *types = @[NSStringPboardType, NSRTFPboardType];
+    NSArray *types = @[NSPasteboardTypeString, NSPasteboardTypeRTF];
     [pb declareTypes:types owner:self];
 
     NSRange selection = [self selectedRange];
@@ -117,7 +117,7 @@ static NSCursor *XAChatTextViewSizableCursor;
                                   options:NSLiteralSearch
                                     range:NSMakeRange(0, [pstripped length])];
 
-    [pb setString:pstripped forType:NSStringPboardType];
+    [pb setString:pstripped forType:NSPasteboardTypeString];
 
     // RTF version.  Remove the hidden text completely.
     NSMutableAttributedString *rstripped = [attr_string mutableCopyWithZone:nil];
@@ -145,7 +145,7 @@ static NSCursor *XAChatTextViewSizableCursor;
 
     NSData *rtfData = [rstripped RTFFromRange:(NSMakeRange(0, [rstripped length]))
                            documentAttributes:@{}];
-    [pb setData:rtfData forType:NSRTFPboardType];
+    [pb setData:rtfData forType:NSPasteboardTypeRTF];
     [rstripped release];
     [pstripped release];
 }
@@ -168,7 +168,8 @@ static NSCursor *XAChatTextViewSizableCursor;
 
     NSPasteboard *pboard = [sender draggingPasteboard];
 
-    if (![[pboard types] containsObject:NSFilenamesPboardType]) {
+    if (![pboard canReadObjectForClasses:@[[NSURL class]]
+                                 options:@{ NSPasteboardURLReadingFileURLsOnlyKey: @YES }]) {
         return NSDragOperationNone;
     }
 
@@ -679,7 +680,7 @@ static NSCursor *XAChatTextViewSizableCursor;
                 return [[MenuMaker defaultMenuMaker] menuForChannel:word inSession:sess];
 
             case WORD_EMAIL:
-                return [[MenuMaker defaultMenuMaker] menuForURL:[@"mailto:%@" format:word] inSession:sess];
+                return [[MenuMaker defaultMenuMaker] menuForURL:[NSString stringWithFormat:@"mailto:%@", word] inSession:sess];
         }
     }
 

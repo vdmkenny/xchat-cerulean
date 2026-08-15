@@ -197,9 +197,9 @@ static void setupAppSupport ()
             // FIXME: We really should check for errors here
             [[NSFileManager defaultManager] moveItemAtURL:xcdir toURL:asdir error:nil];
 
-#ifdef CONFIG_Aqua
+#ifdef CONFIG_Cerulean
             NSError *err;
-            BOOL result = [[NSFileManager defaultManager] createSymbolicLinkAtPath:xcdir
+            BOOL result = [[NSFileManager defaultManager] createSymbolicLinkAtURL:xcdir
                                                                 withDestinationURL:asdir
                                                                              error:&err];
             if (!result) {
@@ -211,9 +211,9 @@ static void setupAppSupport ()
         
         // State 3
         if (!xclink_exists && !xcdir_exists && asdir_exists) {
-#ifdef CONFIG_Aqua
+#ifdef CONFIG_Cerulean
             NSError *err;
-            BOOL result = [[NSFileManager defaultManager] createSymbolicLinkAtPath:xcdir
+            BOOL result = [[NSFileManager defaultManager] createSymbolicLinkAtURL:xcdir
                                                                 withDestinationURL:asdir
                                                                              error:&err];
             if (!result) {
@@ -235,7 +235,7 @@ static void setupAppSupport ()
                 [NSApp presentError:asdir_err]; // FIXME: Should we terminate here?
             }
 
-#ifdef CONFIG_Aqua
+#ifdef CONFIG_Cerulean
             NSError *symlink_err;
             BOOL symlink_result = [[NSFileManager defaultManager] createSymbolicLinkAtURL:xcdir
                                                                withDestinationURL:asdir
@@ -396,7 +396,11 @@ fe_main (void)
 
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *pemPath = [mainBundle pathForResource:@"cert" ofType:@"pem"];
-    setenv("SSL_CERT_FILE", [pemPath UTF8String], 0);
+    // No CA bundle ships with the app any more: OpenSSL's own default store is
+    // used instead. Only override it if someone did bundle one.
+    if (pemPath != nil) {
+        setenv("SSL_CERT_FILE", [pemPath UTF8String], 0);
+    }
     
 #if 0
     struct rlimit rlp;
@@ -1004,7 +1008,7 @@ void fe_get_file (const char *title, char *initial,
                   int flags)
 {
     [SGFileSelection getFile:@(title)
-                  initialURL:@(initial).fileURL
+                  initialURL:[NSURL fileURLWithPath:@(initial)]
                     callback:callback userdata:userdata flags:flags];
 }
 

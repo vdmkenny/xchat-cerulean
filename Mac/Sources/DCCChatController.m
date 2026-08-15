@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA */
 
-#include <dcc.h>
+#include "dcc.h"
 
 #import "DCCChatController.h"
 
@@ -90,7 +90,7 @@
 {
     [super awakeFromNib];
 
-    [dccListView setTitle:NSLocalizedStringFromTable(@"XChat: DCC Chat List", @"xchat", @"")];
+    [dccListView setTitle:NSLocalizedStringFromTable(@"Cerulean: DCC Chat List", @"xchat", @"")];
     [dccListView setTabTitle:NSLocalizedStringFromTable(@"dccchat", @"xchataqua", @"Title of Tab: MainMenu->Window->DCC Chat...")];
 }
 

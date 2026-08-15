@@ -17,6 +17,8 @@
 
 #import "SGView.h"
 
+#import <objc/runtime.h>
+
 //////////////////////////////////////////////////////////////////////
     
 @interface PendingLayouts : NSObject
@@ -178,14 +180,14 @@
 + (void) initialize
 {
     if (self == [SGView class]) {
-        NSAMethod *mHidden = [NSView methodObjectForSelector:@selector(setHidden:)];
-        NSAMethod *mSGHidden = [NSView methodObjectForSelector:@selector(setSGHidden:)];
-        NSAMethod *mOriginalHidden = [NSView methodObjectForSelector:@selector(setOriginalHidden:)];
+        Method mHidden = class_getInstanceMethod([NSView class], @selector(setHidden:));
+        Method mSGHidden = class_getInstanceMethod([NSView class], @selector(setSGHidden:));
+        Method mOriginalHidden = class_getInstanceMethod([NSView class], @selector(setOriginalHidden:));
 
         // move original -setHidden: to new one
-        if (mHidden.implementation != mSGHidden.implementation) {
-            mOriginalHidden.implementation = mHidden.implementation;
-            mHidden.implementation = mSGHidden.implementation;
+        if (method_getImplementation(mHidden) != method_getImplementation(mSGHidden)) {
+            method_setImplementation(mOriginalHidden, method_getImplementation(mHidden));
+            method_setImplementation(mHidden, method_getImplementation(mSGHidden));
         }
     }
 }

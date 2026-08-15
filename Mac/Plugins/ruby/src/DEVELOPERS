@@ -1,0 +1,51 @@
+Command List
+plugin20.html revision 2.82
+
+Not in the list
+
+puts
+print_fmt
+puts_fmt
+load_plugin
+unload_plugin
+format
+
+
+*implemented
+**extended
+***internal
+
+*xchat_hook_command
+xchat_hook_fd
+*xchat_hook_print
+*xchat_hook_server
+*xchat_hook_timer
+*xchat_unhook
+
+*xchat_command
+xchat_commandf
+**xchat_print
+xchat_printf
+*xchat_emit_print
+xchat_send_modes
+
+xchat_find_context
+xchat_get_context
+*xchat_get_info
+*xchat_get_prefs
+xchat_set_context
+
+*xchat_nickcmp
+xchat_strip
+xchat_free
+
+*xchat_list_get
+***xchat_list_free
+xchat_list_fields (not documented yet)
+*xchat_list_next
+*xchat_list_str
+*xchat_list_int
+xchat_list_time
+
+xchat_plugingui_add (not documented yet)
+xchat_plugingui_remove (not documented yet)

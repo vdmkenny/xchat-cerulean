@@ -1,0 +1,254 @@
+XChat-Ruby Plugin v. 1.2
+
+http://sourceforge.net/projects/xchat-ruby/
+
+Jamis Buck <jgb3@email.byu.edu>
+25 April 2007
+===============================
+
+This is a plugin for XChat2 (http://www.xchat.org) which allows you to use
+plugins written in the Ruby scripting language (http://www.ruby-lang.org).
+
+
+Installation and Configuration
+------------------------------
+
+See the INSTALL file.
+
+
+Usage
+-----
+
+Once the plugin has been loaded, you can interact with it using the following
+commands:
+
+  /rb help              -- displays a list of available /rb commands
+  /rb load <filename>   -- load (and execute) a ruby script/plugin
+  /rb unload <filename> -- unload the given ruby script/plugin
+  /rb list              -- show all loaded ruby scripts/plugins
+  /rb commands          -- show all available ruby-based commands
+  /rb exec <code>       -- execute ruby code immediately
+  /rb about             -- display copyright and credits info about the plugin
+
+Additionally, the XChat-Ruby plugin extends the /load and /unload commands, so that if
+you specify a file with a '.rb' extension, it will load (or unload) it with the
+XChat-Ruby plugin.
+
+
+Plugin Documentation
+--------------------
+
+If you are a Ruby programmer and would like to use this plugin to write your
+own plugins in Ruby, this section will attempt to document the XChat/Ruby
+API and how to use it.  You should also refer to the XChat C API
+(http://www.xchat.org/docs/plugin20.html), since it will describe the
+API functions and how they work in greater detail.  Also, the plugins in
+the samples directory will be helpful in learning how to write your own
+plugins.
+
+Typically, creating a ruby plugin involves creating a class that inherits
+from XChatRubyPlugin, registering the necessary hooks in the new class's
+initialize method, and then defining the hooks and auxiliary methods. At
+the very end, instantiate the class; this will start your plugin.
+
+All of these classes are in the XChatRuby module, which may be included
+in your plugin source for convenience.
+
+  class XChatRubyEnvironment
+  --------------------------
+
+  You will rarely need to access the class directly, but there are a few
+  (singleton) methods of it that you may find useful.
+
+    XChatRubyEnvironment.load_plugin( file )
+      Loads the given (Ruby) source file as a Ruby plugin.  The 'file'
+      parameter must either be an absolute path, or refer to a file
+      in one of the paths of the Ruby environment's $LOAD_PATH array.
+
+    XChatRubyEnvironment.unload_plugin( file )
+      Unloads the given (Ruby) source file as a Ruby plugin.  The 'file'
+      parameter must be exactly the same as the name given when the
+      plugin was loaded.
+
+    XChatRubyEnvironment.remove_hooks_for( requester )
+      This will remove all registered hooks for a given plugin (requester).
+
+  class XChatRubyPlugin
+  ---------------------
+
+  The XChatRubyPlugin class is the interface for the XChat API.  You should
+  inherit your plugin classes from this class.
+
+  All of the 'hook' methods that require a priority should use one of the
+  XCHAT_PRI_xxx constants for that parameter.  Likewise, any hook callback
+  should return one of the XCHAT_EAT_xxx constants.  All of the hook methods
+  return an opaque XChatHook object, which may be used with the
+  unhook() function.
+  
+    hook_command( name, priority, hook, help, data )
+        Registers a command hook, with the given name and help text. The 'hook'
+        parameter must be a Method object (as returned by the method() function)
+        and should accept three parameters:
+
+          hook_fn( words, words_eol, data )
+
+        where 'words' and 'words_eol' are identical to the same parameters as
+        described in the XChat plugin API.
+
+    hook_print( name, priority, hook, data )
+        Registers a callback to be called when the named print even occurs.  The
+        hook parameter must be a Method object and should accept two parameters:
+
+          hook_fn( words, data )
+
+    hook_server( name, priority, hook, data )
+        Registers a callback to be called when the named server event is recieved.
+        The hook parameter should be a Method object and should accept three
+        parameters:
+
+          hook_fn( words, words_eol, data )
+
+    hook_timer( timeout, hook, data )
+        Registers a timer, which will call the given hook every 'timeout' milliseconds
+        until it is removed (with unhook()).  The hook should be a Method object and
+        should accept one parameter:
+
+          hook_fn( data )
+
+    unhook( hook_id )
+        Unregisters the previously-registered hook with the given 'id'.  The
+        hook_id parameter should be a XChatHook object that was returned by a
+        prior call to one of the hook_xxx methods.
+
+Note for print and puts:
+The output is only visible to you. Use /say to post messages to the channel.
+        
+    print( text )
+        Prints the given text to the current context (currently active channel
+        or server tab/window).
+
+    print( text, channel )
+        Prints the given text to the first matching channel, or the current
+        context if no match.
+
+    print( text, server, nil )
+        Prints the given text to the first channel or server context of the
+        given server, or the current context if no match.
+
+    print( text, server, channel )
+        Prints the given text to the channel with matching channel and server,
+        or the current context if no match.
+
+    puts( text )
+    puts( text, channel )
+    puts( text, server, channel )
+        Just like the "print" functions, but also appends a newline.
+
+    print_fmt( text )
+    print_fmt( text, channel )
+    print_fmt( text, server, channel )
+        Just like the "print" functions, but also processes 'text' through the
+        XChatText.format method (see below).
+
+    puts_fmt( text )
+    puts_fmt( text, channel )
+    puts_fmt( text, server, channel )
+        Just like the "puts" functions, but also processes 'text' through the
+        XChatText.format method (see below).
+
+    command( command )
+        Has XChat process the given command (without the '/').
+
+    find_context( channel )
+    find_context( server, channel )
+        Returns the context with matching server and channel, or nil if not
+        found.
+        If server or channel is nil, the first match of the non-nil argument is
+        returned.
+        The server name is what is listed in the XChat Network List, including
+        spaces.
+
+    get_context
+        Returns the current context.
+
+    set_context( context )
+        Sets the current context to context.
+
+    get_info( id )
+        Returns either nil (if the given id doesn't match any known information
+        parameter), or a string or integer defining the named information parameter.
+
+    get_prefs( name )
+        Returns the named preference item, or nil if the item doesn't exist.
+
+    nickcmp( s1, s2 )
+        Compares the two nicknames (as strcasecmp()), taking into account servers
+        and so forth.
+
+    emit_print( event, ... )
+        Emits the named print event with the given parameters.
+        XChat-Ruby 1.2 only supports 16 events.
+
+    format( text )
+        The 'text' parameter may contain formatting codes to define where
+        text should be bolded, inverted (or underlined), or where the color
+        should be changed.  The formatted text is returned.
+
+        Formatting codes are contained in ![...] delimiters.  Valid codes
+        are:
+
+          b    -- toggle bold
+          u    -- toggle underline
+          r    -- toggle reverse text
+          i    -- toggle italics
+          o    -- turn off all font color and attributes
+          |    -- (the pipe character) -- puts all preceding text in the gutter
+          c    -- reset colors to defaults
+          cn   -- set foreground color to 'n' (see below)
+          cn,m -- set foreground color to 'n' and background color to 'm'
+
+        For the valid 'n' and 'm' color values, you may specify a number
+        (corresponding to the valid mIRC color indices), or the name of
+        a color in parentheses.
+
+        For the '|' (pipe) code, the preceding text will only be placed in the
+        gutter if the text is printed (ie, print or puts). If the formatted text
+        is sent through an IRC command (ie, /msg), the '|' code is ignored.
+
+        For example:
+
+          format( "some ![c(red)b]RED![bc] text" )
+
+        This would format the word RED, with a red foreground, in bold.
+        Valid color names are white, black, blue, green, red, brown, purple,
+        orange, yellow, ltgreen, teal, ltcyan, ltblue, pink, grey, and ltgrey.
+        
+        How do you output text containing '!['?
+        Just format the formatting and output the text in between the formatting
+        directly.
+        
+        For example:
+
+          format( "![b]") + "some ![c(red)b]RED![bc] text" + format( "![b]" )
+
+        This formats the string "some ![c(red)b]RED![bc] text" in bold.
+
+  class XChatRubyList
+  -------------------
+
+  This class is the interface for the XChat list API.  Each list request instantiates
+  a new XChatRubyList.
+
+    XChatRubyList.new( name )
+        Creates new list of the given name.
+
+    next
+        Moves to the next item in the list.  Returns 0 if the end of the list has been
+        reached, or 1 if it has moved to a valid item.
+
+    str( name )
+        Returns the given named field of the current record as a string.
+
+    int( name )
+        Returns the given named field of the current record as an integer.
+

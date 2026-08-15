@@ -153,12 +153,12 @@ void decHandlerCount()
 
 - (IBAction)execute:(id)sender
 {
-    if ([sender state] == NSOnState) {
-        [sender setState:NSOffState];
+    if ([sender state] == NSControlStateValueOn) {
+        [sender setState:NSControlStateValueOff];
         entry->state = 0;
         handle_command (current_sess, entry->ucmd, FALSE);
     } else {
-        [sender setState:NSOnState];
+        [sender setState:NSControlStateValueOn];
         entry->state = 1;
         handle_command (current_sess, entry->cmd, FALSE);
     }
@@ -359,7 +359,7 @@ static MenuMaker *defaultMenuMaker;
     TogglerHandler *handler = [TogglerHandler togglerWithOption:opt];
     [item setRepresentedObject:handler];
     [item setTarget:handler];
-    [item setState:cfg_get_bool((char *) opt) ? NSOnState : NSOffState];
+    [item setState:cfg_get_bool((char *) opt) ? NSControlStateValueOn : NSControlStateValueOff];
     return [item autorelease];
 }
 
@@ -444,7 +444,7 @@ static MenuMaker *defaultMenuMaker;
             [item setAction:@selector(execute:)];
             [item setRepresentedObject:handler];
             [item setTarget:handler];
-            [item setState:entry->state ? NSOnState : NSOffState];
+            [item setState:entry->state ? NSControlStateValueOn : NSControlStateValueOff];
         } else if (entry->cmd) {    /* regular item */
             CommandHandler *handler = [CommandHandler handlerWithCommand:entry->cmd target:nil session:NULL];
             [item setAction:@selector(execute:)];
@@ -472,7 +472,7 @@ static MenuMaker *defaultMenuMaker;
     NSMenuItem *item = [parent itemWithTitle:@(entry->label)];
     if (item == nil) return;
     [item setEnabled:entry->enable];
-    [item setState:entry->state ? NSOnState : NSOffState];
+    [item setState:entry->state ? NSControlStateValueOn : NSControlStateValueOff];
 }
 
 - (NSString *)stripImageFromTitle:(NSString *)title icon:(NSString **)icon
@@ -515,8 +515,8 @@ static MenuMaker *defaultMenuMaker;
 
 - (void)copyURL:(NSMenuItem *)sender {
     NSPasteboard *generalBoard = [NSPasteboard generalPasteboard];
-    [generalBoard declareTypes:@[NSStringPboardType] owner:nil];
-    [generalBoard setString:[sender toolTip] forType:NSStringPboardType];
+    [generalBoard declareTypes:@[NSPasteboardTypeString] owner:nil];
+    [generalBoard setString:[sender toolTip] forType:NSPasteboardTypeString];
 }
 
 @end

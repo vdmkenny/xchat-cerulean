@@ -143,11 +143,11 @@
 
 - (void) awakeFromNib
 {
-    [self setTitle:NSLocalizedStringFromTable(@"XChat: Ignore list", @"xchat", @"")];
+    [self setTitle:NSLocalizedStringFromTable(@"Cerulean: Ignore list", @"xchat", @"")];
     [self setTabTitle:NSLocalizedStringFromTable(@"ignore", @"xchataqua", @"")];
     
     NSButtonCell *button = [[NSButtonCell alloc] init];
-    [button setButtonType:NSSwitchButton];
+    [button setButtonType:NSButtonTypeSwitch];
     [button setControlSize:NSControlSizeSmall];
     [button setTitle:@""];
     for (NSUInteger i = 1; i < [self->ignoreTableView numberOfColumns]; i++)

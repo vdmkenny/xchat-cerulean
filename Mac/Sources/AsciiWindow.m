@@ -74,8 +74,8 @@
                 
                 NSRect buttonRect = NSMakeRect (AWMargin + AWLabelWidth + x * AWButtonWidth, AWMargin + y * AWButtonHeight, AWButtonWidth, AWButtonHeight);
                 NSButton *characterButton = [[NSButton alloc] initWithFrame:buttonRect];
-                [characterButton setBezelStyle:NSShadowlessSquareBezelStyle];
-                [characterButton setButtonType:NSMomentaryPushInButton];
+                [characterButton setBezelStyle:NSBezelStyleShadowlessSquare];
+                [characterButton setButtonType:NSButtonTypeMomentaryPushIn];
                 [characterButton setTitle:[NSString stringWithFormat:@"%c", character]];
                 [characterButton setAction:@selector(inputCharacter:)];
                 [characterButton setTarget:self];

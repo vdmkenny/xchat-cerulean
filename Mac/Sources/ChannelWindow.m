@@ -226,7 +226,7 @@ static const char * strip_crap (const char *s)
 {    
     arrowImage = [[NSImage imageNamed:@"down.tiff"] retain];
     
-    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"XChat: Channel List (%s)", @"xchat", @""), self->server->servername]];
+    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Cerulean: Channel List (%s)", @"xchat", @""), self->server->servername]];
     [self setTabTitle:NSLocalizedStringFromTable(@"chanlist", @"xchataqua", @"")];
     
     [self resetCounters];
@@ -357,13 +357,17 @@ static const char * strip_crap (const char *s)
     }
     else
     {
-        [aTableView setIndicatorImage:arrowImage inTableColumn:aTableColumn];
         [aTableView setIndicatorImage:nil inTableColumn:[aTableView highlightedTableColumn]];
         [aTableView setHighlightedTableColumn:aTableColumn];
     }
-    
-    [arrowImage setFlipped:sortDirection [column]];
-    
+
+    // NSImage flippedness is gone, so use the two standard sort indicators
+    // instead of vertically flipping one arrow.
+    NSImage *indicator = [NSImage imageNamed:(sortDirection[column]
+                                              ? @"NSAscendingSortIndicator"
+                                              : @"NSDescendingSortIndicator")];
+    [aTableView setIndicatorImage:(indicator ?: arrowImage) inTableColumn:aTableColumn];
+
     [filteredChannels sortUsingSelector:sortSelectors [(column << 1) + sortDirection [column]]];
     [channelTableView reloadData];
     

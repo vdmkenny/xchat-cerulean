@@ -133,7 +133,7 @@
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
-	BOOL front = ([self state] == NSOnState);
+	BOOL front = ([self state] == NSControlStateValueOn);
 	BOOL pressed = [self isHighlighted];
 	BOOL inactive = ![[controlView window] isMainWindow];
 	BOOL disabled = [self cellAttribute:NSCellDisabled];

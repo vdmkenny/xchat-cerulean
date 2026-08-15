@@ -1,3 +1,7 @@
 #include "BuildNumber.xcconfig"
+#include "Dependencies.xcconfig"
 
 GCC_PREPROCESSOR_DEFINITIONS = DEBUG
+
+HEADER_SEARCH_PATHS = $(inherited) $(SRCROOT)/Mac/Sources $(SRCROOT)/Mac/contrib/include $(DEP_HEADER_SEARCH_PATHS)
+LIBRARY_SEARCH_PATHS = $(inherited) $(DEP_LIBRARY_SEARCH_PATHS)

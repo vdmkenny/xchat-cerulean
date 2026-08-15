@@ -53,7 +53,7 @@ NSImage *XATabViewOutlineCellCloseImage;
     self = [super initTextCell:aString];
     if (self != nil) {
         closeCell = [[NSButtonCell alloc] initImageCell:XATabViewOutlineCellCloseImage];
-        [closeCell setButtonType:NSMomentaryLightButton];
+        [closeCell setButtonType:NSButtonTypeMomentaryLight];
         [closeCell setImagePosition:NSImageOnly];
         [closeCell setBordered:NO];
         [closeCell setHighlightsBy:NSContentsCellMask];
@@ -305,7 +305,7 @@ NSImage *XATabViewOutlineCellCloseImage;
 - (id)init {
     self = [super init];
     if (self != nil) {
-        [self setButtonType:NSOnOffButton];
+        [self setButtonType:NSButtonTypeOnOff];
         
         CLTabViewButtonCell *cell = [[[[self class] cellClass] alloc] init];
         [self setCell:cell];
@@ -318,7 +318,7 @@ NSImage *XATabViewOutlineCellCloseImage;
         }
         [self setFont:[NSFont systemFontOfSize:fontSize]];
         [self setImagePosition:NSNoImage];
-        [self setBezelStyle:NSShadowlessSquareBezelStyle];
+        [self setBezelStyle:NSBezelStyleShadowlessSquare];
         [self sizeToFit];
     }
     return self;

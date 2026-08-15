@@ -18,6 +18,7 @@
 #if ENABLE_GROWL
 #import <Growl/GrowlApplicationBridge.h>
 #endif
+#import <UserNotifications/UserNotifications.h>
 #include "dcc.h"
 
 #define PreferencesWindowKey    @"PreferencesWindow"
@@ -55,7 +56,7 @@
 #if ENABLE_GROWL
 GrowlApplicationBridgeDelegate,
 #endif
-NSApplicationDelegate, XAEventChain, NSUserNotificationCenterDelegate> {
+NSApplicationDelegate, XAEventChain, UNUserNotificationCenterDelegate> {
 @public
     NSString *searchString;
     

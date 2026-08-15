@@ -338,10 +338,22 @@ void UserPluginManagerLoadCallback(char *filename) {
     NSString *name = [filename lastPathComponent];
     NSString *pluginDirectory = [[[XAFileUtil findSupportFolderFor:@PRODUCT_NAME] path] stringByAppendingPathComponent:@"plugins"];
     NSString *pluginFilename = [pluginDirectory stringByAppendingPathComponent:name];
-    NSString *cmd = [@"rm -rf '%@'" format:pluginFilename];
-    system(cmd.UTF8String); // if directory...
-    cmd = [@"cp -R '%@' '%@'" format:filename, [pluginDirectory stringByAppendingString:@"/"]];
-    system(cmd.UTF8String); // install
+
+    // Copy through NSFileManager rather than shelling out: the old code built
+    // "rm -rf '%@'" / "cp -R '%@' '%@'" and handed them to system(), so any
+    // quote in a plugin's filename would have run as shell.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+
+    if ([fileManager fileExistsAtPath:pluginFilename] &&
+        ![fileManager removeItemAtPath:pluginFilename error:&error]) {
+        NSLog(@"Could not replace plugin at %@: %@", pluginFilename, error);
+        return;
+    }
+    if (![fileManager copyItemAtPath:filename toPath:pluginFilename error:&error]) {
+        NSLog(@"Could not install plugin %@: %@", filename, error);
+        return;
+    }
     [self.items addObject:[PluginItem pluginWithFilename:pluginFilename]];
 }
 

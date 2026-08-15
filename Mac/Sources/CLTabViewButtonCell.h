@@ -40,6 +40,7 @@
 @property(nonatomic, assign) id delegate;
 
 - (void)setHasCloseButton:(BOOL)has;
+- (void)setHideCloseButton:(bool)hideit;
 - (void)setHasLeftCap:(BOOL)left;
 - (void)setHasRightCap:(BOOL)right;
 - (void)setCloseAction:(SEL)action;

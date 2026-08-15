@@ -60,7 +60,7 @@ static int do_add_url (const void *key, void *cbd)
 {
     [self->urlTableView setTarget:self];
     
-    [self setTitle:NSLocalizedStringFromTable(@"XChat: URL Grabber", @"xchat", @"Title of Window: MainMenu->Window->URL Grabber...")];
+    [self setTitle:NSLocalizedStringFromTable(@"Cerulean: URL Grabber", @"xchat", @"Title of Window: MainMenu->Window->URL Grabber...")];
     [self setTabTitle:NSLocalizedStringFromTable(@"urlgrabber", @"xchataqua", @"")];
     
     tree_foreach ((tree *)url_tree, do_add_url, self);
@@ -86,7 +86,7 @@ static int do_add_url (const void *key, void *cbd)
     NSString *menuTitle = url;
     // TODO: encode 'url' like menu_urlmenu??
     if ([url length] > 50)
-        menuTitle = [@"%@..." format:[url substringWithRange:NSMakeRange (0, 45)]];
+        menuTitle = [NSString stringWithFormat:@"%@...", [url substringWithRange:NSMakeRange (0, 45)]];
     NSMenuItem *item = [menu addItemWithTitle:menuTitle action:nil keyEquivalent:@""];
     [item setEnabled:NO];
     [[MenuMaker defaultMenuMaker] appendItemList:urlhandler_list toMenu:menu withTarget:url inSession:NULL];

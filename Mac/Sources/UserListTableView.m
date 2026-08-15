@@ -42,12 +42,12 @@
     if ((self = [super init]) != nil) {
         self->popup = pop;
         
-        [self setButtonType:NSMomentaryLightButton];
+        [self setButtonType:NSButtonTypeMomentaryLight];
         [self setTitle:@(popup->name)];
         [self setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]]];
         [[self cell] setControlSize:NSControlSizeSmall];
         [self setImagePosition:NSNoImage];
-        [self setBezelStyle:NSTexturedSquareBezelStyle];
+        [self setBezelStyle:NSBezelStyleTexturedSquare];
         [self sizeToFit];
     }
     return self;

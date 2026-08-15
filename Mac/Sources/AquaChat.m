@@ -15,9 +15,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA */
 
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-
 #include "outbound.h"
 #include "server.h"
 #include "cfgfiles.h"
@@ -47,6 +44,10 @@
 #import "PluginWindow.h"
 #import "NetworkWindow.h"
 #import "UrlGrabberWindow.h"
+
+/* Identifiers for the actionable notification type registered at launch. */
+static NSString * const XAMessageNotificationCategory = @"message";
+static NSString * const XAReplyNotificationAction = @"reply";
 
 extern struct text_event te[];
 
@@ -208,7 +209,7 @@ AquaChat *AquaChatSharedObject;
 //TODO sparkle here
 - (void) new_version_alert
 {
-    bool ok = [SGAlert confirmWithString:NSLocalizedStringFromTable(@"There is a new version of X-Chat aqua available for download.  Press OK to visit the download site.", @"xchataqua", "")];
+    bool ok = [SGAlert confirmWithString:NSLocalizedStringFromTable(@"There is a new version of XChat Cerulean available for download.  Press OK to visit the download site.", @"xchataqua", "")];
     if (ok)
         [self openDownload:self];
 }
@@ -251,14 +252,14 @@ AquaChat *AquaChatSharedObject;
     }
     #endif
     
-    if (info->notification && (NSClassFromString(@"NSUserNotificationCenter") != nil))
+    if (info->notification)
     {
         char o[4096];
         format_event (sess, event, args, o, sizeof (o), 1);
         if (o[0])
         {
-            NSUserNotification *notification = [[NSUserNotification alloc] init];
-            notification.title = @(te[event].name);
+            UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+            content.title = @(te[event].name);
 
             if (event == XP_TE_PRIVMSG ||
                 event == XP_TE_DPRIVMSG ||
@@ -267,23 +268,33 @@ AquaChat *AquaChatSharedObject;
                 event == XP_TE_DPRIVACTION ||
                 event == XP_TE_HCHANACTION)
             {
-                notification.subtitle = @(sess ? sess->channel : args[1]);
-                if (event == XP_TE_DPRIVMSG)
-                    strncpy(o, args[2], sizeof(o));
+                content.subtitle = @(sess ? sess->channel : args[1]);
+                if (event == XP_TE_DPRIVMSG) {
+                    strncpy(o, args[2], sizeof(o) - 1);
+                    o[sizeof(o) - 1] = '\0';
+                }
 
-                notification.hasReplyButton = true;
+                // Gives the notification its inline reply field.
+                content.categoryIdentifier = XAMessageNotificationCategory;
             }
 
             char *x = strip_color (o, -1, STRIP_ALL);
-            notification.informativeText = @(x);
+            content.body = @(x);
+            content.sound = nil;    // xchat plays its own sounds
 
             NSMutableDictionary *settings = [NSMutableDictionary dictionary];
             settings[@"setting"] = @(info->notification);
             settings[@"channel"] = @(sess ? sess->channel : "");
             settings[@"server"] = @((sess && sess->server) ? sess->server->id : -1);
-            notification.userInfo = settings;
+            content.userInfo = settings;
 
-            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+            UNNotificationRequest *request =
+                [UNNotificationRequest requestWithIdentifier:[[NSUUID UUID] UUIDString]
+                                                     content:content
+                                                     trigger:nil];
+            [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
+                                                                  withCompletionHandler:nil];
+            [content release];
             free (x);
         }
     }
@@ -330,8 +341,6 @@ AquaChat *AquaChatSharedObject;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    [Fabric with:@[[Crashlytics class]]];
-
     NSNotificationCenter *center = [[NSWorkspace sharedWorkspace] notificationCenter];
     
     [center addObserver:self
@@ -345,8 +354,38 @@ AquaChat *AquaChatSharedObject;
                  object:nil];
     
     [NSApp requestEvents:NSEventTypeKeyDown forWindow:nil forView:nil selector:@selector (myKeyDown:) object:self];
-    
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+
+    [self setUpNotifications];
+}
+
+- (void)setUpNotifications
+{
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+
+    // A message notification can be answered without switching to the app.
+    UNTextInputNotificationAction *reply =
+        [UNTextInputNotificationAction actionWithIdentifier:XAReplyNotificationAction
+                                                      title:NSLocalizedStringFromTable(@"Reply", @"xchataqua", @"Notification reply button")
+                                                    options:UNNotificationActionOptionNone
+                                       textInputButtonTitle:NSLocalizedStringFromTable(@"Send", @"xchataqua", @"Notification reply send button")
+                                       textInputPlaceholder:@""];
+
+    UNNotificationCategory *messages =
+        [UNNotificationCategory categoryWithIdentifier:XAMessageNotificationCategory
+                                               actions:@[reply]
+                                     intentIdentifiers:@[]
+                                               options:UNNotificationCategoryOptionNone];
+
+    [center setNotificationCategories:[NSSet setWithObject:messages]];
+
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert |
+                                             UNAuthorizationOptionBadge)
+                          completionHandler:^(BOOL granted, NSError *error) {
+        if (!granted) {
+            NSLog(@"Notifications not authorized: %@", error ?: @"denied by user");
+        }
+    }];
 }
 
 - (void) applicationDidBecomeActive:(NSNotification *) aNotification
@@ -359,9 +398,13 @@ AquaChat *AquaChatSharedObject;
     NSApplicationTerminateReply reply = NSTerminateNow;
     NSUInteger active = [self numberOfActiveDccFileTransfer];
     if (active > 0) {
-        if (NSRunAlertPanel(NSLocalizedStringFromTable(@"Some file transfers are still active.", @"xchat", @""),
-                            NSLocalizedStringFromTable(@"Are you sure you want to quit?", @"xchat", @""),
-                            NSLocalizedStringFromTable(@"Quit", @"xchataqua", @""), NSLocalizedStringFromTable(@"Cancel", @"xchataqua", @""), nil) != NSAlertDefaultReturn) reply = NSTerminateCancel;
+        NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+        alert.messageText = NSLocalizedStringFromTable(@"Some file transfers are still active.", @"xchat", @"");
+        alert.informativeText = NSLocalizedStringFromTable(@"Are you sure you want to quit?", @"xchat", @"");
+        [alert addButtonWithTitle:NSLocalizedStringFromTable(@"Quit", @"xchataqua", @"")];
+        [alert addButtonWithTitle:NSLocalizedStringFromTable(@"Cancel", @"xchataqua", @"")];
+        if ([alert runModal] != NSAlertFirstButtonReturn)
+            reply = NSTerminateCancel;
     }
     return reply;
 }
@@ -385,18 +428,25 @@ AquaChat *AquaChatSharedObject;
     xchat_exit ();
 }
 
-- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+/* Called while the app is frontmost: a setting of -1 means "always show". */
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
 {
-    NSNumber *setting = notification.userInfo[@"setting"];
+    NSNumber *setting = notification.request.content.userInfo[@"setting"];
     if ([setting integerValue] == -1)
-      return YES;
-    return NO;
+        completionHandler(UNNotificationPresentationOptionBanner | UNNotificationPresentationOptionList);
+    else
+        completionHandler(UNNotificationPresentationOptionNone);
 }
 
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void (^)(void))completionHandler
 {
-    NSNumber *servId = notification.userInfo[@"server"];
-    NSString *channel = notification.userInfo[@"channel"];
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    NSNumber *servId = userInfo[@"server"];
+    NSString *channel = userInfo[@"channel"];
     struct server *serv;
     for (GSList *slist = serv_list; slist; slist = slist->next)
     {
@@ -411,9 +461,11 @@ AquaChat *AquaChatSharedObject;
                 sess = find_channel (serv, chan);
             if (sess)
             {
-                if (notification.activationType == NSUserNotificationActivationTypeReplied)
+                if ([response isKindOfClass:[UNTextInputNotificationResponse class]])
                 {
-                    handle_multiline(sess, (char *)[[notification.response string] UTF8String], TRUE, TRUE);
+                    NSString *text = [(UNTextInputNotificationResponse *)response userText];
+                    if (text.length > 0)
+                        handle_multiline(sess, (char *)[text UTF8String], TRUE, TRUE);
                 }
                 else
                 {
@@ -425,9 +477,9 @@ AquaChat *AquaChatSharedObject;
         }
     }
 
-    [center removeDeliveredNotification:notification];
+    [center removeDeliveredNotificationsWithIdentifiers:@[response.notification.request.identifier]];
 
-    //handle_command
+    completionHandler();
 }
 
 #pragma mark NSWorkspace notification
@@ -494,7 +546,7 @@ AquaChat *AquaChatSharedObject;
     if ( title == nil ) title = @PRODUCT_NAME;
     [GrowlApplicationBridge notifyWithTitle:title
                                 description:text
-                           notificationName:@"X-Chat"
+                           notificationName:@XA_PRODUCT_SHORT
                                    iconData:nil
                                    priority:0
                                    isSticky:NO
@@ -698,7 +750,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showSearchPanel:(id)sender
 {
     [searchString autorelease];
-    searchString = [[SGRequest stringByRequestWithTitle:NSLocalizedStringFromTable(@"XChat: Search", @"xchat", @"") defaultValue:searchString] retain];
+    searchString = [[SGRequest stringByRequestWithTitle:NSLocalizedStringFromTable(@"Cerulean: Search", @"xchat", @"") defaultValue:searchString] retain];
     [self findNext:sender];
 }
 
@@ -730,7 +782,7 @@ AquaChat *AquaChatSharedObject;
 
 - (void)toggleAway:(id)sender {
     NSMenuItem *item = sender;
-    if (item.state == NSOffState) {
+    if (item.state == NSControlStateValueOff) {
         handle_command (current_sess, "away", FALSE);
     } else {
         handle_command (current_sess, "back", FALSE);
@@ -883,7 +935,7 @@ AquaChat *AquaChatSharedObject;
 }
 
 - (void)toggleAwayToValue:(BOOL)isAway {
-    [self.awayMenuItem setState:isAway ? NSOnState : NSOffState];
+    [self.awayMenuItem setState:isAway ? NSControlStateValueOn : NSControlStateValueOff];
     NSColor *awayColor;
     if (prefs.style_inputbox && prefs.tab_layout == 2) {
         if (isAway) {
@@ -941,7 +993,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showCtcpRepliesWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:CTCPRepliesWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: CTCP Replies", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->Preference Lists->CTCP Replies...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: CTCP Replies", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->Preference Lists->CTCP Replies...")];
     [window loadDataFromList:&ctcp_list filename:@"ctcpreply.conf"];                              
     [window setHelp:ctcp_help];
     [window makeKeyAndOrderFront:self];
@@ -960,7 +1012,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showUserlistButtonsWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:UserlistButtonsWindowKey windowNibName:@"EditListWindow"];    
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: Userlist buttons", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Buttons...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Userlist buttons", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Buttons...")];
     [window loadDataFromList:&button_list filename:@"buttons.conf"];
     [window setHelp:ulbutton_help];
     [window makeKeyAndOrderFront:self];
@@ -970,7 +1022,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showUserlistPopupWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:UserlistPopupWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: Userlist Popup menu", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Popup...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Userlist Popup menu", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Popup...")];
     [window loadDataFromList:&popup_list filename:@"popup.conf"];
     [window setHelp:ulbutton_help];
     [window makeKeyAndOrderFront:self];
@@ -990,7 +1042,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showDialogButtonsWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:DialogButtonsWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: Dialog buttons", @"xchat", @"")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Dialog buttons", @"xchat", @"")];
     [window loadDataFromList:&dlgbutton_list filename:@"dlgbuttons.conf"];
     [window setHelp:dlgbutton_help];
     [window makeKeyAndOrderFront:self];
@@ -1000,7 +1052,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showReplacePopupWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:ReplacePopupWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: Replace", @"xchat", @"")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Replace", @"xchat", @"")];
     [window loadDataFromList:&replace_list filename:@"replace.conf"];
     [window makeKeyAndOrderFront:self];
 }
@@ -1014,7 +1066,7 @@ AquaChat *AquaChatSharedObject;
 - (void) showUrlHandlersWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:URLHandlersWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: URL Handlers", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->URL Handler...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: URL Handlers", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->URL Handler...")];
     [window loadDataFromList:&urlhandler_list filename:@"urlhandlers.conf"];
     [window setHelp:url_help];
     [window makeKeyAndOrderFront:self];    
@@ -1024,7 +1076,7 @@ AquaChat *AquaChatSharedObject;
 {
     EditListWindow *window = [UtilityWindow utilityByKey:UserMenusWindowKey windowNibName:@"EditListWindow"];
 
-    [window setTitle:NSLocalizedStringFromTable(@"XChat: User menu", @"xchat", @"Title of Window: MainMenu->User Menu->Edit This Menu...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: User menu", @"xchat", @"Title of Window: MainMenu->User Menu->Edit This Menu...")];
     [window loadDataFromList:&usermenu_list filename:@"usermenu.conf"];
     [window makeKeyAndOrderFront:self];    
     [window setTarget:[AquaChat sharedAquaChat] didCloseSelector:@selector(updateUsermenu)];
@@ -1080,8 +1132,8 @@ AquaChat *AquaChatSharedObject;
 
 - (NSDictionary *) registrationDictionaryForGrowl
 {
-    return @{GROWL_NOTIFICATIONS_ALL: @[@"X-Chat"],
-            GROWL_NOTIFICATIONS_DEFAULT: @[@"X-Chat"]};
+    return @{GROWL_NOTIFICATIONS_ALL: @[@XA_PRODUCT_SHORT],
+            GROWL_NOTIFICATIONS_DEFAULT: @[@XA_PRODUCT_SHORT]};
 }
 
 - (BOOL)hasNetworkClientEntitlement {
@@ -1152,7 +1204,7 @@ AquaChat *AquaChatSharedObject;
 {
     struct XAMenuPreferenceItem *pref = &menuPreferenceItems[[sender tag]];
     *pref->preference = !*pref->preference;
-    NSCellStateValue shownValue = *pref->preference ? NSOnState : NSOffState;
+    NSControlStateValue shownValue = *pref->preference ? NSControlStateValueOn : NSControlStateValueOff;
     if (pref->reverse) shownValue = !shownValue;
     [sender setState:shownValue];
 }
@@ -1183,7 +1235,7 @@ AquaChat *AquaChatSharedObject;
     {
         menuPreferenceItems [i] = tempPreferences [i];
         struct XAMenuPreferenceItem *pref = &menuPreferenceItems [i];
-        NSCellStateValue shownValue = *pref->preference ? NSOnState : NSOffState;
+        NSControlStateValue shownValue = *pref->preference ? NSControlStateValueOn : NSControlStateValueOff;
         if (pref->reverse) shownValue = !shownValue;
         [pref->menuItem setState:shownValue];
         [pref->menuItem setTag:i];

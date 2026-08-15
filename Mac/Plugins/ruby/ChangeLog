@@ -1,0 +1,34 @@
+XChat-Ruby Plugin
+-----------------
+
+v1.x:
+ - Fixed bug where command /rb is entered with no arguments
+ - Added help command
+ - Fixed typo: get_prefs instead of get_pres
+ - /rb exec executes ruby code and prints the returned object
+ - puts now works with non-strings just like print
+ - find_context, get_context and set_context added
+ - emit_print array referencing fixed
+
+v1.2: 25 Apr 2007
+  - Fixed bug 1705938: print, puts, print_fmt, puts_fmt with 3 arguments works
+  - Fixed bug 1295417: print_fmt doesn't does print instead of puts
+  - Fixed bug 1049124: Compile with -fPIC to support AMD64.
+  - Added makefile for compiling a universal shared library on Mac
+    OS X 10.4
+  - Makefile: added variables, uninstall
+  - samples/JBanner.rb: added brackets around arguments (fix ruby warning)
+  - xchat-ruby.c: Moved version string to the top of the file
+
+v1.1: 8 Aug 2003
+  - Fixed bugs that caused priorities to not be respected, and caused hooks
+    with the same name to conflict (the older hook was being removed).  Hook
+    return codes should now be understood correctly as well.
+  - Made the internal ruby code more 1.8-compliant.  This should have zero
+    effect if you only have 1.6.x installed, though.
+
+v1.0.1: 9 June 2003
+  Very minor modifications in order to support compilation under Win32.
+
+v1.0: 9 June 2003
+  Initial release.

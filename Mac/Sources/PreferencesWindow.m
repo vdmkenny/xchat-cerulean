@@ -347,7 +347,7 @@ extern struct XATextEventItem XATextEvents[];
     [self getSoundEvents];
     
     NSButtonCell *bcell = [[SoundButtonCell alloc] initTextCell:@""];
-    [bcell setButtonType:NSSwitchButton];
+    [bcell setButtonType:NSButtonTypeSwitch];
     [bcell setControlSize:NSControlSizeMini];
     [bcell setAllowsMixedState:YES];
     #if ENABLE_GROWL
@@ -357,17 +357,14 @@ extern struct XATextEventItem XATextEvents[];
     [bcell release];
     
     bcell = [[SoundButtonCell alloc] initTextCell:@""];
-    [bcell setButtonType:NSSwitchButton];
+    [bcell setButtonType:NSButtonTypeSwitch];
     [bcell setControlSize:NSControlSizeMini];
     [bcell setAllowsMixedState:YES];
-    if (NSClassFromString(@"NSUserNotificationCenter") == nil) {
-        [bcell setEnabled:NO];
-    }
     [[soundsTableView tableColumns][3] setDataCell:bcell];
     [bcell release];
     
     bcell = [[SoundButtonCell alloc] initTextCell:@""];
-    [bcell setButtonType:NSSwitchButton];
+    [bcell setButtonType:NSButtonTypeSwitch];
     [bcell setControlSize:NSControlSizeMini];
     [[soundsTableView tableColumns][5] setDataCell:bcell];
     [bcell release];

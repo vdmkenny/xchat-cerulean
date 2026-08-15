@@ -161,7 +161,7 @@ static float trans = 1;
         NSButton *b = [[[NSButton alloc] init] autorelease];
         [b setButtonType:NSMomentaryPushButton];
         [b setTitle:@""];
-        [b setBezelStyle:NSShadowlessSquareBezelStyle];
+        [b setBezelStyle:NSBezelStyleShadowlessSquare];
         [b setImage:link_delink_image];
         [b sizeToFit];
         if (![self isFlipped])
@@ -347,8 +347,7 @@ static float trans = 1;
 
         [window setAlphaValue:trans];
         [window setReleasedWhenClosed:NO];
-        [window setShowsResizeIndicator:NO];
-        
+
         [window setContentView:self];
         
         [window setDelegate:self];
@@ -454,19 +453,29 @@ static float trans = 1;
     if (!server)
         return;
 
-    NSArray *notifications = [NSUserNotificationCenter defaultUserNotificationCenter].deliveredNotifications;
+    int serverID = server->id;
+    NSString *label = [tabViewItem.label copy];
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
 
-    for (NSUserNotification *notification in notifications)
-    {
-        NSNumber *servId = notification.userInfo[@"server"];
-        NSString *channel = notification.userInfo[@"channel"];
-        if (!servId || !channel)
-            continue;
+    [center getDeliveredNotificationsWithCompletionHandler:^(NSArray<UNNotification *> *notifications) {
+        NSMutableArray<NSString *> *stale = [NSMutableArray array];
 
-        if ([servId intValue] == server->id &&
-             [channel isEqualToString:tabViewItem.label])
-            [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
-    }
+        for (UNNotification *notification in notifications)
+        {
+            NSDictionary *userInfo = notification.request.content.userInfo;
+            NSNumber *servId = userInfo[@"server"];
+            NSString *channel = userInfo[@"channel"];
+            if (!servId || !channel)
+                continue;
+
+            if ([servId intValue] == serverID && [channel isEqualToString:label])
+                [stale addObject:notification.request.identifier];
+        }
+
+        if (stale.count > 0)
+            [center removeDeliveredNotificationsWithIdentifiers:stale];
+        [label release];
+    }];
 }
 
 - (void) windowDidResize:(NSNotification *) notification

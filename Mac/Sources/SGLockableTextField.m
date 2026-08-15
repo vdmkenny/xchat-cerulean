@@ -59,7 +59,7 @@
  */
 - (BOOL) isLocked
 {
-    return [lockCell state] == NSOffState;
+    return [lockCell state] == NSControlStateValueOff;
 }
 
 - (void) doLock:(id)sender
@@ -92,7 +92,7 @@
         {
             lockCell = [[NSButtonCell alloc] initImageCell:self.lockImage];
             [lockCell setAlternateImage:self.unlockImage];
-            [lockCell setButtonType:NSToggleButton];
+            [lockCell setButtonType:NSButtonTypeToggle];
             [lockCell setImagePosition:NSImageOnly];
             [lockCell setBordered:NO];
             [lockCell setHighlightsBy:NSContentsCellMask];
@@ -162,7 +162,7 @@
 
 - (void) setLocked:(BOOL)shouldLock
 {
-    [self.lockCell setState:(shouldLock ? NSOffState : NSOnState)];
+    [self.lockCell setState:(shouldLock ? NSControlStateValueOff : NSControlStateValueOn)];
     
     // This may not actually set us as editable.
     // We just need it to add/remove the lock icon
@@ -190,7 +190,7 @@
     [cell setFont:[self font]];
     [cell setScrollable:YES];
     [cell setPlaceholderString:
-     [@"(%@)" format:NSLocalizedStringFromTable(@"Topic is not set", @"xchataqua", @"Blank title on channel")]];
+     [NSString stringWithFormat:@"(%@)", NSLocalizedStringFromTable(@"Topic is not set", @"xchataqua", @"Blank title on channel")]];
     [self setCell:cell];
     [cell release];
     [self calcSize];

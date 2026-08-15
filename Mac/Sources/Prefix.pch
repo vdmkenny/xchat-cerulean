@@ -22,7 +22,6 @@
 #include <debug.h>
 
 #ifdef __OBJC__
-    #import <FoundationExtension/FoundationExtension.h>
     #import <AppKit/AppKit.h>
     #undef TYPE_BOOL
     #import "SG.h"
@@ -30,8 +29,7 @@
     #import "fe-aqua_common.h"
 #endif
 
-#ifdef CONFIG_Azure
-    #define PRODUCT_NAME "XChat Azure"
-#else
-    #define PRODUCT_NAME "X-Chat Aqua"
-#endif
+#include "Branding.h"
+
+/* Also the name of the Application Support folder we keep settings in. */
+#define PRODUCT_NAME XA_PRODUCT_NAME

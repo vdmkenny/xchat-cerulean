@@ -19,7 +19,7 @@
  * Correspond to fe-gtk: xchat/src/fe-gtk/editlist.*
  */
 
-#include <glib/glib.h>
+#include <glib.h>
 #import "UtilityWindow.h"
 
 @interface EditListWindow : UtilityWindow <NSTableViewDataSource, NSTableViewDelegate> {

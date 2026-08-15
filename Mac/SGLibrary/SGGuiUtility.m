@@ -72,7 +72,7 @@
     if ([view isKindOfClass:[NSButton class]]) 
     {
         NSButton *button = (NSButton *)view;
-        if ([button bezelStyle] == NSShadowlessSquareBezelStyle)
+        if ([button bezelStyle] == NSBezelStyleShadowlessSquare)
             [button setFont:font];
     }
     else

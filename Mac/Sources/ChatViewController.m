@@ -585,12 +585,12 @@ static NSImage *emptyBulletImage;
 {
     NSButton *b = [[NSButton alloc] init];
     
-    [b setButtonType:NSPushOnPushOffButton];
+    [b setButtonType:NSButtonTypePushOnPushOff];
     [b setTitle:[NSString stringWithFormat:@"%c", toupper (flag)]];
     [[b cell] setControlSize:NSControlSizeSmall];
     [b setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]]];
     [b setImagePosition:NSNoImage];
-    [b setBezelStyle:NSTexturedSquareBezelStyle];
+    [b setBezelStyle:NSBezelStyleTexturedSquare];
     [b sizeToFit];
     [b setTag:flag];
     [b setAction:selector];
@@ -762,7 +762,7 @@ static NSImage *emptyBulletImage;
 - (void)toggleConferenceMode:(id)sender
 {
     sess->text_hidejoinpart = !sess->text_hidejoinpart;
-    [sender setState:sess->text_hidejoinpart ? NSOnState : NSOffState];
+    [sender setState:sess->text_hidejoinpart ? NSControlStateValueOn : NSControlStateValueOff];
 }
 
 - (void) doMircColor:(id)sender
@@ -797,7 +797,7 @@ static NSImage *emptyBulletImage;
     
     // First item is the conference mode button
     
-    [[m itemAtIndex:0] setState:sess->text_hidejoinpart ? NSOnState : NSOffState];
+    [[m itemAtIndex:0] setState:sess->text_hidejoinpart ? NSControlStateValueOn : NSControlStateValueOff];
     
     NSRect rect = NSMakeRect (0.0f, 0.0f, 100.0f, 14.0f); // XXX: constant size used
     ColorPalette *p = [[AquaChat sharedAquaChat] palette];
@@ -855,9 +855,9 @@ static NSImage *emptyBulletImage;
     [userlistTableView setTarget:self];
     [userlistTableView setDataSource:self];
     [userlistTableView setDelegate:self];
-    [userlistTableView registerForDraggedTypes:@[NSFilenamesPboardType]];
+    [userlistTableView registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
     
-    //[inputTextField registerForDraggedTypes:[NSArray arrayWithObject:NSStringPboardType]];
+    //[inputTextField registerForDraggedTypes:[NSArray arrayWithObject:NSPasteboardTypeString]];
     
     if (prefs.showhostname_in_userlist)
     {
@@ -1232,12 +1232,12 @@ static NSImage *emptyBulletImage;
 
 - (void) doLButton:(id)sender
 {
-    set_l_flag (sess, [sender state] == NSOnState, [limitTextField intValue]);
+    set_l_flag (sess, [sender state] == NSControlStateValueOn, [limitTextField intValue]);
 }
 
 - (void) doKButton:(id)sender
 {
-    set_k_flag (sess, [sender state] == NSOnState, (char *) [[keyTextField stringValue] UTF8String]);
+    set_k_flag (sess, [sender state] == NSControlStateValueOn, (char *) [[keyTextField stringValue] UTF8String]);
 }
 
 - (void) doBButton:(id)sender
@@ -1247,14 +1247,14 @@ static NSImage *emptyBulletImage;
 
 - (void) doFlagButton:(id)sender
 {
-    change_channel_flag (sess, [sender tag], [sender state] == NSOnState);
+    change_channel_flag (sess, [sender tag], [sender state] == NSControlStateValueOn);
 }
 
 - (void) doKeyTextField:(id)sender
 {
     if (sess->server->connected && sess->channel[0])
     {
-        [kButton setState:NSOnState];
+        [kButton setState:NSControlStateValueOn];
         [self doKButton:kButton];
     }
 }
@@ -1263,7 +1263,7 @@ static NSImage *emptyBulletImage;
 {
     if (sess->server->connected && sess->channel[0])
     {
-        [lButton setState:NSOnState];
+        [lButton setState:NSControlStateValueOn];
         [self doLButton:lButton];
     }
 }
@@ -1289,7 +1289,7 @@ static NSImage *emptyBulletImage;
         default: return;
     }
     
-    [button setState:sign == '+' ? NSOnState : NSOffState];
+    [button setState:sign == '+' ? NSControlStateValueOn : NSControlStateValueOff];
     
     // Can't do this..  We really need to know if our user mode allows
     // us to edit the topic.. can we know that for sure given the various
@@ -1744,7 +1744,7 @@ static NSImage *emptyBulletImage;
             // else fall through
             
         default:
-            title = [NSString stringWithFormat:@"X-Chat [%s/%s]", XCHAT_AQUA_VERSION_STRING, PACKAGE_VERSION];
+            title = [NSString stringWithFormat:@"%s %s", PRODUCT_NAME, XCHAT_AQUA_VERSION];
     }
     [self.chatView setTitle:title];
 }
@@ -1825,10 +1825,11 @@ static NSImage *emptyBulletImage;
 - (BOOL) processFileDrop:(id<NSDraggingInfo>)info forUser:(NSString *)nick
 {
     NSPasteboard *pboard = [info draggingPasteboard];
-    
-    if (![[pboard types] containsObject:NSFilenamesPboardType]) 
+    NSDictionary *fileURLsOnly = @{ NSPasteboardURLReadingFileURLsOnlyKey: @YES };
+
+    if (![pboard canReadObjectForClasses:@[[NSURL class]] options:fileURLsOnly])
         return NO;
-    
+
     if (!nick)
     {
         if (sess->type == SESS_DIALOG)
@@ -1844,9 +1845,10 @@ static NSImage *emptyBulletImage;
         }
     }
     
-    NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-    for ( id file in files ) {
-        dcc_send (sess, (char *)[nick UTF8String], (char *)[file UTF8String], prefs.dcc_max_send_cps, 0);
+    NSArray<NSURL *> *files = [pboard readObjectsForClasses:@[[NSURL class]]
+                                                    options:fileURLsOnly];
+    for (NSURL *file in files) {
+        dcc_send (sess, (char *)[nick UTF8String], (char *)[file.path UTF8String], prefs.dcc_max_send_cps, 0);
     }
     return YES;
 }

@@ -1,0 +1,16 @@
+// Third-party dependencies are taken from Homebrew rather than vendored.
+//
+// Override the prefix if your Homebrew lives somewhere else, e.g. an Intel
+// install or a custom one:
+//
+//     xcodebuild -project XChatAqua.xcodeproj HOMEBREW_PREFIX=/usr/local ...
+
+HOMEBREW_PREFIX = /opt/homebrew
+
+GLIB_PREFIX = $(HOMEBREW_PREFIX)/opt/glib
+GETTEXT_PREFIX = $(HOMEBREW_PREFIX)/opt/gettext
+OPENSSL_PREFIX = $(HOMEBREW_PREFIX)/opt/openssl@3
+
+// glib keeps a second, arch-specific header dir next to the library.
+DEP_HEADER_SEARCH_PATHS = $(GLIB_PREFIX)/include/glib-2.0 $(GLIB_PREFIX)/lib/glib-2.0/include $(GETTEXT_PREFIX)/include $(OPENSSL_PREFIX)/include
+DEP_LIBRARY_SEARCH_PATHS = $(GLIB_PREFIX)/lib $(GETTEXT_PREFIX)/lib $(OPENSSL_PREFIX)/lib

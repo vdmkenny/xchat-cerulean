@@ -1,1 +1,5 @@
 #include "BuildNumber.xcconfig"
+#include "Dependencies.xcconfig"
+
+HEADER_SEARCH_PATHS = $(inherited) $(SRCROOT)/Mac/Sources $(SRCROOT)/Mac/contrib/include $(DEP_HEADER_SEARCH_PATHS)
+LIBRARY_SEARCH_PATHS = $(inherited) $(DEP_LIBRARY_SEARCH_PATHS)

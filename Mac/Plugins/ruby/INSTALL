@@ -1,0 +1,71 @@
+XChat-Ruby Plugin v. 1.2
+
+http://sourceforge.net/projects/xchat-ruby/
+
+Jamis Buck <jgb3@email.byu.edu>
+25 April 2007
+===============================
+
+Installation
+------------
+
+If you received a binary version of this plugin (already compiled), simply
+do the following, depending on your operating system:
+
+  LINUX: copy the xchat-ruby.so file to your ~/.xchat2 directory.
+  WINDOWS: copy the xchat-ruby.dll file to your XChat home or global XChat
+    plugins directory (see under 'Compiling' for more information about
+    where these directories are).
+  
+This will cause the ruby plugin to be loaded automatically when you run XChat.
+
+You don't need to have ruby installed, but it's a good idea (since some of
+the plugins you may use with the ruby plugin may need optional functionality
+that is shipped with the ruby interpreter).  If you have ruby installed, you
+can set up the ruby environment for the XChat-Ruby plugin by typing the
+following:
+
+    ruby -e 'puts $LOAD_PATH.join("\n")' > rubyenv
+
+Then, copy the rubyenv file to your XChat home directory.
+
+Sample plugins written in ruby may be found in the 'samples' subdirectory.
+
+If you have any plugins written in ruby that you want automatically loaded
+when you start XChat, you must (1) make sure the xchat-ruby.so plugin is
+loaded on start up, and (2) put the ruby scripts in your xchat2 home
+directory (the scripts MUST be suffixed with .rb).
+
+
+Compiling
+---------
+
+If you received a source package of XChat-Ruby, you can build and install
+the plugin by doing the following, based on your operating system:
+
+  LINUX:
+    cd src
+    make
+    make install
+
+  WINDOWS:
+    cd src
+    win32\make
+
+You MUST have ruby installed and in your path for either method to work.
+The 'make install' step under Linux will copy the xchat-ruby.so file to
+your home xchat2 directory, and will also automatically initialize the ruby
+environment for the plugin.
+
+For Windows, the installation is not automatic (yet): you'll need to copy
+the xchat-ruby.dll file to either your XChat home directory or the global
+XChat plugins directory:
+
+  XChat home:
+    C:\Documents and Settings\username\Application Data\X-Chat 2
+
+  Global XChat plugins directory:
+    C:\Program Files\XChat\plugins
+
+You should also copy the 'rubyenv' file to your XChat home directory.
+

@@ -72,8 +72,8 @@
     }
     [copyString deleteCharactersInRange:NSMakeRange([copyString length] - 1, 1)];    //chop off last \n
 
-    [pb declareTypes:@[NSStringPboardType] owner:nil];
-    [pb setString:copyString forType:NSStringPboardType];
+    [pb declareTypes:@[NSPasteboardTypeString] owner:nil];
+    [pb setString:copyString forType:NSPasteboardTypeString];
 }
 
 - (BOOL) validateMenuItem:(NSMenuItem*)menuItem
