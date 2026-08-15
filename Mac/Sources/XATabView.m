@@ -610,8 +610,9 @@ NSNib *XATabViewItemTabMenuNib;
 - (void) setOutlineWidth:(CGFloat) width
 {
     prefs.xa_outline_width = width;
-    if (width < 50.0f) {            // Just because
-        width = 50.0f;
+    // Narrow enough to truncate network names is not a useful sidebar.
+    if (width < 150.0f) {
+        width = 150.0f;
     }
     if (self->tabViewType != XATabViewTypeOutline) return;
     

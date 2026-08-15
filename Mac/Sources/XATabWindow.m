@@ -22,9 +22,90 @@
         self.titlebarAppearsTransparent = NO;
         self.toolbarStyle = NSWindowToolbarStyleUnified;
 
+        [self installToolbar];
         [self makeKeyAndOrderFront:self];
     }
     return self;
+}
+
+#pragma mark Toolbar
+
+static NSString * const XAToolbarIdentifier   = @"XAMainToolbar";
+static NSString * const XAToolbarNetworks     = @"networks";
+static NSString * const XAToolbarJoinChannel  = @"joinChannel";
+static NSString * const XAToolbarChannelList  = @"channelList";
+static NSString * const XAToolbarSearch       = @"search";
+static NSString * const XAToolbarPreferences  = @"preferences";
+
+- (void)installToolbar {
+    NSToolbar *toolbar = [[[NSToolbar alloc] initWithIdentifier:XAToolbarIdentifier] autorelease];
+    toolbar.delegate = self;
+    toolbar.displayMode = NSToolbarDisplayModeIconOnly;
+    toolbar.allowsUserCustomization = YES;
+    toolbar.autosavesConfiguration = YES;
+    self.toolbar = toolbar;
+}
+
+/* Actions are sent down the responder chain, so they reach AquaChat the same
+ * way the equivalent menu items do. */
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
+     itemForItemIdentifier:(NSString *)identifier
+ willBeInsertedIntoToolbar:(BOOL)flag
+{
+    NSString *symbol = nil, *label = nil;
+    SEL action = NULL;
+
+    if ([identifier isEqualToString:XAToolbarNetworks]) {
+        symbol = @"network";
+        label = NSLocalizedStringFromTable(@"Networks", @"xchataqua", @"Toolbar item");
+        action = @selector(showNetworkWindow:);
+    } else if ([identifier isEqualToString:XAToolbarJoinChannel]) {
+        symbol = @"plus.bubble";
+        label = NSLocalizedStringFromTable(@"Join Channel", @"xchataqua", @"Toolbar item");
+        action = @selector(openNewChannel:);
+    } else if ([identifier isEqualToString:XAToolbarChannelList]) {
+        symbol = @"list.bullet";
+        label = NSLocalizedStringFromTable(@"Channel List", @"xchataqua", @"Toolbar item");
+        action = @selector(showChannelWindow:);
+    } else if ([identifier isEqualToString:XAToolbarSearch]) {
+        symbol = @"magnifyingglass";
+        label = NSLocalizedStringFromTable(@"Search", @"xchataqua", @"Toolbar item");
+        action = @selector(showSearchPanel:);
+    } else if ([identifier isEqualToString:XAToolbarPreferences]) {
+        symbol = @"gearshape";
+        label = NSLocalizedStringFromTable(@"Settings", @"xchataqua", @"Toolbar item");
+        action = @selector(showPreferencesWindow:);
+    } else {
+        return nil;
+    }
+
+    NSToolbarItem *item = [[[NSToolbarItem alloc] initWithItemIdentifier:identifier] autorelease];
+    item.label = label;
+    item.paletteLabel = label;
+    item.toolTip = label;
+    item.image = [NSImage imageWithSystemSymbolName:symbol accessibilityDescription:label];
+    item.target = nil;
+    item.action = action;
+    return item;
+}
+
+- (NSArray<NSString *> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
+    return @[XAToolbarNetworks,
+             XAToolbarJoinChannel,
+             XAToolbarChannelList,
+             NSToolbarFlexibleSpaceItemIdentifier,
+             XAToolbarSearch,
+             XAToolbarPreferences];
+}
+
+- (NSArray<NSString *> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
+    return @[XAToolbarNetworks,
+             XAToolbarJoinChannel,
+             XAToolbarChannelList,
+             XAToolbarSearch,
+             XAToolbarPreferences,
+             NSToolbarFlexibleSpaceItemIdentifier,
+             NSToolbarSpaceItemIdentifier];
 }
 
 - (XATabView *)tabView {

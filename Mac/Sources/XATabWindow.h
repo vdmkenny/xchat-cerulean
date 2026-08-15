@@ -10,7 +10,7 @@
 
 @class XATabView;
 
-@interface XATabWindow : NSWindow<XAEventChain>
+@interface XATabWindow : NSWindow<XAEventChain, NSToolbarDelegate>
 
 @property(nonatomic, readonly) XATabView *tabView;
 
