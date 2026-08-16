@@ -7,6 +7,7 @@
 //
 
 #import "XATabWindow.h"
+#import "XATabView.h"
 #import "AquaChat.h"
 #import "ColorPalette.h"
 
@@ -30,22 +31,27 @@
 
 #pragma mark Toolbar
 
-static NSString * const XAToolbarIdentifier   = @"XAMainToolbar";
+static NSString * const XAToolbarIdentifier   = @"XAMainToolbar2";
 static NSString * const XAToolbarChannelList  = @"toggleChannelList";
 static NSString * const XAToolbarUserList     = @"toggleUserList";
+static NSString * const XAToolbarSidebarSplit = @"sidebarSeparator";
 static NSString * const XAToolbarNetworks     = @"networks";
 static NSString * const XAToolbarJoinChannel  = @"joinChannel";
 static NSString * const XAToolbarChannelWindow = @"channelWindow";
 static NSString * const XAToolbarSearch       = @"search";
 static NSString * const XAToolbarPreferences  = @"preferences";
 
+/* Deferred a turn so the channel list exists: the tracking separator needs
+ * the split view it aligns with. */
 - (void)installToolbar {
-    NSToolbar *toolbar = [[[NSToolbar alloc] initWithIdentifier:XAToolbarIdentifier] autorelease];
-    toolbar.delegate = self;
-    toolbar.displayMode = NSToolbarDisplayModeIconOnly;
-    toolbar.allowsUserCustomization = YES;
-    toolbar.autosavesConfiguration = YES;
-    self.toolbar = toolbar;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSToolbar *toolbar = [[[NSToolbar alloc] initWithIdentifier:XAToolbarIdentifier] autorelease];
+        toolbar.delegate = self;
+        toolbar.displayMode = NSToolbarDisplayModeIconOnly;
+        toolbar.allowsUserCustomization = YES;
+        toolbar.autosavesConfiguration = YES;
+        self.toolbar = toolbar;
+    });
 }
 
 /* Actions are sent down the responder chain, so they reach AquaChat the same
@@ -56,6 +62,15 @@ static NSString * const XAToolbarPreferences  = @"preferences";
 {
     NSString *symbol = nil, *label = nil;
     SEL action = NULL;
+
+    if ([identifier isEqualToString:XAToolbarSidebarSplit]) {
+        NSSplitView *splitView = self.tabView.channelSplitView;
+        if (splitView == nil || [[splitView subviews] count] < 2)
+            return nil;
+        return [NSTrackingSeparatorToolbarItem trackingSeparatorToolbarItemWithIdentifier:identifier
+                                                                               splitView:splitView
+                                                                            dividerIndex:0];
+    }
 
     if ([identifier isEqualToString:XAToolbarChannelList]) {
         symbol = @"sidebar.left";
@@ -99,19 +114,23 @@ static NSString * const XAToolbarPreferences  = @"preferences";
     return item;
 }
 
+/* The channel list toggle sits over the sidebar and the user list toggle at
+ * the trailing edge, each above the pane it hides. */
 - (NSArray<NSString *> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
     return @[XAToolbarChannelList,
+             XAToolbarSidebarSplit,
              XAToolbarNetworks,
              XAToolbarJoinChannel,
              XAToolbarChannelWindow,
              NSToolbarFlexibleSpaceItemIdentifier,
              XAToolbarSearch,
-             XAToolbarUserList,
-             XAToolbarPreferences];
+             XAToolbarPreferences,
+             XAToolbarUserList];
 }
 
 - (NSArray<NSString *> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
     return @[XAToolbarChannelList,
+             XAToolbarSidebarSplit,
              XAToolbarUserList,
              XAToolbarNetworks,
              XAToolbarJoinChannel,

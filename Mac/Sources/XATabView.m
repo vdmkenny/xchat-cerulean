@@ -327,9 +327,9 @@ NSImage *XATabViewOutlineCellCloseImage;
 
     NSVisualEffectView *material =
         [[[NSVisualEffectView alloc] initWithFrame:[container bounds]] autorelease];
-    material.material = NSVisualEffectMaterialSidebar;
-    material.blendingMode = NSVisualEffectBlendingModeBehindWindow;
-    material.state = NSVisualEffectStateFollowsWindowActiveState;
+    material.material = NSVisualEffectMaterialUnderWindowBackground;
+    material.blendingMode = NSVisualEffectBlendingModeWithinWindow;
+    material.state = NSVisualEffectStateInactive;
     material.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 
     [[scrollView retain] autorelease];
@@ -345,7 +345,7 @@ NSImage *XATabViewOutlineCellCloseImage;
     else
         [parent addSubview:container];
 
-    [parent adjustSubviews];
+    [parent resizeSubviewsWithOldSize:[parent frame].size];
 }
 
 - (void)selectRowForTabViewItem:(XATabViewItem *)tabViewItem {
@@ -644,8 +644,9 @@ NSNib *XATabViewItemTabMenuNib;
 }
 
 - (void)applyPreferences:sender {
-    [_tabOutlineView applyPreferences:sender];
-    
+    /* The tab type has to be settled before the list applies its own
+     * preferences: putting the sidebar material in place lays the split view
+     * out, and that layout depends on the type. */
     if ( prefs.tab_layout == 2 ) {
         tabViewType = XATabViewTypeOutline;
     } else {
@@ -659,22 +660,22 @@ NSNib *XATabViewItemTabMenuNib;
     }
     
     [self setTabViewType:tabViewType];
+    [_tabOutlineView applyPreferences:sender];
     [self setHideCloseButtons:prefs.xa_hide_tab_close_buttons];
     [self setOutlineWidth:prefs.xa_outline_width];
     [self redrawTabItems];
 }
 
+/* The list is inside a material container that fills the pane, so the width
+ * is stored and the split view laid out again rather than resizing the
+ * scroll view, which the container would immediately override. */
 - (void) setOutlineWidth:(CGFloat) width
 {
-    prefs.xa_outline_width = width;
-    // Narrow enough to truncate network names is not a useful sidebar.
-    if (width < 150.0f) {
-        width = 150.0f;
-    }
+    prefs.xa_outline_width = MAX(width, XAMinimumSidebarWidth);
     if (self->tabViewType != XATabViewTypeOutline) return;
-    
-    NSScrollView *outlineScroll = [_tabOutlineView enclosingScrollView];
-    [outlineScroll setFrameSize:NSMakeSize(width, [outlineScroll frame].size.height)];
+
+    NSSplitView *splitView = self.channelSplitView;
+    [splitView resizeSubviewsWithOldSize:[splitView frame].size];
 }
 
 - (id)chatView {
@@ -1258,11 +1259,22 @@ constrainMinCoordinate:(CGFloat)proposedMin
 {
     _channelListCollapsed = !_channelListCollapsed;
 
-    NSView *splitView = [[_tabOutlineView enclosingScrollView] superview];
-    if ([splitView isKindOfClass:[NSSplitView class]]) {
-        [(NSSplitView *)splitView adjustSubviews];
-        [splitView setNeedsDisplay:YES];
-    }
+    /* adjustSubviews is the default proportional layout and does not consult
+     * the delegate, so go through resizeSubviewsWithOldSize: to reach the
+     * layout that honours the collapsed flag. */
+    NSSplitView *splitView = self.channelSplitView;
+    [splitView resizeSubviewsWithOldSize:[splitView frame].size];
+    [splitView setNeedsDisplay:YES];
+}
+
+/* The list is wrapped in a material container, so this walks up rather than
+ * assuming the scroll view's parent is the split view. */
+- (NSSplitView *)channelSplitView
+{
+    NSView *view = [_tabOutlineView enclosingScrollView];
+    while (view != nil && ![view isKindOfClass:[NSSplitView class]])
+        view = [view superview];
+    return (NSSplitView *)view;
 }
 
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item

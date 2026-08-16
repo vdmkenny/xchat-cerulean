@@ -868,6 +868,15 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 /* Shows or hides the user list. The menu item drives the same preference
  * through toggleMenuItem:, so keep it in step. */
+/* Only channels have a user list, so the toggle is dead weight on a server
+ * or dialogue tab and reads as broken unless it is disabled there. */
+- (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item
+{
+    if ([item action] == @selector(toggleUserList:))
+        return current_sess != NULL && current_sess->type == SESS_CHANNEL;
+    return YES;
+}
+
 - (IBAction) toggleUserList:(id)sender
 {
     prefs.hideuserlist = !prefs.hideuserlist;

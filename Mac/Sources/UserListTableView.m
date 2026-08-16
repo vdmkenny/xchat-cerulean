@@ -11,6 +11,23 @@
 
 @implementation UserListTableView
 
+/* The pane behind this table is a vibrant sidebar, so the table and its
+ * scroll view draw nothing of their own and let it show through. Row height
+ * is left alone: it is computed from the nick and host widths. */
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+
+    self.style = NSTableViewStyleInset;
+    self.intercellSpacing = NSMakeSize(6.0, 2.0);
+    self.backgroundColor = [NSColor clearColor];
+    self.gridStyleMask = NSTableViewGridNone;
+
+    NSScrollView *scrollView = [self enclosingScrollView];
+    scrollView.borderType = NSNoBorder;
+    scrollView.drawsBackground = NO;
+}
+
 - (void)rightMouseDown:(NSEvent *)theEvent
 {
     NSInteger clickedRow = [self rowAtPoint:[self convertPoint:[theEvent locationInWindow] fromView:nil]];

@@ -173,16 +173,22 @@
 #pragma mark -
 #pragma mark Various utility objects
 
-@interface ChatSplitView : NSSplitView
+@interface ChatSplitView : NSSplitView <NSSplitViewDelegate>
 
-@property (nonatomic, assign) NSInteger splitPosition;
+- (void)setUserListHidden:(BOOL)hidden;
 
 @end
+
+/* Narrower than this the nicks truncate. */
+static const CGFloat XAMinimumUserListWidth = 160.0;
 
 @implementation ChatSplitView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+
+    self.delegate = self;
+    self.dividerStyle = NSSplitViewDividerStyleThin;
 
     /* subview 0 is the conversation, subview 1 is the user list. Without
      * holding priorities NSSplitView shares out extra width proportionally,
@@ -192,108 +198,57 @@
     [self setHoldingPriority:NSLayoutPriorityDefaultHigh forSubviewAtIndex:1];
 }
 
-- (void)viewDidResize:(id)sender {
-    NSSplitViewDividerStyle dividerStyle;
-    if (self.splitPosition < 10) {
-        prefs.xa_paned_pos = 30;
-        prefs.hideuserlist = 1;
-        self.splitPosition = 0;
-        dividerStyle = NSSplitViewDividerStyleThick;
-    } else {
-        prefs.xa_paned_pos = (int)self.splitPosition;
-        prefs.hideuserlist = 0;
-        dividerStyle = NSSplitViewDividerStyleThin;
+/* This split view lays out under Auto Layout, where a pane is collapsed by
+ * hiding it rather than by giving it a zero width. */
+- (void)setUserListHidden:(BOOL)hidden {
+    NSArray *panes = [self subviews];
+    if ([panes count] < 2) return;
+
+    NSView *userList = panes[1];
+    if ([userList isHidden] == hidden) return;
+
+    if (!hidden && NSWidth([userList frame]) < XAMinimumUserListWidth) {
+        [self setPosition:NSWidth([self bounds]) - XAMinimumUserListWidth - [self dividerThickness]
+         ofDividerAtIndex:0];
     }
-    self.dividerStyle = dividerStyle;
+    [userList setHidden:hidden];
 }
 
-- (NSRect) dividerRect
+#pragma mark NSSplitViewDelegate
+
+- (CGFloat)splitView:(NSSplitView *)splitView
+constrainMaxCoordinate:(CGFloat)proposedMax
+         ofSubviewAt:(NSInteger)dividerIndex
 {
-    NSView *first = [self subviews][0];
-    
-    NSRect firstRect = [first frame];
-    firstRect.origin.x = firstRect.size.width - 1;
-    firstRect.size.width = [self dividerThickness] + 1;
-    
-    return firstRect;
+    return NSWidth([splitView bounds]) - XAMinimumUserListWidth - [splitView dividerThickness];
 }
 
-- (void) mouseDown:(NSEvent *) theEvent
+- (CGFloat)splitView:(NSSplitView *)splitView
+constrainMinCoordinate:(CGFloat)proposedMin
+         ofSubviewAt:(NSInteger)dividerIndex
 {
-    [super mouseDown:theEvent];
-    NSPoint where = [theEvent locationInWindow];
-    where = [self convertPoint:where fromView:nil];
-    NSRect divider = [self dividerRect];
-    
-    if (!NSPointInRect(where, divider))
-    {        
-        return;
-    }
-    
-    if ([theEvent clickCount] == 2)
-    {
-        if (prefs.hideuserlist) {
-            [self setSplitPosition:prefs.xa_paned_pos];
-            [self viewDidResize:self];
-        } else {
-            [self setSplitPosition:1];
-            [self viewDidResize:self];
-        }
-    }
+    return 240.0;
 }
 
-- (void) adjustSubviews 
-{
-    NSView *firstView = [self subviews][0];
-    NSView *secondView = [self subviews][1];
-    
-    [firstView setPostsFrameChangedNotifications:NO];
-    [secondView setPostsFrameChangedNotifications:NO];
-    
-    NSRect totalRect = [self bounds];
-    NSRect firstRect = [firstView frame];
-    NSRect secondRect = [secondView frame];
-    
-    secondRect.origin.x = totalRect.size.width - secondRect.size.width;
-    secondRect.origin.y = 0.0f;
-    secondRect.size.height = totalRect.size.height;
-    firstRect.origin.x = 0.0f;
-    firstRect.origin.y = 0.0f;
-    firstRect.size.width = secondRect.origin.x - [self dividerThickness];
-    firstRect.size.height = totalRect.size.height;
-    
-    [firstView setFrame:firstRect];
-    [secondView setFrame:secondRect];
-    
-    [firstView setPostsFrameChangedNotifications:YES];
-    [secondView setPostsFrameChangedNotifications:YES];
+- (BOOL)splitView:(NSSplitView *)splitView canCollapseSubview:(NSView *)subview {
+    return subview == [splitView subviews][1];
 }
 
-#pragma mark Propertyies
-
-- (NSInteger)splitPosition
+- (BOOL)splitView:(NSSplitView *)splitView
+shouldCollapseSubview:(NSView *)subview
+forDoubleClickOnDividerAtIndex:(NSInteger)dividerIndex
 {
-    NSView *second = [self subviews][1];
-    NSRect secondFrame = [second frame];
-    return (int)secondFrame.size.width;
+    return YES;
 }
 
-- (void)setSplitPosition:(NSInteger)position
-{
-    NSView *first = [self subviews][0];
-    NSView *second = [self subviews][1];
-    
-    [first setPostsFrameChangedNotifications:NO];
-    [second setPostsFrameChangedNotifications:NO];
-    
-    NSView *ulist = [self subviews][1];
-    NSRect ulistFrame = [ulist frame];
-    ulistFrame.size.width = position;
-    [ulist setFrame:ulistFrame];
-    
-    [self adjustSubviews];
-    
-    [self setNeedsDisplay:YES];
+- (void)splitViewDidResizeSubviews:(NSNotification *)notification {
+    NSArray *panes = [self subviews];
+    if ([panes count] < 2) return;
+
+    NSView *userList = panes[1];
+    prefs.hideuserlist = [self isSubviewCollapsed:userList] || [userList isHidden];
+    if (!prefs.hideuserlist)
+        prefs.xa_paned_pos = (int)NSWidth([userList frame]);
 }
 
 @end
@@ -674,13 +629,7 @@ static NSImage *XAStatusOrb (NSColor *color)
 }
 
 - (void)adjustSplitBar {
-    if (sess->type != SESS_CHANNEL || prefs.hideuserlist) {
-        [userlistSplitView setSplitPosition:1];
-    } else if (prefs.xa_paned_pos > 0) {
-        [userlistSplitView setSplitPosition:prefs.xa_paned_pos];
-    } else {
-        [userlistSplitView setSplitPosition:150];
-    }
+    [userlistSplitView setUserListHidden:(sess->type != SESS_CHANNEL || prefs.hideuserlist)];
 }
 
 - (void)applyPreferences:(id)sender {
@@ -733,30 +682,24 @@ static NSImage *XAStatusOrb (NSColor *color)
 
     [[AquaChat sharedAquaChat] toggleAwayToValue:sess->server->is_away];
 
+    /* The user list sits on a vibrant sidebar, so it stays transparent unless
+     * the palette background is applied to it explicitly. */
     if (prefs.style_namelistgad) {
-        // bg only
         [userlistTableView setBackgroundColor:backgroundColor];
-
-        // fg, bg and bezel
-        [userlistStatusTextField setTextColor:[NSColor windowFrameTextColor]];
-        [userlistStatusTextField setBackgroundColor:[NSColor windowBackgroundColor]];
-        [userlistStatusTextField setBezeled:NO];
-
-        for (ChannelUser *user in self->users) {
-            [self rehashUserAndUpdateLayout:user];
-        }
+        [[userlistTableView enclosingScrollView] setDrawsBackground:YES];
     } else {
-        // bg only
-        [userlistTableView setBackgroundColor:[NSColor textBackgroundColor]];
-        
-        // fg, bg and bezel
-        [userlistStatusTextField setTextColor:[NSColor windowFrameTextColor]];
-        [userlistStatusTextField setBackgroundColor:[NSColor windowBackgroundColor]];
-        [userlistStatusTextField setBezeled:NO];
-        
-        for (ChannelUser *user in self->users) {
-            [self rehashUserAndUpdateLayout:user];
-        }
+        [userlistTableView setBackgroundColor:[NSColor clearColor]];
+        [[userlistTableView enclosingScrollView] setDrawsBackground:NO];
+    }
+
+    [userlistStatusTextField setTextColor:[NSColor secondaryLabelColor]];
+    [userlistStatusTextField setDrawsBackground:NO];
+    [userlistStatusTextField setBezeled:NO];
+    [userlistStatusTextField setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]
+                                                       weight:NSFontWeightMedium]];
+
+    for (ChannelUser *user in self->users) {
+        [self rehashUserAndUpdateLayout:user];
     }
     
     ColorPalette *palette = [[AquaChat sharedAquaChat] palette];
@@ -956,6 +899,46 @@ static NSStackView *XAStackFromBox(NSView *box,
     return stack;
 }
 
+/* Puts a vibrant sidebar behind a split view pane, the way a stock source
+ * list sits on the window's material. The material cannot be a sibling of
+ * the pane, since that would make it a pane of its own, so the pane is moved
+ * into a container that takes its place in the same slot. */
+static void XAWrapInSidebarMaterial(NSView *pane)
+{
+    NSSplitView *split = (NSSplitView *)[pane superview];
+    if (![split isKindOfClass:[NSSplitView class]]) return;
+
+    NSArray *panes = [split subviews];
+    NSInteger index = [panes indexOfObject:pane];
+    NSView *nextPane = (index != NSNotFound && index + 1 < (NSInteger)[panes count])
+        ? panes[index + 1] : nil;
+
+    NSView *container = [[[NSView alloc] initWithFrame:[pane frame]] autorelease];
+    container.autoresizingMask = [pane autoresizingMask];
+
+    NSVisualEffectView *material =
+        [[[NSVisualEffectView alloc] initWithFrame:[container bounds]] autorelease];
+    material.material = NSVisualEffectMaterialUnderWindowBackground;
+    material.blendingMode = NSVisualEffectBlendingModeWithinWindow;
+    material.state = NSVisualEffectStateInactive;
+    material.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
+    [[pane retain] autorelease];
+    [pane removeFromSuperview];
+    [pane setFrame:[container bounds]];
+    [pane setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+
+    [container addSubview:material];
+    [container addSubview:pane];
+
+    if (nextPane != nil)
+        [split addSubview:container positioned:NSWindowBelow relativeTo:nextPane];
+    else
+        [split addSubview:container];
+
+    [split adjustSubviews];
+}
+
 /* The user list buttons are a grid rather than a single row, so they become
  * an NSGridView. This runs before preferences are applied, because applying
  * them populates the buttons. */
@@ -1014,8 +997,9 @@ static NSStackView *XAStackFromBox(NSView *box,
     XAStackFromBox(chatColumn, NSUserInterfaceLayoutOrientationVertical,
                    10.0, NSEdgeInsetsMake(6.0, 12.0, 12.0, 12.0), @[chatScroll]);
 
-    XAStackFromBox(userColumn, NSUserInterfaceLayoutOrientationVertical,
-                   8.0, NSEdgeInsetsMake(6.0, 10.0, 12.0, 12.0), @[userScroll]);
+    NSStackView *userStack = XAStackFromBox(userColumn, NSUserInterfaceLayoutOrientationVertical,
+                                            8.0, NSEdgeInsetsMake(6.0, 10.0, 12.0, 12.0), @[userScroll]);
+    XAWrapInSidebarMaterial(userStack ?: userColumn);
 
     XAStackFromBox(rootColumn, NSUserInterfaceLayoutOrientationVertical,
                    8.0, NSEdgeInsetsMake(6.0, 0.0, 0.0, 0.0), @[userlistSplitView]);
@@ -1034,6 +1018,13 @@ static NSStackView *XAStackFromBox(NSView *box,
     [self applyPreferences:nil];
 
     [self rebuildLayoutWithStackViews];
+
+    /* The rebuild replaces the split view's panes, so the width the split bar
+     * picked above is gone and has to be applied again. */
+    [self adjustSplitBar];
+
+    [chatScrollView setBorderType:NSNoBorder];
+    [chatScrollView setDrawsBackground:NO];
 
     [self.chatView setServer:sess->server];
     [self.chatView setInitialFirstResponder:inputTextField];

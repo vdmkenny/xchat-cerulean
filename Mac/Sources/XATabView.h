@@ -42,6 +42,10 @@
 
 - (IBAction)toggleChannelList:(id)sender;
 
+/* The split view holding the channel list and the chat area, or nil before
+ * the list is built. */
+@property (nonatomic, readonly) NSSplitView *channelSplitView;
+
 @property(nonatomic, assign) IBOutlet id delegate;
 @property(nonatomic, retain) IBOutlet XATabViewOutlineView *tabOutlineView;
 @property(nonatomic, retain) id chatView;
