@@ -41,6 +41,19 @@
 #include "url.h"
 
 
+/* Builds the space separated list for CAP REQ. */
+static void
+irc_add_cap (char *request, size_t size, const char *name)
+{
+	size_t used = strlen (request);
+
+	if (used)
+		safe_strcpy (request + used, " ", size - used);
+
+	used = strlen (request);
+	safe_strcpy (request + used, name, size - used);
+}
+
 static void
 irc_login (server *serv, char *user, char *realname)
 {
@@ -1146,6 +1159,9 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 				if (strstr (acked, "identify-msg") != NULL)
 					serv->have_idmsg = TRUE;
 
+				if (strstr (acked, "server-time") != NULL)
+					serv->have_server_time = TRUE;
+
 				if (strstr (acked, "sasl") != NULL)
 				{
 					/* The exchange runs before CAP END, which is sent once
@@ -1164,15 +1180,11 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 
 				request[0] = 0;
 				if (serv->use_sasl && serv->password[0] && strstr (offered, "sasl") != NULL)
-					safe_strcpy (request, "sasl", sizeof (request));
+					irc_add_cap (request, sizeof (request), "sasl");
+				if (strstr (offered, "server-time") != NULL)
+					irc_add_cap (request, sizeof (request), "server-time");
 				if (strstr (offered, "identify-msg") != NULL)
-				{
-					if (request[0])
-						safe_strcpy (request + strlen (request), " identify-msg",
-										 sizeof (request) - strlen (request));
-					else
-						safe_strcpy (request, "identify-msg", sizeof (request));
-				}
+					irc_add_cap (request, sizeof (request), "identify-msg");
 
 				if (request[0])
 					tcp_sendf (serv, "CAP REQ :%s\r\n", request);
@@ -1256,6 +1268,105 @@ process_named_servermsg (session *sess, char *buf, char *rawname, char *word_eol
 	EMIT_SIGNAL (XP_TE_SERVTEXT, sess, buf, sess->server->servername, rawname, NULL, 0);
 }
 
+/* Message tags, from the IRCv3 specification: an optional "@" section ahead
+ * of the prefix. Everything downstream expects a line that starts at the
+ * prefix, so the section is read for what is useful and then stepped over.
+ *
+ * Escapes inside a value are \: for a semicolon, \s for a space, \\ for a
+ * backslash, \r and \n. A backslash before anything else is dropped and the
+ * character kept, and a trailing backslash produces nothing. */
+static void
+irc_unescape_tag_value (char *value)
+{
+	char *read = value, *write = value;
+
+	while (*read)
+	{
+		if (*read != '\\')
+		{
+			*write++ = *read++;
+			continue;
+		}
+
+		read++;
+		switch (*read)
+		{
+		case ':':  *write++ = ';';  read++; break;
+		case 's':  *write++ = ' ';  read++; break;
+		case '\\': *write++ = '\\'; read++; break;
+		case 'r':  *write++ = '\r'; read++; break;
+		case 'n':  *write++ = '\n'; read++; break;
+		case 0:    break;			/* trailing backslash: nothing */
+		default:   *write++ = *read++; break;
+		}
+	}
+
+	*write = 0;
+}
+
+/* Reads "YYYY-MM-DDThh:mm:ss.sssZ" as UTC. */
+static time_t
+irc_parse_server_time (const char *value)
+{
+	struct tm tm;
+	int year, month, day, hour, minute, second;
+
+	if (sscanf (value, "%d-%d-%dT%d:%d:%d",
+					&year, &month, &day, &hour, &minute, &second) != 6)
+		return 0;
+
+	memset (&tm, 0, sizeof (tm));
+	tm.tm_year = year - 1900;
+	tm.tm_mon = month - 1;
+	tm.tm_mday = day;
+	tm.tm_hour = hour;
+	tm.tm_min = minute;
+	tm.tm_sec = second;
+
+	return timegm (&tm);
+}
+
+/* Steps buf past the tag section and returns what was worth keeping. */
+static void
+irc_read_tags (server *serv, char **buf, size_t *len)
+{
+	char tags[8192];
+	char *end, *tag, *state;
+	size_t size;
+
+	end = strchr (*buf, ' ');
+	if (end == NULL)
+		return;
+
+	size = end - (*buf + 1);
+	if (size >= sizeof (tags))
+		size = sizeof (tags) - 1;
+
+	memcpy (tags, *buf + 1, size);
+	tags[size] = 0;
+
+	/* Step over the section and the space that closes it. */
+	*len -= (end + 1) - *buf;
+	*buf = end + 1;
+
+	for (tag = strtok_r (tags, ";", &state); tag;
+		  tag = strtok_r (NULL, ";", &state))
+	{
+		char *value = strchr (tag, '=');
+
+		if (value)
+			*value++ = 0;
+		else
+			value = "";		/* a key with no value is the same as an empty one */
+
+		if (!strcmp (tag, "time") && *value)
+		{
+			irc_unescape_tag_value (value);
+			serv->next_stamp = irc_parse_server_time (value);
+		}
+	}
+}
+
 /* irc_inline() - 1 single line received from serv */
 
 static void
@@ -1267,6 +1378,10 @@ irc_inline (server *serv, char *buf, size_t len)
 	char *word_eol[PDIWORDS+1];
 	char pdibuf_static[522]; /* 1 line can potentially be 512*6 in utf8 */
 	char *pdibuf = pdibuf_static;
+
+	serv->next_stamp = 0;
+	if (buf[0] == '@')
+		irc_read_tags (serv, &buf, &len);
 
 	url_check_line (buf, len);
 
@@ -1331,6 +1446,7 @@ irc_inline (server *serv, char *buf, size_t len)
 	}
 
 xit:
+	serv->next_stamp = 0;
 	if (pdibuf != pdibuf_static)
 		free (pdibuf);
 }

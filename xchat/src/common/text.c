@@ -888,7 +888,10 @@ PrintText (session *sess, const char *text)
 
 	log_write (sess, text);
 	scrollback_save (sess, text);
-	fe_print_text (sess, text, 0);
+
+	/* With server-time the line carries when the server saw it, which is
+	 * what matters after a reconnect or when a bouncer replays a backlog. */
+	fe_print_text (sess, text, sess->server ? sess->server->next_stamp : 0);
 
 	if (conv)
 		g_free (conv);
