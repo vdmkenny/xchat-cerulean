@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.3.2</title>
-            <pubDate>Sun, 16 Aug 2026 11:48:33 +0000</pubDate>
+            <title>2.3.3</title>
+            <pubDate>Sun, 16 Aug 2026 12:10:05 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.3.2.1</sparkle:version>
-            <sparkle:shortVersionString>2.3.2</sparkle:shortVersionString>
+            <sparkle:version>2.3.3.1</sparkle:version>
+            <sparkle:shortVersionString>2.3.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -18,20 +18,18 @@ ul{margin:0 0 8px 18px;padding:0}li{margin:3px 0}
 code{font:11px ui-monospace,monospace;background:rgba(127,127,127,.15);
 padding:1px 4px;border-radius:3px}
 </style></head><body>
-<h2>Fixed</h2>
-<ul>
-<li><strong>Clicking a link in the conversation killed the app.</strong> The handler picks a command per kind of word, and for a URL it stopped setting one when links started being followed natively, but still fell through to the code that runs it, which took the length of a null pointer. Any link would do it, and it had been that way since 2017.</li>
-<li><strong>Ruby scripts could not require anything.</strong> The embedded interpreter was started without its load path, so it began with an empty one. A file listing the paths was meant to make up for that, but it was generated when the app was built and then looked for under a directory that exists nowhere, which is what the warning on startup was about. The interpreter now fills the path in from its own configuration.</li>
-<li><strong>The perl bridge was never built.</strong> Three perl scripts shipped with nothing able to run them. It builds against the perl on the machine and is included now. Neither interpreter is carried in the app. Both bind to what the system already provides, as they always did.</li>
-<li>A window in the viewer still asked for the textured appearance that macOS dropped in version 11.</li>
-</ul>
 <h2>Changed</h2>
 <ul>
-<li>The build is quiet again. The plugin bridges produced 328 warnings between them, all from constructs inside the interpreters&#x27; own headers, which are now included as system headers. Also gone: a reference to perl 5.18 that resolved to nothing, generation of a file nothing reads, and a bundle identifier left over from the rename.</li>
+<li><strong>One instance at a time.</strong> A second copy could be started alongside the first, and the two then shared one configuration directory, each overwriting what the other saved on the way out. Opening the app while it is already running goes to the instance that is there.</li>
+<li><strong>Opening a server you are already on takes you to it.</strong> An <code>irc://</code> link put the server in a new tab whether or not it was already open, so the same address twice meant connecting twice. It now brings the existing tab forward. When the link names a channel, its tab is shown if you are already in it and joined on that connection otherwise. A link without a port means the usual one for its scheme, so <code>irc://example.org</code> and <code>irc://example.org:6667</code> count as the same place.</li>
+</ul>
+<h2>Fixed</h2>
+<ul>
+<li>The command built from an <code>irc://</code> link was assembled in a fixed buffer, so a long link was cut short and the client connected to whatever the truncation left behind.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.2/XChat-Cerulean-2.3.2.zip" length="7031897" type="application/octet-stream" sparkle:edSignature="GJLMyvqLslDmL33wzsfdzm+zLwmFNwSYkIImtW1UfS6xp0kreKB2odUQaUhEYythlATfy4lH3plc7EFusz3BAA=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.3/XChat-Cerulean-2.3.3.zip" length="7032148" type="application/octet-stream" sparkle:edSignature="bCSHB4/8KhM2AUgV4Bi3r9hbGYJSW7wINwg5ZHJVQjNCy/w6apQMwC85uGPXZZjWYHNnV9TDBcJp5kxMorQ9AA=="/>
         </item>
     </channel>
 </rss>
