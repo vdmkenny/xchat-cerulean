@@ -24,7 +24,7 @@
                     <button verticalHuggingPriority="750" id="31">
                         <rect key="frame" x="204" y="20" width="74" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Connect" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="379">
+                        <buttonCell key="cell" type="smallSquare" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="379">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -35,7 +35,7 @@
                     <button verticalHuggingPriority="750" id="20">
                         <rect key="frame" x="278" y="20" width="168" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Connect in a new tab" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="378">
+                        <buttonCell key="cell" type="smallSquare" title="Connect in a new tab" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="378">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -135,7 +135,7 @@
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="434">
+                                            <buttonCell key="dataCell" type="check" bezelStyle="rounded" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="434">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="cellTitle"/>
                                             </buttonCell>
@@ -148,7 +148,7 @@
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="435">
+                                            <buttonCell key="dataCell" type="check" bezelStyle="rounded" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="435">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="cellTitle"/>
                                             </buttonCell>
@@ -193,7 +193,7 @@
                     <button verticalHuggingPriority="750" id="180">
                         <rect key="frame" x="20" y="20" width="22" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="389">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="389">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -222,7 +222,7 @@
                     <button verticalHuggingPriority="750" id="187">
                         <rect key="frame" x="41" y="20" width="22" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="393">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="393">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -233,7 +233,7 @@
                     <button verticalHuggingPriority="750" id="188">
                         <rect key="frame" x="71" y="20" width="89" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Show details" alternateTitle="Hide details" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="394">
+                        <buttonCell key="cell" type="smallSquare" title="Show details" alternateTitle="Hide details" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="394">
                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -254,7 +254,7 @@
                     <button id="120">
                         <rect key="frame" x="228" y="416" width="220" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="check" title="Skip network list on startup" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="380">
+                        <buttonCell key="cell" type="check" title="Skip network list on startup" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="380">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -283,7 +283,7 @@
                     <textField verticalHuggingPriority="750" id="266">
                         <rect key="frame" x="241" y="393" width="100" height="14"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Second choice:" id="399">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Second choice:" id="399">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -349,7 +349,7 @@
                 <button id="334">
                     <rect key="frame" x="286" y="425" width="85" height="19"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Favorite" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="432">
+                    <buttonCell key="cell" type="check" title="Favorite" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="432">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
@@ -357,7 +357,7 @@
                 <textField verticalHuggingPriority="750" id="333">
                     <rect key="frame" x="96" y="423" width="185" height="19"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="server name" drawsBackground="YES" id="431">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="server name" drawsBackground="YES" id="431">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -384,7 +384,7 @@
                                     <textField verticalHuggingPriority="750" id="319">
                                         <rect key="frame" x="11" y="348" width="350" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Servers for %s" id="419">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Servers for %s" id="419">
                                             <font key="font" metaFont="smallSystemBold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -410,7 +410,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="313">
+                                                            <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="313">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -423,7 +423,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="309">
+                                                            <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="309">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -436,7 +436,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
-                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="left" controlSize="small" inset="2" id="311">
+                                                            <buttonCell key="dataCell" type="check" bezelStyle="rounded" imagePosition="only" alignment="left" inset="2" id="311">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>
@@ -466,7 +466,7 @@
                                     <button verticalHuggingPriority="750" id="300">
                                         <rect key="frame" x="14" y="203" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="408">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="408">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -477,7 +477,7 @@
                                     <button verticalHuggingPriority="750" id="315">
                                         <rect key="frame" x="36" y="203" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="415">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="415">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -488,7 +488,7 @@
                                     <button id="303">
                                         <rect key="frame" x="77" y="196" width="283" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="Connect to selected server only" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="411">
+                                        <buttonCell key="cell" type="check" title="Connect to selected server only" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="411">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -499,7 +499,7 @@
                                     <button id="299">
                                         <rect key="frame" x="11" y="169" width="349" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="Use global user information" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="407">
+                                        <buttonCell key="cell" type="check" title="Use global user information" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="407">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystemBold"/>
                                         </buttonCell>
@@ -510,7 +510,7 @@
                                     <textField verticalHuggingPriority="750" id="314">
                                         <rect key="frame" x="131" y="151" width="140" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Your nickname" drawsBackground="YES" id="414">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Your nickname" drawsBackground="YES" id="414">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -522,7 +522,7 @@
                                     <textField verticalHuggingPriority="750" id="302">
                                         <rect key="frame" x="11" y="153" width="115" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Nick name:" id="410">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Nick name:" id="410">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -531,7 +531,7 @@
                                     <textField verticalHuggingPriority="750" id="317">
                                         <rect key="frame" x="131" y="103" width="140" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="User name" drawsBackground="YES" id="417">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="User name" drawsBackground="YES" id="417">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -543,7 +543,7 @@
                                     <textField verticalHuggingPriority="750" id="305">
                                         <rect key="frame" x="11" y="105" width="115" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="User name:" id="413">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="User name:" id="413">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -552,7 +552,7 @@
                                     <textField verticalHuggingPriority="750" id="301">
                                         <rect key="frame" x="131" y="79" width="227" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Real name" drawsBackground="YES" id="409">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Real name" drawsBackground="YES" id="409">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -564,7 +564,7 @@
                                     <textField verticalHuggingPriority="750" id="316">
                                         <rect key="frame" x="11" y="81" width="115" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Real name:" id="416">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Real name:" id="416">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -573,7 +573,7 @@
                                     <textField verticalHuggingPriority="750" id="304">
                                         <rect key="frame" x="131" y="127" width="140" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Alternative nickname" drawsBackground="YES" id="412">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Alternative nickname" drawsBackground="YES" id="412">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -585,7 +585,7 @@
                                     <textField verticalHuggingPriority="750" id="318">
                                         <rect key="frame" x="11" y="129" width="115" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Second choice:" id="418">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Second choice:" id="418">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -602,7 +602,7 @@
                                     <button id="323">
                                         <rect key="frame" x="14" y="339" width="330" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Auto connect to this network at startup" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="421">
+                                        <buttonCell key="cell" type="check" title="Auto connect to this network at startup" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="421">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -613,7 +613,7 @@
                                     <button id="328">
                                         <rect key="frame" x="14" y="316" width="330" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Bypass proxy server" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="426">
+                                        <buttonCell key="cell" type="check" title="Bypass proxy server" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="426">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -624,7 +624,7 @@
                                     <button id="326">
                                         <rect key="frame" x="14" y="295" width="330" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Use SSL for all the servers on this network" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="424">
+                                        <buttonCell key="cell" type="check" title="Use SSL for all the servers on this network" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="424">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -635,7 +635,7 @@
                                     <button id="322">
                                         <rect key="frame" x="14" y="274" width="330" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Accept invalid SSL certificate" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="420">
+                                        <buttonCell key="cell" type="check" title="Accept invalid SSL certificate" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="420">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -646,7 +646,7 @@
                                     <textField verticalHuggingPriority="750" id="329" customClass="NSSecureTextField">
                                         <rect key="frame" x="141" y="243" width="220" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" id="427">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" id="427">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -658,7 +658,7 @@
                                     <textField verticalHuggingPriority="750" id="325">
                                         <rect key="frame" x="14" y="245" width="122" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Nickserv password:" id="423">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Nickserv password:" id="423">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -667,7 +667,7 @@
                                     <textField verticalHuggingPriority="750" id="331" customClass="NSSecureTextField">
                                         <rect key="frame" x="141" y="216" width="220" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" id="429">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" id="429">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -679,7 +679,7 @@
                                     <textField verticalHuggingPriority="750" id="327">
                                         <rect key="frame" x="14" y="218" width="122" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Server password:" id="425">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Server password:" id="425">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -688,7 +688,7 @@
                                     <textField verticalHuggingPriority="750" id="324">
                                         <rect key="frame" x="14" y="191" width="122" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Character set:" id="422">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Character set:" id="422">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -697,7 +697,7 @@
                                     <comboBox verticalHuggingPriority="750" id="330">
                                         <rect key="frame" x="141" y="187" width="223" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="428">
+                                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="428">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -717,7 +717,7 @@
                                     <textField verticalHuggingPriority="750" id="291">
                                         <rect key="frame" x="14" y="342" width="337" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="left" title="Favorite channels:" id="403">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Favorite channels:" id="403">
                                             <font key="font" metaFont="smallSystemBold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -726,7 +726,7 @@
                                     <textField verticalHuggingPriority="750" id="290">
                                         <rect key="frame" x="14" y="162" width="337" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="left" title="Connect command:" id="402">
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Connect command:" id="402">
                                             <font key="font" metaFont="smallSystemBold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -752,7 +752,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="286">
+                                                            <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="286">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -765,7 +765,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="288">
+                                                            <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="288">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -813,7 +813,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="282">
+                                                            <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="282">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -844,7 +844,7 @@
                                     <button verticalHuggingPriority="750" id="292">
                                         <rect key="frame" x="17" y="196" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="404">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="404">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -855,7 +855,7 @@
                                     <button verticalHuggingPriority="750" id="296">
                                         <rect key="frame" x="39" y="196" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="406">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="406">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -866,7 +866,7 @@
                                     <button verticalHuggingPriority="750" id="293">
                                         <rect key="frame" x="17" y="16" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="405">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="405">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -877,7 +877,7 @@
                                     <button verticalHuggingPriority="750" id="289">
                                         <rect key="frame" x="39" y="16" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="401">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="401">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>

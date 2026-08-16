@@ -84,7 +84,7 @@
                     <button hidden="YES" verticalHuggingPriority="750" id="12">
                         <rect key="frame" x="83" y="19" width="75" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Sort" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="37">
+                        <buttonCell key="cell" type="smallSquare" title="Sort" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="37">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -95,7 +95,7 @@
                     <button verticalHuggingPriority="750" id="91">
                         <rect key="frame" x="172" y="19" width="75" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Help" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="92">
+                        <buttonCell key="cell" type="smallSquare" title="Help" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="92">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -106,7 +106,7 @@
                     <button verticalHuggingPriority="750" id="81">
                         <rect key="frame" x="325" y="19" width="75" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Save" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="82">
+                        <buttonCell key="cell" type="smallSquare" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="82">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -117,7 +117,7 @@
                     <button verticalHuggingPriority="750" id="84">
                         <rect key="frame" x="251" y="19" width="75" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Cancel" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="85">
+                        <buttonCell key="cell" type="smallSquare" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="85">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -128,7 +128,7 @@
                     <button verticalHuggingPriority="750" id="58">
                         <rect key="frame" x="20" y="19" width="22" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" state="on" borderStyle="border" inset="2" id="59">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" inset="2" id="59">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -139,7 +139,7 @@
                     <button verticalHuggingPriority="750" id="60">
                         <rect key="frame" x="41" y="19" width="22" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" state="on" borderStyle="border" inset="2" id="61">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" inset="2" id="61">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>

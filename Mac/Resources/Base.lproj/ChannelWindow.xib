@@ -109,7 +109,7 @@
                             <button id="67">
                                 <rect key="frame" x="197" y="9" width="103" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <buttonCell key="cell" type="check" title="Channel name" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="89">
+                                <buttonCell key="cell" type="check" title="Channel name" bezelStyle="rounded" imagePosition="leading" alignment="left" state="on" inset="2" id="89">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
@@ -120,7 +120,7 @@
                             <button id="68">
                                 <rect key="frame" x="314" y="9" width="159" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <buttonCell key="cell" type="check" title="Topic" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="90">
+                                <buttonCell key="cell" type="check" title="Topic" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="90">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>

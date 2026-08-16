@@ -965,13 +965,13 @@ static NSStackView *XAStackFromBox(NSView *box,
     }
 
     XAStackFromBox(chatColumn, NSUserInterfaceLayoutOrientationVertical,
-                   6.0, NSEdgeInsetsMake(0.0, 0.0, 6.0, 0.0), @[chatScroll]);
+                   10.0, NSEdgeInsetsMake(6.0, 12.0, 12.0, 12.0), @[chatScroll]);
 
     XAStackFromBox(userColumn, NSUserInterfaceLayoutOrientationVertical,
-                   6.0, NSEdgeInsetsMake(0.0, 8.0, 6.0, 2.0), @[userScroll]);
+                   8.0, NSEdgeInsetsMake(6.0, 10.0, 12.0, 12.0), @[userScroll]);
 
     XAStackFromBox(rootColumn, NSUserInterfaceLayoutOrientationVertical,
-                   6.0, NSEdgeInsetsMake(0.0, 0.0, 0.0, 0.0), @[userlistSplitView]);
+                   8.0, NSEdgeInsetsMake(6.0, 0.0, 0.0, 0.0), @[userlistSplitView]);
 }
 
 - (void) awakeFromNib

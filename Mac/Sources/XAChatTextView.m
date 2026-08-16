@@ -57,7 +57,7 @@ static NSCursor *XAChatTextViewSizableCursor;
         [self setEditable:NO];
 
         // Keep the conversation off the window edges.
-        [self setTextContainerInset:NSMakeSize(10.0, 8.0)];
+        [self setTextContainerInset:NSMakeSize(16.0, 12.0)];
 
         [self registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
     }

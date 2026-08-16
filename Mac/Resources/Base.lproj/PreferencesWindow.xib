@@ -187,7 +187,7 @@ Gw
                                                     <button verticalHuggingPriority="750" id="18">
                                                         <rect key="frame" x="343" y="348" width="91" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="push" title="Browse..." bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" inset="2" id="497">
+                                                        <buttonCell key="cell" type="push" title="Browse..." bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="497">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -216,7 +216,7 @@ Gw
                                                     <button verticalHuggingPriority="750" id="885">
                                                         <rect key="frame" x="343" y="298" width="91" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="push" title="Browse..." bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" inset="2" id="886">
+                                                        <buttonCell key="cell" type="push" title="Browse..." bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="886">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -227,7 +227,7 @@ Gw
                                                     <button verticalHuggingPriority="750" id="894">
                                                         <rect key="frame" x="320" y="303" width="21" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSStopProgressTemplate" imagePosition="overlaps" alignment="center" controlSize="small" borderStyle="border" inset="2" id="895">
+                                                        <buttonCell key="cell" type="smallSquare" bezelStyle="rounded" image="NSStopProgressTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="895">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -238,7 +238,7 @@ Gw
                                                     <button id="965">
                                                         <rect key="frame" x="231" y="279" width="200" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Strip scrollback color" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="966">
+                                                        <buttonCell key="cell" type="check" title="Strip scrollback color" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="966">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -246,7 +246,7 @@ Gw
                                                     <button id="163">
                                                         <rect key="frame" x="29" y="232" width="198" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Show separator" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="510">
+                                                        <buttonCell key="cell" type="check" title="Show separator" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="510">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -254,7 +254,7 @@ Gw
                                                     <button id="74">
                                                         <rect key="frame" x="231" y="232" width="200" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Strip mIRC color" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="501">
+                                                        <buttonCell key="cell" type="check" title="Strip mIRC color" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="501">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -262,7 +262,7 @@ Gw
                                                     <button id="83">
                                                         <rect key="frame" x="29" y="114" width="231" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Enable time stamps" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="502">
+                                                        <buttonCell key="cell" type="check" title="Enable time stamps" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="502">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -270,7 +270,7 @@ Gw
                                                     <button id="167">
                                                         <rect key="frame" x="231" y="252" width="200" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Indent nick names" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="511">
+                                                        <buttonCell key="cell" type="check" title="Indent nick names" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="511">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -278,7 +278,7 @@ Gw
                                                     <button id="137">
                                                         <rect key="frame" x="29" y="252" width="198" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Colored nick names" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="507">
+                                                        <buttonCell key="cell" type="check" title="Colored nick names" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="507">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -323,7 +323,7 @@ Gw
                                                     <button id="57">
                                                         <rect key="frame" x="29" y="184" width="200" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Transparent Windows" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="498">
+                                                        <buttonCell key="cell" type="check" title="Transparent Windows" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="498">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -392,7 +392,7 @@ Gw
                                                     <button id="92">
                                                         <rect key="frame" x="29" y="215" width="200" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Nick Completion" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="563">
+                                                        <buttonCell key="cell" type="check" title="Nick Completion" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="563">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -400,7 +400,7 @@ Gw
                                                     <button id="220">
                                                         <rect key="frame" x="29" y="305" width="411" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Interpret %nnn as an ASCII value" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="567">
+                                                        <buttonCell key="cell" type="check" title="Interpret %nnn as an ASCII value" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="567">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -408,7 +408,7 @@ Gw
                                                     <button id="9">
                                                         <rect key="frame" x="29" y="345" width="411" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Use the Text box font and colors" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="560">
+                                                        <buttonCell key="cell" type="check" title="Use the Text box font and colors" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="560">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -416,7 +416,7 @@ Gw
                                                     <button id="155">
                                                         <rect key="frame" x="29" y="325" width="164" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Spell checking" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="565">
+                                                        <buttonCell key="cell" type="check" title="Spell checking" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="565">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -424,7 +424,7 @@ Gw
                                                     <button id="978">
                                                         <rect key="frame" x="196" y="325" width="120" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Grammar" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="979">
+                                                        <buttonCell key="cell" type="check" title="Grammar" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="979">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -432,7 +432,7 @@ Gw
                                                     <button id="980">
                                                         <rect key="frame" x="319" y="325" width="121" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Autocorrection" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="981">
+                                                        <buttonCell key="cell" type="check" title="Autocorrection" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="981">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -440,7 +440,7 @@ Gw
                                                     <button id="14">
                                                         <rect key="frame" x="29" y="285" width="411" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Interpret %C, %B as Color, Bold etc" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="561">
+                                                        <buttonCell key="cell" type="check" title="Interpret %C, %B as Color, Bold etc" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="561">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -448,7 +448,7 @@ Gw
                                                     <button id="128">
                                                         <rect key="frame" x="231" y="215" width="200" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Suffix style nick completion" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="564">
+                                                        <buttonCell key="cell" type="check" title="Suffix style nick completion" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="564">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -456,7 +456,7 @@ Gw
                                                     <button id="354">
                                                         <rect key="frame" x="29" y="146" width="411" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Scroll tab-key completion choices" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="568">
+                                                        <buttonCell key="cell" type="check" title="Scroll tab-key completion choices" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="568">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -473,7 +473,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="413">
                                                         <rect key="frame" x="196" y="166" width="236" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="A-Z" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="415" id="570">
+                                                        <popUpButtonCell key="cell" type="push" title="A-Z" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="415" id="570">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="414">
@@ -558,7 +558,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="215">
                                                         <rect key="frame" x="226" y="254" width="206" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="A-Z, Ops first" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="200" id="558">
+                                                        <popUpButtonCell key="cell" type="push" title="A-Z, Ops first" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="200" id="558">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="216">
@@ -575,7 +575,7 @@ Gw
                                                     <button id="102">
                                                         <rect key="frame" x="29" y="281" width="394" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Userlist buttons enabled" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="554">
+                                                        <buttonCell key="cell" type="check" title="Userlist buttons enabled" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="554">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -583,7 +583,7 @@ Gw
                                                     <button id="161">
                                                         <rect key="frame" x="29" y="302" width="394" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Hide user list" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="557">
+                                                        <buttonCell key="cell" type="check" title="Hide user list" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="557">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -591,7 +591,7 @@ Gw
                                                     <button id="910">
                                                         <rect key="frame" x="29" y="323" width="411" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Use the Text box font and colors" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="911">
+                                                        <buttonCell key="cell" type="check" title="Use the Text box font and colors" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="911">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -599,7 +599,7 @@ Gw
                                                     <button id="798">
                                                         <rect key="frame" x="29" y="208" width="394" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Track the Away status of users and mark them in a different color" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="799">
+                                                        <buttonCell key="cell" type="check" title="Track the Away status of users and mark them in a different color" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="799">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -607,7 +607,7 @@ Gw
                                                     <button id="13">
                                                         <rect key="frame" x="29" y="344" width="394" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Show hostnames in user list" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="553">
+                                                        <buttonCell key="cell" type="check" title="Show hostnames in user list" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="553">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -659,7 +659,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="113">
                                                         <rect key="frame" x="168" y="116" width="106" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="10" id="483">
+                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="10" id="483">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="149">
@@ -682,7 +682,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="93">
                                                         <rect key="frame" x="168" y="91" width="106" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="124" id="481">
+                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="124" id="481">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="78">
@@ -705,7 +705,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="134">
                                                         <rect key="frame" x="168" y="66" width="106" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="174" id="484">
+                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="174" id="484">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="30">
@@ -719,7 +719,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="5">
                                                         <rect key="frame" x="168" y="206" width="106" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Bottom" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="179" id="476">
+                                                        <popUpButtonCell key="cell" type="push" title="Bottom" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="179" id="476">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="82">
@@ -735,7 +735,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="875">
                                                         <rect key="frame" x="168" y="364" width="106" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="879" id="876">
+                                                        <popUpButtonCell key="cell" type="push" title="Tabs" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="879" id="876">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="877">
@@ -749,7 +749,7 @@ Gw
                                                     <button id="118">
                                                         <rect key="frame" x="29" y="302" width="382" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Open a new tab when you receive a private message" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="430">
+                                                        <buttonCell key="cell" type="check" title="Open a new tab when you receive a private message" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="430">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -784,7 +784,7 @@ Gw
                                                     <button id="86">
                                                         <rect key="frame" x="29" y="344" width="382" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Open an extra tab for server messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="480">
+                                                        <buttonCell key="cell" type="check" title="Open an extra tab for server messages" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="480">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -792,7 +792,7 @@ Gw
                                                     <button id="11">
                                                         <rect key="frame" x="29" y="323" width="382" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Open an extra tab for server notices" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="477">
+                                                        <buttonCell key="cell" type="check" title="Open an extra tab for server notices" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="477">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -800,7 +800,7 @@ Gw
                                                     <button id="214">
                                                         <rect key="frame" x="29" y="281" width="384" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Pop new tabs to front" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="487">
+                                                        <buttonCell key="cell" type="check" title="Pop new tabs to front" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="487">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -808,7 +808,7 @@ Gw
                                                     <button id="204">
                                                         <rect key="frame" x="29" y="260" width="382" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Hide &quot;close&quot; buttons on tabs" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="485">
+                                                        <buttonCell key="cell" type="check" title="Hide &quot;close&quot; buttons on tabs" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="485">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -816,7 +816,7 @@ Gw
                                                     <button id="898">
                                                         <rect key="frame" x="29" y="239" width="382" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Smaller text" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="899">
+                                                        <buttonCell key="cell" type="check" title="Smaller text" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="899">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -833,7 +833,7 @@ Gw
                                                     <textField verticalHuggingPriority="750" id="808">
                                                         <rect key="frame" x="171" y="183" width="100" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="809">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="809">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -842,7 +842,7 @@ Gw
                                                     <button hidden="YES" id="921">
                                                         <rect key="frame" x="29" y="291" width="394" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Sort tabs in alphabetical order" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" enabled="NO" inset="2" id="922">
+                                                        <buttonCell key="cell" type="check" title="Sort tabs in alphabetical order" bezelStyle="rounded" imagePosition="left" alignment="left" enabled="NO" inset="2" id="922">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -858,7 +858,7 @@ Gw
                                                     <button id="91">
                                                         <rect key="frame" x="19" y="357" width="412" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Show channel mode buttons" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="446">
+                                                        <buttonCell key="cell" type="check" title="Show channel mode buttons" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="446">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -888,7 +888,7 @@ Gw
                                                     <textField verticalHuggingPriority="750" id="791">
                                                         <rect key="frame" x="251" y="318" width="232" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(Change takes effect at next launch)" id="792">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(Change takes effect at next launch)" id="792">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1459,7 +1459,7 @@ Gw
                                                     <button id="119">
                                                         <rect key="frame" x="29" y="344" width="237" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Beep on private messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="431">
+                                                        <buttonCell key="cell" type="check" title="Beep on private messages" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="431">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1467,7 +1467,7 @@ Gw
                                                     <button id="152">
                                                         <rect key="frame" x="29" y="323" width="237" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Beep on channel messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="433">
+                                                        <buttonCell key="cell" type="check" title="Beep on channel messages" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="433">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1475,7 +1475,7 @@ Gw
                                                     <button id="821">
                                                         <rect key="frame" x="29" y="302" width="237" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Beep on highlighted messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="822">
+                                                        <buttonCell key="cell" type="check" title="Beep on highlighted messages" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="822">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1555,7 +1555,7 @@ Gw
                                                     <textField verticalHuggingPriority="750" id="713">
                                                         <rect key="frame" x="29" y="240" width="415" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Highlighted messages are ones where your nickname is mentioned, but also:" id="714">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Highlighted messages are ones where your nickname is mentioned, but also:" id="714">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1564,7 +1564,7 @@ Gw
                                                     <textField verticalHuggingPriority="750" id="826">
                                                         <rect key="frame" x="166" y="123" width="266" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Separate multiple words with commas. Wildcards are accepted." id="827">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Separate multiple words with commas. Wildcards are accepted." id="827">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1653,7 +1653,7 @@ Gw
                                                     <button id="114">
                                                         <rect key="frame" x="29" y="209" width="267" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Announce away messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="429">
+                                                        <buttonCell key="cell" type="check" title="Announce away messages" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="429">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1661,7 +1661,7 @@ Gw
                                                     <button id="162">
                                                         <rect key="frame" x="29" y="188" width="267" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Show away once" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="435">
+                                                        <buttonCell key="cell" type="check" title="Show away once" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="435">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1669,7 +1669,7 @@ Gw
                                                     <button id="17">
                                                         <rect key="frame" x="29" y="167" width="267" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Automatically unmark away" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="422">
+                                                        <buttonCell key="cell" type="check" title="Automatically unmark away" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="422">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1695,7 +1695,7 @@ Gw
                                                     <button id="377">
                                                         <rect key="frame" x="29" y="146" width="267" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="/part channels on sleep" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="442">
+                                                        <buttonCell key="cell" type="check" title="/part channels on sleep" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="442">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1703,7 +1703,7 @@ Gw
                                                     <button id="407">
                                                         <rect key="frame" x="29" y="125" width="182" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Auto-away after" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="443">
+                                                        <buttonCell key="cell" type="check" title="Auto-away after" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="443">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1773,7 +1773,7 @@ Gw
                                                     <button id="158">
                                                         <rect key="frame" x="29" y="238" width="404" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Insert timestamps in logs" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="493">
+                                                        <buttonCell key="cell" type="check" title="Insert timestamps in logs" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="493">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1781,7 +1781,7 @@ Gw
                                                     <button id="46">
                                                         <rect key="frame" x="29" y="324" width="402" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Enable logging of conversations to disk" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="491">
+                                                        <buttonCell key="cell" type="check" title="Enable logging of conversations to disk" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="491">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1789,7 +1789,7 @@ Gw
                                                     <button id="830">
                                                         <rect key="frame" x="29" y="344" width="400" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Display scrollback from previous session" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="831">
+                                                        <buttonCell key="cell" type="check" title="Display scrollback from previous session" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="831">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -1976,7 +1976,7 @@ Gw
                                                     <button id="368">
                                                         <rect key="frame" x="215" y="48" width="216" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Perform when X-Chat Aqua is not in front" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="mini" enabled="NO" state="on" inset="2" id="574">
+                                                        <buttonCell key="cell" type="check" title="Perform when X-Chat Aqua is not in front" bezelStyle="rounded" imagePosition="left" alignment="left" controlSize="mini" enabled="NO" state="on" inset="2" id="574">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="miniSystem"/>
                                                         </buttonCell>
@@ -1984,7 +1984,7 @@ Gw
                                                     <button id="369">
                                                         <rect key="frame" x="215" y="33" width="216" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Perform always" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="mini" enabled="NO" state="mixed" allowsMixedState="YES" inset="2" id="575">
+                                                        <buttonCell key="cell" type="check" title="Perform always" bezelStyle="rounded" imagePosition="left" alignment="left" controlSize="mini" enabled="NO" state="mixed" allowsMixedState="YES" inset="2" id="575">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="miniSystem"/>
                                                         </buttonCell>
@@ -1992,7 +1992,7 @@ Gw
                                                     <button id="975">
                                                         <rect key="frame" x="216" y="11" width="215" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Bounce Continuously" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="976">
+                                                        <buttonCell key="cell" type="check" title="Bounce Continuously" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="976">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -2026,7 +2026,7 @@ Gw
                                                     <button id="952">
                                                         <rect key="frame" x="17" y="323" width="237" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Display MODEs in raw form" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="959">
+                                                        <buttonCell key="cell" type="check" title="Display MODEs in raw form" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="959">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2034,7 +2034,7 @@ Gw
                                                     <button id="953">
                                                         <rect key="frame" x="17" y="302" width="231" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Whois on notify" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="958">
+                                                        <buttonCell key="cell" type="check" title="Whois on notify" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="958">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2042,7 +2042,7 @@ Gw
                                                     <button id="954">
                                                         <rect key="frame" x="17" y="281" width="237" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Hide join and part messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="957">
+                                                        <buttonCell key="cell" type="check" title="Hide join and part messages" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="957">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2050,7 +2050,7 @@ Gw
                                                     <button id="955">
                                                         <rect key="frame" x="17" y="344" width="220" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Automatically rejoin channel" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="956">
+                                                        <buttonCell key="cell" type="check" title="Automatically rejoin channel" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="956">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2067,7 +2067,7 @@ Gw
                                                     <button id="116">
                                                         <rect key="frame" x="17" y="212" width="294" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Send window" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="541">
+                                                        <buttonCell key="cell" type="check" title="Send window" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="541">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2075,7 +2075,7 @@ Gw
                                                     <button id="141">
                                                         <rect key="frame" x="17" y="170" width="294" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Chat window" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="543">
+                                                        <buttonCell key="cell" type="check" title="Chat window" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="543">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2083,7 +2083,7 @@ Gw
                                                     <button id="136">
                                                         <rect key="frame" x="17" y="191" width="294" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Receive window" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="542">
+                                                        <buttonCell key="cell" type="check" title="Receive window" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="542">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2091,7 +2091,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="184">
                                                         <rect key="frame" x="191" y="233" width="128" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="22" id="546">
+                                                        <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="22" id="546">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="31">
@@ -2141,7 +2141,7 @@ Gw
                                                     <textField verticalHuggingPriority="750" id="604">
                                                         <rect key="frame" x="17" y="329" width="415" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Only useful for computers with multiple addresses." id="605">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Only useful for computers with multiple addresses." id="605">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -2249,7 +2249,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="138">
                                                         <rect key="frame" x="138" y="237" width="146" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="(Disabled)" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="75" id="526">
+                                                        <popUpButtonCell key="cell" type="push" title="(Disabled)" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="75" id="526">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="117">
@@ -2275,7 +2275,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="834">
                                                         <rect key="frame" x="138" y="212" width="146" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="All Connections" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="840" id="835">
+                                                        <popUpButtonCell key="cell" type="push" title="All Connections" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="840" id="835">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="836">
@@ -2290,7 +2290,7 @@ Gw
                                                     <button id="189">
                                                         <rect key="frame" x="27" y="19" width="402" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Enable built-in identd (requires administrator privileges)" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="531">
+                                                        <buttonCell key="cell" type="check" title="Enable built-in identd (requires administrator privileges)" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="531">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2316,7 +2316,7 @@ Gw
                                                     <button id="101">
                                                         <rect key="frame" x="27" y="61" width="224" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Auto reconnect to server after" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="522">
+                                                        <buttonCell key="cell" type="check" title="Auto reconnect to server after" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="522">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2324,7 +2324,7 @@ Gw
                                                     <button id="846">
                                                         <rect key="frame" x="29" y="166" width="299" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Use Authentication (HTTP or Socks5 only)" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="847">
+                                                        <buttonCell key="cell" type="check" title="Use Authentication (HTTP or Socks5 only)" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="847">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2332,7 +2332,7 @@ Gw
                                                     <button id="178">
                                                         <rect key="frame" x="27" y="40" width="402" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Never give up reconnect" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="529">
+                                                        <buttonCell key="cell" type="check" title="Never give up reconnect" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="529">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2438,7 +2438,7 @@ Gw
                                                     <button id="147">
                                                         <rect key="frame" x="29" y="292" width="195" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Save nick name in filenames" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="544">
+                                                        <buttonCell key="cell" type="check" title="Save nick name in filenames" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="544">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2446,7 +2446,7 @@ Gw
                                                     <button id="63">
                                                         <rect key="frame" x="236" y="292" width="195" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Convert spaces to underscore" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="536">
+                                                        <buttonCell key="cell" type="check" title="Convert spaces to underscore" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="536">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2454,7 +2454,7 @@ Gw
                                                     <button id="223">
                                                         <rect key="frame" x="29" y="245" width="222" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Get my address from the IRC server" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="550">
+                                                        <buttonCell key="cell" type="check" title="Get my address from the IRC server" bezelStyle="rounded" imagePosition="left" alignment="left" inset="2" id="550">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
@@ -2471,7 +2471,7 @@ Gw
                                                     <popUpButton verticalHuggingPriority="750" id="206">
                                                         <rect key="frame" x="196" y="340" width="128" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Ask me" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="192" id="548">
+                                                        <popUpButtonCell key="cell" type="push" title="Ask me" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="192" id="548">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <menu key="menu" id="45">
