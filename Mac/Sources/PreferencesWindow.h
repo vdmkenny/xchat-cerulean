@@ -95,6 +95,10 @@ struct PreferenceItem
     IBOutlet NSTextField *shortenTabLabelLengthTextField;
     //  missing 'shorten tab labels' in fe-gtk
     //  Tabs or Windows
+    /* The channel switcher is always the sidebar now; these two are kept so
+     * the nib's connections still resolve, and are hidden at load. */
+    IBOutlet NSPopUpButton *switcherTypePopUp;
+    IBOutlet NSPopUpButton *tabPositionPopUp;
     IBOutlet NSPopUpButton *openChannelsInPopUp, *openDialogsInPopUp, *openUtilitiesInPopUp;
     
     // Others - not in fe-gtk

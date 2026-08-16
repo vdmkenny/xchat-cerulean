@@ -162,6 +162,31 @@ extern struct XATextEventItem XATextEvents[];
 
 @implementation PreferencesWindow
 
+/* Hides a control and the label sitting immediately to its left. */
+static void XAHideLabelledControl(NSView *control)
+{
+    if (control == nil) return;
+
+    NSRect frame = [control frame];
+    for (NSView *sibling in [[control superview] subviews]) {
+        if (sibling == control || ![sibling isKindOfClass:[NSTextField class]]) continue;
+        if (NSMaxX([sibling frame]) > NSMinX(frame)) continue;
+        if (NSMinX(frame) - NSMaxX([sibling frame]) > 12.0) continue;
+        if (fabs(NSMidY([sibling frame]) - NSMidY(frame)) > 6.0) continue;
+        [sibling setHidden:YES];
+    }
+    [control setHidden:YES];
+}
+
+/* The channel switcher is always the sidebar, so the controls that chose
+ * between switcher styles no longer do anything. */
+- (void)modernizeContents
+{
+    [super modernizeContents];
+    XAHideLabelledControl(switcherTypePopUp);
+    XAHideLabelledControl(tabPositionPopUp);
+}
+
 - (void)PreferencesWindowInit {
     sounds = [[NSMutableArray alloc] init];
     soundEvents = [[NSMutableArray alloc] init];
