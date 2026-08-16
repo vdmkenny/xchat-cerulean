@@ -77,6 +77,14 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 - `strncpy` into a fixed buffer without termination in the notification path.
 - The default-network selection compared a hardcoded `g_str_hash` value and
   silently stopped matching whenever the network was renamed.
+- **Accepting an offered file did nothing.** The confirmation sheet captured
+  an object that released itself when answered, so the object was freed
+  twice and the answer was lost.
+- **The chat colours froze to whichever appearance the app first ran under.**
+  Saving the palette wrote what the semantic text colours resolved to, so a
+  first run in dark mode left the conversation black in light mode.
+- The dialog buttons in a private message tab were wired to a method that
+  does not exist, so clicking one did nothing.
 
 ### Removed
 
@@ -89,6 +97,10 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 - The **XChat Azure** Mac App Store target and its sandbox entitlements.
 - 103MB of vendored **Perl 5.10-5.18 headers**, unreferenced by the build.
 - A stale absolute reference to `/usr/local/etc/openssl/cert.pem`.
+- The **tab bar** channel switcher and the preference that selected it. It
+  was the pre-Auto-Layout path and rendered no tabs at all, so the sidebar
+  is now the only switcher. `SGWrapView` and `CLTabViewButtonCell` went with
+  it.
 
 ### Security
 
