@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.4.0</title>
-            <pubDate>Sun, 16 Aug 2026 14:30:24 +0000</pubDate>
+            <title>2.4.1</title>
+            <pubDate>Sun, 16 Aug 2026 15:26:33 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.4.0.1</sparkle:version>
-            <sparkle:shortVersionString>2.4.0</sparkle:shortVersionString>
+            <sparkle:version>2.4.1.1</sparkle:version>
+            <sparkle:shortVersionString>2.4.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -20,18 +20,17 @@ padding:1px 4px;border-radius:3px}
 </style></head><body>
 <h2>Fixed</h2>
 <ul>
-<li><strong>Some networks were running with no capabilities at all.</strong> A capability was looked for anywhere in the list a server offers, and a vendored name can contain a standard one: Libera.Chat offers <code>solanum.chat/identify-msg</code>, which contains <code>identify-msg</code>. The client asked for a capability that was never offered, and since a request is answered all or nothing, the server refused every one of them. Nothing said so, and the connection simply ran without server-time, multi-prefix or any of the rest. Names are compared as whole entries now.</li>
+<li><strong>Capability negotiation was ended more than once.</strong> Registration waits for the client to say it has finished asking for capabilities. Since a server can now offer one mid-session and acknowledge a request for it long after login, that acknowledgement was answered by ending a negotiation that was no longer running. Only the exchange registration is actually waiting on ends it now.</li>
+<li><strong>Timestamps from the server were kept out of the log and the scrollback.</strong> A line carries the time the server saw it, which is what matters when a bouncer replays a backlog on reconnect. Only the line on screen used it, so the log and the saved scrollback recorded a replayed conversation as having arrived all at once. Both use it now, falling back to the current time for lines that carry none.</li>
+<li><strong>Away status was polled for even when the server announced it.</strong> With <code>away-notify</code> the server reports away changes as they happen, but the periodic <code>WHO</code> of every channel carried on regardless. It is skipped while the capability is active, and resumes if the server withdraws it. The <code>WHO</code> sent on joining still establishes who was already away.</li>
 </ul>
 <h2>Added</h2>
 <ul>
-<li><strong>Who is logged in to services.</strong> <code>extended-join</code> brings the account with the join itself and <code>account-notify</code> reports it changing, which is the part that was missing alongside away-notify and chghost.</li>
-<li><strong>A complete user list on joining.</strong> With <code>userhost-in-names</code> the name reply carries each user&#x27;s host, so the list no longer waits for a <code>WHO</code> to come back.</li>
-<li><strong>Capabilities offered mid-session.</strong> <code>cap-notify</code> lets a server add one after login rather than only at the start.</li>
-<li><strong><code>invite-notify</code></strong> for invitations to channels already joined, and <strong><code>setname</code></strong> for a real name changing without a reconnect.</li>
+<li><strong>Which services account a user is logged in to</strong>, in the user info menu that opens from the user list or from a nick in the conversation. Where the server supports it the account is fetched for everyone present on joining, rather than only for those who arrive later.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.4.0/XChat-Cerulean-2.4.0.zip" length="7036797" type="application/octet-stream" sparkle:edSignature="1BUZsFi3y5ymJPtL21P51ss2oKnownHthBthdUhnSAPmZ0z9qyzrlroSV1bFYXuSN/5//J2bOASSRrtc78WICg=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.4.1/XChat-Cerulean-2.4.1.zip" length="7037090" type="application/octet-stream" sparkle:edSignature="yBs+BeL/0yQm3lfq7b1S/g2hOn23exVo3TEk8gkHI6MYR0zgYQwfU2Rf4LIPbePk9N32YzpQKf1wN2uHjKFaAQ=="/>
         </item>
     </channel>
 </rss>
