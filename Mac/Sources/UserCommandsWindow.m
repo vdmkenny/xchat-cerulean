@@ -117,6 +117,12 @@
     [self loadItems];
 }
 
+- (void)modernizeContents
+{
+    [super modernizeContents];
+    [self rebuildFlatLayout];
+}
+
 - (void)removeCommand:(id)sender
 {
     [commandTableView abortEditing];

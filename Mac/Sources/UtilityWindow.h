@@ -36,6 +36,12 @@
 + (id)utilityByKey:(id)key;
 + (id)utilityByKey:(id)key windowNibName:(NSString *)nibName;
 
+/* Called once after the nib loads. The base gives every list current
+ * metrics; subclasses whose nibs place controls at fixed frames also call
+ * -rebuildFlatLayout. */
+- (void)modernizeContents;
+- (void)rebuildFlatLayout;
+
 @end
 
 @interface UtilityTabOrWindowView : TabOrWindowView

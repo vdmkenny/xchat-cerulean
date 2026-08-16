@@ -295,12 +295,9 @@ void XAModernizeScrollView(NSScrollView *scrollView)
     /* A text area with no bezel at all reads as empty space, so it keeps a
      * filled, rounded background the way current text fields do. */
     if ([document isKindOfClass:[NSTextView class]]) {
+        scrollView.borderType = NSBezelBorder;
         scrollView.drawsBackground = YES;
         scrollView.backgroundColor = [NSColor textBackgroundColor];
-        scrollView.wantsLayer = YES;
-        scrollView.layer.cornerRadius = 6.0;
-        scrollView.layer.borderWidth = 1.0;
-        scrollView.layer.borderColor = [[NSColor separatorColor] CGColor];
         ((NSTextView *)document).textContainerInset = NSMakeSize(6.0, 6.0);
         return;
     }
