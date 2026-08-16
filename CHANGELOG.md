@@ -18,8 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   from the search.
 
   Listings are still confirmed like any other transfer unless you name the
-  search bot as a trusted sender. On Undernet the bot answering is `SearchOok`
-  rather than `SearchBot`, so a pattern such as `Search*` covers it.
+  search bot as a trusted sender. Bot names vary, so a pattern rather than an
+  exact name is worth using there.
 
 ## [2.3.3] - 2026-08-16
 
