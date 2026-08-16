@@ -21,6 +21,7 @@
  */
 
 #import "PreferencesWindow.h"
+#import "XALayout.h"
 #import "AquaChat.h"
 #import "ColorPalette.h"
 #import "ChatViewController.h"
@@ -35,6 +36,48 @@ extern char *sound_files[];
 extern struct text_event te[];
 extern struct XATextEventItem XATextEvents[];
 
+/* Draws a leading symbol before the label, the way a Finder source list row
+ * is laid out. */
+@interface PreferenceCategoryCell : NSTextFieldCell
+@property (nonatomic, retain) NSImage *icon;
+@end
+
+@implementation PreferenceCategoryCell
+@synthesize icon = _icon;
+
+- (id)copyWithZone:(NSZone *)zone {
+    PreferenceCategoryCell *copy = [super copyWithZone:zone];
+    copy->_icon = [_icon retain];
+    return copy;
+}
+
+- (void)dealloc {
+    [_icon release];
+    [super dealloc];
+}
+
+- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+    if (self.icon != nil) {
+        const CGFloat side = 15.0;
+        const CGFloat gap = 6.0;
+        NSRect iconRect = NSMakeRect(cellFrame.origin.x,
+                                     cellFrame.origin.y + floor((cellFrame.size.height - side) / 2.0),
+                                     side, side);
+        [self.icon drawInRect:iconRect
+                     fromRect:NSZeroRect
+                    operation:NSCompositingOperationSourceOver
+                     fraction:1.0
+               respectFlipped:YES
+                        hints:nil];
+
+        cellFrame.origin.x += side + gap;
+        cellFrame.size.width -= side + gap;
+    }
+    [super drawInteriorWithFrame:cellFrame inView:controlView];
+}
+
+@end
+
 @interface PreferenceLeaf : NSObject
 {
 @public
@@ -42,11 +85,35 @@ extern struct XATextEventItem XATextEvents[];
     int       pane;
 }
 
+- (NSString *)symbolName;
+
 + (PreferenceLeaf *)leafWithLabel:(NSString *)label pane:(int)pane;
 
 @end
 
 @implementation PreferenceLeaf
+
+/* One SF Symbol per pane, in the order the panes are numbered. */
+- (NSString *)symbolName {
+    static NSString * const symbols[] = {
+        @"text.alignleft",         // Text box
+        @"character.cursor.ibeam", // Input box
+        @"person.2",               // User list
+        @"sidebar.left",           // Channel switcher
+        @"ellipsis.circle",        // Other
+        @"paintpalette",           // Colors
+        @"bell",                   // Alerts
+        @"bubble.left.and.bubble.right", // General
+        @"doc.text",               // Logging
+        @"speaker.wave.2",         // Events/Sounds
+        @"slider.horizontal.3",    // Advanced
+        @"network",                // Network setup
+        @"arrow.down.circle",      // File transfers
+    };
+    if (pane < 0 || pane >= (int)(sizeof(symbols) / sizeof(symbols[0])))
+        return @"circle";
+    return symbols[pane];
+}
 
 + (PreferenceLeaf *)leafWithLabel:(NSString *)aLabel pane:(int)aPane {
     PreferenceLeaf *leaf = [[PreferenceLeaf alloc] init];
@@ -185,6 +252,75 @@ static void XAHideLabelledControl(NSView *control)
     [super modernizeContents];
     XAHideLabelledControl(switcherTypePopUp);
     XAHideLabelledControl(tabPositionPopUp);
+
+    /* The category list is a sidebar, so it gets the same treatment as the
+     * channel list in the main window. */
+    NSTableColumn *column = [categoryOutlineView tableColumns][0];
+    PreferenceCategoryCell *cell =
+        [[[PreferenceCategoryCell alloc] initTextCell:@""] autorelease];
+    [cell setFont:[NSFont systemFontOfSize:[NSFont systemFontSize]]];
+    [column setDataCell:cell];
+
+    NSLayoutManager *layout = [[NSLayoutManager new] autorelease];
+    CGFloat lineHeight = [layout defaultLineHeightForFont:[cell font]];
+    [categoryOutlineView setRowHeight:MAX(round(lineHeight * 1.7) + 4, 28.0)];
+    [categoryOutlineView setIntercellSpacing:NSMakeSize(3.0, 2.0)];
+    [categoryOutlineView setIndentationPerLevel:12.0];
+    [categoryOutlineView setFloatsGroupRows:NO];
+    [categoryOutlineView setDelegate:self];
+
+    [contentBox setTitlePosition:NSNoTitle];
+
+    XAApplySidebarMaterial([categoryOutlineView enclosingScrollView]);
+
+    /* The nib floats the list in the middle of the window. A sidebar runs the
+     * full height against the leading edge, so the container it now sits in
+     * is stretched to the window and keeps its right edge where the settings
+     * pane begins. */
+    NSView *sidebar = [[categoryOutlineView enclosingScrollView] superview];
+    NSRect frame = [sidebar frame];
+    CGFloat rightEdge = NSMaxX(frame);
+    frame.origin = NSZeroPoint;
+    frame.size.width = rightEdge;
+    frame.size.height = NSHeight([[self contentView] bounds]);
+    [sidebar setFrame:frame];
+    [sidebar setAutoresizingMask:NSViewHeightSizable | NSViewMaxXMargin];
+
+    [[categoryOutlineView enclosingScrollView]
+        setContentInsets:NSEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)];
+    [[categoryOutlineView enclosingScrollView] setAutomaticallyAdjustsContentInsets:NO];
+}
+
+#pragma mark NSOutlineView sidebar appearance
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item {
+    return ![item isKindOfClass:[PreferenceLeaf class]];
+}
+
+- (void)outlineView:(NSOutlineView *)outlineView
+    willDisplayCell:(id)cell
+     forTableColumn:(NSTableColumn *)tableColumn
+               item:(id)item
+{
+    if (![cell isKindOfClass:[PreferenceCategoryCell class]]) return;
+
+    if (![item isKindOfClass:[PreferenceLeaf class]]) {
+        // Section headings are quieter and carry no symbol.
+        [cell setTextColor:[NSColor secondaryLabelColor]];
+        [cell setIcon:nil];
+        return;
+    }
+
+    NSColor *tint = [NSColor labelColor];
+    [cell setTextColor:tint];
+
+    /* Drawing a template image directly paints it black, so the colour is
+     * baked into the symbol. */
+    NSString *symbol = [(PreferenceLeaf *)item symbolName];
+    NSImage *icon = [NSImage imageWithSystemSymbolName:symbol accessibilityDescription:nil];
+    icon = [icon imageWithSymbolConfiguration:
+            [NSImageSymbolConfiguration configurationWithHierarchicalColor:tint]];
+    [cell setIcon:icon];
 }
 
 - (void)PreferencesWindowInit {
@@ -343,7 +479,7 @@ static void XAHideLabelledControl(NSView *control)
                          [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"Text box", @"xchat", @"") pane:0],
                          [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"Input box", @"xchat", @"") pane:1],
                          [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"User list", @"xchat", @"") pane:2],
-                         [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"Channel switcher", @"xchat", @"") pane:3],
+                         [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"Channels", @"xchataqua", @"") pane:3],
                          [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"Other", @"xchataqua", @"") pane:4],
                          [PreferenceLeaf leafWithLabel:NSLocalizedStringFromTable(@"Colors", @"xchat", @"") pane:5]];
     NSArray *chatting = @[NSLocalizedStringFromTable(@"Chatting", @"xchat", @""),
@@ -359,7 +495,6 @@ static void XAHideLabelledControl(NSView *control)
     
     [categoryOutlineView reloadData];
     
-    [categoryOutlineView setIndentationPerLevel:15];
     
     [categoryOutlineView expandItem:categories[0] expandChildren:YES];
     [categoryOutlineView expandItem:categories[1] expandChildren:YES];
@@ -525,7 +660,10 @@ static void XAHideLabelledControl(NSView *control)
     
     if ([leaf isKindOfClass:[PreferenceLeaf class]])
     {
-        [contentBox setTitle:leaf->label];
+        /* The pane name belongs in the title bar, the way System Settings
+         * does it. Repeating it above a box whose first heading says almost
+         * the same thing just crowds the top of the pane. */
+        [self setSubtitle:leaf->label];
         [tabView selectTabViewItemAtIndex:leaf->pane];
     }
 }

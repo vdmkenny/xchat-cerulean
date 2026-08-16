@@ -350,3 +350,140 @@ void XAModernizeScrollViewsInTree(NSView *root)
     for (NSView *child in [root subviews])
         XAModernizeScrollViewsInTree(child);
 }
+
+void XAApplySidebarMaterial(NSScrollView *scrollView)
+{
+    NSView *parent = [scrollView superview];
+    if (parent == nil || [parent isKindOfClass:[NSVisualEffectView class]]) return;
+
+    NSTableView *table = (NSTableView *)[scrollView documentView];
+    if ([table isKindOfClass:[NSTableView class]]) {
+        table.backgroundColor = [NSColor clearColor];
+        table.style = NSTableViewStyleSourceList;
+    }
+    scrollView.drawsBackground = NO;
+    scrollView.borderType = NSNoBorder;
+
+    /* Already wrapped: the container is the parent from then on. */
+    for (NSView *sibling in [parent subviews]) {
+        if ([sibling isKindOfClass:[NSVisualEffectView class]]) return;
+    }
+
+    NSArray *siblings = [parent subviews];
+    NSInteger index = [siblings indexOfObject:scrollView];
+    NSView *next = (index != NSNotFound && index + 1 < (NSInteger)[siblings count])
+        ? siblings[index + 1] : nil;
+
+    NSView *container = [[[NSView alloc] initWithFrame:[scrollView frame]] autorelease];
+    container.autoresizingMask = [scrollView autoresizingMask];
+
+    NSVisualEffectView *material =
+        [[[NSVisualEffectView alloc] initWithFrame:[container bounds]] autorelease];
+    material.material = NSVisualEffectMaterialUnderWindowBackground;
+    material.blendingMode = NSVisualEffectBlendingModeWithinWindow;
+    material.state = NSVisualEffectStateInactive;
+    material.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
+    [[scrollView retain] autorelease];
+    [scrollView removeFromSuperview];
+    [scrollView setFrame:[container bounds]];
+    [scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+
+    [container addSubview:material];
+    [container addSubview:scrollView];
+
+    if (next != nil)
+        [parent addSubview:container positioned:NSWindowBelow relativeTo:next];
+    else
+        [parent addSubview:container];
+}
+
+/* Small controls drawn touching are one set, such as an add and remove pair,
+ * and stay joined. */
+static BOOL XAIsJoinedPair(NSView *a, NSView *b)
+{
+    return NSWidth([a frame]) <= 34.0 && NSWidth([b frame]) <= 34.0;
+}
+
+static void XASpaceOutRow(NSArray *row, NSView *parent, CGFloat spacing)
+{
+    NSArray *sorted = [row sortedArrayUsingComparator:^NSComparisonResult(NSView *a, NSView *b) {
+        if (NSMinX(a.frame) < NSMinX(b.frame)) return NSOrderedAscending;
+        if (NSMinX(a.frame) > NSMinX(b.frame)) return NSOrderedDescending;
+        return NSOrderedSame;
+    }];
+
+    /* Gaps the nib chose, with anything too tight opened up. */
+    NSMutableArray *gaps = [NSMutableArray array];
+    BOOL tooTight = NO;
+    for (NSUInteger i = 1; i < [sorted count]; i++) {
+        NSView *previous = sorted[i - 1], *current = sorted[i];
+        CGFloat gap = NSMinX([current frame]) - NSMaxX([previous frame]);
+
+        if (XAIsJoinedPair(previous, current) && gap <= 2.0) {
+            [gaps addObject:@(gap)];
+            continue;
+        }
+        if (gap < spacing) {
+            gap = spacing;
+            tooTight = YES;
+        }
+        [gaps addObject:@(gap)];
+    }
+    if (!tooTight) return;
+
+    CGFloat total = 0.0;
+    for (NSView *view in sorted) total += NSWidth([view frame]);
+    for (NSNumber *gap in gaps) total += [gap doubleValue];
+
+    /* Grow away from whichever edge the row sits against, so a row of
+     * confirm buttons keeps its right edge and a toolbar keeps its left. */
+    CGFloat leftInset = NSMinX([sorted[0] frame]);
+    CGFloat rightInset = NSWidth([parent bounds]) - NSMaxX([[sorted lastObject] frame]);
+    CGFloat x = (leftInset <= rightInset)
+        ? leftInset
+        : NSWidth([parent bounds]) - rightInset - total;
+
+    for (NSUInteger i = 0; i < [sorted count]; i++) {
+        NSView *view = sorted[i];
+        NSRect frame = [view frame];
+        if (i > 0) x += [gaps[i - 1] doubleValue];
+        frame.origin.x = x;
+        [view setFrame:frame];
+        x += NSWidth(frame);
+    }
+}
+
+void XASpaceOutButtonRows(NSView *root, CGFloat spacing)
+{
+    if (root == nil || [root isKindOfClass:[NSStackView class]]) return;
+
+    NSMutableArray *buttons = [NSMutableArray array];
+    for (NSView *child in [root subviews]) {
+        XASpaceOutButtonRows(child, spacing);
+        if ([child isKindOfClass:[NSButton class]] && ![child isHidden])
+            [buttons addObject:child];
+    }
+    if ([buttons count] < 2) return;
+
+    /* Buttons whose vertical spans overlap form one row. */
+    NSArray *ordered = [buttons sortedArrayUsingComparator:^NSComparisonResult(NSView *a, NSView *b) {
+        if (NSMinY(a.frame) < NSMinY(b.frame)) return NSOrderedAscending;
+        if (NSMinY(a.frame) > NSMinY(b.frame)) return NSOrderedDescending;
+        return NSOrderedSame;
+    }];
+
+    NSMutableArray *row = nil;
+    CGFloat rowMax = 0.0;
+    for (NSView *view in ordered) {
+        if (row != nil && NSMinY([view frame]) < rowMax) {
+            [row addObject:view];
+            rowMax = MAX(rowMax, NSMaxY([view frame]));
+            continue;
+        }
+        if ([row count] > 1) XASpaceOutRow(row, root, spacing);
+        row = [NSMutableArray arrayWithObject:view];
+        rowMax = NSMaxY([view frame]);
+    }
+    if ([row count] > 1) XASpaceOutRow(row, root, spacing);
+}

@@ -32,3 +32,13 @@ void XAModernizeScrollView(NSScrollView *scrollView);
 
 /* Applies XAModernizeScrollView to every scroll view under root. */
 void XAModernizeScrollViewsInTree(NSView *root);
+
+/* Puts a vibrant sidebar behind a scroll view, the way a stock source list
+ * sits on the window's material. The scroll view is moved into a container
+ * that takes its place, so this works wherever it sits. */
+void XAApplySidebarMaterial(NSScrollView *scrollView);
+
+/* Re-spaces rows of buttons that the nib left touching, anchored to whichever
+ * edge of their container they sit closest to. Views laid out by a stack view
+ * are left alone. */
+void XASpaceOutButtonRows(NSView *root, CGFloat spacing);

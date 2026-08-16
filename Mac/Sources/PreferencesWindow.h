@@ -36,7 +36,7 @@ struct PreferenceItem
     int      type;
 };
 
-@interface PreferencesWindow : UtilityWindow<NSOutlineViewDataSource, NSComboBoxDataSource, NSOpenSavePanelDelegate> {
+@interface PreferencesWindow : UtilityWindow<NSOutlineViewDataSource, NSOutlineViewDelegate, NSComboBoxDataSource, NSOpenSavePanelDelegate> {
     IBOutlet NSTabView    *tabView;
     IBOutlet NSBox *contentBox;
     IBOutlet NSOutlineView *categoryOutlineView;

@@ -71,6 +71,7 @@ struct XATextEventItem XATextEvents[NUM_XP];
 @interface AquaChat (private)
 
 - (void) loadEventInfo;
+- (void) applyDefaultEventInfo;
 - (void) saveEventInfo;
 - (void) loadMenuPreferences;
 - (void) toggleMenuItem:(id)sender;
@@ -1168,11 +1169,33 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 @implementation AquaChat (Private)
 
+/* Events that are worth interrupting for: someone addressed you directly, or
+ * a transfer needs an answer. 1 means only while the app is in the
+ * background. Anything not listed stays silent. */
+- (void) applyDefaultEventInfo
+{
+    static const int events[] = {
+        XP_TE_PRIVMSG,   XP_TE_DPRIVMSG,   // private message
+        XP_TE_HCHANMSG,  XP_TE_HCHANACTION, // your nick in a channel
+        XP_TE_INVITED,                      // invited to a channel
+        XP_TE_DCCOFFER,  XP_TE_DCCRECVCOMP, // a file offered, a file finished
+    };
+
+    for (size_t i = 0; i < sizeof(events) / sizeof(events[0]); i++) {
+        struct XATextEventItem *event = &XATextEvents[events[i]];
+        event->notification = 1;
+        event->show = 1;
+        event->bounce = 1;
+    }
+}
+
 - (void) loadEventInfo
 {
     NSString *fn = [NSString stringWithFormat:@"%s/xcaevents.conf", get_xdir_fs ()];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fn];
     if (dict == nil) {
+        // Nothing saved yet, so this is a first run.
+        [self applyDefaultEventInfo];
         return;
     }
     

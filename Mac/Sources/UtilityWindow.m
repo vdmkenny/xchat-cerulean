@@ -47,6 +47,7 @@ NSMutableDictionary *utilities;
 - (void)modernizeContents
 {
     XAModernizeScrollViewsInTree([self contentView]);
+    XASpaceOutButtonRows([self contentView], 10.0);
 }
 
 - (void)rebuildFlatLayout
@@ -128,6 +129,7 @@ NSMutableDictionary *utilities;
 - (void)modernizeContents
 {
     XAModernizeScrollViewsInTree(self);
+    XASpaceOutButtonRows(self, 10.0);
 
     /* The tallest list is what should absorb the window's spare height. */
     NSView *tallest = nil;
