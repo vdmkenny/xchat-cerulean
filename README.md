@@ -1,4 +1,4 @@
-# XChat Cerulean
+# <img src="docs/logo.png" alt="" width="32" align="top"> XChat Cerulean
 
 A native IRC client for macOS, built for Apple Silicon.
 
