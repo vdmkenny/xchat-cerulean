@@ -25,23 +25,24 @@
                message:(NSString *)alertText
                andWait:(BOOL) wait
 {
-    NSAlert *panel = [[NSAlert alloc] init];
+    /* Autoreleased: a copied block retains what it captures and releases it
+     * again when the block is destroyed, so the handler must not release the
+     * alert itself. */
+    NSAlert *panel = [[[NSAlert alloc] init] autorelease];
     [panel setAlertStyle:style];
     [panel addButtonWithTitle:NSLocalizedStringFromTable(@"OK", @"libsg", @"button")];
     [panel setMessageText:alertText];
-    
+
     NSWindow *parent = [NSApp keyWindow] ?: [NSApp mainWindow];
 
     if (wait || parent == nil)
     {
         [panel runModal];
-        [panel release];
     }
     else
     {
         // Sheet on the front window; does not block the caller.
         [panel beginSheetModalForWindow:parent completionHandler:^(NSModalResponse response) {
-            [panel release];
         }];
     }
 }
@@ -79,13 +80,22 @@
                     yesSel:(SEL) yesSel
                      noSel:(SEL) noSel
 {
-    NSAlert *panel = [[NSAlert alloc] init];
+    /* Autoreleased, and nothing is released inside the handler: a copied
+     * block retains what it captures and releases it again when the block is
+     * destroyed. Releasing there as well lands on freed memory, and the
+     * answering selector may itself dispose of the target. */
+    NSAlert *panel = [[[NSAlert alloc] init] autorelease];
     [panel addButtonWithTitle:NSLocalizedStringFromTable(@"No" ,@"libsg", @"button")];
     [panel addButtonWithTitle:NSLocalizedStringFromTable(@"Yes",@"libsg", @"button")];
     [panel setMessageText:alertText];
     [panel setAlertStyle:NSAlertStyleInformational];
 
-    id target = [obj retain];
+    /* The answering selector may release the informed object: callers such as
+     * fe_confirm() hand over an object that frees itself once answered. A
+     * __block variable is not retained by the block, so the block does not
+     * release it afterwards and land on freed memory. */
+    __block id target = obj;
+
     void (^report)(NSModalResponse) = ^(NSModalResponse response) {
         SEL selector = (response == NSAlertSecondButtonReturn) ? yesSel : noSel;
         if (selector != NULL && [target respondsToSelector:selector]) {
@@ -94,8 +104,6 @@
             [target performSelector:selector];
 #pragma clang diagnostic pop
         }
-        [target release];
-        [panel release];
     };
 
     NSWindow *parent = [NSApp keyWindow] ?: [NSApp mainWindow];

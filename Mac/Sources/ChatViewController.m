@@ -603,7 +603,7 @@ static NSImage *XAStatusOrb (NSColor *color)
         [button setAction:@selector(setupChannelModeButtons:)];
         [button setTarget:self];
         
-        [headerBoxView addSubview:button];
+        [headerBoxView addArrangedSubview:button];
     }
 }
 
@@ -626,7 +626,7 @@ static NSImage *XAStatusOrb (NSColor *color)
     sz.height = [topicTextField frame].size.height;
     [b setFrameSize:sz];
     
-    [headerBoxView addSubview:b];
+    [headerBoxView addArrangedSubview:b];
     
     return [b autorelease];
 }
@@ -644,7 +644,7 @@ static NSImage *XAStatusOrb (NSColor *color)
     [b setTarget:self];
     [b setNextKeyView:inputTextField];
     
-    [headerBoxView addSubview:b];
+    [headerBoxView addArrangedSubview:b];
     
     return [b autorelease];
 }
@@ -670,12 +670,7 @@ static NSImage *XAStatusOrb (NSColor *color)
     self.keyTextField = [self modeTextFieldForSelector:@selector (doKeyTextField:)];
     self.keyTextField.stringValue = @(self->sess->channelkey);
     
-    // Breathing room around the topic row and between its controls.
-    headerBoxView.majorOutterMargin = 8.0;
-    headerBoxView.majorInnerMargin = 6.0;
-    headerBoxView.minorMargin = 4.0;
-
-    [headerBoxView sizeToFit];
+    [headerBoxView layoutSubtreeIfNeeded];
 }
 
 - (void)adjustSplitBar {
@@ -938,8 +933,13 @@ static NSStackView *XAStackFromBox(NSView *box,
             [stack setVisibilityPriority:NSStackViewVisibilityPriorityNotVisible forView:child];
     }
 
+    /* Stretch to the width offered rather than hugging the content: a
+     * converted row nested in a converted column would otherwise shrink to
+     * its widest control. */
     [stack setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
                                     forOrientation:NSLayoutConstraintOrientationHorizontal];
+    [stack setContentHuggingPriority:NSLayoutPriorityDefaultLow
+                      forOrientation:NSLayoutConstraintOrientationHorizontal];
 
     [parent replaceSubview:box with:stack];
     return stack;
@@ -957,12 +957,28 @@ static NSStackView *XAStackFromBox(NSView *box,
     NSView *userColumn = [userScroll superview];
     NSView *rootColumn = [userlistSplitView superview];
 
+    NSView *topicRow = (NSView *)headerBoxView;
+    NSView *inputRow = inputContainerView;
+
     /* The boxes lay out lazily and the conversion reads their frames to
      * recover the order, so settle them first. */
-    for (NSView *column in @[chatColumn, userColumn, rootColumn]) {
-        if ([column respondsToSelector:@selector(layoutNow)])
-            [(id)column layoutNow];
+    for (NSView *box in @[chatColumn, userColumn, rootColumn, topicRow, inputRow]) {
+        if ([box respondsToSelector:@selector(layoutNow)])
+            [(id)box layoutNow];
     }
+
+    /* Rows before columns: replaceSubview:with: does not update a stack
+     * view's arrangedSubviews, so a row must still sit in its original box
+     * when it is swapped. */
+    NSStackView *topicStack = XAStackFromBox(topicRow, NSUserInterfaceLayoutOrientationHorizontal,
+                                             8.0, NSEdgeInsetsMake(0.0, 4.0, 0.0, 4.0),
+                                             topicTextField ? @[topicTextField] : @[]);
+    if (topicStack != nil) headerBoxView = topicStack;
+
+    NSStackView *inputStack = XAStackFromBox(inputRow, NSUserInterfaceLayoutOrientationHorizontal,
+                                             8.0, NSEdgeInsetsMake(0.0, 2.0, 0.0, 2.0),
+                                             inputTextField ? @[inputTextField] : @[]);
+    if (inputStack != nil) inputContainerView = inputStack;
 
     XAStackFromBox(chatColumn, NSUserInterfaceLayoutOrientationVertical,
                    10.0, NSEdgeInsetsMake(6.0, 12.0, 12.0, 12.0), @[chatScroll]);
@@ -979,7 +995,7 @@ static NSStackView *XAStackFromBox(NSView *box,
     [self.chatView setFrameSize:NSMakeSize (prefs.mainwindow_width, prefs.mainwindow_height)];
     [chatTextView setFrame:[chatScrollView documentVisibleRect]];
     
-    [headerBoxView layoutNow];
+    [headerBoxView layoutSubtreeIfNeeded];
     self->inputContainerView.layer = [CALayer layer];
 
     [self applyPreferences:nil];
@@ -1042,8 +1058,10 @@ static NSStackView *XAStackFromBox(NSView *box,
     [progressIndicator setHidden:YES];
     [myOpOrVoiceIconImageView setHidden:YES];
     
-    [headerBoxView setStretchView:topicTextField];
-    [headerBoxView layoutNow];    // This allows topicTextField to keep it's place
+    // The topic takes the width the mode buttons do not need.
+    [topicTextField setContentHuggingPriority:NSLayoutPriorityDefaultLow
+                               forOrientation:NSLayoutConstraintOrientationHorizontal];
+    [headerBoxView layoutSubtreeIfNeeded];
     [topicTextField setAction:@selector(doTopicTextField:)];
     [topicTextField setTarget:self];
     

@@ -40,7 +40,7 @@
     IBOutlet NSImageView    *myOpOrVoiceIconImageView;
     IBOutlet NSTextField    *userlistStatusTextField;
     IBOutlet NSTextField    *topicTextField;
-    IBOutlet SGHBoxView     *headerBoxView;
+    IBOutlet NSStackView    *headerBoxView;
     IBOutlet ChatSplitView  *userlistSplitView;
     IBOutlet SGRowColView   *buttonBoxView;
     IBOutlet NSProgressIndicator *progressIndicator;
