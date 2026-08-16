@@ -1,7 +1,7 @@
 prefs.xa_text_manual_indent_chars = 15;
 prefs.xa_outline_width = 150;
 prefs.xa_partonsleep = 1;
-prefs.xa_line_height = 120;
+prefs.xa_line_height = 140;
 prefs.xa_auto_away = 0;
 prefs.xa_auto_away_delay = 10;
 prefs.xa_tab_completion = 1;

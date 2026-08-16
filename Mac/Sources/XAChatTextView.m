@@ -199,7 +199,11 @@ static NSCursor *XAChatTextViewSizableCursor;
 
     NSTextTab *tabStop = [[[NSTextTab alloc] initWithType:NSRightTabStopType location:indent] autorelease];
     [style setTabStops:@[tabStop]];
-    [style setLineHeightMultiple:prefs.xa_line_height / 100.0];
+    /* 120 is the value older builds shipped, which packs the lines tightly.
+     * Treat it as unset and use a roomier default. */
+    CGFloat lineHeight = (prefs.xa_line_height == 120 ? 140 : prefs.xa_line_height) / 100.0;
+    [style setLineHeightMultiple:lineHeight];
+    [style setParagraphSpacing:2.0];
 
     indent += fontSize.width;
 

@@ -180,6 +180,17 @@ NSFont *sharedHiddenFont;
                 hidden = !hidden;
                 start = text;
                 break;
+
+            case 17:         /* monospace */
+            case 29:         /* italic */
+            case 30:         /* strikethrough */
+                /* These formatting codes are consumed so the control byte is
+                 * not drawn as a stray glyph. The styling is not applied. */
+                [msgString appendText:start length:text-start-1
+                      foregroundColor:fg backgroundColor:bg reverse:reverse underbar:under bold:bold hidden:hidden
+                         colorPalette:palette font:font boldFont:boldFont];
+                start = text;
+                break;
         }
     }
 
