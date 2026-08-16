@@ -262,9 +262,11 @@ NSImage *XATabViewOutlineCellCloseImage;
     dataCell.font = font;
     
     NSLayoutManager *layoutManager=[[NSLayoutManager new] autorelease];
-    // Source list rows want noticeably more height than a dense table row.
-    [self setRowHeight:round([layoutManager defaultLineHeightForFont:font] * 1.6) + 2];
+    /* Sidebar rows are roomier than table rows; 28pt is the Finder metric. */
+    CGFloat lineHeight = [layoutManager defaultLineHeightForFont:font];
+    [self setRowHeight:MAX(round(lineHeight * 1.7) + 4, 28.0)];
     [self setIntercellSpacing:NSMakeSize(3.0, 2.0)];
+    [self setIndentationPerLevel:12.0];
     
     // Source list styling: inset rounded selection, sidebar metrics.
     self.style = NSTableViewStyleSourceList;
@@ -1119,6 +1121,12 @@ typedef OSStatus
         return [item label];
 
     return @"";
+}
+
+/* A server is a section header, which a source list draws in its own style. */
+- (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
+{
+    return ![item isKindOfClass:[XATabViewItem class]];
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
