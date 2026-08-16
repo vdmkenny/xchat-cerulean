@@ -126,9 +126,23 @@ static void XAScreenshotCaptureAll (void)
         NSLog (@"screenshot: no visible windows");
 }
 
+/* Forces one appearance so both can be captured without changing the system
+ * setting. Set XA_APPEARANCE to light or dark. */
+static void XAScreenshotApplyAppearance (void)
+{
+    const char *want = getenv ("XA_APPEARANCE");
+    if (want == NULL || want[0] == '\0') return;
+
+    NSString *name = (strcasecmp (want, "light") == 0) ? NSAppearanceNameAqua
+                                                       : NSAppearanceNameDarkAqua;
+    [NSApp setAppearance:[NSAppearance appearanceNamed:name]];
+}
+
 void XAScreenshotInstallHandler (void)
 {
     if (XAScreenshotDirectory () == nil) return;
+
+    XAScreenshotApplyAppearance ();
 
     /* The default action would kill us, and the dispatch source needs the
      * signal left unhandled by signal(2). */

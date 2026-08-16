@@ -31,6 +31,7 @@ enum {
 @interface ColorPalette : NSObject<NSCopying>
 {
     NSColor **colors;
+    BOOL usesSystemTextColors;
 }
 
 @property (readonly) NSUInteger numberOfColors;

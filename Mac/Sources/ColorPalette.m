@@ -114,6 +114,7 @@ static int color_remap [] =
     for (NSUInteger i = 0; i < [self numberOfColors]; i++) {
         copy->colors[i] = [colors[i] retain];
     }
+    copy->usesSystemTextColors = usesSystemTextColors;
     return copy;
 }
 
@@ -233,6 +234,8 @@ static int color_remap [] =
 }
 
 - (void)adoptSystemTextColorsIfDefault {
+    usesSystemTextColors = NO;
+
     if (![self color:colors[XAColorForeground] matchesDefaultAtIndex:XAColorForeground]) return;
     if (![self color:colors[XAColorBackground] matchesDefaultAtIndex:XAColorBackground]) return;
 
@@ -240,6 +243,7 @@ static int color_remap [] =
     [colors[XAColorBackground] release];
     colors[XAColorForeground] = [[NSColor textColor] retain];
     colors[XAColorBackground] = [[NSColor textBackgroundColor] retain];
+    usesSystemTextColors = YES;
 }
 
 - (void)loadFromURL:(NSURL *)fileURL {
@@ -288,6 +292,20 @@ static void write_color (int file, NSColor *color, const char *name)
 		for (unsigned i = 256, j = 32; j < self.numberOfColors; i++, j++)
 		{
 			const char *name = [[NSString stringWithFormat:@"color_%d", i] UTF8String];
+
+			/* The text colours are semantic while they are untouched, and
+			 * writing what they resolve to would store the appearance the
+			 * app happened to launch under and stop following the system
+			 * from then on. Their stock values go out instead, so they are
+			 * adopted again on the next load. */
+			if (usesSystemTextColors &&
+			    (j == XAColorForeground || j == XAColorBackground))
+			{
+				struct GdkColor *stock = &ColorPalleteDefaultColors[j];
+				cfg_put_color (file, stock->red, stock->green, stock->blue, (char *)name);
+				continue;
+			}
+
 			write_color (file, colors[j], name);
 		}
 
@@ -304,6 +322,10 @@ static void write_color (int file, NSColor *color, const char *name)
 {
     [colors [n] release];
     colors [n] = [color retain];
+
+    /* A chosen colour is literal and must be stored as picked. */
+    if (n == XAColorForeground || n == XAColorBackground)
+        usesSystemTextColors = NO;
 }
 
 - (NSUInteger) numberOfColors

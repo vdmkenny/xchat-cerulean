@@ -29,6 +29,17 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 
 ### Changed
 
+- **The whole interface was rebuilt on stock AppKit.** The nibs positioned
+  every control at a fixed frame, which left the windows cramped and without
+  margins. Rows and columns are stack views now, lists are borderless with
+  current row metrics, and columns are at least as wide as their headings.
+- **The channel list and user list are vibrant sidebars**, each with a
+  toolbar toggle above the pane it hides and a tracking separator aligned to
+  the divider. The user list toggle is disabled outside a channel.
+- **Colours follow the system appearance.** Dark and light mode both work;
+  nothing is hard-coded to a light palette.
+- **The window has a toolbar** with SF Symbols for the sidebars, networks,
+  joining a channel, the channel list, search and settings.
 - **Rebranded** from X-Chat Aqua to XChat Cerulean. Settings now live in
   `~/Library/Application Support/XChat Cerulean/`; the old directory is not
   read automatically.
