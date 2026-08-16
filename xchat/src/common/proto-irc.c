@@ -54,47 +54,90 @@ irc_add_cap (char *request, size_t size, const char *name)
 	safe_strcpy (request + used, name, size - used);
 }
 
+/* Whether a capability appears in the offered list as an entry of its own.
+ *
+ * Searching for the name anywhere in the list is not enough: a server may
+ * offer a vendored capability whose name contains a standard one, and
+ * "solanum.chat/identify-msg" contains "identify-msg". Asking for something
+ * that was never offered gets the whole request refused, since a request is
+ * answered all or nothing, and the connection then has no capabilities at
+ * all. An entry may also carry a value, as "name=value". */
+static int
+irc_cap_offered (const char *offered, const char *name)
+{
+	size_t len = strlen (name);
+	const char *p = offered;
+
+	while (*p)
+	{
+		const char *end;
+		const char *value;
+		size_t entry;
+
+		while (*p == ' ')
+			p++;
+		if (!*p)
+			break;
+
+		end = strchr (p, ' ');
+		entry = end ? (size_t) (end - p) : strlen (p);
+
+		value = memchr (p, '=', entry);
+		if (value)
+			entry = value - p;
+
+		if (entry == len && strncmp (p, name, len) == 0)
+			return TRUE;
+
+		if (!end)
+			break;
+		p = end;
+	}
+
+	return FALSE;
+}
+
 /* Which of the capabilities a server offers are worth having. Shared by the
  * list sent at login and by any the server announces later. */
 static void
 irc_wanted_caps (server *serv, char *offered, char *request, size_t size)
 {
-	if (serv->use_sasl && serv->password[0] && strstr (offered, "sasl") != NULL)
+	if (serv->use_sasl && serv->password[0] && irc_cap_offered (offered, "sasl"))
 		irc_add_cap (request, size, "sasl");
-	if (strstr (offered, "server-time") != NULL)
+	if (irc_cap_offered (offered, "server-time"))
 		irc_add_cap (request, size, "server-time");
 	/* NAMES then carries every mode a user holds rather than only the
 	 * highest. nick_access already counts all the leading prefix
 	 * characters, so the nick still parses; the access level it works out
 	 * simply becomes complete. */
-	if (strstr (offered, "multi-prefix") != NULL)
+	if (irc_cap_offered (offered, "multi-prefix"))
 		irc_add_cap (request, size, "multi-prefix");
 	/* Keeps the user list right between name replies: who is away, and a
 	 * host that changed without a reconnect. */
-	if (strstr (offered, "away-notify") != NULL)
+	if (irc_cap_offered (offered, "away-notify"))
 		irc_add_cap (request, size, "away-notify");
-	if (strstr (offered, "chghost") != NULL)
+	if (irc_cap_offered (offered, "chghost"))
 		irc_add_cap (request, size, "chghost");
-	if (strstr (offered, "identify-msg") != NULL)
+	if (irc_cap_offered (offered, "identify-msg"))
 		irc_add_cap (request, size, "identify-msg");
 	/* Who is logged in to services: the account arrives with the join
 	 * itself, and afterwards whenever it changes. */
-	if (strstr (offered, "extended-join") != NULL)
+	if (irc_cap_offered (offered, "extended-join"))
 		irc_add_cap (request, size, "extended-join");
-	if (strstr (offered, "account-notify") != NULL)
+	if (irc_cap_offered (offered, "account-notify"))
 		irc_add_cap (request, size, "account-notify");
 	/* Name replies carry the full user and host, so the list is complete
 	 * on joining rather than once a WHO comes back. */
-	if (strstr (offered, "userhost-in-names") != NULL)
+	if (irc_cap_offered (offered, "userhost-in-names"))
 		irc_add_cap (request, size, "userhost-in-names");
 	/* Lets the server offer capabilities later in the session rather than
 	 * only at the start. */
-	if (strstr (offered, "cap-notify") != NULL)
+	if (irc_cap_offered (offered, "cap-notify"))
 		irc_add_cap (request, size, "cap-notify");
-	if (strstr (offered, "invite-notify") != NULL)
+	if (irc_cap_offered (offered, "invite-notify"))
 		irc_add_cap (request, size, "invite-notify");
 	/* Someone changing their real name without reconnecting. */
-	if (strstr (offered, "setname") != NULL)
+	if (irc_cap_offered (offered, "setname"))
 		irc_add_cap (request, size, "setname");
 }
 
