@@ -51,6 +51,8 @@
 /* Identifiers for the actionable notification type registered at launch. */
 static NSString * const XAMessageNotificationCategory = @"message";
 static NSString * const XAReplyNotificationAction = @"reply";
+static NSString * const XATransferNotificationCategory = @"transfer";
+static NSString * const XARevealNotificationAction = @"reveal";
 
 extern struct text_event te[];
 
@@ -288,6 +290,29 @@ AquaChat *AquaChatSharedObject;
             content.body = @(x);
             content.sound = nil;    // xchat plays its own sounds
 
+            /* One thread per conversation, so several messages from the same
+             * channel stack into one group rather than a column of banners. */
+            if (sess && sess->channel[0])
+                content.threadIdentifier = @(sess->channel);
+
+            /* Being addressed directly, or being offered a file, is worth
+             * interrupting a Focus for. Everything else is not. */
+            switch (event)
+            {
+                case XP_TE_PRIVMSG:
+                case XP_TE_DPRIVMSG:
+                case XP_TE_HCHANMSG:
+                case XP_TE_PRIVACTION:
+                case XP_TE_DPRIVACTION:
+                case XP_TE_HCHANACTION:
+                case XP_TE_DCCOFFER:
+                    content.interruptionLevel = UNNotificationInterruptionLevelTimeSensitive;
+                    break;
+                default:
+                    content.interruptionLevel = UNNotificationInterruptionLevelActive;
+                    break;
+            }
+
             NSMutableDictionary *settings = [NSMutableDictionary dictionary];
             settings[@"setting"] = @(info->notification);
             settings[@"channel"] = @(sess ? sess->channel : "");
@@ -384,7 +409,19 @@ AquaChat *AquaChatSharedObject;
                                      intentIdentifiers:@[]
                                                options:UNNotificationCategoryOptionNone];
 
-    [center setNotificationCategories:[NSSet setWithObject:messages]];
+    // A finished transfer can be opened in the Finder from the banner.
+    UNNotificationAction *reveal =
+        [UNNotificationAction actionWithIdentifier:XARevealNotificationAction
+                                             title:NSLocalizedStringFromTable(@"Show in Finder", @"xchataqua", @"Notification button on a finished transfer")
+                                           options:UNNotificationActionOptionForeground];
+
+    UNNotificationCategory *transfers =
+        [UNNotificationCategory categoryWithIdentifier:XATransferNotificationCategory
+                                               actions:@[reveal]
+                                     intentIdentifiers:@[]
+                                               options:UNNotificationCategoryOptionNone];
+
+    [center setNotificationCategories:[NSSet setWithObjects:messages, transfers, nil]];
 
     [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert |
                                              UNAuthorizationOptionBadge)
@@ -452,6 +489,19 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)(void))completionHandler
 {
     NSDictionary *userInfo = response.notification.request.content.userInfo;
+
+    if ([response.actionIdentifier isEqualToString:XARevealNotificationAction] ||
+        (userInfo[@"path"] != nil &&
+         [response.actionIdentifier isEqualToString:UNNotificationDefaultActionIdentifier]))
+    {
+        NSString *path = userInfo[@"path"];
+        if (path)
+            [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:
+                @[[NSURL fileURLWithPath:path]]];
+        completionHandler ();
+        return;
+    }
+
     NSNumber *servId = userInfo[@"server"];
     NSString *channel = userInfo[@"channel"];
     struct server *serv;
@@ -562,6 +612,32 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 }
 #endif
 
+/* A finished download is worth saying so, with a way straight to the file.
+ * The path is carried on the notification so the button works whatever has
+ * happened to the transfer list since. */
+- (void) notifyTransferComplete:(struct DCC *) dcc
+{
+    if (dcc == NULL || dcc->file == NULL) return;
+
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.title = NSLocalizedStringFromTable(@"Download finished", @"xchataqua", @"Notification title");
+    content.body = @(dcc->file);
+    content.categoryIdentifier = XATransferNotificationCategory;
+    content.interruptionLevel = UNNotificationInterruptionLevelActive;
+    content.threadIdentifier = @"transfers";
+
+    if (dcc->destfile)
+        content.userInfo = @{@"path": @(dcc->destfile)};
+
+    UNNotificationRequest *request =
+        [UNNotificationRequest requestWithIdentifier:[[NSUUID UUID] UUIDString]
+                                             content:content
+                                             trigger:nil];
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
+                                                          withCompletionHandler:nil];
+    [content release];
+}
+
 - (void) updateDcc:(struct DCC *) dcc
 {
     switch (dcc->type)
@@ -574,6 +650,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         case TYPE_RECV:
             if (dcc_recv_window)
                 [dcc_recv_window update:dcc];
+            if (dcc->dccstat == STAT_DONE)
+                [self notifyTransferComplete:dcc];
             break;
             
         case TYPE_CHATSEND:
