@@ -240,9 +240,18 @@ static int TimerThingSequence = 1;
     NSString *urlString = [self directParameter];
     if (!urlString)
         return nil;
-    char buff [128];
-    snprintf (buff, sizeof (buff), "%sserver %s", newstr, [urlString UTF8String]);
-    handle_command (current_sess, buff, 0);
+
+    /* Sized to the URL rather than a fixed buffer: a long one used to be cut
+     * short, which turned into a connection to whatever the truncation left
+     * behind. */
+    const char *url = [urlString UTF8String];
+    if (url == NULL)
+        return nil;
+
+    char *command = g_strdup_printf ("%sserver %s", newstr, url);
+    handle_command (current_sess, command, 0);
+    g_free (command);
+
     return nil;
 }
 
