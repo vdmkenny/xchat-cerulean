@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.3.4</title>
-            <pubDate>Sun, 16 Aug 2026 13:15:59 +0000</pubDate>
+            <title>2.3.5</title>
+            <pubDate>Sun, 16 Aug 2026 13:26:53 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.3.4.1</sparkle:version>
-            <sparkle:shortVersionString>2.3.4</sparkle:shortVersionString>
+            <sparkle:version>2.3.5.1</sparkle:version>
+            <sparkle:shortVersionString>2.3.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -18,13 +18,13 @@ ul{margin:0 0 8px 18px;padding:0}li{margin:3px 0}
 code{font:11px ui-monospace,monospace;background:rgba(127,127,127,.15);
 padding:1px 4px;border-radius:3px}
 </style></head><body>
-<h2>Added</h2>
+<h2>Fixed</h2>
 <ul>
-<li><strong>A book channel search script</strong>, off unless you turn it on in the plugins window. Asking such a channel for a subject hands you an archive, and every line inside it is the command that requests one item, so the work is unzipping it and copying a line back. <code>/bsearch</code> asks, the listing is read as it arrives and then deleted, <code>/blist</code> shows it numbered, and <code>/bget</code> requests one entry. Requesting stays a separate step rather than following from the search. Listings are still confirmed like any other transfer unless you name the search bot as a trusted sender. Bot names vary, so a pattern rather than an exact name is worth using there.</li>
+<li><strong>Ruby scripts could not be turned on.</strong> Loading one was refused as an unknown file type, with a suggestion to install the perl or python plugin. Only scripts placed in the configuration directory were ever picked up, so every script shipped in the app, including the ones that have always been there, could be listed but never enabled. The ruby interpreter now claims its own files when loading and unloading, as the perl one does.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.4/XChat-Cerulean-2.3.4.zip" length="7035684" type="application/octet-stream" sparkle:edSignature="eQ72YiNF4gva9cNoYPnHBn7DqcEWCL4nTGOfRWOhEM9LXcaCaSEOo+CzT3Xv7rlFpag+OTCmz64LtxtTn3/4CA=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.5/XChat-Cerulean-2.3.5.zip" length="7036078" type="application/octet-stream" sparkle:edSignature="k3VK52KPh6F3Ci8Oq7QiX1C9tF2Ie2LjjkO6QFszCyBndLvkQ5UDHidpRPkaMc0eXvkIBQoCoZg5/EzIxuYKDA=="/>
         </item>
     </channel>
 </rss>
