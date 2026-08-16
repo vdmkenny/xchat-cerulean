@@ -5,6 +5,23 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.2.1] - 2026-08-16
+
+### Changed
+
+- The timestamp is a size down, dimmer, and no longer bracketed. It sits
+  beside the conversation rather than competing with it.
+
+### Fixed
+
+- **A long nick ran over the separator.** 2.2.0 sized the nick column for
+  the timestamp but not for the name beside it, and the nick is right
+  aligned on the indent, so anything that did not fit spilled past it. The
+  column grows to the widest nick seen.
+- The release job failed to publish the update feed the first time. It
+  tested for changes before staging the file, and a file that is new to the
+  tree shows no difference, so the very first publication was skipped.
+
 ## [2.2.0] - 2026-08-16
 
 ### Added
@@ -235,3 +252,4 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 [2.0.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.1
 [2.1.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.1.0
 [2.2.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.2.0
+[2.2.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.2.1
