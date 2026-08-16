@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.2.0</title>
-            <pubDate>Sun, 16 Aug 2026 08:11:32 +0200</pubDate>
+            <title>2.2.1</title>
+            <pubDate>Sun, 16 Aug 2026 06:35:54 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.2.0.1</sparkle:version>
-            <sparkle:shortVersionString>2.2.0</sparkle:shortVersionString>
+            <sparkle:version>2.2.1.1</sparkle:version>
+            <sparkle:shortVersionString>2.2.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -18,28 +18,18 @@ ul{margin:0 0 8px 18px;padding:0}li{margin:3px 0}
 code{font:11px ui-monospace,monospace;background:rgba(127,127,127,.15);
 padding:1px 4px;border-radius:3px}
 </style></head><body>
-<h2>Added</h2>
-<ul>
-<li><strong>IRCv3 capabilities.</strong> 2.1.0 added SASL; the negotiation now covers the rest of what this client can act on.</li>
-<li><code>message-tags</code>, the tag section ahead of a line, with the escaping the specification lays out.</li>
-<li><code>server-time</code>, so a message is shown as having happened when the server saw it. Reconnects and bouncer playback stop being stamped with the moment you reconnected.</li>
-<li><code>multi-prefix</code>, so a user&#x27;s full set of modes is known rather than only the highest.</li>
-<li><code>away-notify</code> and <code>chghost</code>, so who is away and whose host changed is right between name replies instead of going stale until the next <code>WHO</code>. <code>extended-join</code> and <code>account-notify</code> are deliberately not requested. Neither carries anything this client can use, and <code>extended-join</code> moves the channel out of the trailing parameter of <code>JOIN</code>, which the parser relies on.</li>
-<li><strong>Automatic updates.</strong> Nothing told anyone a new version existed. Sparkle checks a signed feed published with the site, once a day and from **Check for Updates** in the application menu. Whether it looks on its own is a preference under Other. The dialog shows that version&#x27;s changelog.</li>
-<li><strong>A finished download says so</strong>, with a button that opens the Finder on the file.</li>
-</ul>
 <h2>Changed</h2>
 <ul>
-<li>Notifications from one conversation share a thread, so several arriving together stack into a group rather than a column of banners.</li>
-<li>Being addressed directly or offered a file is marked time sensitive, so a Focus lets those through while ordinary traffic waits.</li>
+<li>The timestamp is a size down, dimmer, and no longer bracketed. It sits beside the conversation rather than competing with it.</li>
 </ul>
 <h2>Fixed</h2>
 <ul>
-<li>A timestamp format wider than the nick column ran over the separator and into the message. The column grows to fit whatever format is set.</li>
+<li><strong>A long nick ran over the separator.</strong> 2.2.0 sized the nick column for the timestamp but not for the name beside it, and the nick is right aligned on the indent, so anything that did not fit spilled past it. The column grows to the widest nick seen.</li>
+<li>The release job failed to publish the update feed the first time. It tested for changes before staging the file, and a file that is new to the tree shows no difference, so the very first publication was skipped.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.2.0/XChat-Cerulean-2.2.0.zip" length="7002078" type="application/octet-stream" sparkle:edSignature="Bzg4LvuqCAoZaqKGYlOBMCJKvjwtySuRkIhExo++JUJ/X8mjTyyhKJPH7pu9gfjfyWXYif2fwQ+agEtT/D24DA=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.2.1/XChat-Cerulean-2.2.1.zip" length="7002417" type="application/octet-stream" sparkle:edSignature="fxUUM9ivxJSeVei7+MHaQCp6YuWIp5z8fEIfOyqV9V/f0jATS+/j71KRPSDkCiU1VXWt8ucgZc5qyenOu3Z9AA=="/>
         </item>
     </channel>
 </rss>
