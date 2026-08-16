@@ -47,6 +47,7 @@
 #import "NetworkWindow.h"
 #import "UrlGrabberWindow.h"
 #import "XAScreenshot.h"
+#import "XANetworkMonitor.h"
 
 /* Identifiers for the actionable notification type registered at launch. */
 static NSString * const XAMessageNotificationCategory = @"message";
@@ -388,6 +389,7 @@ AquaChat *AquaChatSharedObject;
 
     [self setUpNotifications];
     XAScreenshotInstallHandler ();
+    xa_network_monitor_start ();
 }
 
 - (void)setUpNotifications
@@ -573,7 +575,13 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     for (GSList *slist = serv_list; slist; slist = slist->next)
     {
         struct server *serv = (struct server *) slist->data;
-        serv->recondelay_tag = 0;
+
+        if (serv->recondelay_tag)
+        {
+            fe_timeout_remove (serv->recondelay_tag);
+            serv->recondelay_tag = 0;
+        }
+
         if (!serv->connected && !serv->connecting && serv->server_session)
             serv->connect (serv, serv->hostname, serv->port, FALSE);
     }
@@ -583,6 +591,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 - (void) cleanup
 {
+    xa_network_monitor_stop ();
     [self.palette save];
     [self saveEventInfo];
 }

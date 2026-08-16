@@ -31,6 +31,7 @@
 #import "RawLogWindow.h"
 #import "MenuMaker.h"
 #import "XAFileUtil.h"
+#import "XAPower.h"
 
 #import "UtilityWindow.h"
 
@@ -677,18 +678,21 @@ void
 fe_dcc_add (struct DCC *dcc)
 {
     [[AquaChat sharedAquaChat] addDcc:dcc];
+    xa_power_transfers_changed ();
 }
 
 void
 fe_dcc_update (struct DCC *dcc)
 {
     [[AquaChat sharedAquaChat] updateDcc:dcc];
+    xa_power_transfers_changed ();
 }
 
 void
 fe_dcc_remove (struct DCC *dcc)
 {
     [[AquaChat sharedAquaChat] removeDcc:dcc];
+    xa_power_transfers_changed ();
 }
 
 void
