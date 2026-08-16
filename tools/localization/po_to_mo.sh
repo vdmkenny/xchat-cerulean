@@ -6,7 +6,18 @@ if [ "$1" = 'clean' ]; then
 	exit
 fi
 
-MSGFMT="$PROJECT_DIR/tools/localization/msgfmt"
+# The repository used to ship a prebuilt msgfmt, a ppc/i386 binary that no
+# macOS has been able to run for over a decade, so every locale silently
+# failed to build. Use the one from gettext.
+MSGFMT="$(command -v msgfmt || true)"
+for candidate in /opt/homebrew/opt/gettext/bin/msgfmt /usr/local/opt/gettext/bin/msgfmt; do
+	[ -n "$MSGFMT" ] && break
+	[ -x "$candidate" ] && MSGFMT="$candidate"
+done
+if [ -z "$MSGFMT" ]; then
+	echo "msgfmt not found; install gettext (brew install gettext)" >&2
+	exit 1
+fi
 
 moname=xchat
 

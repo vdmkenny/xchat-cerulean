@@ -49,11 +49,11 @@ jobs:
       - name: Bundle the libraries into the app
         run: ./tools/bundle_libs.sh "build/Build/Products/Release/XChat Cerulean.app"
 
+      # Rewriting the load commands invalidates the signatures the libraries
+      # came with, and --deep does not reliably reach nested code, so each
+      # piece is signed from the inside out.
       - name: Sign
-        run: |
-          APP="build/Build/Products/Release/XChat Cerulean.app"
-          codesign --force --deep --sign - "$APP"
-          codesign --verify --deep --strict "$APP"
+        run: ./tools/sign_app.sh "build/Build/Products/Release/XChat Cerulean.app"
 
       - name: Package
         run: |
