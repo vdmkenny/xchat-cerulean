@@ -2359,6 +2359,14 @@ static void XAWrapInSidebarMaterial(NSView *pane)
     [textView setGrammarCheckingEnabled:prefs.xa_input_grammar];
     [textView setAutomaticSpellingCorrectionEnabled:prefs.xa_input_autocorrect];
 
+    /* macOS turns these on by default, and every one of them corrupts IRC
+     * input: smart quotes break a quoted command argument, dash substitution
+     * turns --flag into an em dash, and text replacement expands snippets
+     * inside nicks and URLs. */
+    [textView setAutomaticQuoteSubstitutionEnabled:NO];
+    [textView setAutomaticDashSubstitutionEnabled:NO];
+    [textView setAutomaticTextReplacementEnabled:NO];
+
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (ChannelUser *user in self->users) {
         [arr addObject:[user->nick string]];

@@ -209,13 +209,6 @@ AquaChat *AquaChatSharedObject;
     
 }
 
-//TODO sparkle here
-- (void) new_version_alert
-{
-    bool ok = [SGAlert confirmWithString:NSLocalizedStringFromTable(@"There is a new version of XChat Cerulean available for download.  Press OK to visit the download site.", @"xchataqua", "")];
-    if (ok)
-        [self openDownload:self];
-}
 
 /* let's do it in the standard Cocoa way */
 /*

@@ -21,6 +21,7 @@
 #define _FILE_OFFSET_BITS 64
 #include <stdio.h>
 #include <unistd.h>
+#include <poll.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -358,13 +359,32 @@ errorstring (int err)
 	return strerror (err);
 }
 
+/* Reads one line a byte at a time. This runs on the main thread for the
+ * connection worker's pipe, so a writer that stalls part way through a line
+ * would otherwise hang the interface for good: each byte is waited for with a
+ * bounded poll instead. The buffer is terminated up front because callers
+ * read it whether or not this succeeded. */
+#define WAITLINE_TIMEOUT_MS 30000
+
 int
 waitline (int sok, char *buf, int bufsize, int use_recv)
 {
 	int i = 0;
 
+	if (bufsize > 0)
+		buf[0] = 0;
+
 	while (1)
 	{
+		struct pollfd pfd;
+
+		pfd.fd = sok;
+		pfd.events = POLLIN;
+		pfd.revents = 0;
+
+		if (poll (&pfd, 1, WAITLINE_TIMEOUT_MS) < 1)
+			return -1;
+
 		if (use_recv)
 		{
 			if (recv (sok, &buf[i], 1, 0) < 1)
