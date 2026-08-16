@@ -20,8 +20,20 @@ here should be reported here rather than upstream.
 
 ## Getting started
 
-There is no prebuilt download yet, so you build it once. You need Xcode and
-[Homebrew](https://brew.sh).
+Download the latest build from
+[Releases](https://github.com/vdmkenny/xchat-cerulean/releases/latest),
+unzip it and drag it to Applications. Everything it needs is inside the app.
+
+It is signed ad-hoc rather than with a Developer ID, so the first launch
+needs Control-click → Open, or:
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/XChat Cerulean.app"
+```
+
+### Building it yourself
+
+You need Xcode and [Homebrew](https://brew.sh).
 
 Install the libraries:
 
@@ -105,7 +117,10 @@ Modifications for Cerulean are © 2026 its contributors, under the same
 licence.
 
 glib (LGPL-2.1-or-later), gettext (LGPL-2.1-or-later) and OpenSSL
-(Apache-2.0) are linked from Homebrew, not redistributed here.
+(Apache-2.0) are linked from Homebrew when you build from source. The
+released binaries carry unmodified copies inside the app bundle, under
+`Contents/libs`, so they run without Homebrew installed; each remains under
+its own licence.
 
 The Ruby and Tcl scripting plugins link the frameworks that ship with macOS.
 Apple has marked both as deprecated, so those two plugins will stop loading

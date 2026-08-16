@@ -1,0 +1,103 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to build and release, e.g. 2.0.0"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    # The app targets macOS 26 and builds for arm64, so it needs a runner
+    # on the same release.
+    runs-on: macos-26
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        run: brew install glib gettext openssl@3
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project XChatAqua.xcodeproj \
+            -scheme 'XChat Cerulean' \
+            -configuration Release \
+            -derivedDataPath build \
+            build
+
+      # The app links glib, gettext and OpenSSL from Homebrew by absolute
+      # path, so without this a downloaded build only runs on a machine that
+      # has the same formulae installed.
+      - name: Bundle the libraries into the app
+        run: ./tools/bundle_libs.sh "build/Build/Products/Release/XChat Cerulean.app"
+
+      - name: Sign
+        run: |
+          APP="build/Build/Products/Release/XChat Cerulean.app"
+          codesign --force --deep --sign - "$APP"
+          codesign --verify --deep --strict "$APP"
+
+      - name: Package
+        run: |
+          APP="build/Build/Products/Release/XChat Cerulean.app"
+          ditto -c -k --keepParent "$APP" "XChat-Cerulean-${{ steps.version.outputs.value }}.zip"
+          shasum -a 256 "XChat-Cerulean-${{ steps.version.outputs.value }}.zip" \
+            > "XChat-Cerulean-${{ steps.version.outputs.value }}.zip.sha256"
+
+      - name: Take the notes from the changelog
+        run: |
+          VERSION="${{ steps.version.outputs.value }}"
+          awk -v v="## [$VERSION]" '
+            index($0, v) == 1 { found = 1; next }
+            found && /^## \[/ { exit }
+            found { print }
+          ' CHANGELOG.md > notes.md
+
+          cat >> notes.md <<'EOF'
+
+          ---
+
+          The app is signed ad-hoc rather than with a Developer ID, so the
+          first launch needs Control-click → Open, or:
+
+          ```
+          xattr -dr com.apple.quarantine "/Applications/XChat Cerulean.app"
+          ```
+
+          glib, gettext and OpenSSL are bundled inside the app under their own
+          licences; see COPYING and the credits in the README.
+          EOF
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: XChat-Cerulean-${{ steps.version.outputs.value }}
+          path: XChat-Cerulean-${{ steps.version.outputs.value }}.zip*
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.value }}"
+          gh release create "$VERSION" \
+            --title "XChat Cerulean $VERSION" \
+            --notes-file notes.md \
+            "XChat-Cerulean-$VERSION.zip" \
+            "XChat-Cerulean-$VERSION.zip.sha256"
