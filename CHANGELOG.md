@@ -5,6 +5,28 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.2] - 2026-08-16
+
+### Fixed
+
+- **Clicking a link in the conversation killed the app.** The handler picks a
+  command per kind of word, and for a URL it stopped setting one when links
+  started being followed natively, but still fell through to the code that
+  runs it, which took the length of a null pointer. Any link would do it, and
+  it had been that way since 2017.
+- **Ruby scripts could not require anything.** The embedded interpreter was
+  started without its load path, so it began with an empty one. A file
+  listing the paths was meant to make up for that, but it was generated when
+  the app was built and then looked for under a directory that exists
+  nowhere, which is what the warning on startup was about. The interpreter
+  now fills the path in from its own configuration.
+- **The perl bridge was never built.** Three perl scripts shipped with
+  nothing able to run them. It builds against the perl on the machine and is
+  included now.
+
+Neither interpreter is carried in the app. Both bind to what the system
+already provides, as they always did.
+
 ## [2.3.1] - 2026-08-16
 
 ### Fixed

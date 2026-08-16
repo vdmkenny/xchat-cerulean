@@ -28,3 +28,4 @@ Pods
 Resources/locale
 xchat/plugins/perl/xchat.pm.h
 xchat/plugins/perl/irc.pm.h
+Mac/Plugins/ruby/src/rubyenv

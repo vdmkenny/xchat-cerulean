@@ -128,7 +128,6 @@
 		3839010413C06619004D20BC /* CLTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839010313C06619004D20BC /* CLTabCell.m */; };
 		384A96461588F2CC00268814 /* xchat-ruby.c in Sources */ = {isa = PBXBuildFile; fileRef = 384A963E1588F2CC00268814 /* xchat-ruby.c */; };
 		384A964B1588F6FE00268814 /* DEVELOPERS in CopyFiles */ = {isa = PBXBuildFile; fileRef = 384A96341588F2CC00268814 /* DEVELOPERS */; };
-		384A964C1588F6FE00268814 /* rubyenv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 384A96481588F66100268814 /* rubyenv */; };
 		385F8153155167C200689E6E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 385F766D155148FC00689E6E /* libiconv.dylib */; };
 		385FCFB515984EFC0058F381 /* RawLogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385FCFB415984EFC0058F381 /* RawLogWindow.xib */; };
 		3864594B15E509E500C4CA45 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864594A15E509E500C4CA45 /* PluginManager.m */; };
@@ -175,7 +174,6 @@
 		3894C1B41590D93D00BCD762 /* NSPanelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3894C1B21590D6F400BCD762 /* NSPanelAdditions.m */; };
 		38A690A115A844A4008CC31F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A6909F15A84485008CC31F /* QuartzCore.framework */; };
 		38B2007C183BDF56006C1EA1 /* perl.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F06C10E1FDA5E00359159 /* perl.c */; };
-		38B248631F3709D800C7D20E /* libperl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B248621F3709D800C7D20E /* libperl.dylib */; };
 		38BC97BB154A9AD4005894EF /* tcl.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 0F8F08110E1FE00800359159 /* tcl.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		38BC97BD154A9AD4005894EF /* ruby.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 38D1414013D800E60026B7B5 /* ruby.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		38D1414213D801B70026B7B5 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D1414113D801B70026B7B5 /* Ruby.framework */; };
@@ -271,7 +269,6 @@
 			dstSubfolderSpec = 12;
 			files = (
 				384A964B1588F6FE00268814 /* DEVELOPERS in CopyFiles */,
-				384A964C1588F6FE00268814 /* rubyenv in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1659,7 +1656,6 @@
 		38A6909F15A84485008CC31F /* QuartzCore.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		38B20083183BDF56006C1EA1 /* perl.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = perl.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B20084183BDF57006C1EA1 /* perl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = perl; path = /Volumes/UserSpace/Projects/xchatazure/Mac/Plugins/perl; sourceTree = "<absolute>"; };
-		38B248621F3709D800C7D20E /* libperl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libperl.dylib; path = "../../../../System/Library/Perl/5.18/darwin-thread-multi-2level/CORE/libperl.dylib"; sourceTree = "<group>"; };
 		38CE5A63154A551600480EC6 /* alt_completion.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; name = alt_completion.pl; path = xchat/plugins/perl/alt_completion.pl; sourceTree = SOURCE_ROOT; };
 		38CE5A64154A551600480EC6 /* char_count.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; name = char_count.pl; path = xchat/plugins/perl/char_count.pl; sourceTree = SOURCE_ROOT; };
 		38CE5A65154A551600480EC6 /* irc.pm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = irc.pm.h; path = xchat/plugins/perl/irc.pm.h; sourceTree = SOURCE_ROOT; };
@@ -1728,7 +1724,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38B248631F3709D800C7D20E /* libperl.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2004,7 +1999,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38B248621F3709D800C7D20E /* libperl.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 				8612B1121EDE1E9D0AD33248 /* libPods-XChat Aqua.a */,
@@ -2617,7 +2611,6 @@
 			buildPhases = (
 				38D1413813D800E60026B7B5 /* Resources */,
 				38BC9850154AD8A7005894EF /* Generate XChat Plugin Header */,
-				384A964D1588FBD100268814 /* Generate rubyenv */,
 				38D1413913D800E60026B7B5 /* Sources */,
 				38D1413B13D800E60026B7B5 /* Frameworks */,
 				384A964A1588F6C200268814 /* CopyFiles */,
@@ -2851,6 +2844,8 @@
 			);
 			name = "Generate Build Number";
 			outputPaths = (
+				"$(SRCROOT)/BuildNumber.xcconfig",
+				"$(SRCROOT)/build_number.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
@@ -2858,6 +2853,7 @@
 		};
 		2DDC6FEF1231BDD40015A26C /* Generate Localization Files */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 12;
 			files = (
 			);
@@ -2870,20 +2866,6 @@
 			shellPath = /bin/bash;
 			shellScript = "cd \"$PROJECT_DIR/tools/localization\"\n\n[ -f ~/.bashrc ] && source ~/.bashrc\n[ -f ~/.profile ] && source ~/.profile\n\n/bin/bash _AUTOUPDATE.sh";
 		};
-		384A964D1588FBD100268814 /* Generate rubyenv */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate rubyenv";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "cd \"$PROJECT_DIR/Mac/Plugins/ruby/src\"\n\n/usr/bin/ruby -e 'puts $LOAD_PATH.join(\"\\n\")' > rubyenv";
-		};
 		389DC407155569EB003BA8D9 /* Generate XChat Package Name */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2893,6 +2875,7 @@
 			);
 			name = "Generate XChat Package Name";
 			outputPaths = (
+				"$(SRCROOT)/xchat_package_name.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
@@ -2907,6 +2890,7 @@
 			);
 			name = "Generate XChat Plugin Header";
 			outputPaths = (
+				"$(SRCROOT)/Mac/Plugins/ruby/src/xchat-ruby-plugin.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
@@ -2925,6 +2909,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/xchat/plugins/perl/xchat.pm.h",
+				"$(SRCROOT)/xchat/plugins/perl/irc.pm.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4325,13 +4311,17 @@
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(XA_PERL_CORE)",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Mac/Plugins/perl/perl-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"$(XA_PERL_CORE)",
+					"-Wno-compound-token-split-by-macro",
+					"-Wno-variadic-macro-arguments-omitted",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -4356,13 +4346,17 @@
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(XA_PERL_CORE)",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Mac/Plugins/perl/perl-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"$(XA_PERL_CORE)",
+					"-Wno-compound-token-split-by-macro",
+					"-Wno-variadic-macro-arguments-omitted",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -4400,6 +4394,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Mac/Plugins/ruby\"",
 				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"$(SDKROOT)/System/Library/Frameworks/Ruby.framework/Versions/2.6/Headers",
+					"-Wno-compound-token-split-by-macro",
+					"-Wno-variadic-macro-arguments-omitted",
+					"-Wno-overlength-strings",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -4431,6 +4433,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Mac/Plugins/ruby\"",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"$(SDKROOT)/System/Library/Frameworks/Ruby.framework/Versions/2.6/Headers",
+					"-Wno-compound-token-split-by-macro",
+					"-Wno-variadic-macro-arguments-omitted",
+					"-Wno-overlength-strings",
 				);
 				OTHER_LDFLAGS = (
 					"-undefined",
