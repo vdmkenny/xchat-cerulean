@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.3.1</title>
-            <pubDate>Sun, 16 Aug 2026 11:05:45 +0000</pubDate>
+            <title>2.3.2</title>
+            <pubDate>Sun, 16 Aug 2026 11:48:33 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.3.1.1</sparkle:version>
-            <sparkle:shortVersionString>2.3.1</sparkle:shortVersionString>
+            <sparkle:version>2.3.2.1</sparkle:version>
+            <sparkle:shortVersionString>2.3.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -20,16 +20,18 @@ padding:1px 4px;border-radius:3px}
 </style></head><body>
 <h2>Fixed</h2>
 <ul>
-<li><strong>A file link could claim to be something it was not.</strong> 2.3.0 showed any file URL as its last path component, so a message from anybody could carry a link reading <code>photo.jpg</code> that pointed elsewhere, and following it hands the target to the system to open. A local path is linked only when it names something in the download directory, which is what the transfer completion line points at. Every other one is left as plain text.</li>
-<li><strong>Two string appends could run past their buffer.</strong> The <code>ISON</code> builder checked how full its buffer was only after adding a name, by which point a name near the length limit could already have written past the end. And the DCC resume request held back ten bytes for the passive id it appends, which is not enough for a space, a sign, ten digits and a terminator; the id comes from the offer, so the sender chooses it.</li>
+<li><strong>Clicking a link in the conversation killed the app.</strong> The handler picks a command per kind of word, and for a URL it stopped setting one when links started being followed natively, but still fell through to the code that runs it, which took the length of a null pointer. Any link would do it, and it had been that way since 2017.</li>
+<li><strong>Ruby scripts could not require anything.</strong> The embedded interpreter was started without its load path, so it began with an empty one. A file listing the paths was meant to make up for that, but it was generated when the app was built and then looked for under a directory that exists nowhere, which is what the warning on startup was about. The interpreter now fills the path in from its own configuration.</li>
+<li><strong>The perl bridge was never built.</strong> Three perl scripts shipped with nothing able to run them. It builds against the perl on the machine and is included now. Neither interpreter is carried in the app. Both bind to what the system already provides, as they always did.</li>
+<li>A window in the viewer still asked for the textured appearance that macOS dropped in version 11.</li>
 </ul>
 <h2>Changed</h2>
 <ul>
-<li>The window opens at a size that fits the channel sidebar, a conversation and the user list at once. It was 640x400, which fits none of them. This applies to a fresh configuration; an existing one keeps its own size.</li>
+<li>The build is quiet again. The plugin bridges produced 328 warnings between them, all from constructs inside the interpreters&#x27; own headers, which are now included as system headers. Also gone: a reference to perl 5.18 that resolved to nothing, generation of a file nothing reads, and a bundle identifier left over from the rename.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.1/XChat-Cerulean-2.3.1.zip" length="7004763" type="application/octet-stream" sparkle:edSignature="kbgNCbAB7mdviFPkh4Wcl9qXIxJ5GFekw6V37eM7wJRXyIfp+4ZUn6oJVnwdn4PIiY2wSHQH4140ZaZGDKwHAg=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.2/XChat-Cerulean-2.3.2.zip" length="7031897" type="application/octet-stream" sparkle:edSignature="GJLMyvqLslDmL33wzsfdzm+zLwmFNwSYkIImtW1UfS6xp0kreKB2odUQaUhEYythlATfy4lH3plc7EFusz3BAA=="/>
         </item>
     </channel>
 </rss>
