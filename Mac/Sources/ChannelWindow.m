@@ -365,7 +365,8 @@ static const char * strip_crap (const char *s)
     NSImage *indicator = [NSImage imageNamed:(sortDirection[column]
                                               ? @"NSAscendingSortIndicator"
                                               : @"NSDescendingSortIndicator")];
-    [aTableView setIndicatorImage:(indicator ?: arrowImage) inTableColumn:aTableColumn];
+    [aTableView setIndicatorImage:(indicator != nil ? indicator : arrowImage)
+                   inTableColumn:aTableColumn];
 
     [filteredChannels sortUsingSelector:sortSelectors [(column << 1) + sortDirection [column]]];
     [channelTableView reloadData];
@@ -422,7 +423,8 @@ static const char * strip_crap (const char *s)
 - (void) updateCaption
 {
     NSString *caption = [NSString stringWithFormat:NSLocalizedStringFromTable(@"Displaying %d/%d users on %d/%d channels.", @"xchat", @""),
-                         numberOfShownUsers, numberOfFoundUsers, [filteredChannels count], [allChannels count]];
+                         (int)numberOfShownUsers, (int)numberOfFoundUsers,
+                         (int)[filteredChannels count], (int)[allChannels count]];
     [captionTextField setStringValue:caption];
 }
 

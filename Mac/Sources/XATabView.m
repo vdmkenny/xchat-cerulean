@@ -503,7 +503,7 @@ NSNib *XATabViewItemTabMenuNib;
     [cell setCloseAction:@selector(performClose:)];
     [cell setCloseTarget:self];
     [cell setMenu:contextMenu];
-    [cell setDelegate:self];
+    [cell setDelegate:(id)self];
     
     [box addSubview:self->_tabButton];
     [box setOrder:order forView:self->_tabButton];

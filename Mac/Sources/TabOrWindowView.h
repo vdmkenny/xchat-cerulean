@@ -55,3 +55,9 @@
 - (void)clearNotifications;
 
 @end
+
+/* Optional callback a delegate may implement. */
+@interface NSObject (TabOrWindowViewDelegate)
+- (void)viewDidMoveToSuperview:(TabOrWindowView *)view;
+@end
+

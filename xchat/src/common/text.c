@@ -2154,6 +2154,7 @@ sound_beep (session *sess)
 		fe_beep ();
 }
 
+#ifndef FE_AQUA
 static char *
 sound_find_command (void)
 {
@@ -2175,6 +2176,7 @@ sound_find_command (void)
 
 	return NULL;
 }
+#endif
 
 void
 sound_play (const char *file, gboolean quiet)

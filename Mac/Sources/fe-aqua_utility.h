@@ -76,6 +76,10 @@
     void (*noproc)(void *);
     void *ud;
 }
+
+- (void)do_yes;
+- (void)do_no;
+
 @end
 
 #pragma mark -

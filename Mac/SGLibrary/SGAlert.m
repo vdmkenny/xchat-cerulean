@@ -33,7 +33,8 @@
     [panel addButtonWithTitle:NSLocalizedStringFromTable(@"OK", @"libsg", @"button")];
     [panel setMessageText:alertText];
 
-    NSWindow *parent = [NSApp keyWindow] ?: [NSApp mainWindow];
+    NSWindow *parent = [NSApp keyWindow];
+    if (parent == nil) parent = [NSApp mainWindow];
 
     if (wait || parent == nil)
     {
@@ -107,7 +108,8 @@
         }
     };
 
-    NSWindow *parent = [NSApp keyWindow] ?: [NSApp mainWindow];
+    NSWindow *parent = [NSApp keyWindow];
+    if (parent == nil) parent = [NSApp mainWindow];
     if (parent != nil) {
         [panel beginSheetModalForWindow:parent completionHandler:report];
     } else {

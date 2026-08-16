@@ -113,7 +113,9 @@ static float trans = 1;
     // Someone selected a new tab view.  Phony up a 'windowDidBecomeKey'
     // notification.  Let's hope they don't need the NSNotification object.
     
-    [[(TabOrWindowView *)[tabViewItem view] delegate] windowDidBecomeKey:nil];
+    [[(TabOrWindowView *)[tabViewItem view] delegate] windowDidBecomeKey:
+        [NSNotification notificationWithName:NSWindowDidBecomeKeyNotification
+                                      object:[tabViewItem view]]];
 }
 
 - (void) tabViewDidResizeOutlne:(int) width
@@ -443,7 +445,8 @@ static float trans = 1;
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:NSWindowWillCloseNotification object:self];
         if ([delegate respondsToSelector:@selector (windowWillClose:)])
-            [delegate windowWillClose:nil];
+            [delegate windowWillClose:
+                [NSNotification notificationWithName:NSWindowWillCloseNotification object:self]];
         [self release];
     }
 }

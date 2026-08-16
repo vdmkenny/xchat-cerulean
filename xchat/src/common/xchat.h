@@ -382,8 +382,8 @@ typedef struct session
 	int nick_said:1;		/* your nick mentioned? (blue tab) */
 	int msg_said:1;			/* new msg available? (red tab) */
 
-	int ignore_date:1;
-	int ignore_mode:1;
+	unsigned int ignore_date:1;
+	unsigned int ignore_mode:1;
 	int ignore_names:1;
 	int end_of_names:1;
 	int doing_who:1;		/* /who sent on this channel */

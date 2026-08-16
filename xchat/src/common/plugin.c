@@ -428,6 +428,7 @@ plugin_load (session *sess, char *filename, char *arg)
 
 static session *ps;
 
+#ifndef FE_AQUA
 static void
 plugin_auto_load_cb (char *filename)
 {
@@ -445,6 +446,7 @@ plugin_auto_load_cb (char *filename)
 		PrintText (ps, pMsg);
 	}
 }
+#endif
 
 void
 plugin_auto_load (session *sess)

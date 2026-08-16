@@ -31,7 +31,8 @@ static void XAScreenshotCaptureWindow (NSWindow *window, NSString *directory, NS
 {
     /* The content view's superview is the frame view, so the titlebar and
      * toolbar are included rather than just the content. */
-    NSView *view = [[window contentView] superview] ?: [window contentView];
+    NSView *view = [[window contentView] superview];
+    if (view == nil) view = [window contentView];
     if (view == nil) return;
 
     NSRect bounds = [view bounds];

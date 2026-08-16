@@ -556,7 +556,7 @@ static NSImage *XAStatusOrb (NSColor *color)
         
         UserlistButton *button = [UserlistButton buttonWithPopup:p];
         
-        [button setAction:@selector(setupChannelModeButtons:)];
+        [button setAction:@selector(doDialogButton:)];
         [button setTarget:self];
         
         [headerBoxView addArrangedSubview:button];
@@ -905,7 +905,7 @@ static void XAWrapInSidebarMaterial(NSView *pane)
 
     NSStackView *userStack = XAStackFromBox(userColumn, NSUserInterfaceLayoutOrientationVertical,
                                             8.0, NSEdgeInsetsMake(6.0, 10.0, 12.0, 12.0), @[userScroll]);
-    XAWrapInSidebarMaterial(userStack ?: userColumn);
+    XAWrapInSidebarMaterial(userStack != nil ? (NSView *)userStack : userColumn);
 
     XAStackFromBox(rootColumn, NSUserInterfaceLayoutOrientationVertical,
                    8.0, NSEdgeInsetsMake(6.0, 0.0, 0.0, 0.0), @[userlistSplitView]);
@@ -1115,7 +1115,7 @@ static void XAWrapInSidebarMaterial(NSView *pane)
     while ([buttonBoxView numberOfRows] > 0)
         [buttonBoxView removeRowAtIndex:0];
 
-    // Two buttons per row, the way the old row/column view was configured.
+    // Two buttons per row.
     NSMutableArray *row = [NSMutableArray arrayWithCapacity:2];
 
     for (GSList *list = button_list; list; list = list->next)
@@ -2063,7 +2063,7 @@ static void XAWrapInSidebarMaterial(NSView *pane)
         [userlistMenuItem release];
     
     if (count > 1) {
-        [[menu addItemWithTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"%d users selected", @"xchataqua", @"Popup menu message when you right-clicked userlist."), count] action:nil keyEquivalent:@""] setEnabled:NO];
+        [[menu addItemWithTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"%d users selected", @"xchataqua", @"Popup menu message when you right-clicked userlist."), (int)count] action:nil keyEquivalent:@""] setEnabled:NO];
         userlistMenuItemCurrentUser = NULL;
     } else {
         ChannelUser *userObject = (ChannelUser *) users[[rows firstIndex]];
@@ -2481,12 +2481,6 @@ static void XAWrapInSidebarMaterial(NSView *pane)
         [self adjustSplitBar];
         userlistSplitView.delegate = self;
     }
-}
-
-#pragma mark -
-
-- (void)splitViewDidResizeSubviews:(NSNotification *)notification {
-    [notification.object viewDidResize:self];
 }
 
 @end

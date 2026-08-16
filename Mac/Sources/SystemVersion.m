@@ -47,7 +47,7 @@ static SystemVersion *SystemVersionSharedSystemVersion;
         self->minor = version.minorVersion;
         self->bugfix = version.patchVersion;
 
-        systemBranch = [[NSString alloc] initWithFormat:@"%d.%d", major, minor];
+        systemBranch = [[NSString alloc] initWithFormat:@"%d.%d", (int)major, (int)minor];
     }
     return self;
 }

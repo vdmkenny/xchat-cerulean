@@ -385,7 +385,7 @@ AquaChat *AquaChatSharedObject;
                                              UNAuthorizationOptionBadge)
                           completionHandler:^(BOOL granted, NSError *error) {
         if (!granted) {
-            NSLog(@"Notifications not authorized: %@", error ?: @"denied by user");
+            NSLog(@"Notifications not authorized: %@", error != nil ? (id)error : @"denied by user");
         }
     }];
 }

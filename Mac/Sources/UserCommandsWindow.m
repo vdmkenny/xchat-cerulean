@@ -130,7 +130,9 @@
     if (row < 0) return;
     [commands removeObjectAtIndex:row];
     [commandTableView reloadData];
-    [self tableViewSelectionDidChange:nil];    // TBD: NULL ok?
+    [self tableViewSelectionDidChange:
+        [NSNotification notificationWithName:NSTableViewSelectionDidChangeNotification
+                                      object:commandTableView]];
 }
 
 - (void)addCommand:(id)sender
@@ -139,7 +141,9 @@
     [commandTableView reloadData];
     [commandTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
     [commandTableView editColumn:0 row:0 withEvent:nil select:true];
-    [self tableViewSelectionDidChange:nil];    // TBD: NULL ok?
+    [self tableViewSelectionDidChange:
+        [NSNotification notificationWithName:NSTableViewSelectionDidChangeNotification
+                                      object:commandTableView]];
 }
 
 - (void)showHelp:(id)sender {
