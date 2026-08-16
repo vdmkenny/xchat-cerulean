@@ -38,6 +38,7 @@ static const CGFloat XAMinimumSidebarWidth = 150.0;
 
 @property (nonatomic, assign) BOOL hasCloseButton;
 @property (nonatomic, retain) NSImage *icon;
+@property (nonatomic, assign) NSInteger unreadCount;
 
 @end
 
@@ -46,6 +47,7 @@ NSImage *XATabViewOutlineCellCloseImage;
 @implementation XATabViewOutlineCell
 @synthesize hasCloseButton=_hasCloseButton;
 @synthesize icon=_icon;
+@synthesize unreadCount=_unreadCount;
 
 + (void)initialize {
     if (self == [XATabViewOutlineCell class]) {
@@ -77,6 +79,7 @@ NSImage *XATabViewOutlineCellCloseImage;
     XATabViewOutlineCell *copy = [super copyWithZone:zone];
     copy->closeCell = [closeCell copyWithZone:zone];
     copy->_icon = [_icon retain];
+    copy->_unreadCount = _unreadCount;
     return copy;
 }
 
@@ -121,6 +124,46 @@ NSImage *XATabViewOutlineCellCloseImage;
 
         cellFrame.origin.x += side + gap;
         cellFrame.size.width -= side + gap;
+    }
+
+    /* A count at the trailing edge, the way a source list shows one. Drawn
+     * before the label so the text can be given the room that is left. */
+    if (self.unreadCount > 0) {
+        NSString *count = self.unreadCount > 999 ? @"999+"
+            : [NSString stringWithFormat:@"%ld", (long)self.unreadCount];
+
+        NSFont *font = [NSFont systemFontOfSize:11.0 weight:NSFontWeightSemibold];
+        NSColor *tint = [self isHighlighted] ? [NSColor controlAccentColor]
+                                             : [NSColor secondaryLabelColor];
+        NSDictionary *attributes = @{
+            NSFontAttributeName: font,
+            NSForegroundColorAttributeName: [self isHighlighted] ? [NSColor controlBackgroundColor]
+                                                                 : [NSColor controlBackgroundColor]
+        };
+
+        NSSize size = [count sizeWithAttributes:attributes];
+        CGFloat width = MAX (size.width + 10.0, 18.0);
+        CGFloat height = 15.0;
+
+        /* The outline is wider than the pane it scrolls in, so the row runs
+         * past the edge. The badge follows what is on screen. */
+        CGFloat rightEdge = NSMaxX (cellFrame);
+        if (controlView != nil)
+            rightEdge = MIN (rightEdge, NSMaxX ([controlView visibleRect]));
+
+        NSRect badge = NSMakeRect (rightEdge - width - 8.0,
+                                   cellFrame.origin.y + floor ((cellFrame.size.height - height) / 2.0),
+                                   width, height);
+
+        [tint set];
+        [[NSBezierPath bezierPathWithRoundedRect:badge xRadius:height / 2.0 yRadius:height / 2.0] fill];
+
+        NSRect text = badge;
+        text.origin.x += (width - size.width) / 2.0;
+        text.origin.y += (height - size.height) / 2.0;
+        [count drawInRect:text withAttributes:attributes];
+
+        cellFrame.size.width = MAX (badge.origin.x - cellFrame.origin.x - 6.0, 0.0);
     }
 
     [super drawInteriorWithFrame:cellFrame inView:controlView];
@@ -393,6 +436,7 @@ NSNib *XATabViewItemTabMenuNib;
 @synthesize groupIdentifier=_groupIdentifier;
 @synthesize tabView=_tabView;
 @synthesize titleColorIndex=_titleColorIndex;
+@synthesize unreadCount=_unreadCount;
 @synthesize initialFirstResponder=_initialFirstResponder;
 
 + (void)initialize {
@@ -850,11 +894,13 @@ typedef OSStatus
         icon = [icon imageWithSymbolConfiguration:
                 [NSImageSymbolConfiguration configurationWithHierarchicalColor:tint]];
         [cell setIcon:icon];
+        [cell setUnreadCount:[(XATabViewItem *)item unreadCount]];
     } else {
         // Server rows read as section headers, so they are quieter than a channel.
         [cell setTextColor:[NSColor secondaryLabelColor]];
         [cell setHasCloseButton:NO];
         [cell setIcon:nil];
+        [cell setUnreadCount:0];
     }
 }
 

@@ -80,6 +80,7 @@
 {
     NSView *_view;
     NSInteger _titleColorIndex;
+    NSInteger _unreadCount;
     XATabView* _tabView;
     NSString* _label;
     NSInteger _groupIdentifier;
@@ -90,6 +91,7 @@
 }
 
 @property(nonatomic, assign) NSInteger titleColorIndex;
+@property(nonatomic, assign) NSInteger unreadCount;
 @property(nonatomic, readonly) NSColor *titleColor;
 @property(nonatomic, retain) NSString *label;
 @property(nonatomic, assign) NSInteger groupIdentifier;

@@ -290,9 +290,18 @@ static float trans = 1;
 
 - (void) setTabTitleColorIndex:(NSInteger)color
 {
-    if (tabViewItem) {
-        [tabViewItem setTitleColorIndex:color];
-    }
+    if (!tabViewItem) return;
+
+    /* The sidebar shows a count beside anything unread. A message or a
+     * mention counts; joins and parts are activity but not something to
+     * come back to. Reading the tab clears it. */
+    if (color == XAColorNewMessage || color == XAColorNickMentioned)
+        [tabViewItem setUnreadCount:[tabViewItem unreadCount] + 1];
+    else if (color == XAColorForeground)
+        [tabViewItem setUnreadCount:0];
+
+    [tabViewItem setTitleColorIndex:color];
+    [tabViewItem redrawTitle];
 }
 
 - (BOOL)isFrontTab
