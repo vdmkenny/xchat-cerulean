@@ -104,5 +104,9 @@ It stands on other people's work:
 Modifications for Cerulean are © 2026 its contributors, under the same
 licence.
 
-glib (LGPL-2.1-or-later) and OpenSSL (Apache-2.0) are linked from Homebrew,
-not redistributed here.
+glib (LGPL-2.1-or-later), gettext (LGPL-2.1-or-later) and OpenSSL
+(Apache-2.0) are linked from Homebrew, not redistributed here.
+
+The Ruby and Tcl scripting plugins link the frameworks that ship with macOS.
+Apple has marked both as deprecated, so those two plugins will stop loading
+whenever the frameworks are finally removed.
