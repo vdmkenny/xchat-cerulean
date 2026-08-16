@@ -16,8 +16,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA */
 
 #include "outbound.h"
+#include "server.h"
+#include "xchatc.h"
 
 #import "fe-aqua_utility.h"
+#import "ChatViewController.h"
 
 #pragma mark -
 
@@ -225,7 +228,55 @@ static int TimerThingSequence = 1;
 
 @implementation OpenURLCommand
 
-- (id) performDefaultImplementation 
+/* The server an irc:// URL refers to, if one is already open. A URL without
+ * a port means the usual one for its scheme, so that irc://example.org and
+ * irc://example.org:6667 are recognised as the same place. */
+static server *XAServerForURL (NSURL *url)
+{
+    NSString *host = url.host;
+    if (host.length == 0)
+        return NULL;
+
+    BOOL secure = [url.scheme caseInsensitiveCompare:@"ircs"] == NSOrderedSame;
+    int port = url.port != nil ? url.port.intValue : (secure ? 6697 : 6667);
+
+    for (GSList *list = serv_list; list; list = list->next)
+    {
+        server *serv = (server *) list->data;
+
+        if (serv->port == port &&
+            strcasecmp (serv->hostname, host.UTF8String) == 0)
+            return serv;
+    }
+
+    return NULL;
+}
+
+/* The channel an irc:// URL names, or nil. A URL carries the name without
+ * its prefix, so one is added back when it is missing. */
+static NSString *XAChannelForURL (NSURL *url)
+{
+    NSString *channel = url.path;
+
+    while ([channel hasPrefix:@"/"])
+        channel = [channel substringFromIndex:1];
+
+    if (channel.length == 0)
+        return nil;
+
+    if (![channel hasPrefix:@"#"] && ![channel hasPrefix:@"&"])
+        channel = [@"#" stringByAppendingString:channel];
+
+    return channel;
+}
+
+static void XAFocusSession (session *sess)
+{
+    if (sess != NULL && sess->gui != NULL && sess->gui->controller != nil)
+        [sess->gui->controller.chatView makeKeyAndOrderFront:nil];
+}
+
+- (id) performDefaultImplementation
 {
     const char *newstr = "new";
     
@@ -240,6 +291,34 @@ static int TimerThingSequence = 1;
     NSString *urlString = [self directParameter];
     if (!urlString)
         return nil;
+
+    /* Opening a place that is already open should take you to it rather than
+     * connect a second time and leave two tabs for the one server. */
+    NSURL *parsed = [NSURL URLWithString:urlString];
+    server *existing = parsed != nil ? XAServerForURL (parsed) : NULL;
+
+    if (existing != NULL)
+    {
+        session *target = existing->server_session;
+        NSString *channel = XAChannelForURL (parsed);
+
+        if (channel.length > 0)
+        {
+            session *joined = find_channel (existing, (char *) channel.UTF8String);
+
+            if (joined != NULL)
+                target = joined;
+            else
+            {
+                char *join = g_strdup_printf ("join %s", channel.UTF8String);
+                handle_command (existing->server_session, join, 0);
+                g_free (join);
+            }
+        }
+
+        XAFocusSession (target);
+        return nil;
+    }
 
     /* Sized to the URL rather than a fixed buffer: a long one used to be cut
      * short, which turned into a connection to whatever the truncation left
