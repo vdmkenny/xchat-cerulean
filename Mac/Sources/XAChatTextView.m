@@ -207,11 +207,11 @@ static NSCursor *XAChatTextViewSizableCursor;
 
     indent += fontSize.width;
 
-    CGFloat newLineRectX = floor (indent + fontSize.width * 2 / 3) - 2;
-    if (newLineRectX == lineRect.origin.x) {
-        return;
-    }
-
+    /* The paragraph indent is measured inside the text container, while the
+     * rule is drawn and hit-tested in view coordinates, so it carries the
+     * container's own inset. */
+    CGFloat newLineRectX = floor (indent + fontSize.width * 2 / 3) - 2
+                         + [self textContainerInset].width;
     lineRect.origin.x = newLineRectX;
 
     indent += fontSize.width;
@@ -631,7 +631,8 @@ static NSCursor *XAChatTextViewSizableCursor;
 
         NSPoint mouseLoc = [self convertPoint:[nextEvent locationInWindow] fromView:nil];
 
-        int new_margin = (int)(mouseLoc.x / fontSize.width) - 1;
+        CGFloat x = mouseLoc.x - [self textContainerInset].width;
+        int new_margin = (int)(x / fontSize.width) - 1;
 
         if (new_margin > 2 && new_margin < 50 && new_margin != margin)
         {
