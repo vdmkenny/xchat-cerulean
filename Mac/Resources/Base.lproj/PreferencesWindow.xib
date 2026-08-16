@@ -2492,6 +2492,24 @@ Gw
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <textField verticalHuggingPriority="750" id="9101">
+                                                        <rect key="frame" x="17" y="142" width="177" height="14"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Always accept from:" id="9102">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" id="9103">
+                                                        <rect key="frame" x="199" y="140" width="230" height="19"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="nick masks, comma separated" drawsBackground="YES" id="9104">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
                                                     <textField verticalHuggingPriority="750" id="372">
                                                         <rect key="frame" x="-3" y="317" width="197" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -2578,6 +2596,7 @@ Gw
                 <outlet property="coloredNicksCheckBox" destination="137" id="666"/>
                 <outlet property="colorsTabViewItem" destination="38" id="793"/>
                 <outlet property="completedDownloadsDirectoryTextField" destination="371" id="763"/>
+                <outlet property="dccTrustedSendersTextField" destination="9103" id="9105"/>
                 <outlet property="contentBox" destination="48" id="773"/>
                 <outlet property="dccAddressTextField" destination="71" id="769"/>
                 <outlet property="dccFirstSendPortTextField" destination="99" id="770"/>

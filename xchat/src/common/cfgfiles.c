@@ -403,6 +403,7 @@ const struct prefs vars[] = {
 	{"dcc_blocksize", P_OFFINT (dcc_blocksize), TYPE_INT},
 	{"dcc_completed_dir", P_OFFSET (dcc_completed_dir), TYPE_STR},
 	{"dcc_dir", P_OFFSET (dccdir), TYPE_STR},
+	{"dcc_trusted_senders", P_OFFSET (dcc_trusted_senders), TYPE_STR},
 	{"dcc_fast_send", P_OFFINT (fastdccsend), TYPE_BOOL},
 	{"dcc_global_max_get_cps", P_OFFINT (dcc_global_max_get_cps), TYPE_INT},
 	{"dcc_global_max_send_cps", P_OFFINT (dcc_global_max_send_cps), TYPE_INT},

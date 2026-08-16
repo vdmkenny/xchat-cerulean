@@ -123,6 +123,7 @@ struct xchatprefs
 	char background[PATHLEN + 1];
 	char dccdir[PATHLEN + 1];
 	char dcc_completed_dir[PATHLEN + 1];
+	char dcc_trusted_senders[300];
 	char irc_extra_hilight[300];
 	char irc_no_hilight[300];
 	char irc_nick_hilight[300];

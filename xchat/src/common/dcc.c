@@ -2310,6 +2310,30 @@ dcc_add_chat (session *sess, char *nick, int port, guint32 addr, int pasvid)
 	return dcc;
 }
 
+/* Senders the user listed as trusted, so an expected transfer does not have
+ * to be confirmed while everything else still does. Entries are nick masks
+ * separated by commas or spaces, and may use wildcards. */
+static int
+dcc_sender_is_trusted (const char *nick)
+{
+	char list[sizeof (prefs.dcc_trusted_senders)];
+	char *mask, *state;
+
+	if (!nick || !prefs.dcc_trusted_senders[0])
+		return FALSE;
+
+	safe_strcpy (list, prefs.dcc_trusted_senders, sizeof (list));
+
+	for (mask = strtok_r (list, ", \t", &state); mask;
+		  mask = strtok_r (NULL, ", \t", &state))
+	{
+		if (match (mask, nick))
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
 static struct DCC *
 dcc_add_file (session *sess, char *file, DCC_SIZE size, int port, char *nick, guint32 addr, int pasvid)
 {
@@ -2364,7 +2388,7 @@ dcc_add_file (session *sess, char *file, DCC_SIZE size, int port, char *nick, gu
 
 		/* autodccsend is really autodccrecv.. right? */
 
-		if (prefs.autodccsend == 1)
+		if (prefs.autodccsend == 1 || dcc_sender_is_trusted (nick))
 		{
 			dcc_get (dcc);
 		}
