@@ -5,6 +5,32 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.4.0] - 2026-08-16
+
+### Fixed
+
+- **Some networks were running with no capabilities at all.** A capability
+  was looked for anywhere in the list a server offers, and a vendored name
+  can contain a standard one: Libera.Chat offers `solanum.chat/identify-msg`,
+  which contains `identify-msg`. The client asked for a capability that was
+  never offered, and since a request is answered all or nothing, the server
+  refused every one of them. Nothing said so, and the connection simply ran
+  without server-time, multi-prefix or any of the rest. Names are compared as
+  whole entries now.
+
+### Added
+
+- **Who is logged in to services.** `extended-join` brings the account with
+  the join itself and `account-notify` reports it changing, which is the part
+  that was missing alongside away-notify and chghost.
+- **A complete user list on joining.** With `userhost-in-names` the name
+  reply carries each user's host, so the list no longer waits for a `WHO` to
+  come back.
+- **Capabilities offered mid-session.** `cap-notify` lets a server add one
+  after login rather than only at the start.
+- **`invite-notify`** for invitations to channels already joined, and
+  **`setname`** for a real name changing without a reconnect.
+
 ## [2.3.6] - 2026-08-16
 
 ### Fixed
