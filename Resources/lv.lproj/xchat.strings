@@ -1,0 +1,3699 @@
+/* nothing */
+"" = "Project-Id-Version: xchat-2.8.8\nReport-Msgid-Bugs-To: www.xchat.org\nPOT-Creation-Date: 2010-05-30 13:56+1000\nPO-Revision-Date: 2010-07-07 10:45+0100\nLast-Translator: Rihards Priedītis <rprieditis@gmail.com>\nLanguage-Team: Latvian <translation-team-lv@lists.sourceforge.net>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n";
+
+/* nothing */
+"Cannot create ~/.xchat2" = "Nevar izveidot ~/.xchat2";
+
+/* nothing */
+"I'm busy" = "Esmu aizņemts";
+
+/* nothing */
+"Leaving" = "Pamet";
+
+/* nothing */
+"* Running IRC as root is stupid! You should\n  create a User Account and use that to login.\n" = "* Lietot IRC kā rootam ir muļķīgi! Jums vajadzētu\n izveidot lietotāja kontu un lietot to, lai pieteiktos.\n";
+
+/* nothing */
+"Waiting" = "Gaida";
+
+/* nothing */
+"Active" = "Aktīvs";
+
+/* nothing */
+"Failed" = "Neizdevās";
+
+/* nothing */
+"Done" = "Darīts";
+
+/* nothing */
+"Connect" = "Pieslēgties";
+
+/* nothing */
+"Aborted" = "Izbeigts";
+
+/* nothing */
+"Cannot access %s\n" = "Nevar piekļūt %s\n";
+
+/* nothing */
+"Error" = "Kļūda";
+
+/* nothing */
+"%s is offering \"%s\". Do you want to accept?" = "%s piedāvā \"%s\". Vai vēlaties piekrists?";
+
+/* nothing */
+"No active DCCs\n" = "Nav aktīvu DCC\n";
+
+/* nothing */
+"YES  " = "JĀ";
+
+/* nothing */
+"NO   " = "NĒ   ";
+
+/* nothing */
+"You are being CTCP flooded from %s, ignoring %s\n" = "Jūs tiekas CTCP apludināts no %s, %s ignorēšana\n";
+
+/* nothing */
+"You are being MSG flooded from %s, setting gui_auto_open_dialog OFF.\n" = "Jūs tiekas MSG apludināto no %s, uzstādījums gui_auto_open_dialog Izslēgts.\n";
+
+/* nothing */
+"  %-20s online\n" = "  %-20s tiešsaistē\n";
+
+/* nothing */
+"  %-20s offline\n" = "  %-20s nav bezsaistē\n";
+
+/* nothing */
+"No channel joined. Try /join #<channel>\n" = "Nesat pievienojies nevienam kanālam. Pamēģiniet /join #<kanāls>\n";
+
+/* nothing */
+"Not connected. Try /server <host> [<port>]\n" = "Nav savienots. Mēģiniet /server <resursdators> [<ports>]\n";
+
+/* nothing */
+"Already marked away: %s\n" = "Jau atzīmēts, kā promesošs: %s\n";
+
+/* nothing */
+"Already marked back.\n" = "Jau atzīmēts, kā atpakaļ.\n";
+
+/* nothing */
+"I need /bin/sh to run!\n" = "Lai darbotos, nepieciešams /bin/sh!\n";
+
+/* nothing */
+"Commands Available:" = "Pieejamās komandas:  ";
+
+/* nothing */
+"User defined commands:" = "Lietotāja definētās komandas:  ";
+
+/* nothing */
+"Plugin defined commands:" = "Spraudņa definētās komandas:  ";
+
+/* nothing */
+"Type /HELP <command> for more information, or /HELP -l" = "Ievadiet /HELP <komanda> papildus informācijai, vai /HELP -l";
+
+/* nothing */
+"Unknown arg '%s' ignored." = "Nezināmais arguments '%s' ignorēts.";
+
+/* nothing */
+"No such plugin found.\n" = "Tāds spraudnis nav atrasts.\n";
+
+/* nothing */
+"That plugin is refusing to unload.\n" = "Šis spraudnis atsakās izlādēties.\n";
+
+/* nothing */
+"ADDBUTTON <name> <action>, adds a button under the user-list" = "ADDBUTTON <nosaukums> <darbība>, pievieno pogu zem lietotājzvēlnes";
+
+/* nothing */
+"ALLCHAN <cmd>, sends a command to all channels you're in" = "ALLCHAN <komada>, sūta komandu uz visiem kanāliem, kuros esat";
+
+/* nothing */
+"ALLCHANL <cmd>, sends a command to all channels you're in" = "ALLCHAN <komada>, sūta komandu uz visiem kanāliem, kuros esat";
+
+/* nothing */
+"ALLSERV <cmd>, sends a command to all servers you're in" = "ALLSERV <komanda>, sūta komandu uz visiem serveriem, kuros esat";
+
+/* nothing */
+"AWAY [<reason>], sets you away" = "AWAY [<iemesls>], atzīmē jūs kā promesošu";
+
+/* nothing */
+"BACK, sets you back (not away)" = "BACK, uzstādā jūs atpakaļ (ne promesošs)";
+
+/* nothing */
+"BAN <mask> [<bantype>], bans everyone matching the mask from the current channel. If they are already on the channel this doesn't kick them (needs chanop)" = "BAN <maska> [<izraidijumatips>], izraida visus, kuri atbilst maskai no pašreizējā kanāla. Ja viņi jau ir kanālā, tas viņus neizmet (vajag būt kanālop)";
+
+/* nothing */
+"CHANOPT [-quiet] <variable> [<value>]" = "CHANOPT [-quiet] <mainīgais> [<vērtība>]";
+
+/* nothing */
+"CLEAR [ALL|HISTORY], Clears the current text window or command history" = "CLEAR [ALL|HISTORY], Attīra pašreizējo teksta logu vai komandas vēsturi";
+
+/* nothing */
+"CLOSE, Closes the current window/tab" = "CLOSE, Aizver pašreizējo logu/sadaļu";
+
+/* nothing */
+"COUNTRY [-s] <code|wildcard>, finds a country code, eg: au = australia" = "COUNTRY [-s] <kods|aizstājējsimbols>, atrod valsts kodu, piem.: lv = Latvija";
+
+/* nothing */
+"CTCP <nick> <message>, send the CTCP message to nick, common messages are VERSION and USERINFO" = "CTCP <segvārds> <ziņa>, sūta CTCP ziņu segvārdam, izplatītākās ziņas ir VERSION un USERINFO";
+
+/* nothing */
+"CYCLE [<channel>], parts the current or given channel and immediately rejoins" = "CYCLE [<kanāls>], iziet no pašreizējā, vai norādītā kanāla un nekavējoties atkal pievienojas";
+
+/* nothing */
+"\nDCC GET <nick>                      - accept an offered file\nDCC SEND [-maxcps=#] <nick> [file]  - send a file to someone\nDCC PSEND [-maxcps=#] <nick> [file] - send a file using passive mode\nDCC LIST                            - show DCC list\nDCC CHAT <nick>                     - offer DCC CHAT to someone\nDCC PCHAT <nick>                    - offer DCC CHAT using passive mode\nDCC CLOSE <type> <nick> <file>         example:\n         /dcc close send johnsmith file.tar.gz" = "\nDCC GET <segvārds>          - pieņem piedāvāto failu\nDCC SEND [-maxcps=#] <segvārds> [fails] - sūta failu kādam\nDCC PSEND [-maxcps=#] <segvārds> [fails] - sūta failu izmantojot pasīvo režīmu\nDCC LIST                             - parāda DCC sarakstu\nDCC CHAT <segvārds>        - piedāvā DCC Tērzēšanu kādam\nDCC PCHAT <segvārds>        - piedāvā DCC Tērzēšanu izmantojot pasīvo režīmu\nDCC CLOSE <tips> <segvārds> <fails>         piemērs:\n         /dcc close send johnsmith file.tar.gz";
+
+/* nothing */
+"DEHOP <nick>, removes chanhalf-op status from the nick on the current channel (needs chanop)" = "DEHOP <segvāds>, noņem kanālpus-op statusu segvārdam pašreizējā kanālā (vajag būt kanālop)";
+
+/* nothing */
+"DELBUTTON <name>, deletes a button from under the user-list" = "DELBUTTON <nosaukums>, izdzēš pogu no lietotājsaraksta";
+
+/* nothing */
+"DEOP <nick>, removes chanop status from the nick on the current channel (needs chanop)" = "DEOP <segvāds>, noņem kanālop statusu segvārdam pašreizējā kanālā (vajag būt kanālop)";
+
+/* nothing */
+"DEVOICE <nick>, removes voice status from the nick on the current channel (needs chanop)" = "DEVOICE <segvārds>, noņem balss statusu segvārdam pašreizējā kanāla (vajag būt kanālop)";
+
+/* nothing */
+"DISCON, Disconnects from server" = "DISCON, Atslēdzas no servera";
+
+/* nothing */
+"DNS <nick|host|ip>, Finds a users IP number" = "DNS <segvārds|resursdators|ip>, Atrod lietotāja IP numuru";
+
+/* nothing */
+"ECHO <text>, Prints text locally" = "ECHO <teksts>, Izvada tekstu lokāli";
+
+/* nothing */
+"EXEC [-o] <command>, runs the command. If -o flag is used then output is sent to current channel, else is printed to current text box" = "EXEC [-o] <komanda>, palaiž komandu. Ja -o karodziņš tiek lietots, tad izvade tiek sūtīta uz pašreizējo kanālu, citādāk tā tiek izvadīta uz pašreizējo teksta lodziņu";
+
+/* nothing */
+"EXECCONT, sends the process SIGCONT" = "EXECCONT, sūta procesam SIGCONT";
+
+/* nothing */
+"EXECKILL [-9], kills a running exec in the current session. If -9 is given the process is SIGKILL'ed" = "EXECKILL [-9], nokauj palaisto exec pašreizējā sesijā. Ja tiek dots -9, process tiek SIGKILL'ots";
+
+/* nothing */
+"EXECSTOP, sends the process SIGSTOP" = "EXECSTOP, sūta procesam SIGSTOP";
+
+/* nothing */
+"EXECWRITE, sends data to the processes stdin" = "EXECWRITE, sūta datus uz procesa stdin";
+
+/* nothing */
+"FLUSHQ, flushes the current server's send queue" = "FLUSHQ, noflašo pašreizējā servera sūtīšanas rindu";
+
+/* nothing */
+"GATE <host> [<port>], proxies through a host, port defaults to 23" = "GATE <resursdators> [<ports>], caur resursdatoru kā starpserveri, noklusētais ports ir 23";
+
+/* nothing */
+"GHOST <nick> [password], Kills a ghosted nickname" = "GHOST <segvārds> [parole], Nogalina spokaino segvārdu";
+
+/* nothing */
+"HOP <nick>, gives chanhalf-op status to the nick (needs chanop)" = "HOP <segvārds>, piešķir kanālpus-op'a statusu segvārdam (vajag būt kanālop)";
+
+/* nothing */
+"ID <password>, identifies yourself to nickserv" = "ID <parole>, identificē pats sevi segvārdu serverim";
+
+/* nothing */
+"IGNORE <mask> <types..> <options..>\n    mask - host mask to ignore, eg: *!*@*.aol.com\n    types - types of data to ignore, one or all of:\n            PRIV, CHAN, NOTI, CTCP, DCC, INVI, ALL\n    options - NOSAVE, QUIET" = "IGNORE <maska> <tipi..> <opcijas..>\n    maska - resursdatora maska, kuru ignorēt, piem.: *!*@*.aol.com\n    tipi - datu tipi, kurus ignorēt, viens vai visi:\n            PRIV, CHAN, NOTI, CTCP, DCC, INVI, ALL\n    opcijas - NOSAVE, QUIET";
+
+/* nothing */
+"INVITE <nick> [<channel>], invites someone to a channel, by default the current channel (needs chanop)" = "INVITE <segvārds> [<kanāls>], ielūdz kādu kanālā, pēc noklusējuma uz pašreizējo kanālu (vajag kanālop)";
+
+/* nothing */
+"JOIN <channel>, joins the channel" = "JOIN <kanāls>, pievienojas kanālam";
+
+/* nothing */
+"KICK <nick>, kicks the nick from the current channel (needs chanop)" = "KICK <segvārds>, izmet segvārdu no pašreizējā kanāla (vajag būt kanālop)";
+
+/* nothing */
+"KICKBAN <nick>, bans then kicks the nick from the current channel (needs chanop)" = "KICKBAN <segvārds>, izraida un tad izmet segvārdu no pašreizējā kanāla (vajag būt kanālop)";
+
+/* nothing */
+"LAGCHECK, forces a new lag check" = "LAGCHECK, rosina jaunu aiztures pārbaudi";
+
+/* nothing */
+"LASTLOG <string>, searches for a string in the buffer" = "LASTLOG <rindiņa>, buferī meklē rindiņu";
+
+/* nothing */
+"LOAD [-e] <file>, loads a plugin or script" = "LOAD [-e] <fails>, ielādē praudni vai skriptu";
+
+/* nothing */
+"MDEHOP, Mass deop's all chanhalf-ops in the current channel (needs chanop)" = "MDEHOP, Masveidā deop'o visus kanālpus-op'us pašreizējā kanālā (vajag būt kanālop)";
+
+/* nothing */
+"MDEOP, Mass deop's all chanops in the current channel (needs chanop)" = "MDEOP, Masveidā deop'o visus kanālop'us pašreizējā kanālā (vajag būt kanālop)";
+
+/* nothing */
+"ME <action>, sends the action to the current channel (actions are written in the 3rd person, like /me jumps)" = "ME <darbība>, sūta darbību uz pašreizējo kanālu (darbības tiek rakstītas trešajā personā, kā /me smaida)";
+
+/* nothing */
+"MKICK, Mass kicks everyone except you in the current channel (needs chanop)" = "MKICK, Masveidā izmet visus, izņemot tevi, pašreizējā kanālā (vajag būt kanālop)";
+
+/* nothing */
+"MOP, Mass op's all users in the current channel (needs chanop)" = "MOP, Masveidā op'o visus lietotājus pašreizējā kanālā (vajag būt kanālop)";
+
+/* nothing */
+"MSG <nick> <message>, sends a private message" = "MSG <segvārds> <ziņa>, sūta privātu ziņu";
+
+/* nothing */
+"NAMES, Lists the nicks on the current channel" = "NAMES, Parāda pašreizējā kanālā esošos segvārdus";
+
+/* nothing */
+"NCTCP <nick> <message>, Sends a CTCP notice" = "NCTCP <segvārds> <ziņa>, Sūta CTCP paziņojumu";
+
+/* nothing */
+"NEWSERVER [-noconnect] <hostname> [<port>]" = "NEWSERVER [-noconnect]<resursdators> [<ports>]";
+
+/* nothing */
+"NICK <nickname>, sets your nick" = "NICK <segvārds>, uzstāda jums segvārdu";
+
+/* nothing */
+"NOTICE <nick/channel> <message>, sends a notice. Notices are a type of message that should be auto reacted to" = "NOTICE <segvārds/kanāls> <ziņa>, sūta paziņojumu. Paziņojumi ir tādas ziņas, uz kurām vajadzētu automātiski reaģēt";
+
+/* nothing */
+"NOTIFY [-n network1[,network2,...]] [<nick>], displays your notify list or adds someone to it" = "NOTIFY [-n tīkls1[,tīkls2,...]] [<segvārds>], parāda jūsuu paziņojumu sarakstu vai kādu tam pievieno";
+
+/* nothing */
+"OP <nick>, gives chanop status to the nick (needs chanop)" = "OP <segvārds>, piešķir kanālop statusu segvārdam (vajag būt kanālop)";
+
+/* nothing */
+"PART [<channel>] [<reason>], leaves the channel, by default the current one" = "PART [<kanāls>] [<iemesls>], pamet kanālu, pēc noklusējuma pašreizējo";
+
+/* nothing */
+"PING <nick | channel>, CTCP pings nick or channel" = "PING <segvārds | kanāls>, CTCP pingo segvārdu vai kanālu";
+
+/* nothing */
+"QUERY [-nofocus] <nick>, opens up a new privmsg window to someone" = "QUERY [-nofocus] <segvārds>, atver jaunu privāto ziņu logu ar kādu";
+
+/* nothing */
+"QUIT [<reason>], disconnects from the current server" = "QUIT [<iemesls>], atslēdzas no pašreizējā servera";
+
+/* nothing */
+"QUOTE <text>, sends the text in raw form to the server" = "QUOTE <teksts>, sūta tekstu jēlā formā serverim";
+
+/* nothing */
+"RECONNECT [-ssl] [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers" = "RECONNECT [-ssl] [<resursdators>] [<ports>] [<parole>], Var izsaukt arī vienkārši kā /RECONNECT, lai vēlreiz pārslēgtos uz pašreizējo serveri vai ar /RECONNECT ALL uz visiem atvērtajiem serveriem";
+
+/* nothing */
+"RECONNECT [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers" = "RECONNECT [<resursdators>] [<ports>] [<parole>], Var izsaukt arī vienkārši kā /RECONNECT, lai vēlreiz pārslēgtos uz pašreizējo serveri vai ar /RECONNECT ALL uz visiem atvērtajiem serveriem";
+
+/* nothing */
+"RECV <text>, send raw data to xchat, as if it was received from the irc server" = "RECV <teksts>, sūta jēldatus xchat tā, itkā tas nāktu no irc servera";
+
+/* nothing */
+"SAY <text>, sends the text to the object in the current window" = "SAY <teksts>, sūta tekstu objektam pašreizējā logā";
+
+/* nothing */
+"SEND <nick> [<file>]" = "SEND <segvārds> [<fails>]";
+
+/* nothing */
+"SERVCHAN [-ssl] <host> <port> <channel>, connects and joins a channel" = "SERVCHAN [-ssl] <resursdators> <ports> <kanāls>, pieslēdzas un pievienojas kanālam";
+
+/* nothing */
+"SERVCHAN <host> <port> <channel>, connects and joins a channel" = "SERVCHAN <resursdators> <ports> <kanāls>, pieslēdzas un pievienojas kanālam";
+
+/* nothing */
+"SERVER [-ssl] <host> [<port>] [<password>], connects to a server, the default port is 6667 for normal connections, and 9999 for ssl connections" = "SERVER <resursdators> [<ports>] [<parole>], pieslēdzas serverim, noklusētais ports ir 6667 parastiem savienojumiem, 9999 ssl savienojumiem";
+
+/* nothing */
+"SERVER <host> [<port>] [<password>], connects to a server, the default port is 6667" = "SERVER <resursdators> [<ports>] [<parole>], pieslēdzas serverim, noklusētais ports ir 6667";
+
+/* nothing */
+"SET [-e] [-off|-on] [-quiet] <variable> [<value>]" = "SET [-e] [-off] [-on] [-quit] <mainīgais> [<vērtība>]";
+
+/* nothing */
+"SETCURSOR [-|+]<position>" = "SETCURSOR [-|+]<pozīcija>";
+
+/* nothing */
+"TOPIC [<topic>], sets the topic if one is given, else shows the current topic" = "TOPIC [<temats>], uzstāda tematu, ja tāds ir dots, savādāk parāda pašreizējo tematu";
+
+/* nothing */
+"\nTRAY -f <timeout> <file1> [<file2>] Blink tray between two icons.\nTRAY -f <filename>                  Set tray to a fixed icon.\nTRAY -i <number>                    Blink tray with an internal icon.\nTRAY -t <text>                      Set the tray tooltip.\nTRAY -b <title> <text>              Set the tray balloon." = "\nTRAY -f <iztecējums> <fails1> [<fails2>] Mirkšini joslu starp divām ikonām.\nTRAY -f <failanosaukums>                  Uzstāda joslu fiksētai ikonai.\nTRAY -i <cipars>                    Mirkšķina joslu ar iekšējo ikonu.\nTRAY -t <teksts>                      Uzstāda joslas rīk-padomu.\nTRAY -b <virsraksts> <teksts>              Uzstāda joslas burbuli.";
+
+/* nothing */
+"UNBAN <mask> [<mask>...], unbans the specified masks." = "UNBAN <maska> [<maska>...], noņem izraidījumu norādītajām maskām.";
+
+/* nothing */
+"UNIGNORE <mask> [QUIET]" = "UNIGNORE <maska> [QUIET]";
+
+/* nothing */
+"UNLOAD <name>, unloads a plugin or script" = "UNLOAD <nosaukums>, izlādē iespraudni vai skriptu";
+
+/* nothing */
+"URL <url>, opens a URL in your browser" = "URL <url>, atver URL pārlukprogrammā";
+
+/* nothing */
+"USELECT [-a] [-s] <nick1> <nick2> etc, highlights nick(s) in channel userlist" = "USELECT [-a] [-s] <segvārds1> <segvārds2> utt, iegaismo segvārdu(-u) lietoāja sarakstā";
+
+/* nothing */
+"VOICE <nick>, gives voice status to someone (needs chanop)" = "VOICE <segvārds>, piešķir kādam balss statusu (vajag būt kanālop)";
+
+/* nothing */
+"WALLCHAN <message>, writes the message to all channels" = "WALLCHAN <ziņa>, raksta ziņu visiem kanāliem";
+
+/* nothing */
+"WALLCHOP <message>, sends the message to all chanops on the current channel" = "WALLCHOP <ziņa>, aizsūta ziņu visiem pašreizējā kanāla kanālopiem";
+
+/* nothing */
+"Usage: %s\n" = "Lietošana: %s\n";
+
+/* nothing */
+"\nNo help available on that command.\n" = "\nŠādai komandai palīdzība nav pieejama.\n";
+
+/* nothing */
+"No such command.\n" = "Nav tādas komandas.\n";
+
+/* nothing */
+"Bad arguments for user command.\n" = "Slikti argumenti lietotāja komandai.\n";
+
+/* nothing */
+"Too many recursive usercommands, aborting." = "Pārāk daudz rekursīvu lietotājkomandu, pārtraucu";
+
+/* nothing */
+"Unknown Command. Try /help\n" = "Nezināma komanda.  Pamēģini /help\n";
+
+/* nothing */
+"No xchat_plugin_init symbol; is this really an xchat plugin?" = "Nav xchat_plugin_init simbola; vai tas patiesi ir xchat spraudnis?";
+
+/* nothing */
+"Are you sure this is a SSL capable server and port?\n" = "Vai esat drošs, ka šis ir SSL spējīgs serveris un ports?\n";
+
+/* nothing */
+"Cannot resolve hostname %s\nCheck your IP Settings!\n" = "Nevaru atšķetināt resursdatora vārdu %s\nPārbaudiet savus IP uzstādījumus!\n";
+
+/* nothing */
+"Proxy traversal failed.\n" = "Starpservera šķērsošana neizdevās.\n";
+
+/* nothing */
+"Cycling to next server in %s...\n" = "Ciklēju uz nākamo serveri pēc %s...\n";
+
+/* nothing */
+"Warning: \"%s\" character set is unknown. No conversion will be applied for network %s." = "Uzmanību \"%s\" rakstīzmes kopa nav zināma. Konvertēšana netiks lietota tīklam %s.";
+
+/* nothing */
+"%C22*%O$t$1 added to notify list." = "%C22*%O$t$1 pievienots paziņojumu sarakstam.";
+
+/* nothing */
+"%C22*%O$t$1 Banlist:%C19 $4%C20 $2%C21 $3" = "%C22*%O$t$1 Izraidīto saraksts:%C19 $4%C20 $2%C21 $3";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(You are banned)." = "%C22*%O$tNevarat pievienoties%C26 %B$1 %O(Jūs esat izraidīts).";
+
+/* nothing */
+"%C22*%O$t$1 is now known as $2" = "%C22*%O$t$1 nav zināms, kā $2";
+
+/* nothing */
+"%C22*%O$t$1 sets ban on $2" = "%C22*%O$t$1 uzstāda liegumu uz $2";
+
+/* nothing */
+"%C22*%O$tChannel $1 created on $2" = "%C22*%O$tKanāls $1 izveidots uz $2";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes channel half-operator status from%C26 $2" = "%C22*%O$t%C26$1%O noņem kanāla pusoperātora statusu no%C26 $2";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes channel operator status from%C26 $2" = "%C22*%O$t%C26$1%O noņem kanāla operātora statusu no%C26 $2";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes voice from%C26 $2" = "%C22*%O$t%C26$1%O noņem balsi no%C26 $2";
+
+/* nothing */
+"%C22*%O$t$1 sets exempt on $2" = "%C22*%O$t$1 uzstāda atbrīvojumu uz $2";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives channel half-operator status to%C26 $2" = "%C22*%O$t%C26$1%O dod kanāla pussoperātora statusu %C26 $2";
+
+/* nothing */
+"%C22*%O$t$1 sets invite on $2" = "%C22*%O$t$1 uzstāda ielūgumu uz $2";
+
+/* nothing */
+"%UChannel          Users   Topic" = "%UKanāls          Lietotāji   Temats";
+
+/* nothing */
+"%C22*%O$t$1 sets mode $2$3 $4" = "%C22*%O$t$1 uzstāda režīmu $2$3 $4";
+
+/* nothing */
+"%C22*%O$t%C22Channel $1 modes: $2" = "%C22*%O$t%C22Kanāls $1 režīmi: $2";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives channel operator status to%C26 $2" = "%C22*%O$t%C26$1%O dod kanāla operātora statusu %C26 $2";
+
+/* nothing */
+"%C22*%O$t$1 removes exempt on $2" = "%C22*%O$t$1 noņem atbrīvojumu uz $2";
+
+/* nothing */
+"%C22*%O$t$1 removes invite on $2" = "%C22*%O$t$1 noņem ielūgumu uz $2";
+
+/* nothing */
+"%C22*%O$t$1 removes channel keyword" = "%C22*%O$t$1 noņem kanāla atslēgas vārdu";
+
+/* nothing */
+"%C22*%O$t$1 removes user limit" = "%C22*%O$t$1 noņemt lietotāja limitu";
+
+/* nothing */
+"%C22*%O$t$1 sets channel keyword to $2" = "%C22*%O$t$1 uzstāda kanāla atslēgas vārdu uz $2";
+
+/* nothing */
+"%C22*%O$t$1 sets channel limit to $2" = "%C22*%O$t$1 uzstādīt kanāla limitu uz $2";
+
+/* nothing */
+"%C22*%O$t$1 removes ban on $2" = "%C22*%O$t$1 noņemt liegumu uz $2";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives voice to%C26 $2" = "%C22*%O$t%C26$1%O dod balsi %C26 $2";
+
+/* nothing */
+"%C22*%O$t%C22Connected. Now logging in..." = "%C22*%O$t%C22Savienots. Notiek pieteikšanās...";
+
+/* nothing */
+"%C22*%O$t%C22Connecting to $1 ($2) port $3%O..." = "%C22*%O$t%C22Savienošanās ar $1 ($2) ports $3%O...";
+
+/* nothing */
+"%C21*%O$t%C21Connection failed. Error: $1" = "%C21*%O$t%C21Savienoties neizdevās. Kļūda: $1";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP $1 from $2" = "%C22*%O$tSaņēma CTCP $1 no $2";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP $1 from $2 (to $3)" = "%C22*%O$tSaņēma CTCP $1 no $2 (uz $3)";
+
+/* nothing */
+"%C19>%O$1%C19<%O$tCTCP $2" = "%C19>%O$1%C19<%O$tCTCP $2";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP Sound $1 from $2" = "%C22*%O$tSaņēma CTCP Skaņu $1 no $2";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP Sound $1 from $2 (to $3)" = "%C22*%O$tSaņēma CTCP Skaņu $1 no $2 (uz $3)";
+
+/* nothing */
+"%C22*%O$tDCC CHAT to %C26$1%O aborted." = "%C22*%O$tDCC CHAT uz  %C26$1%O atcelts.";
+
+/* nothing */
+"%C22*%O$tDCC CHAT connection established to %C26$1 %C30[%O$2%C30]" = "%C22*%O$tDCC CHAT savienojums nodibināts uz %C26$1 %C30[%O$2%C30]";
+
+/* nothing */
+"%C22*%O$tDCC CHAT to %C26$1%O lost ($4)." = "%C22*%O$tDCC CHAT  %C26$1%O pazaudēja ($4).";
+
+/* nothing */
+"%C22*%O$tReceived a DCC CHAT offer from $1" = "%C22*%O$tSaņēma DCC CHAT piedāvājumu no $1";
+
+/* nothing */
+"%C22*%O$tOffering DCC CHAT to $1" = "%C22*%O$tPiedāvā DCC CHAT $1";
+
+/* nothing */
+"%C22*%O$tAlready offering CHAT to $1" = "%C22*%O$tJau piedāvā CHAT $1";
+
+/* nothing */
+"%C22*%O$tDCC $1 connect attempt to%C26 $2%O failed (err=$3)." = "%C22*%O$tDCC $1 savienojums mēģināts uz%C26 $2%O neizdevās (err=$3).";
+
+/* nothing */
+"%C22*%O$tReceived '$1%O' from $2" = "%C22*%O$tSaņēma '$1%O' no $2";
+
+/* nothing */
+"%C24,18 Type  To/From    Status  Size    Pos     File         " = "%C24,18 Tips Kam/No    Statuss  Izmērs    Poz     Fails         ";
+
+/* nothing */
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O$tContents of packet: $2" = "%C22*%O$tTika saņemts nepareizi formēts DCC pieprasījums no %C26$1%O.%010%C22*%O$tPaciņas saturs: $2";
+
+/* nothing */
+"%C22*%O$tOffering%C26 $1%O to%C26 $2" = "%C22*%O$tPiedāvā%C26 $1%O uz%C26 $2";
+
+/* nothing */
+"%C22*%O$tNo such DCC offer." = "%C22*%O$tNav tāda DCC piedāvājuma.";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $2%O to%C26 $1%O aborted." = "%C22*%O$tDCC RECV%C26 $2%O uz%C26 $1%O atcelts.";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O." = "%C22*%O$tDCC RECV%C26 $1%O no%C26 $3%O pabeigts %C30[%C26$4%O cps%C30]%O.";
+
+/* nothing */
+"%C22*%O$tDCC RECV connection established to%C26 $1 %C30[%O$2%C30]" = "%C22*%O$tDCC RECV savienojums nodibināts ar%C26 $1 %C30[%O$2%C30]";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O failed ($4)." = "%C22*%O$tDCC RECV%C26 $1%O no%C26 $3%O neizdevās ($4).";
+
+/* nothing */
+"%C22*%O$tDCC RECV: Cannot open $1 for writing ($2)." = "%C22*%O$tDCC RECV: Nevar atvērt $1 rakstīšanai ($2).";
+
+/* nothing */
+"%C22*%O$tThe file%C26 $1%C already exists, saving it as%C26 $2%O instead." = "%C22*%O$tFails%C26 $1%C jau eksistē, saglabājiet labāk kā%C26 $2%O.";
+
+/* nothing */
+"%C22*%O$t%C26$1 %Ohas requested to resume%C26 $2 %Cfrom%C26 $3%C." = "%C22*%O$t%C26$1 %Oir pieprasījis atsākt%C26 $2 %Cno%C26 $3%C.";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $2%O to%C26 $1%O aborted." = "%C22*%O$tDCC SEND%C26 $2%O uz%C26 $1%O atcelts.";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O complete %C30[%C26$3%O cps%C30]%O." = "%C22*%O$tDCC SEND%C26 $1%O uz%C26 $2%O pabeigts %C30[%C26$3%O cps%C30]%O.";
+
+/* nothing */
+"%C22*%O$tDCC SEND connection established to%C26 $1 %C30[%O$2%C30]" = "%C22*%O$tDCC SEND savienojums nodibināts ar %C26 $1 %C30[%O$2%C30]";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O failed. $3" = "%C22*%O$tDCC SEND%C26 $1%O uz%C26 $2%O neizdevās. $3";
+
+/* nothing */
+"%C22*%O$t%C26$1 %Ohas offered%C26 $2 %O(%C26$3 %Obytes)" = "%C22*%O$t%C26$1 %Oir piedāvājis%C26 $2 %O(%C26$3 %Obaitus)";
+
+/* nothing */
+"%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Cstalled - aborting." = "%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Capturēts - atceļu.";
+
+/* nothing */
+"%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Otimed out - aborting." = "%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Oiztecēja - atceļu.";
+
+/* nothing */
+"%C22*%O$t$1 deleted from notify list." = "%C22*%O$t$1 dzēsts no paziņojumu saraksta.";
+
+/* nothing */
+"%C22*%O$tDisconnected ($1)." = "%C22*%O$tAtvienots ($1).";
+
+/* nothing */
+"%C22*%O$tFound your IP: [$1]" = "%C22*%O$tAtrada jūsu IP: [$1]";
+
+/* nothing */
+"%O%C26$1%O added to ignore list." = "%O%C26$1%O pievienots ignorēšanas sarakstam.";
+
+/* nothing */
+"Ignore on %C26$1%O changed." = "Ignorē uz %C26$1%O izmaiņu.";
+
+/* nothing */
+"%C24,18                                                              " = "%C24,18                                                              ";
+
+/* nothing */
+"%C24,18 Hostmask                  PRIV NOTI CHAN CTCP DCC  INVI UNIG " = "%C24,18 Resursdatora maska                  PRIV NOTI CHAN CTCP DCC  INVI UNIG ";
+
+/* nothing */
+"%O%C26$1%O removed from ignore list." = "%O%C26$1%O izņemts no ignorēšanas saraksta.";
+
+/* nothing */
+"  Ignore list is empty." = "  Ignorēt saraksts ir tukšs.";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(Channel is invite only)." = "%C22*%O$tNevar pievienoties%C26 %B$1 %O(Kanāls tikai ar ielūgumiem).";
+
+/* nothing */
+"%C22*%O$tYou have been invited to%C26 $1%O by%C26 $2%C (%C26$3%C)" = "%C22*%O$tJūs tikāt ielūgts uz%C26 $1%O , ielūdza%C26 $2%C (%C26$3%C)";
+
+/* nothing */
+"%C19*%O$t%C19%B$1 %B($3) has joined $2" = "%C19*%O$t%C19%B$1 %B($3) pievienojās $2";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(Requires keyword)." = "%C22*%O$tNevar pievienoties%C26 %B$1 %O(Nepieciešamas atslēgas vārds).";
+
+/* nothing */
+"%C21*%O$t%C21$1 has kicked $2 from $3 ($4%O%C21)" = "%C21*%O$t%C21$1 tika izmests $2 no $3 ($4%O%C21)";
+
+/* nothing */
+"%C22*%O$tYou have been killed by $1 ($2%O%C22)" = "%C22*%O$tJūs nogalīnāja $1 ($2%O%C22)";
+
+/* nothing */
+"%C22*%O$t%C22MOTD Skipped." = "%C22*%O$t%C22MOTD Izlaists.";
+
+/* nothing */
+"%C22*%O$t$1 already in use. Retrying with $2..." = "%C22*%O$t$1 jau tiek lietots. Mēģina ar $2...";
+
+/* nothing */
+"%C22*%O$tNickname already in use. Use /NICK to try another." = "%C22*%O$tSegvārds jau tiek lietots. Izmantojiet /NICK vai mēģiniet citu.";
+
+/* nothing */
+"%C22*%O$tNo such DCC." = "%C22*%O$tNav tāda DCC.";
+
+/* nothing */
+"%C22*%O$tNo process is currently running" = "%C22*%O$tNekāds process pagaidām neskrien";
+
+/* nothing */
+"$tNotify list is empty." = "$tPaziņojumu saraksts ir tukšs.";
+
+/* nothing */
+"%C24,18 %B  Notify List                           " = "%C24,18 %B  Paziņošanas saraksts                           ";
+
+/* nothing */
+"%C22*%O$t$1 users in notify list." = "%C22*%O$t$1 lietotāji ir paziņošanas sarakstā.";
+
+/* nothing */
+"%C22*%O$tNotify: $1 is offline ($3)." = "%C22*%O$tPaziņot: $1 ir netiešaistē ($3).";
+
+/* nothing */
+"%C22*%O$tNotify: $1 is online ($3)." = "%C22*%O$tPaziņot: $1 ir tiešsaistē ($3).";
+
+/* nothing */
+"%C23*%O$t%C23$1 (%O%C23$2) has left $3" = "%C23*%O$t%C23$1 (%O%C23$2) pametis $3";
+
+/* nothing */
+"%C23*%O$t%C23$1 (%O%C23$2) has left $3 (%O%C23%B%B$4%O%C23)" = "%C23*%O$t%C23$1 (%O%C23$2) pametis $3 (%O%C23%B%B$4%O%C23)";
+
+/* nothing */
+"%C22*%O$tPing reply from $1: $2 second(s)" = "%C22*%O$tPing atbilde no $1: $2 sekundes";
+
+/* nothing */
+"%C22*%O$tNo ping reply for $1 seconds, disconnecting." = "%C22*%O$tNav ping abildes $1 sekundes, atvienojos.";
+
+/* nothing */
+"%C22*%O$tA process is already running" = "%C22*%O$tA process jau skrien";
+
+/* nothing */
+"%C23*%O$t%C23$1 has quit (%O%C23%B%B$2%O%C23)" = "%C23*%O$t%C23$1 izgāja (%O%C23%B%B$2%O%C23)";
+
+/* nothing */
+"%C22*%O$t$1 sets modes%B %C30[%O$2%B%C30]" = "%C22*%O$t$1 uzstāda režīmus%B %C30[%O$2%B%C30]";
+
+/* nothing */
+"%C28-%C29$1/Wallops%C28-%O$t$2" = "%C28-%C29$1/Wallops%C28-%O$t$2";
+
+/* nothing */
+"%C22*%O$tLooking up IP number for%C26 $1%O..." = "%C22*%O$tMeklēju IP numuru priekšs%C26 $1%O...";
+
+/* nothing */
+"%C22*%O$t%C22Connected." = "%C22*%O$t%C22Savienots.";
+
+/* nothing */
+"%C22*%O$t%C22Looking up $1" = "%C22*%O$t%C22Meklēju $1";
+
+/* nothing */
+"%C22*%O$tStopped previous connection attempt (pid=$1)" = "%C22*%O$Apturēja iepriekšējo savienojuma mēģinājumu (pid=$1)";
+
+/* nothing */
+"%C29*%O$t%C29Topic for $1%C %C29is: $2" = "%C29*%O$t%C29Temats priekšs $1%C %C29ir: $2";
+
+/* nothing */
+"%C22*%O$t$1 has changed the topic to: $2" = "%C22*%O$t$1 nomainīja tematu uz: $2";
+
+/* nothing */
+"%C29*%O$t%C29Topic for $1%C %C29set by $2%C %C29at $3" = "%C29*%O$t%C29Temats priekšs $1%C %C29uzstādīja $2%C %C29uz $3";
+
+/* nothing */
+"%C22*%O$tUnknown host. Maybe you misspelled it?" = "%C22*%O$tNezināms resusrdators. Varbūt kļūdījāties sintaksē?";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(User limit reached)." = "%C22*%O$tNevar pievienoties%C26 %B$1 %O(Lietotāju limits sasniegts).";
+
+/* nothing */
+"%C22*%O$t%C26Users on $1:%C $2" = "%C22*%O$t%C26Lietotāji uz $1:%C $2";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %O$2%C27 $3" = "%C22*%O$t%C28[%O$1%C28] %O$2%C27 $3";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %Cis away %C30(%O$2%O%C30)" = "%C22*%O$t%C28[%O$1%C28] %Cir prom %C30(%O$2%O%C30)";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O $2" = "%C22*%O$t%C28[%O$1%C28]%O $2";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %OEnd of WHOIS list." = "%C22*%O$t%C28[%O$1%C28] %OWHOIS saraksta beigas.";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2" = "%C22*%O$t%C28[%O$1%C28]%O dīkstāve%C26 $2";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2%O, signon:%C26 $3" = "%C22*%O$t%C28[%O$1%C28]%O dīkstāve%C26 $2%O, ierašanās:%C26 $3";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4" = "%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %Oreal user@host%C27 $2%O, real IP%C27 $3" = "%C22*%O$t%C28[%O$1%C28] %Opatiesais lietotājs@resursdators%C27 $2%O, patiesais IP%C27 $3";
+
+/* nothing */
+"%C19*%O$t%C19Now talking on $2" = "%C19*%O$t%C19Tagad tērzē ar $2";
+
+/* nothing */
+"%C23*$tYou have been kicked from $2 by $3 ($4%O%C23)" = "%C23*$tJūs esat izmest no $2 by $3 ($4%O%C23)";
+
+/* nothing */
+"%C23*$tYou have left channel $3" = "%C23*$tJūs esat pametis kanālu $3";
+
+/* nothing */
+"%C23*$tYou have left channel $3 (%O%C23%B%B$4%O%C23)" = "%C23*$tJūs esat pametis kanālu $3 (%O%C23%B%B$4%O%C23)";
+
+/* nothing */
+"%C22*%O$tYou've invited%C26 $1%O to%C26 $2%O (%C26$3%O)" = "%C22*%O$tJūs esat ielūdzis%C26 $1%O to%C26 $2%O (%C26$3%O)";
+
+/* nothing */
+"%C22*%O$tYou are now known as $2" = "%C22*%O$tJūs esat zināms, kā $2";
+
+/* nothing */
+"Loaded log from" = "Ielādēts žurnāls no";
+
+/* nothing */
+"**** ENDING LOGGING AT %s\n" = "**** BEIDZU IEGRĀMATOŠANU IEKŠ %s\n";
+
+/* nothing */
+"**** BEGIN LOGGING AT %s\n" = "**** SĀKU IEGRĀMATOŠANU IEKŠ %s\n";
+
+/* nothing */
+"* Can't open log file(s) for writing. Check the\n  permissions on %s/xchatlogs" = "* Nevar atvērt žurnāla failu(-us) rakstīšanai. Pārbaudiet,\n  ka ir pietiekošas atļaujas uz %s/xchatlogs";
+
+/* nothing */
+"Left message" = "Kreisā ziņa";
+
+/* nothing */
+"Right message" = "Labā ziņa";
+
+/* nothing */
+"The nick of the joining person" = "Pievienojušās personas segvārds";
+
+/* nothing */
+"The channel being joined" = "Kanāls, kuram pievienojas";
+
+/* nothing */
+"The host of the person" = "Personas resursdators";
+
+/* nothing */
+"Nickname" = "Segvārds";
+
+/* nothing */
+"The action" = "Darbība";
+
+/* nothing */
+"Mode char" = "Režīma burts";
+
+/* nothing */
+"Identified text" = "Identificēts teksts";
+
+/* nothing */
+"The text" = "Teksts";
+
+/* nothing */
+"The message" = "Ziņa";
+
+/* nothing */
+"Old nickname" = "Vecais segvārds";
+
+/* nothing */
+"New nickname" = "Jauns segvārds";
+
+/* nothing */
+"Nick of person who changed the topic" = "Personas segvārds, kura izmainīja tematu";
+
+/* nothing */
+"Topic" = "Temats";
+
+/* nothing */
+"Channel" = "Kanāls";
+
+/* nothing */
+"The nickname of the kicker" = "Izmetēja segvārds";
+
+/* nothing */
+"The person being kicked" = "Persona, kuru izmeta";
+
+/* nothing */
+"The channel" = "Kanāls";
+
+/* nothing */
+"The reason" = "Iemesls";
+
+/* nothing */
+"The nick of the person leaving" = "Personas segvārds, kura atstāj";
+
+/* nothing */
+"The time" = "Laiks";
+
+/* nothing */
+"The creator" = "Veidotājs";
+
+/* nothing */
+"Nick" = "Segvārds";
+
+/* nothing */
+"Reason" = "Iemesls";
+
+/* nothing */
+"Host" = "Resursdators";
+
+/* nothing */
+"Who it's from" = "No kā tas ir";
+
+/* nothing */
+"The time in x.x format (see below)" = "Laiks x.x formātā (skaties zemāk)";
+
+/* nothing */
+"The Channel it's going to" = "Kanāls gatavojas";
+
+/* nothing */
+"The sound" = "Skaņa";
+
+/* nothing */
+"The nick of the person" = "Personas segvārds";
+
+/* nothing */
+"The CTCP event" = "CTCP notikums";
+
+/* nothing */
+"The nick of the person who set the key" = "Personas segvārds, kura uzstādīja atslēgu";
+
+/* nothing */
+"The key" = "Atslēga";
+
+/* nothing */
+"The nick of the person who set the limit" = "Personas segvārds, kura uzstādīja limitu";
+
+/* nothing */
+"The limit" = "Limits";
+
+/* nothing */
+"The nick of the person who did the op'ing" = "Personas segvārds, kura op'oja";
+
+/* nothing */
+"The nick of the person who has been op'ed" = "Personas segvārds, kuru op'oja";
+
+/* nothing */
+"The nick of the person who has been halfop'ed" = "Personas segvārds, kuru pus-op'oja";
+
+/* nothing */
+"The nick of the person who did the halfop'ing" = "Personas segvārds, kura pus-op'oja";
+
+/* nothing */
+"The nick of the person who did the voice'ing" = "Personas segvārds, kura iedeva balsi";
+
+/* nothing */
+"The nick of the person who has been voice'ed" = "Personas segvārds, kurai iedeva balsi";
+
+/* nothing */
+"The nick of the person who did the banning" = "Personas segvārds, kura izraidīja";
+
+/* nothing */
+"The ban mask" = "Izraidījuma maska";
+
+/* nothing */
+"The nick who removed the key" = "Segvārds, kurš noņēma atslēgu";
+
+/* nothing */
+"The nick who removed the limit" = "Segvārds, kurš noņēma limitu";
+
+/* nothing */
+"The nick of the person of did the deop'ing" = "Personas segvārds, kura deop'oja";
+
+/* nothing */
+"The nick of the person who has been deop'ed" = "Personas segvārds, kuru deop'oja";
+
+/* nothing */
+"The nick of the person of did the dehalfop'ing" = "Personas segvārds, kura pus-op'oja";
+
+/* nothing */
+"The nick of the person who has been dehalfop'ed" = "Personas segvārds, kuru pus-op'oja";
+
+/* nothing */
+"The nick of the person of did the devoice'ing" = "Personas segvārds, kura noņēma balsi";
+
+/* nothing */
+"The nick of the person who has been devoice'ed" = "Personas segvārds, kurai noņēma balsi";
+
+/* nothing */
+"The nick of the person of did the unban'ing" = "Personas segvārds, kura noņēma izraidījumu";
+
+/* nothing */
+"The nick of the person who did the exempt" = "Personas segvārds, kura atbrīvoja";
+
+/* nothing */
+"The exempt mask" = "Atbrīvošanas maska";
+
+/* nothing */
+"The nick of the person removed the exempt" = "Personas segvārds, kura noņēma atbrīvojumu";
+
+/* nothing */
+"The nick of the person who did the invite" = "Personas segvārds, kura ielūdza";
+
+/* nothing */
+"The invite mask" = "Ielūguma maska";
+
+/* nothing */
+"The nick of the person removed the invite" = "Personas segvārds, kura noņēma ielūgumu";
+
+/* nothing */
+"The nick of the person setting the mode" = "Personas segvārds, kura uzstadīja režīmu";
+
+/* nothing */
+"The mode's sign (+/-)" = "Režīma zīme (+/-)";
+
+/* nothing */
+"The mode letter" = "Režīma burts";
+
+/* nothing */
+"The channel it's being set on" = "Kanāls, kuram tiek uzstādīts";
+
+/* nothing */
+"Username" = "Lietotājvārds";
+
+/* nothing */
+"Full name" = "Pilns vārds";
+
+/* nothing */
+"Channel Membership/\"is an IRC operator\"" = "Kanāla piederība/\"ir IRC operātors\"";
+
+/* nothing */
+"Server Information" = "Serva informācija";
+
+/* nothing */
+"Idle time" = "Dīkstāves laiks";
+
+/* nothing */
+"Signon time" = "Ierašanās laiks";
+
+/* nothing */
+"Away reason" = "Prombūtnes iemesls";
+
+/* nothing */
+"Message" = "Ziņojums";
+
+/* nothing */
+"Account" = "Konts";
+
+/* nothing */
+"Real user@host" = "Patiesais lietotājs@resursdators";
+
+/* nothing */
+"Real IP" = "Patiesais IP";
+
+/* nothing */
+"Channel Name" = "Kanāla nosaukums";
+
+/* nothing */
+"Text" = "Teksts";
+
+/* nothing */
+"Server Name" = "Servera nosaukums";
+
+/* nothing */
+"Raw Numeric or Identifier" = "Jēls cipars vai identifikātors";
+
+/* nothing */
+"Nick of person who invited you" = "Personas segvārds, kura jūs ielūdza";
+
+/* nothing */
+"Users" = "Lietotāji";
+
+/* nothing */
+"Nickname in use" = "Segvārds jau lietošanā";
+
+/* nothing */
+"Nick being tried" = "Mēģināmais segvārds";
+
+/* nothing */
+"IP" = "IP";
+
+/* nothing */
+"Port" = "Ports";
+
+/* nothing */
+"Network" = "Tīkls";
+
+/* nothing */
+"Modes string" = "Režīma virkne";
+
+/* nothing */
+"IP address" = "IP adrese";
+
+/* nothing */
+"DCC Type" = "DCC tips";
+
+/* nothing */
+"Filename" = "Faila nosaukums";
+
+/* nothing */
+"Destination filename" = "Mērķa faila nosaukums";
+
+/* nothing */
+"CPS" = "CPS";
+
+/* nothing */
+"Pathname" = "Ceļa nosaukums";
+
+/* nothing */
+"Position" = "Pozīcija";
+
+/* nothing */
+"Size" = "Izmērs";
+
+/* nothing */
+"DCC String" = "DCC virkne";
+
+/* nothing */
+"Number of notify items" = "Paziņojamo vienumu skaits";
+
+/* nothing */
+"Old Filename" = "Vecais faila nosaukums";
+
+/* nothing */
+"New Filename" = "Jaunais faila nosaukums";
+
+/* nothing */
+"Receiver" = "Saņēmējs";
+
+/* nothing */
+"Hostmask" = "Resursdatora maska";
+
+/* nothing */
+"Hostname" = "Resursdatora nosaukums";
+
+/* nothing */
+"The Packet" = "Pakete";
+
+/* nothing */
+"Seconds" = "Sekundes";
+
+/* nothing */
+"Nick of person who have been invited" = "Personas segvārds, kura tikusi ielūgta";
+
+/* nothing */
+"Banmask" = "Izraidījuma maska";
+
+/* nothing */
+"Who set the ban" = "Kurš uzstādīja izraidījumu";
+
+/* nothing */
+"Ban time" = "Izraidījuma laiks";
+
+/* nothing */
+"Error parsing event %s.\nLoading default." = "Kļūda parsējot notikumu %s.\nTiek ielādēti noklusētie";
+
+/* nothing */
+"Cannot read sound file:\n%s" = "Nevar nolasīt skaņas failu:\n%s";
+
+/* nothing */
+"Remote host closed socket" = "Attālinātais resursdators aizvēra ligzdu";
+
+/* nothing */
+"Connection refused" = "Savienojums atteikts";
+
+/* nothing */
+"No route to host" = "Nav maršruta uz resursdatoru";
+
+/* nothing */
+"Connection timed out" = "Savienojuma iztecējums";
+
+/* nothing */
+"Cannot assign that address" = "Nevar piešķirt adresi";
+
+/* nothing */
+"Connection reset by peer" = "Dalībnieks attiestatīja savienojumu";
+
+/* nothing */
+"Ascension Island" = "Debesbraukšanas sala";
+
+/* nothing */
+"Andorra" = "Andora";
+
+/* nothing */
+"United Arab Emirates" = "Apvienotie Arābu Emirāti";
+
+/* nothing */
+"Afghanistan" = "Afganistāna";
+
+/* nothing */
+"Antigua and Barbuda" = "Antigva un Barbuda";
+
+/* nothing */
+"Anguilla" = "Angilja";
+
+/* nothing */
+"Albania" = "Albānija";
+
+/* nothing */
+"Armenia" = "Armēnija";
+
+/* nothing */
+"Netherlands Antilles" = "Nīderlandes Antiļas";
+
+/* nothing */
+"Angola" = "Angola";
+
+/* nothing */
+"Antarctica" = "Antarktika";
+
+/* nothing */
+"Argentina" = "Argentīna";
+
+/* nothing */
+"Reverse DNS" = "Reverss DNS";
+
+/* nothing */
+"American Samoa" = "Amērikas Samoa";
+
+/* nothing */
+"Austria" = "Austrija";
+
+/* nothing */
+"Nato Fiel" = "Nato Fiel";
+
+/* nothing */
+"Australia" = "Austrālija";
+
+/* nothing */
+"Aruba" = "Aruba";
+
+/* nothing */
+"Aland Islands" = "Olandes lēne";
+
+/* nothing */
+"Azerbaijan" = "Azerbaidžāna";
+
+/* nothing */
+"Bosnia and Herzegovina" = "Bosnija un Hercogovina";
+
+/* nothing */
+"Barbados" = "Barbadosa";
+
+/* nothing */
+"Bangladesh" = "Bangladeša";
+
+/* nothing */
+"Belgium" = "Beļģija";
+
+/* nothing */
+"Burkina Faso" = "Burkinafaso";
+
+/* nothing */
+"Bulgaria" = "Bulgārija";
+
+/* nothing */
+"Bahrain" = "Bahreina";
+
+/* nothing */
+"Burundi" = "Burundi";
+
+/* nothing */
+"Businesses" = "Darīšanas";
+
+/* nothing */
+"Benin" = "Benina";
+
+/* nothing */
+"Bermuda" = "Bermuda";
+
+/* nothing */
+"Brunei Darussalam" = "Bruneja";
+
+/* nothing */
+"Bolivia" = "Bolīvija";
+
+/* nothing */
+"Brazil" = "Brazīlija";
+
+/* nothing */
+"Bahamas" = "Bahamas";
+
+/* nothing */
+"Bhutan" = "Butāna";
+
+/* nothing */
+"Bouvet Island" = "Bovetu salas";
+
+/* nothing */
+"Botswana" = "Botsvāna";
+
+/* nothing */
+"Belarus" = "Baltkrievija";
+
+/* nothing */
+"Belize" = "Beliza";
+
+/* nothing */
+"Canada" = "Kanāda";
+
+/* nothing */
+"Cocos Islands" = "Kokosu salas";
+
+/* nothing */
+"Democratic Republic of Congo" = "Kongo Demokrātiskā Republika";
+
+/* nothing */
+"Central African Republic" = "Centrālāfrikas Republika";
+
+/* nothing */
+"Congo" = "Kongo";
+
+/* nothing */
+"Switzerland" = "Šveice";
+
+/* nothing */
+"Cote d'Ivoire" = "Kotdivuāra";
+
+/* nothing */
+"Cook Islands" = "Kuka salas";
+
+/* nothing */
+"Chile" = "Čīle";
+
+/* nothing */
+"Cameroon" = "Kamerūna";
+
+/* nothing */
+"China" = "Ķīna";
+
+/* nothing */
+"Colombia" = "Kolumbija";
+
+/* nothing */
+"Internic Commercial" = "Starptautiskā Komercsabiedrība";
+
+/* nothing */
+"Costa Rica" = "Kostarika";
+
+/* nothing */
+"Serbia and Montenegro" = "Serbija un Montenegro";
+
+/* nothing */
+"Cuba" = "Kuba";
+
+/* nothing */
+"Cape Verde" = "Kapoverde";
+
+/* nothing */
+"Christmas Island" = "Ziemassvētku Salas";
+
+/* nothing */
+"Cyprus" = "Kipra";
+
+/* nothing */
+"Czech Republic" = "Čehija";
+
+/* nothing */
+"Germany" = "Vācija";
+
+/* nothing */
+"Djibouti" = "Džibutija";
+
+/* nothing */
+"Denmark" = "Dānija";
+
+/* nothing */
+"Dominica" = "Dominika";
+
+/* nothing */
+"Dominican Republic" = "Domenicānas Republika";
+
+/* nothing */
+"Algeria" = "Alžīrija";
+
+/* nothing */
+"Ecuador" = "Ekvadora";
+
+/* nothing */
+"Educational Institution" = "Mācību Iestāde";
+
+/* nothing */
+"Estonia" = "Igaunija";
+
+/* nothing */
+"Egypt" = "Ēģipte";
+
+/* nothing */
+"Western Sahara" = "Rietumsahāra";
+
+/* nothing */
+"Eritrea" = "Eritreja";
+
+/* nothing */
+"Spain" = "Spānija";
+
+/* nothing */
+"Ethiopia" = "Etiopija";
+
+/* nothing */
+"European Union" = "Eiropas savienība";
+
+/* nothing */
+"Finland" = "Somija";
+
+/* nothing */
+"Fiji" = "Fidži";
+
+/* nothing */
+"Falkland Islands" = "Folklenda salas";
+
+/* nothing */
+"Micronesia" = "Mikronēzija";
+
+/* nothing */
+"Faroe Islands" = "Farēru salas";
+
+/* nothing */
+"France" = "Francija";
+
+/* nothing */
+"Gabon" = "Gabona";
+
+/* nothing */
+"Great Britain" = "Lielbritānija";
+
+/* nothing */
+"Grenada" = "Grenada";
+
+/* nothing */
+"Georgia" = "Džordžija";
+
+/* nothing */
+"French Guiana" = "Franču Gviāna";
+
+/* nothing */
+"British Channel Isles" = "Britu Kanāla salas";
+
+/* nothing */
+"Ghana" = "Gana";
+
+/* nothing */
+"Gibraltar" = "Gibraltārs";
+
+/* nothing */
+"Greenland" = "Grenlande";
+
+/* nothing */
+"Gambia" = "Gambija";
+
+/* nothing */
+"Guinea" = "Gvineja";
+
+/* nothing */
+"Government" = "Valdība";
+
+/* nothing */
+"Guadeloupe" = "Gvadelupa";
+
+/* nothing */
+"Equatorial Guinea" = "Ekvatoriālā Gvineja";
+
+/* nothing */
+"Greece" = "Grieķija";
+
+/* nothing */
+"S. Georgia and S. Sandwich Isles" = "Svētā Džordžija un Svētā Sendvidža salas";
+
+/* nothing */
+"Guatemala" = "Gvatemala";
+
+/* nothing */
+"Guam" = "Guama";
+
+/* nothing */
+"Guinea-Bissau" = "Gvineja-Bisava";
+
+/* nothing */
+"Guyana" = "Gajāna";
+
+/* nothing */
+"Hong Kong" = "Hongkonga";
+
+/* nothing */
+"Heard and McDonald Islands" = "Herda un Makdonalda salas";
+
+/* nothing */
+"Honduras" = "Hondurasa";
+
+/* nothing */
+"Croatia" = "Horvātija";
+
+/* nothing */
+"Haiti" = "Haiti";
+
+/* nothing */
+"Hungary" = "Ungārija";
+
+/* nothing */
+"Indonesia" = "Indonēzija";
+
+/* nothing */
+"Ireland" = "Īrija";
+
+/* nothing */
+"Israel" = "Izraēla";
+
+/* nothing */
+"Isle of Man" = "Menas Salas";
+
+/* nothing */
+"India" = "Indija";
+
+/* nothing */
+"Informational" = "Informatīvie";
+
+/* nothing */
+"International" = "Starptautisks";
+
+/* nothing */
+"British Indian Ocean Territory" = "Britu Indija okeāna teritorija";
+
+/* nothing */
+"Iraq" = "Irāka";
+
+/* nothing */
+"Iran" = "Irāna";
+
+/* nothing */
+"Iceland" = "Islande";
+
+/* nothing */
+"Italy" = "Itālija";
+
+/* nothing */
+"Jersey" = "Džersija";
+
+/* nothing */
+"Jamaica" = "Jamaika";
+
+/* nothing */
+"Jordan" = "Jordānija";
+
+/* nothing */
+"Japan" = "Japāna";
+
+/* nothing */
+"Kenya" = "Kenija";
+
+/* nothing */
+"Kyrgyzstan" = "Kirgizstāna";
+
+/* nothing */
+"Cambodia" = "Kambodža";
+
+/* nothing */
+"Kiribati" = "Kiribati";
+
+/* nothing */
+"Comoros" = "Komoros salas";
+
+/* nothing */
+"St. Kitts and Nevis" = "Svētā Kita un Nevis salas";
+
+/* nothing */
+"North Korea" = "Ziemeļkoreja";
+
+/* nothing */
+"South Korea" = "Dienvidkoreja";
+
+/* nothing */
+"Kuwait" = "Kuveita";
+
+/* nothing */
+"Cayman Islands" = "Kaimanu salas";
+
+/* nothing */
+"Kazakhstan" = "Kazahstāna";
+
+/* nothing */
+"Laos" = "Laosa";
+
+/* nothing */
+"Lebanon" = "Libāna";
+
+/* nothing */
+"Saint Lucia" = "Sentlūsija";
+
+/* nothing */
+"Liechtenstein" = "Lihtenšteina";
+
+/* nothing */
+"Sri Lanka" = "Šrilanka";
+
+/* nothing */
+"Liberia" = "Libērija";
+
+/* nothing */
+"Lesotho" = "Lesoto";
+
+/* nothing */
+"Lithuania" = "Lietuva";
+
+/* nothing */
+"Luxembourg" = "Luksemburga";
+
+/* nothing */
+"Latvia" = "Latvija";
+
+/* nothing */
+"Libya" = "Libāna";
+
+/* nothing */
+"Morocco" = "Maroko";
+
+/* nothing */
+"Monaco" = "Monako";
+
+/* nothing */
+"Moldova" = "Moldāvija";
+
+/* nothing */
+"United States Medical" = "Savienoto Valstu Medicīnas";
+
+/* nothing */
+"Madagascar" = "Madagaskara";
+
+/* nothing */
+"Marshall Islands" = "Maršalu Salas";
+
+/* nothing */
+"Military" = "Militārs";
+
+/* nothing */
+"Macedonia" = "Maķedonija";
+
+/* nothing */
+"Mali" = "Mali";
+
+/* nothing */
+"Myanmar" = "Mjanma";
+
+/* nothing */
+"Mongolia" = "Mongolija";
+
+/* nothing */
+"Macau" = "Makao";
+
+/* nothing */
+"Northern Mariana Islands" = "Ziemeļmarina";
+
+/* nothing */
+"Martinique" = "Martinika";
+
+/* nothing */
+"Mauritania" = "Mauritānija";
+
+/* nothing */
+"Montserrat" = "Montserata";
+
+/* nothing */
+"Malta" = "Malta";
+
+/* nothing */
+"Mauritius" = "Mauritānija";
+
+/* nothing */
+"Maldives" = "Maldīvija";
+
+/* nothing */
+"Malawi" = "Malāvija";
+
+/* nothing */
+"Mexico" = "Mexico";
+
+/* nothing */
+"Malaysia" = "Malaizija";
+
+/* nothing */
+"Mozambique" = "Mozambika";
+
+/* nothing */
+"Namibia" = "Namībija";
+
+/* nothing */
+"New Caledonia" = "Jaunkaldonija";
+
+/* nothing */
+"Niger" = "Nigēra";
+
+/* nothing */
+"Internic Network" = "Starptautiskais Tīkls";
+
+/* nothing */
+"Norfolk Island" = "Norfolkas salas";
+
+/* nothing */
+"Nigeria" = "Nigērija";
+
+/* nothing */
+"Nicaragua" = "Nikaragva";
+
+/* nothing */
+"Netherlands" = "Nīderlande";
+
+/* nothing */
+"Norway" = "Norvēģija";
+
+/* nothing */
+"Nepal" = "Nepāla";
+
+/* nothing */
+"Nauru" = "Nauru";
+
+/* nothing */
+"Niue" = "Niue";
+
+/* nothing */
+"New Zealand" = "Jaunzēlande";
+
+/* nothing */
+"Oman" = "Omāna";
+
+/* nothing */
+"Internic Non-Profit Organization" = "Starptautiska Bezpeļņas Organizācija";
+
+/* nothing */
+"Panama" = "Panama";
+
+/* nothing */
+"Peru" = "Peru";
+
+/* nothing */
+"French Polynesia" = "Franču Polinēzija";
+
+/* nothing */
+"Papua New Guinea" = "Papua Jaungvineja";
+
+/* nothing */
+"Philippines" = "Filipīnas";
+
+/* nothing */
+"Pakistan" = "Pakistāna";
+
+/* nothing */
+"Poland" = "Polija";
+
+/* nothing */
+"St. Pierre and Miquelon" = "Svētā Pjēra un Mikvelona salas";
+
+/* nothing */
+"Pitcairn" = "Pitkērna";
+
+/* nothing */
+"Puerto Rico" = "Puertoriko";
+
+/* nothing */
+"Palestinian Territory" = "Palestīnas teritorijas";
+
+/* nothing */
+"Portugal" = "Portugāle";
+
+/* nothing */
+"Palau" = "Palau";
+
+/* nothing */
+"Paraguay" = "Paragvaja";
+
+/* nothing */
+"Qatar" = "Katara";
+
+/* nothing */
+"Reunion" = "Reinjona";
+
+/* nothing */
+"Romania" = "Rumānija";
+
+/* nothing */
+"Old School ARPAnet" = "Vecās Skolas ARPAnet";
+
+/* nothing */
+"Russian Federation" = "Krievijas Federācija";
+
+/* nothing */
+"Rwanda" = "Ruanda";
+
+/* nothing */
+"Saudi Arabia" = "Saudu Arābija";
+
+/* nothing */
+"Solomon Islands" = "Zālamana salas";
+
+/* nothing */
+"Seychelles" = "Seišelas";
+
+/* nothing */
+"Sudan" = "Sudāna";
+
+/* nothing */
+"Sweden" = "Zviedrija";
+
+/* nothing */
+"Singapore" = "Singapūra";
+
+/* nothing */
+"St. Helena" = "Svētās Helēnas sala";
+
+/* nothing */
+"Slovenia" = "Slovēnija";
+
+/* nothing */
+"Svalbard and Jan Mayen Islands" = "Svelbāna un Žana Maijena salas";
+
+/* nothing */
+"Slovak Republic" = "Slovākija";
+
+/* nothing */
+"Sierra Leone" = "Sjerra Leone";
+
+/* nothing */
+"San Marino" = "San Marino";
+
+/* nothing */
+"Senegal" = "Senegāla";
+
+/* nothing */
+"Somalia" = "Somālija";
+
+/* nothing */
+"Suriname" = "Surinama";
+
+/* nothing */
+"Sao Tome and Principe" = "Santome un Prinsipi";
+
+/* nothing */
+"Former USSR" = "Bijušā PSRS";
+
+/* nothing */
+"El Salvador" = "Salvadora";
+
+/* nothing */
+"Syria" = "Sīrija";
+
+/* nothing */
+"Swaziland" = "Šveice";
+
+/* nothing */
+"Turks and Caicos Islands" = "Tērksas un Kaikosas salas";
+
+/* nothing */
+"Chad" = "Čada";
+
+/* nothing */
+"French Southern Territories" = "Francijas Dienvidu Teritorijas";
+
+/* nothing */
+"Togo" = "Togo";
+
+/* nothing */
+"Thailand" = "Taizeme";
+
+/* nothing */
+"Tajikistan" = "Tadžikistāna";
+
+/* nothing */
+"Tokelau" = "Tokelau";
+
+/* nothing */
+"East Timor" = "Austrumtimora";
+
+/* nothing */
+"Turkmenistan" = "Turkmenistāna";
+
+/* nothing */
+"Tunisia" = "Tunisija";
+
+/* nothing */
+"Tonga" = "Tonga";
+
+/* nothing */
+"Turkey" = "Turcija";
+
+/* nothing */
+"Trinidad and Tobago" = "Trinidada un Tobago";
+
+/* nothing */
+"Tuvalu" = "Tuvalu";
+
+/* nothing */
+"Taiwan" = "Taivāna";
+
+/* nothing */
+"Tanzania" = "Tanzānija";
+
+/* nothing */
+"Ukraine" = "Ukraina";
+
+/* nothing */
+"Uganda" = "Uganda";
+
+/* nothing */
+"United Kingdom" = "Apvienotā Karaliste";
+
+/* nothing */
+"United States of America" = "Amērikas Savienotās Valstis";
+
+/* nothing */
+"Uruguay" = "Urugvaja";
+
+/* nothing */
+"Uzbekistan" = "Uzbekistāna";
+
+/* nothing */
+"Vatican City State" = "Vatikānas Pilsētvalsts";
+
+/* nothing */
+"St. Vincent and the Grenadines" = "Sentvinsenta un Grenadīnas";
+
+/* nothing */
+"Venezuela" = "Venecuēla";
+
+/* nothing */
+"British Virgin Islands" = "Britu Virdžīnu Salas";
+
+/* nothing */
+"US Virgin Islands" = "ASV Virdžīnu Salas";
+
+/* nothing */
+"Vietnam" = "Vjetnama";
+
+/* nothing */
+"Vanuatu" = "Vanuatu";
+
+/* nothing */
+"Wallis and Futuna Islands" = "Volisa un Futuna salas";
+
+/* nothing */
+"Samoa" = "Samoa";
+
+/* nothing */
+"Yemen" = "Jemena";
+
+/* nothing */
+"Mayotte" = "Majota";
+
+/* nothing */
+"Yugoslavia" = "Dienvidslāvija";
+
+/* nothing */
+"South Africa" = "Dienvidāfrika";
+
+/* nothing */
+"Zambia" = "Zambija";
+
+/* nothing */
+"Zimbabwe" = "Zimbabve";
+
+/* nothing */
+"Unknown" = "Nezināms";
+
+/* nothing */
+"_Open Dialog Window" = "_Atvērt dialoga logu";
+
+/* nothing */
+"_Send a File" = "Sū_tīt failu";
+
+/* nothing */
+"_User Info (WhoIs)" = "_Lietotāja informācija (WhoIs)";
+
+/* nothing */
+"_Add to Friends List" = "_Pievienot draugu sarakstam";
+
+/* nothing */
+"O_perator Actions" = "O_perātora darbības";
+
+/* nothing */
+"Give Ops" = "Dot Ops";
+
+/* nothing */
+"Take Ops" = "Ņemt Ops";
+
+/* nothing */
+"Give Voice" = "Dod balsi";
+
+/* nothing */
+"Take Voice" = "Ņemt balsi";
+
+/* nothing */
+"Kick/Ban" = "Izmest/Izraidīt";
+
+/* nothing */
+"Kick" = "Izmest";
+
+/* nothing */
+"Ban" = "Izraidīt";
+
+/* nothing */
+"KickBan" = "IzmestIzraidīt";
+
+/* nothing */
+"Leave Channel" = "Atstāt kanālu";
+
+/* nothing */
+"Join Channel..." = "Pievienoties kanālam...";
+
+/* nothing */
+"Enter Channel to Join:" = "Ievadiet kanālu, kuram pievienoties:";
+
+/* nothing */
+"Server Links" = "Serveru saraksts";
+
+/* nothing */
+"Ping Server" = "Ping serveri";
+
+/* nothing */
+"Hide Version" = "Slēpt versiju";
+
+/* nothing */
+"Op" = "Op";
+
+/* nothing */
+"DeOp" = "DeOp";
+
+/* nothing */
+"bye" = "atā";
+
+/* nothing */
+"Enter reason to kick %s:" = "Ievadiet %s izmešanas iemeslu:";
+
+/* nothing */
+"Sendfile" = "Sūtīt failu";
+
+/* nothing */
+"Dialog" = "Dialogs";
+
+/* nothing */
+"WhoIs" = "WhoIs";
+
+/* nothing */
+"Send" = "Sūtīt";
+
+/* nothing */
+"Chat" = "Tērzēt";
+
+/* nothing */
+"Clear" = "Attīrīt";
+
+/* nothing */
+"Ping" = "Ping";
+
+/* nothing */
+"Couldn't connect to session bus" = "Nevar savienoties ar sesijas kopni";
+
+/* nothing */
+"Failed to complete NameHasOwner" = "Neizdevās pabeigt NameHasOwner";
+
+/* nothing */
+"Failed to complete Command" = "Neizdevās izpildīt komandu";
+
+/* nothing */
+"remote access" = "attālinātā piekļuve";
+
+/* nothing */
+"plugin for remote access using DBUS" = "spraudnis ārējai piekļuvei izmantojot DBUS";
+
+/* nothing */
+"Couldn't connect to session bus: %s\n" = "Neizdevās savienoties ar sesijas kopni: %s\n";
+
+/* nothing */
+"Failed to acquire %s: %s\n" = "Neizdevās iegūt %s: %s\n";
+
+/* nothing */
+"About " = "Par";
+
+/* nothing */
+"A multiplatform IRC Client" = "Daudzplatformas IRC klients";
+
+/* nothing */
+"Character Chart" = "Rakstzīmju tabula";
+
+/* nothing */
+"Not connected." = "Nav savienots.";
+
+/* nothing */
+"You must select some bans." = "Jums ir jānorāda daži izraidītie.";
+
+/* nothing */
+"Are you sure you want to remove all bans in %s?" = "Vai tiešām vēlaties izņemt visu izraidīto iekš %s?";
+
+/* nothing */
+"Mask" = "Maska";
+
+/* nothing */
+"From" = "No";
+
+/* nothing */
+"Date" = "Datums";
+
+/* nothing */
+"You can only open the Ban List window while in a channel tab." = "Jūs varat atvērt Izraidīto sarakstu tikai kad esat kanālu cilnē.";
+
+/* nothing */
+"XChat: Ban List (%s)" = "XChat: Izraidīto saraksts (%s)";
+
+/* nothing */
+"Remove" = "Izņemt";
+
+/* nothing */
+"Crop" = "Apcirpt";
+
+/* nothing */
+"Refresh" = "Atjaunināt";
+
+/* nothing */
+"Displaying %d/%d users on %d/%d channels." = "Attēlo %d/%d lietotājus uz %d/%d kanāliem.";
+
+/* nothing */
+"Select an output filename" = "Norādiet izvades failanosaukumu";
+
+/* nothing */
+"_Join Channel" = "_Pievienoties kanālam";
+
+/* nothing */
+"_Copy Channel Name" = "K_opēt kanāla nosaukumu";
+
+/* nothing */
+"Copy _Topic Text" = "Kopēt _virsraksta tekstu";
+
+/* nothing */
+"XChat: Channel List (%s)" = "XChat: Kanālu saraksts (%s)";
+
+/* nothing */
+"_Search" = "_Meklēt";
+
+/* nothing */
+"_Download List" = "_Lejupielādes saraksts";
+
+/* nothing */
+"Save _List..." = "Sag_labāt sarakstu...";
+
+/* nothing */
+"Show only:" = "Rādīt tikai:";
+
+/* nothing */
+"channels with" = "kanāli ar";
+
+/* nothing */
+"to" = "uz";
+
+/* nothing */
+"users." = "lietotāji.";
+
+/* nothing */
+"Look in:" = "Skatīt iekš:";
+
+/* nothing */
+"Channel name" = "Kanāla nosaukums";
+
+/* nothing */
+"Search type:" = "Meklēt tipu:";
+
+/* nothing */
+"Simple Search" = "Vienkārša meklēšana";
+
+/* nothing */
+"Pattern Match (Wildcards)" = "Shēmas sakritība (aizstājējzīme)";
+
+/* nothing */
+"Regular Expression" = "Reiglāra izteiksme";
+
+/* nothing */
+"Find:" = "Atrast:";
+
+/* nothing */
+"Send file to %s" = "Sūtīt failu %s";
+
+/* nothing */
+"That file is not resumable." = "Tas nav atsākams fails.";
+
+/* nothing */
+"Cannot access file: %s\n%s.\nResuming not possible." = "Nevar piekļūt failam: %s\n%s.\nAtsākšana nav iespējama.";
+
+/* nothing */
+"File in download directory is larger than file offered. Resuming not possible." = "Faila lejupielādes direktorijā ir lielāks, nekā piedāvātais. Atsākšana nav iespējama.";
+
+/* nothing */
+"Cannot resume the same file from two people." = "Nevar atsāk vienu un to pašu failu no diviem cilvēkiem.";
+
+/* nothing */
+"XChat: Uploads and Downloads" = "XChat: Augšupielādes un lejupielādes";
+
+/* nothing */
+"Status" = "Satuss";
+
+/* nothing */
+"File" = "Fails";
+
+/* nothing */
+"ETA" = "Aptuveni";
+
+/* nothing */
+"Both" = "Abi";
+
+/* nothing */
+"Uploads" = "Augšupielādes";
+
+/* nothing */
+"Downloads" = "Lejupielādes";
+
+/* nothing */
+"Details" = "Detaļas";
+
+/* nothing */
+"File:" = "Fails:";
+
+/* nothing */
+"Address:" = "Adrese:";
+
+/* nothing */
+"Abort" = "Pārtraukt";
+
+/* nothing */
+"Accept" = "Apstiprināt";
+
+/* nothing */
+"Resume" = "Atsākt";
+
+/* nothing */
+"Open Folder..." = "Atvērt mapi...";
+
+/* nothing */
+"XChat: DCC Chat List" = "XChat: DCC tērzēšanas saraksts";
+
+/* nothing */
+"Recv" = "Saņ";
+
+/* nothing */
+"Sent" = "Aizs";
+
+/* nothing */
+"Start Time" = "Sākšanas laiks";
+
+/* nothing */
+"*NEW*" = "*JAUNS*";
+
+/* nothing */
+"EDIT ME" = "REDIĢĒ MANI";
+
+/* nothing */
+"Name" = "Nosaukums";
+
+/* nothing */
+"Command" = "Komanda";
+
+/* nothing */
+"Move Up" = "Augšup";
+
+/* nothing */
+"Move Dn" = "Lejup";
+
+/* nothing */
+"Cancel" = "Atcelt";
+
+/* nothing */
+"Save" = "Saglabāt";
+
+/* nothing */
+"Add New" = "Pievienot Jaunu";
+
+/* nothing */
+"Delete" = "Dzēst";
+
+/* nothing */
+"Sort" = "Kārtot";
+
+/* nothing */
+"Help" = "Palīdzība";
+
+/* nothing */
+"Don't auto connect to servers" = "Nepieslēgties automātiski pie serveriem";
+
+/* nothing */
+"Use a different config directory" = "Izmantot citu konfigurācijas direktoriju";
+
+/* nothing */
+"Don't auto load any plugins" = "Neielādes automātiski nevienu spraudni";
+
+/* nothing */
+"Show plugin auto-load directory" = "Rādīt automātiski ielādēmo spraudņu direktoriju";
+
+/* nothing */
+"Show user config directory" = "Rādīt lietotāja konfigurācijas direktoriju";
+
+/* nothing */
+"Open an irc://server:port/channel URL" = "Atvērt irc://serveris:ports/kanals URL";
+
+/* nothing */
+"Execute command:" = "Izpildīt komandu:";
+
+/* nothing */
+"Open URL or execute command in an existing XChat" = "Atvērt URL vai izpildīt komandu jau eksistējošā XChat";
+
+/* nothing */
+"Begin minimized. Level 0=Normal 1=Iconified 2=Tray" = "Sākt minimizēti. Līmenis 0=Normāls 1=Ikonizēts 2=Joslā";
+
+/* nothing */
+"level" = "līmenis";
+
+/* nothing */
+"Show version information" = "Rādīt versijas informāciju";
+
+/* nothing */
+"Failed to open font:\n\n%s" = "Nezide'vas atvērt fontu:\n\n%s";
+
+/* nothing */
+"Search buffer is empty.\n" = "Meklēšanas buferis ir tukšs.\n";
+
+/* nothing */
+"%d bytes" = "%d baiti";
+
+/* nothing */
+"Network send queue: %d bytes" = "Tīkla sūtīšanas rinda: %d baiti";
+
+/* nothing */
+"The Run Command action runs the data in Data 1 as if it has been typed into the entry box where you pressed the key sequence. Thus it can contain text (which will be sent to the channel/person), commands or user commands. When run all \\n characters in Data 1 are used to deliminate seperate commands so it is possible to run more than one command. If you want a \\ in the actual text run then enter \\\\" = "Darbība Palaist Komandu palaiž datus iekš Dati 1 tā, it kā tie būtu ierakstīti ieraksta lauciņā, kur tu nospiedi taustiņu secību. Taču tas var arī saturēt tekstu (Kas tiks sūtīts kanālam/personai), komandas vai lietotāja komandas. Kad palaiž, visas \\n rakstzīmes iekš Dati 1 tiek lietotas, lai atdalītu atsevišķas komandas, tāpēc ir iespējams palaist vairāk kā vienu komandu. Ja tu gribi panākt \\ savā tekstā, tad ievadi \\\\";
+
+/* nothing */
+"The Change Page command switches between pages in the notebook. Set Data 1 to the page you want to switch to. If Data 2 is set to anything then the switch will be relative to the current position" = "Komanda Mainīt Lapu pārslēdzas starp lapām sadaļu režīmā. Iestati Dati 1 uz lapu, uz kuru vēlies pārslēgties. Ja Dati 2 ir iestatīti uz kaut ko, tad pārslēgšanās būs relatīva atkarībā no pašreizējās pozīcijas";
+
+/* nothing */
+"The Insert in Buffer command will insert the contents of Data 1 into the entry where the key sequence was pressed at the current cursor position" = "Komanda Ievietot Buferī ievietos Dati 1 saturu ierakstā, kur taustiņi tika nospiesti secībā, konkrētajā kursora pozīcijā";
+
+/* nothing */
+"The Scroll Page command scrolls the text widget up or down one page or one line. Set Data 1 to either Up, Down, +1 or -1." = "Koamanda Ritināt Lapu ritina teksta vidžetu augšup un lejup pa vienu lapu. Uzstādiet Daus uz  1, lai uz augšu, vai uz leju ar +1, vai -1.";
+
+/* nothing */
+"The Set Buffer command sets the entry where the key sequence was entered to the contents of Data 1" = "Komanda Iestatīt Buferi iestata ierakstu, kur taustiņu secība tika ievadīta atbiltoši Dati 1 saturam";
+
+/* nothing */
+"The Last Command command sets the entry to contain the last command entered - the same as pressing up in a shell" = "Komanda Iepriekšējā Komanda iestata rindiņu, lai tā satur iepriekšējo ievadīto komandu - tas pats, kas nospiežot augšup čaulā";
+
+/* nothing */
+"The Next Command command sets the entry to contain the next command entered - the same as pressing down in a shell" = "Komanda Nākamā Komanda iestata rindiņu, lai tā satur nākamo ievadīto komandu - tas pats, kas nospiežot lejup čaulā";
+
+/* nothing */
+"This command changes the text in the entry to finish an incomplete nickname or command. If Data 1 is set then double-tabbing in a string will select the last nick, not the next" = "Šī komanda maina ieraksta tekstu, lai pabeigtu nepilnu segvārdu vai komandu. Ja Dati 1 ir iestatīti, tad dubult-tabulācija rindiņā izvēlēsies pēdējo segvārdu, nevis nākamo";
+
+/* nothing */
+"This command scrolls up and down through the list of nicks. If Data 1 is set to anything it will scroll up, else it scrolls down" = "Šī komanda ritina augšup un lejup pa segvārdu sarakstu. Ja Dati 1 ir iestatīti uz kaut ko, tā ritināsies augšup, citādi tā ritināsies lejup";
+
+/* nothing */
+"This command checks the last word entered in the entry against the replace list and replaces it if it finds a match" = "Šī komanda pārbauda pēdējos ievadītos vārdus pret aizvietojumu sarakstu un aizvieto to, ja atrod atbilstību";
+
+/* nothing */
+"This command moves the front tab left by one" = "Šī komanda pārvieto priekšpuses cilni pa vienam pa kreisi";
+
+/* nothing */
+"This command moves the front tab right by one" = "Šī komanda pārvieto priekšpuses silni pa vienu  pa labi";
+
+/* nothing */
+"This command moves the current tab family to the left" = "Šī komanda pārvieto patreizējo ģimenes cilni pa kreisi";
+
+/* nothing */
+"This command moves the current tab family to the right" = "Šī komanda pārvieto patreizējo ģimenes cilni pa labi";
+
+/* nothing */
+"Push input line into history but doesn't send to server" = "Ievietot ievades līniju vēsturē, bet nesūtīt serverim";
+
+/* nothing */
+"There was an error loading key bindings configuration" = "Notika kļūda, ielādējot taustiņu atbilstību konfigurāciju";
+
+/* nothing */
+"<none>" = "<nekas>";
+
+/* nothing */
+"Mod" = "Mod";
+
+/* nothing */
+"Key" = "Taustiņš";
+
+/* nothing */
+"Action" = "Darbība";
+
+/* nothing */
+"XChat: Keyboard Shortcuts" = "XChat: Klaviatūras īssceļi";
+
+/* nothing */
+"Shift" = "Shift";
+
+/* nothing */
+"Alt" = "Alt";
+
+/* nothing */
+"Ctrl" = "Ctrl";
+
+/* nothing */
+"Data 1" = "Dati 1";
+
+/* nothing */
+"Data 2" = "Dati 2";
+
+/* nothing */
+"Error opening keys config file\n" = "Kļūda atverot taustiņu configurācijas failu\n";
+
+/* nothing */
+"Unknown keyname %s in key bindings config file\nLoad aborted, please fix %s/keybindings.conf\n" = "Nezināms taustiņvārds %s taustiņu atbilstību konfigurācijas failā\nIelāde pārtraukta, lūdzu salabojiet %s/keybindings.conf\n";
+
+/* nothing */
+"Unknown action %s in key bindings config file\nLoad aborted, Please fix %s/keybindings\n" = "Nezināma darbība %s taustiņu atbilstību konfigurācijas failā\nIelāde pārtraukta, lūdzu salabojiet %s/keybindings\n";
+
+/* nothing */
+"Expecting Data line (beginning Dx{:|!}) but got:\n%s\n\nLoad aborted, Please fix %s/keybindings\n" = "Tika gaidīta Datu līniju (sākums Dx{:|!}), bet tika saņemta:\n%s\n\nIelāde pārtraukta, lūdzu salabojiet %s/keybindings\n";
+
+/* nothing */
+"Key bindings config file is corrupt, load aborted\nPlease fix %s/keybindings.conf\n" = "Taustiņu konfigurācijas fails ir bojāts\nielāde pārtraukta, lūdzu salabojiet %s/keybindings.conf\n";
+
+/* nothing */
+"Cannot write to that file." = "Nevar ierakstīt failā.";
+
+/* nothing */
+"Cannot read that file." = "Nevar nolasīt failu.";
+
+/* nothing */
+"That mask already exists." = "Maska jau eksistē.";
+
+/* nothing */
+"Private" = "Privāts";
+
+/* nothing */
+"Notice" = "Paziņojums";
+
+/* nothing */
+"CTCP" = "CTCP";
+
+/* nothing */
+"DCC" = "DCC";
+
+/* nothing */
+"Invite" = "Ielūgt";
+
+/* nothing */
+"Unignore" = "Atignorēt";
+
+/* nothing */
+"Enter mask to ignore:" = "Ievadiet ignorēšanas masku:";
+
+/* nothing */
+"XChat: Ignore list" = "XChat: Ignorēšanas saraksts";
+
+/* nothing */
+"Ignore Stats:" = "Ignorēšānas statistika:";
+
+/* nothing */
+"Channel:" = "Kanāls:";
+
+/* nothing */
+"Private:" = "Privāts:";
+
+/* nothing */
+"Notice:" = "Paziņojums:";
+
+/* nothing */
+"CTCP:" = "CTCP:";
+
+/* nothing */
+"Invite:" = "Ielūgt:";
+
+/* nothing */
+"Add..." = "Pievienot...";
+
+/* nothing */
+"Channel name too short, try again." = "Kanāla nosaukums par īsu, mēģiniet vēlreiz.";
+
+/* nothing */
+"XChat: Connection Complete" = "XChat: Savienojums pabeigts";
+
+/* nothing */
+"Connection to %s complete." = "Savienojums uz %s pabeigts.";
+
+/* nothing */
+"In the Server-List window, no channel (chat room) has been entered to be automatically joined for this network." = "Šai tīklā, serveru saraksta logā, nav ievadīts neviens kanāls (tērzēšanas istaba), lai automātiski pievienotos.";
+
+/* nothing */
+"What would you like to do next?" = "Ko vēlaties darīt tālāk?";
+
+/* nothing */
+"_Nothing, I'll join a channel later." = "_Neko, es pievienošos kanālam vēlāk.";
+
+/* nothing */
+"_Join this channel:" = "_Pievienoties šim kanālam:";
+
+/* nothing */
+"If you know the name of the channel you want to join, enter it here." = "Ja zinat nosaukumu kanālam, jūs varat pievienoties, ievadot to šeit.";
+
+/* nothing */
+"O_pen the Channel-List window." = "A_tvērt kanāla saraksta logu.";
+
+/* nothing */
+"Retrieving the Channel-List may take a minute or two." = "Kanālu saraksta iegūšana var aizņemt vienu, divas minūtes.";
+
+/* nothing */
+"_Always show this dialog after connecting." = "_Vienmēt radīt dialoglogu pēc savienošanās.";
+
+/* nothing */
+"Dialog with" = "Dialogs ar";
+
+/* nothing */
+"Topic for %s is: %s" = "Temats %s ir: %s";
+
+/* nothing */
+"No topic is set" = "Temats nav uzstādīts";
+
+/* nothing */
+"This server still has %d channels or dialogs associated with it. Close them all?" = "Šim serverim ir %d kanālu vai saistīto dialogu. Aizvērt visus?";
+
+/* nothing */
+"Quit XChat?" = "Iziet no XChat?";
+
+/* nothing */
+"Don't ask next time." = "Nākamo reizi nejautāt.";
+
+/* nothing */
+"You are connected to %i IRC networks." = "Jūs esat savienots ar %i IRC tīklu.";
+
+/* nothing */
+"Are you sure you want to quit?" = "Vai esat drošs, ka vēlaties iziet?";
+
+/* nothing */
+"Some file transfers are still active." = "Dažas failu pārsūtnes joprojām ir aktīvas.";
+
+/* nothing */
+"_Minimize to Tray" = "_Minimizēt uz joslu";
+
+/* nothing */
+"Insert Attribute or Color Code" = "Ievieot atribūtu vai krāsas kodu";
+
+/* nothing */
+"<b>Bold</b>" = "<b>Treknraksts</b>";
+
+/* nothing */
+"<u>Underline</u>" = "<u>Pasvītrojums</u>";
+
+/* nothing */
+"Normal" = "Parasts";
+
+/* nothing */
+"Colors 0-7" = "Krāsas 0-7";
+
+/* nothing */
+"Colors 8-15" = "Krāsas 8-15";
+
+/* nothing */
+"_Settings" = "U_zstādījumi";
+
+/* nothing */
+"_Log to Disk" = "_Žurnalēt uz diska";
+
+/* nothing */
+"_Reload Scrollback" = "_Pārlādēt ritinājumu";
+
+/* nothing */
+"_Hide Join/Part Messages" = "_Slēpt pievienošanās/aiziešanas ziņas";
+
+/* nothing */
+"_Extra Alerts" = "_Papildus trauksmes";
+
+/* nothing */
+"Beep on _Message" = "Signalizēt uz _ziņu";
+
+/* nothing */
+"Blink Tray _Icon" = "Mirkšķināt joslas _ikonu";
+
+/* nothing */
+"Blink Task _Bar" = "Mirkšķināt uzdevumu _joslu";
+
+/* nothing */
+"_Detach" = "_Atvienot";
+
+/* nothing */
+"_Close" = "_Aizvērt";
+
+/* nothing */
+"User limit must be a number!\n" = "Lietotāju limitam ir jābūt skaitlim!\n";
+
+/* nothing */
+"Topic Protection" = "Temata aizsardzība";
+
+/* nothing */
+"No outside messages" = "Bez ārējām ziņām";
+
+/* nothing */
+"Secret" = "Slepens";
+
+/* nothing */
+"Invite Only" = "Tikai ar ielūgumu";
+
+/* nothing */
+"Moderated" = "Regulēts";
+
+/* nothing */
+"Ban List" = "Izraidīto saraksts";
+
+/* nothing */
+"Keyword" = "Atslēgvārds";
+
+/* nothing */
+"User Limit" = "Lietotāju limits";
+
+/* nothing */
+"Show/Hide userlist" = "Rādīt/Slēpt lietotāju sarakstu";
+
+/* nothing */
+"Unable to set transparent background!\n\nYou may be using a non-compliant window\nmanager that is not currently supported.\n" = "Nevar uzstādīt caurspīdīgu fonu!\n\nJūs iespējams izmantojat nesaderīgu logu\npārvaldnieku, kurš pagaidām netiek atbalstīts.\n";
+
+/* nothing */
+"Enter new nickname:" = "Ievadiet jaunu segvārdu:";
+
+/* nothing */
+"Host unknown" = "Nezināms resursdators";
+
+/* nothing */
+"<tt><b>%-11s</b></tt> %s" = "<tt><b>%-11s</b></tt> %s";
+
+/* nothing */
+"Real Name:" = "Īstais vārds:";
+
+/* nothing */
+"User:" = "Lietotājs:";
+
+/* nothing */
+"Country:" = "Valsts:";
+
+/* nothing */
+"Server:" = "Serveris:";
+
+/* nothing */
+"%u minutes ago" = "%u minūtes atpakaļ";
+
+/* nothing */
+"Last Msg:" = "Pēdējā ziņa:";
+
+/* nothing */
+"Away Msg:" = "Prom ziņa:";
+
+/* nothing */
+"%d nicks selected." = "%d segvārdi atlasīti";
+
+/* nothing */
+"The Menubar is now hidden. You can show it again by pressing F9 or right-clicking in a blank part of the main text area." = "Izvēlnes josla ir slēpta. Jūs varat to parādīt nospiežot F9, vai veicot labo peles klikšķi uz tukšuma galvenajā teksta daļā.";
+
+/* nothing */
+"Open Link in Browser" = "Atvērt saiti pārlūkprogrammā";
+
+/* nothing */
+"Copy Selected Link" = "Kopēt atlasīto saiti";
+
+/* nothing */
+"Join Channel" = "Pievienoties kanālam";
+
+/* nothing */
+"Part Channel" = "Atstāt kanālu";
+
+/* nothing */
+"Cycle Channel" = "Ciklēt kanālu";
+
+/* nothing */
+"_Remove from Favorites" = "_Izņemt no grāmatzīmēm";
+
+/* nothing */
+"_Add to Favorites" = "_Pievienot pie grāmatzīmēm";
+
+/* nothing */
+"XChat: User menu" = "XChat: Lietotāja izvēlne";
+
+/* nothing */
+"Edit This Menu..." = "Rediģēt šo izvēlni...";
+
+/* nothing */
+"Retrieve channel list..." = "Tiek iegūts kanālu saraksts...";
+
+/* nothing */
+"User Commands - Special codes:\n\n%c  =  current channel\n%e  =  current network name\n%m  =  machine info\n%n  =  your nick\n%t  =  time/date\n%v  =  xchat version\n%2  =  word 2\n%3  =  word 3\n&2  =  word 2 to the end of line\n&3  =  word 3 to the end of line\n\neg:\n/cmd john hello\n\n%2 would be \"john\"\n&2 would be \"john hello\"." = "Lietotāja Komandas - Speciālie kodi:\n\n%c  =  pašreizējais kanāls\n%e  =  pašreizējais tīkla nosaukums\n%m  =  datora info\n%n  =  jūsu segvārds\n%t  =  laiks/datums\n%v  =  xchat versija\n%2  =  vārds 2\n%3  =  vārds 3\n&2  =  vārds 2 līnijas beigās\n&3  =  vārds 3 līnijas beigās\n\npiem.:\n/cmd jāni sveiks\n\n%2 būtu \"jāni\"\n&2 būtu \"jāni sveiks\".";
+
+/* nothing */
+"Userlist Buttons - Special codes:\n\n%a  =  all selected nicks\n%c  =  current channel\n%e  =  current network name\n%h  =  selected nick's hostname\n%m  =  machine info\n%n  =  your nick\n%s  =  selected nick\n%t  =  time/date\n" = "Lietotāja saraksta pogas - Speciālie kodi:\n\n%a  =  visi izvēlētie segvārdi\n%c  =  pašreizējai kanāls\n%e  =  pašreizējai tīkla nosaukums\n%h  =  izvēlētā segvārda resursdatoram\n%m  =  datora info\n%n  =  jusu segvārds\n%s  =  izvēlētais segvārds\n%t  =  laiks/datums\n";
+
+/* nothing */
+"Dialog Buttons - Special codes:\n\n%a  =  all selected nicks\n%c  =  current channel\n%e  =  current network name\n%h  =  selected nick's hostname\n%m  =  machine info\n%n  =  your nick\n%s  =  selected nick\n%t  =  time/date\n" = "Dialoga pogas - Speciālie kodi:\n\n%a  =  visi izvēlētie segvārdi\n%c  =  pašreizējai kanāls\n%e  =  pašreizējai tīkla nosaukums\n%h  =  izvēlētā segvārda resursdatoram\n%m  =  datora info\n%n  =  jusu segvārds\n%s  =  izvēlētais segvārds\n%t  =  laiks/datums\n";
+
+/* nothing */
+"CTCP Replies - Special codes:\n\n%d  =  data (the whole ctcp)\n%e  =  current network name\n%m  =  machine info\n%s  =  nick who sent the ctcp\n%t  =  time/date\n%2  =  word 2\n%3  =  word 3\n&2  =  word 2 to the end of line\n&3  =  word 3 to the end of line\n\n" = "CTCP atbildes - Speciālie kodi:\n\n%d  =  dati (viss ctcp)\n%e  =  pašreizējai tīkla nosaukums\n%m  =  datora info\n%s  =  ctcp sūtītāja segvārds\n%t  =  laiks/datums\n%2  =  vārds 2\n%3  =  vārds 3\n&2  =  vārds 2 līnijas beigās\n&3  =  vārds 3 līnijas beigās\n\n";
+
+/* nothing */
+"URL Handlers - Special codes:\n\n%s  =  the URL string\n\nPutting a ! infront of the command\nindicates it should be sent to a\nshell instead of XChat" = "URL noteicēji - Speciālie kodi:\n\n%s  =  URL virkne\n\nNoliekot ! komandas priekšā\nnorāda, ka tā sūtāma uz\nčaulu, nevis X-Chat";
+
+/* nothing */
+"XChat: User Defined Commands" = "XChat: Lietotāja definētās komandas";
+
+/* nothing */
+"XChat: Userlist Popup menu" = "XChat: Lietotāja saraksta izlecošā izvēlne";
+
+/* nothing */
+"Replace with" = "Aizvietot ar";
+
+/* nothing */
+"XChat: Replace" = "XChat: Aizvietot";
+
+/* nothing */
+"XChat: URL Handlers" = "XChat: URL apstrādātāji";
+
+/* nothing */
+"XChat: Userlist buttons" = "XChat: Lietotāja saraksta pogas";
+
+/* nothing */
+"XChat: Dialog buttons" = "XChat: Dialoga pogas";
+
+/* nothing */
+"XChat: CTCP Replies" = "XChat: CTCP atbildes";
+
+/* nothing */
+"_XChat" = "_XChat";
+
+/* nothing */
+"Network Li_st..." = "Tī_klu saraksts...";
+
+/* nothing */
+"_New" = "_Jauns";
+
+/* nothing */
+"Server Tab..." = "Servera cilne...";
+
+/* nothing */
+"Channel Tab..." = "Kanāla cilne...";
+
+/* nothing */
+"Server Window..." = "Servera logs...";
+
+/* nothing */
+"Channel Window..." = "Kanāla logs...";
+
+/* nothing */
+"_Load Plugin or Script..." = "_Ielādēt spraudni vai skriptu...";
+
+/* nothing */
+"_Quit" = "I_ziet";
+
+/* nothing */
+"_View" = "_Skats";
+
+/* nothing */
+"_Menu Bar" = "Iz_vēlnes josla";
+
+/* nothing */
+"_Topic Bar" = "_Temata josla";
+
+/* nothing */
+"_User List" = "_Lietotāju saraksts";
+
+/* nothing */
+"U_serlist Buttons" = "Liet_otājsaraksta pogas";
+
+/* nothing */
+"M_ode Buttons" = "Režīma _pogas";
+
+/* nothing */
+"_Channel Switcher" = "_Kanālu pārslēdzējs";
+
+/* nothing */
+"_Tabs" = "_Cilnes";
+
+/* nothing */
+"T_ree" = "_Koks";
+
+/* nothing */
+"_Network Meters" = "_Tīkla metri";
+
+/* nothing */
+"Off" = "Izslēgt";
+
+/* nothing */
+"Graph" = "Grafiks";
+
+/* nothing */
+"_Server" = "_Serveris";
+
+/* nothing */
+"_Disconnect" = "_Atvienoties";
+
+/* nothing */
+"_Reconnect" = "At_kārtoti savienoties";
+
+/* nothing */
+"Join a Channel..." = "Pievienoties kanālam...";
+
+/* nothing */
+"List of Channels..." = "Kanālu saraksts...";
+
+/* nothing */
+"Marked Away" = "Atzīmēts, kā promesošs";
+
+/* nothing */
+"_Usermenu" = "_Lietotāja izvēlne";
+
+/* nothing */
+"S_ettings" = "U_zstādījumi";
+
+/* nothing */
+"_Preferences" = "_Uzstādījumi";
+
+/* nothing */
+"Advanced" = "Paplašināti";
+
+/* nothing */
+"Auto Replace..." = "Automātiskā aizvietošana...";
+
+/* nothing */
+"CTCP Replies..." = "CTCP atbildes...";
+
+/* nothing */
+"Dialog Buttons..." = "Dialoga pogas...";
+
+/* nothing */
+"Keyboard Shortcuts..." = "Klaviatūras īssceļi...";
+
+/* nothing */
+"Text Events..." = "Teksta notikumi...";
+
+/* nothing */
+"URL Handlers..." = "URL apstrādātāji...";
+
+/* nothing */
+"User Commands..." = "Lietotāja komandas...";
+
+/* nothing */
+"Userlist Buttons..." = "Lietotājsaraksta pogas...";
+
+/* nothing */
+"Userlist Popup..." = "Lietotājsaraksta izlecošā izvēlne...";
+
+/* nothing */
+"_Window" = "_Logs";
+
+/* nothing */
+"Ban List..." = "Izraidīto saraksts...";
+
+/* nothing */
+"Character Chart..." = "Rakstzīmju tabula...";
+
+/* nothing */
+"Direct Chat..." = "Tiešā tērzēšana...";
+
+/* nothing */
+"File Transfers..." = "Faila pārsūtīšanas...";
+
+/* nothing */
+"Friends List..." = "Draugu saraksts...";
+
+/* nothing */
+"Ignore List..." = "Ignorējamo saraksts...";
+
+/* nothing */
+"Plugins and Scripts..." = "Spraudņi un skripti...";
+
+/* nothing */
+"Raw Log..." = "Jēlžurnāls...";
+
+/* nothing */
+"URL Grabber..." = "URL ķērājs...";
+
+/* nothing */
+"Reset Marker Line" = "Atiestatīt atzīmes līniju";
+
+/* nothing */
+"C_lear Text" = "A_ttīrīt tekstu";
+
+/* nothing */
+"Search Text..." = "Meklēt tekstu...";
+
+/* nothing */
+"Save Text..." = "Saglabāt tekstu...";
+
+/* nothing */
+"_Help" = "_Palīdzība";
+
+/* nothing */
+"_Contents" = "_Saturs";
+
+/* nothing */
+"Check for updates" = "Pārbaudīt jauninājumus";
+
+/* nothing */
+"_About" = "_Par";
+
+/* nothing */
+"_Attach" = "_Pievienot";
+
+/* nothing */
+"Last Seen" = "Pēdējoreiz redzēts";
+
+/* nothing */
+"Offline" = "Bezsaistē";
+
+/* nothing */
+"Never" = "Nekad";
+
+/* nothing */
+"%d minutes ago" = "%d minītes atpakaļ";
+
+/* nothing */
+"Online" = "Tiešsaistē";
+
+/* nothing */
+"Enter nickname to add:" = "Ievadiet pievienojamo segvārdu:";
+
+/* nothing */
+"Notify on these networks:" = "Paziņot par šiem tīkliem:";
+
+/* nothing */
+"Comma separated list of networks is accepted." = "Tīklu saraksts atdalīts ar komatiem pieņemts.";
+
+/* nothing */
+"XChat: Friends List" = "XChat: Draugu saraksts";
+
+/* nothing */
+"Open Dialog" = "Atvērt dialoglogu";
+
+/* nothing */
+"Cannot find 'notify-send' to open balloon alerts.\nPlease install libnotify." = "Nevar atrast \"notify-send\", lai atvērtu balona trauksmi.\nLūdzu instalējiet libnotify.";
+
+/* nothing */
+"XChat: Connected to %u networks and %u channels" = "XChat: Savienots ar %u tīkliem un %u kanāliem";
+
+/* nothing */
+"_Restore" = "_Atjaunot";
+
+/* nothing */
+"_Hide" = "_Slēpt";
+
+/* nothing */
+"_Blink on" = "_Mirksķināt uz";
+
+/* nothing */
+"Channel Message" = "Kanāla ziņa";
+
+/* nothing */
+"Private Message" = "Privāta ziņa";
+
+/* nothing */
+"Highlighted Message" = "Izgaismot ziņu";
+
+/* nothing */
+"_Change status" = "_Mainīt statusu";
+
+/* nothing */
+"_Away" = "_Prom";
+
+/* nothing */
+"_Back" = "_Atpakaļ";
+
+/* nothing */
+"XChat: Highlighted message from: %s (%s)" = "XChat: Iekrāso ziņu no: %s (%s)";
+
+/* nothing */
+"XChat: %u highlighted messages, latest from: %s (%s)" = "XChat: %u iekrāso pēdējo ziņu no: %s (%s)";
+
+/* nothing */
+"XChat: New public message from: %s (%s)" = "XChat: Jauna publiskā ziņa no: %s (%s)";
+
+/* nothing */
+"XChat: %u new public messages." = "XChat: %u jaunas publiskas ziņas.";
+
+/* nothing */
+"XChat: Private message from: %s (%s)" = "XChat: Privāta ziņa no: %s (%s)";
+
+/* nothing */
+"XChat: %u private messages, latest from: %s (%s)" = "XChat: %u pēdējā privātā ziņa no: %s (%s)";
+
+/* nothing */
+"XChat: File offer from: %s (%s)" = "XChat: Faila piedācājums no: %s (%s)";
+
+/* nothing */
+"XChat: %u file offers, latest from: %s (%s)" = "XChat: %u faila piedāvājums, pēdējais no: %s (%s)";
+
+/* nothing */
+"Version" = "Versija";
+
+/* nothing */
+"Description" = "Apraksts";
+
+/* nothing */
+"Select a Plugin or Script to load" = "Norādiet spraudni vai skriptu, ko ielādēt";
+
+/* nothing */
+"XChat: Plugins and Scripts" = "XChat: Spraudņi un skripti";
+
+/* nothing */
+"_Load..." = "_Ielādēt...";
+
+/* nothing */
+"_UnLoad" = "I_zlādēt";
+
+/* nothing */
+"Save As..." = "Saglabāt kā...";
+
+/* nothing */
+"XChat: Rawlog (%s)" = "XChat: Jēlžurnāls (%s)";
+
+/* nothing */
+"Clear rawlog" = "Attīrīt jēlžurnālu";
+
+/* nothing */
+"The window you opened this Search for doesn't exist anymore." = "Logs, kuram atvērta šī Meklēšanu, vairs neeksistē";
+
+/* nothing */
+"Search hit end, not found." = "Meklēšana sasniedza beigas, neko neatrada.";
+
+/* nothing */
+"XChat: Search" = "XChat: Meklēšana";
+
+/* nothing */
+"_Match case" = "_Reģistra jūtīgs";
+
+/* nothing */
+"Search _backwards" = "Meklēt _pretējā virzienā";
+
+/* nothing */
+"_Find" = "_Meklēt";
+
+/* nothing */
+"New Network" = "Jauns tīkls";
+
+/* nothing */
+"Really remove network \"%s\" and all its servers?" = "Patiesi izņemt tīklu \"%s\" un visus tā serverus?";
+
+/* nothing */
+"#channel" = "#kanāls";
+
+/* nothing */
+"XChat: Favorite Channels (Auto-Join List)" = "XChat: Kanālu grāmatzīmes (Automātiskās pievienošanās saraksts)";
+
+/* nothing */
+"These channels will be joined whenever you connect to %s." = "Šiem kanāliem pievienosies, katru reizi, kad savienosities ar %s.";
+
+/* nothing */
+"Key (Password)" = "Atslēga (Parole)";
+
+/* nothing */
+"_Edit" = "_Rediģēt";
+
+/* nothing */
+"%s has been removed." = "%s tika noņemts.";
+
+/* nothing */
+"%s has been added." = "%s tika pievienots.";
+
+/* nothing */
+"User name and Real name cannot be left blank." = "Lietotāja vārds un Patiesais vārds nevar tikt atstāti tukši.";
+
+/* nothing */
+"XChat: Edit %s" = "XChat: Rediģēt %s";
+
+/* nothing */
+"Servers for %s" = "Serveris priekš %s";
+
+/* nothing */
+"Connect to selected server only" = "Savienoties tikai ar atlasītajiem serveriem";
+
+/* nothing */
+"Don't cycle through all the servers when the connection fails." = "Neciklēt cauri visiem serveriem, kad savienoties neizdeodas.";
+
+/* nothing */
+"Your Details" = "Jūsu detaļas";
+
+/* nothing */
+"Use global user information" = "Izmantot globālo lietotāja informāciju";
+
+/* nothing */
+"_Nick name:" = "Se_gvārds:";
+
+/* nothing */
+"Second choice:" = "Otra izvēle:";
+
+/* nothing */
+"_User name:" = "_Lietotājvārds:";
+
+/* nothing */
+"Rea_l name:" = "Īstais vārds:";
+
+/* nothing */
+"Connecting" = "Savienošanās";
+
+/* nothing */
+"Auto connect to this network at startup" = "Automātiski savienoties ar šo tīklu pie palaišanās";
+
+/* nothing */
+"Bypass proxy server" = "Neizmantot starpniekserveri";
+
+/* nothing */
+"Use SSL for all the servers on this network" = "Izmantot SSL visiem serveriem šai tīklā";
+
+/* nothing */
+"Accept invalid SSL certificate" = "Piekrists nederīgam SSL sertifikātam";
+
+/* nothing */
+"_Favorite channels:" = "Kanālu _grāmatzīmes:";
+
+/* nothing */
+"Channels to join, separated by commas, but not spaces!" = "Kanāli, kuriem pievienoties, atdalīti ar komatiem, nevis atstarpēm!";
+
+/* nothing */
+"Connect command:" = "Savienošanās komanda:";
+
+/* nothing */
+"Extra command to execute after connecting. If you need more than one, set this to LOAD -e <filename>, where <filename> is a text-file full of commands to execute." = "Papildus komanada, kuru izpildīt pēc savienošanās. Ja nepiciešama vaiŗak par vienu, tad uzstādīet šo uz LOAD -e <failanosaukums>, kur <failanosaukums> ir teksta fails ar izpildāmajām komandām.";
+
+/* nothing */
+"Nickserv password:" = "Segvārda servera parole:";
+
+/* nothing */
+"If your nickname requires a password, enter it here. Not all IRC networks support this." = "Ja jūsu segvārdam nepiciešama parole, ievadiet to šiet. Ne visi IRC tīkli to atbalsta.";
+
+/* nothing */
+"Server password:" = "Servera parole:";
+
+/* nothing */
+"Password for the server, if in doubt, leave blank." = "Servera parole, ja šaubāties, atstājiet tukšu.";
+
+/* nothing */
+"Character set:" = "Rakstzīmju kopa:";
+
+/* nothing */
+"XChat: Network List" = "XChat: Tīklu saraksts";
+
+/* nothing */
+"User Information" = "Lietotāja informācija";
+
+/* nothing */
+"Third choice:" = "Trešā izvēle:";
+
+/* nothing */
+"Networks" = "Tīkli";
+
+/* nothing */
+"Skip network list on startup" = "Izlaist tīklu sarakstu pie palaišanās";
+
+/* nothing */
+"_Edit..." = "_Rediģēt...";
+
+/* nothing */
+"_Sort" = "_Kārtot";
+
+/* nothing */
+"Sorts the network list in alphabetical order. Use SHIFT-UP and SHIFT-DOWN keys to move a row." = "Kārto tīklu sarakstu alfabēta secībā. Izmantojiet SHIFT-UZ AUGŠU un SHIFT-UZ LEJU taustiņus, lai pārvietotu rindu.";
+
+/* nothing */
+"C_onnect" = "_Savienoties";
+
+/* nothing */
+"Text Box Appearance" = "Teksta lodziņa izskats";
+
+/* nothing */
+"Font:" = "Fonts:";
+
+/* nothing */
+"Background image:" = "Fona attēls:";
+
+/* nothing */
+"Scrollback lines:" = "Atpakaļ ritināšanas rindiņas:";
+
+/* nothing */
+"Colored nick names" = "Krāsaini segvārdi";
+
+/* nothing */
+"Give each person on IRC a different color" = "Piešķirt katrai IRC personai savu krāsu";
+
+/* nothing */
+"Indent nick names" = "Segvārdus ar atkāpi";
+
+/* nothing */
+"Make nick names right-justified" = "Novietot segvārdus uz labo pusi";
+
+/* nothing */
+"Transparent background" = "Caurspīdīgs fons";
+
+/* nothing */
+"Show marker line" = "Rādīt atzīmes līniju";
+
+/* nothing */
+"Insert a red line after the last read text." = "Ievietot sarkano līniju pēc pēdējā nolasītā teksta.";
+
+/* nothing */
+"Transparency Settings" = "Caurspīdīguma uzstādījumi";
+
+/* nothing */
+"Red:" = "Sarkans:";
+
+/* nothing */
+"Green:" = "Zaļš:";
+
+/* nothing */
+"Blue:" = "Zils:";
+
+/* nothing */
+"Time Stamps" = "Laikaspīdogi";
+
+/* nothing */
+"Enable time stamps" = "Ieslēgt laikaspīdogus";
+
+/* nothing */
+"Time stamp format:" = "Laika spiedoga formāts:";
+
+/* nothing */
+"See strftime manpage for details." = "Apskati strftime manlapu, lai iegūtu papildus informāciju.";
+
+/* nothing */
+"A-Z" = "A-Z";
+
+/* nothing */
+"Last-spoke order" = "Pēdējais-runātājs secība";
+
+/* nothing */
+"Input box" = "Ievades lodziņš";
+
+/* nothing */
+"Use the Text box font and colors" = "Izmantot teksta lodziņa fontu un krāsas";
+
+/* nothing */
+"Spell checking" = "Gramatikas pārbaude";
+
+/* nothing */
+"Nick Completion" = "Segvārdu pabeigšana";
+
+/* nothing */
+"Automatic nick completion (without TAB key)" = "Automātiska segvārdu pabeigšana (bez TAB taustiņa)";
+
+/* nothing */
+"Nick completion suffix:" = "Segvārdu pabeigšanas priedēklis:";
+
+/* nothing */
+"Nick completion sorted:" = "Segvārdu pabeigšanas kārtota:";
+
+/* nothing */
+"Input Box Codes" = "Ievades lodziņa kodi";
+
+/* nothing */
+"Interpret %nnn as an ASCII value" = "Interpretēt %nnn kā ASCII vērtību";
+
+/* nothing */
+"Interpret %C, %B as Color, Bold etc" = "Interpretēt %C, %B kā krāsu, treknrakstu utt.";
+
+/* nothing */
+"A-Z, Ops first" = "A-Z, Ops pirmais";
+
+/* nothing */
+"Z-A, Ops last" = "Z-A, Ops pēdējais";
+
+/* nothing */
+"Z-A" = "Z-A";
+
+/* nothing */
+"Unsorted" = "Nesakārtoti";
+
+/* nothing */
+"Left (Upper)" = "Kreisais (Augšējais)";
+
+/* nothing */
+"Left (Lower)" = "Kreisais (Apakšējais)";
+
+/* nothing */
+"Right (Upper)" = "Labais (Augšējais)";
+
+/* nothing */
+"Right (Lower)" = "Labais (Apakšējais)";
+
+/* nothing */
+"Top" = "Augšā";
+
+/* nothing */
+"Bottom" = "Apakšā";
+
+/* nothing */
+"Hidden" = "Slēpts";
+
+/* nothing */
+"User List" = "Lietotāju saraksts";
+
+/* nothing */
+"Show hostnames in user list" = "Rādīt resursdatorus lietotāju sarakstā";
+
+/* nothing */
+"User list sorted by:" = "Lietotāju sarakstu kārtot pēc:";
+
+/* nothing */
+"Show user list at:" = "Rādīt lietotāja sarakstu pie:";
+
+/* nothing */
+"Away tracking" = "Prombūtnes sekošana";
+
+/* nothing */
+"Track the Away status of users and mark them in a different color" = "Sekot līdzi citu lietotāju Prom statusam, atzīmējot viņus citā krāsā";
+
+/* nothing */
+"On channels smaller than:" = "Uz kanāliem, kuri mazāki par:";
+
+/* nothing */
+"Action Upon Double Click" = "Darbība uz Dubultklikšķi";
+
+/* nothing */
+"Windows" = "Logi";
+
+/* nothing */
+"Tabs" = "Cilnes";
+
+/* nothing */
+"Always" = "Vienmēr";
+
+/* nothing */
+"Only requested tabs" = "Tikai uz pieprasītajiem ciļņiem";
+
+/* nothing */
+"Tree" = "Koks";
+
+/* nothing */
+"Switcher type:" = "Pārslēdzēja tips:";
+
+/* nothing */
+"Open an extra tab for server messages" = "Atvērt papildus cilni servera ziņām";
+
+/* nothing */
+"Open an extra tab for server notices" = "Atvērt papildus cilni servera paziņojumiem";
+
+/* nothing */
+"Open a new tab when you receive a private message" = "Atver jaunu cilni, kad saņem privātu ziņu";
+
+/* nothing */
+"Sort tabs in alphabetical order" = "Kārtot cilnes alfabētiskā secībā";
+
+/* nothing */
+"Smaller text" = "Mazāku tekstu";
+
+/* nothing */
+"Focus new tabs:" = "Fokusēt jaunas cilnes:";
+
+/* nothing */
+"Show channel switcher at:" = "Rādīt kanālu parslēdzēju uz:";
+
+/* nothing */
+"Shorten tab labels to:" = "Īsināt cilnes nosaukumus uz:";
+
+/* nothing */
+"letters." = "burti.";
+
+/* nothing */
+"Tabs or Windows" = "Cilnes vai logi";
+
+/* nothing */
+"Open channels in:" = "Atvērt kanālus iekš:";
+
+/* nothing */
+"Open dialogs in:" = "Atvērt dialogus iekš:";
+
+/* nothing */
+"Open utilities in:" = "Atvērt utilītprogrammas iekš:";
+
+/* nothing */
+"Open DCC, Ignore, Notify etc, in tabs or windows?" = "Atvērt DCC, Ignorēšanu, Paziņošanas utt. cilnēs vai logos?";
+
+/* nothing */
+"No" = "Nē";
+
+/* nothing */
+"Yes" = "Jā";
+
+/* nothing */
+"Browse for save folder every time" = "Pārlūkot pēc saglabāšnas mapi katru reizi";
+
+/* nothing */
+"Files and Directories" = "Faili un direktorijas";
+
+/* nothing */
+"Auto accept file offers:" = "Automātiski pieņemt faila piedāvājumus";
+
+/* nothing */
+"Download files to:" = "Lejuplādēt failus uz:";
+
+/* nothing */
+"Move completed files to:" = "Pārvietot pabeigtos failus uz:";
+
+/* nothing */
+"Save nick name in filenames" = "Saglabāt segvārdus faila nosaukumos";
+
+/* nothing */
+"Network Settings" = "Tīkla uzstādījumi";
+
+/* nothing */
+"Get my address from the IRC server" = "Iegūt manu adresi no IRC servera";
+
+/* nothing */
+"Asks the IRC server for your real address. Use this if you have a 192.168.*.* address!" = "Jaut'ā IRC serverim pēc patiesās adreses. Izmantjiet šo ja jums ir 192.168.*.* adrese!";
+
+/* nothing */
+"DCC IP address:" = "DCC IP adrese:";
+
+/* nothing */
+"Claim you are at this address when offering files." = "Apgalvot, ka jūs atrodaties pēc šīs adreses, kad piedāvājat failus.";
+
+/* nothing */
+"First DCC send port:" = "Pirmais DCC sūtīšanas ports:";
+
+/* nothing */
+"Last DCC send port:" = "Pēdējais DCC sūtīšanas ports:";
+
+/* nothing */
+"!Leave ports at zero for full range." = "!Atstāt portus pa nullēm pilnam diapazonam.";
+
+/* nothing */
+"Maximum File Transfer Speeds (bytes per second)" = "Maksimālais faila pāraides ātrums (baiti sekundēs)";
+
+/* nothing */
+"One upload:" = "Viena auģšupielāde:";
+
+/* nothing */
+"Maximum speed for one transfer" = "Maksimālais ātrums viena faila pārsūtīšanai";
+
+/* nothing */
+"One download:" = "Viena lejupielāde:";
+
+/* nothing */
+"All uploads combined:" = "Visas augšupielādes apvienotas:";
+
+/* nothing */
+"Maximum speed for all files" = "Maksimālais ātrums visiem failiem";
+
+/* nothing */
+"All downloads combined:" = "Visas lejupielādes apvienotas:";
+
+/* nothing */
+"Alerts" = "Trauksmes";
+
+/* nothing */
+"Show tray balloons on:" = "Rādīt joslas balonus uz:";
+
+/* nothing */
+"Blink tray icon on:" = "Mirkšķināt joslas ikonu uz:";
+
+/* nothing */
+"Blink task bar on:" = "Mirkšķini uzdevuma joslu uz:";
+
+/* nothing */
+"Make a beep sound on:" = "Veikt pīkstiena skaņu uz:";
+
+/* nothing */
+"Enable system tray icon" = "Ieslēgt sistēmas joslas ikonu";
+
+/* nothing */
+"Highlighted Messages" = "Izgaismot ziņas";
+
+/* nothing */
+"Highlighted messages are ones where your nickname is mentioned, but also:" = "Iekrāsot ziņas, kurās ir pieminēts jūsu segvārds, bet arī:";
+
+/* nothing */
+"Extra words to highlight:" = "Papildus izgaismojamie vārdi:";
+
+/* nothing */
+"Nick names not to highlight:" = "Segvārdi, kuri netiks iekrāsoti:";
+
+/* nothing */
+"Nick names to always highlight:" = "Segvārdus vienmēr iekrāsot:";
+
+/* nothing */
+"Separate multiple words with commas.\nWildcards are accepted." = "Atdaliet vairākus vārdus ar komatiem.\nAizstājējsimboli tiek pieņemti.";
+
+/* nothing */
+"Default Messages" = "Noklusētais ziņas";
+
+/* nothing */
+"Quit:" = "Iziet:";
+
+/* nothing */
+"Leave channel:" = "Atstāt kanālu:";
+
+/* nothing */
+"Away:" = "Prom:";
+
+/* nothing */
+"Away" = "Prom";
+
+/* nothing */
+"Announce away messages" = "Paziņot prombūtnes ziņojumus";
+
+/* nothing */
+"Announce your away messages to all channels" = "Paziņot jūsu prombūtnes ziņojumus visos kanālos";
+
+/* nothing */
+"Show away once" = "Rādīt prombūtni vienreiz";
+
+/* nothing */
+"Show identical away messages only once" = "Rādīt identiskas prombūtnes ziņas tikai vienreiz";
+
+/* nothing */
+"Automatically unmark away" = "Automātisk atmarķē prombūtni";
+
+/* nothing */
+"Unmark yourself as away before sending messages" = "Atmarķē sevi, kā promesošu pirms ziņu sūtīšanas";
+
+/* nothing */
+"Advanced Settings" = "Paplašinātie uzstādījumi";
+
+/* nothing */
+"Auto reconnect delay:" = "Atkārtotas pieslēgšanās aizture:";
+
+/* nothing */
+"Display MODEs in raw form" = "Attēlot MODEs jēlā formā";
+
+/* nothing */
+"Whois on notify" = "Bez paziņošanas";
+
+/* nothing */
+"Sends a /WHOIS when a user comes online in your notify list" = "Nosūta /WHOIS jūsu paziņojumu sarakstā, kad ietotājs ienāk tiešsaistē";
+
+/* nothing */
+"Hide join and part messages" = "Palsēpt pievienošanos un pamešanas ziņojumus";
+
+/* nothing */
+"Hide channel join/part messages by default" = "Paslēpt kanāla pievienošanās/aiziešnas ziņas, pēc noklusētā";
+
+/* nothing */
+"Auto Open DCC Windows" = "Automātiski Atvērt DCC Logus";
+
+/* nothing */
+"Send window" = "Sūtīšanas logs";
+
+/* nothing */
+"Receive window" = "Saņemšanas logs";
+
+/* nothing */
+"Chat window" = "Tērzēšanas logs";
+
+/* nothing */
+"Logging" = "Iežurnalēšana";
+
+/* nothing */
+"Display scrollback from previous session" = "Attēlo ritināšanu no iepriekšējās sesijas";
+
+/* nothing */
+"Enable logging of conversations to disk" = "Ieslēgt sarunu žurnalēšanu uz diska";
+
+/* nothing */
+"Log filename:" = "Žurnālfaila nosaukums:";
+
+/* nothing */
+"%s=Server %c=Channel %n=Network." = "%s=Serveris %c=Kanāls %n=Tīkls.";
+
+/* nothing */
+"Insert timestamps in logs" = "Ievieot laikspiedolu žurnālā";
+
+/* nothing */
+"Log timestamp format:" = "Žurnāla laikspiedola formāts:";
+
+/* nothing */
+"(Disabled)" = "(Atslēgts)";
+
+/* nothing */
+"Wingate" = "Wingate";
+
+/* nothing */
+"Socks4" = "Socks4";
+
+/* nothing */
+"Socks5" = "Socks5";
+
+/* nothing */
+"HTTP" = "HTTP";
+
+/* nothing */
+"MS Proxy (ISA)" = "MS Poxt (ISA)";
+
+/* nothing */
+"All Connections" = "Visi savienojumi";
+
+/* nothing */
+"IRC Server Only" = "Tikai IRC serveri";
+
+/* nothing */
+"DCC Get Only" = "DCC saņemt tikai";
+
+/* nothing */
+"Your Address" = "Jūsu adrese";
+
+/* nothing */
+"Bind to:" = "Saistīt ar:";
+
+/* nothing */
+"Only useful for computers with multiple addresses." = "Derīgs tikai datoriem ar vairākām adresēm.";
+
+/* nothing */
+"Proxy Server" = "Starpniekserveris";
+
+/* nothing */
+"Hostname:" = "Resursdators:";
+
+/* nothing */
+"Port:" = "Ports:";
+
+/* nothing */
+"Type:" = "Tips:";
+
+/* nothing */
+"Use proxy for:" = "Lietot starpniekserveri priekš:";
+
+/* nothing */
+"Proxy Authentication" = "Starpniek servera autorizācija";
+
+/* nothing */
+"Use Authentication (MS Proxy, HTTP or Socks5 only)" = "Izmantot auterizāciju (MS Proxy, HTTP vai Socks5 tikai)";
+
+/* nothing */
+"Use Authentication (HTTP or Socks5 only)" = "Izmantot autentifikāciju (HTTP vai Socks5 tikai)";
+
+/* nothing */
+"Username:" = "Lietotājavārds:";
+
+/* nothing */
+"Password:" = "Parole:";
+
+/* nothing */
+"Select an Image File" = "Norādiet atēla failu";
+
+/* nothing */
+"Select Download Folder" = "Norādiet lejupielādes mapi";
+
+/* nothing */
+"Select font" = "Norādiet fontu";
+
+/* nothing */
+"Browse..." = "Pārlūkot..";
+
+/* nothing */
+"Mark identified users with:" = "Atzīmēt identificētus lietotājus ar:";
+
+/* nothing */
+"Mark not-identified users with:" = "Atzīmēt ne-identificētus lietotājus ar:";
+
+/* nothing */
+"Open Data Folder" = "Atvērt datu mapi";
+
+/* nothing */
+"Select color" = "Norādiet krāsu";
+
+/* nothing */
+"Text Colors" = "Teksta krāsas";
+
+/* nothing */
+"mIRC colors:" = "mIRC krāsas:";
+
+/* nothing */
+"Local colors:" = "Vietējās krāsas:";
+
+/* nothing */
+"Foreground:" = "Priekšplāns:";
+
+/* nothing */
+"Background:" = "Fons:";
+
+/* nothing */
+"Marking Text" = "Atzīmējamais teksts";
+
+/* nothing */
+"Interface Colors" = "Saskarsnes krāsas";
+
+/* nothing */
+"New data:" = "Jauni dati:";
+
+/* nothing */
+"Marker line:" = "Atzīmes līnija:";
+
+/* nothing */
+"New message:" = "Jauna ziņa:";
+
+/* nothing */
+"Away user:" = "Promesošs lietotājs:";
+
+/* nothing */
+"Highlight:" = "Izgaismot:";
+
+/* nothing */
+"Event" = "Notikums";
+
+/* nothing */
+"Sound file" = "Skaņas fails";
+
+/* nothing */
+"Select a sound file" = "Norādiet skaņas failu";
+
+/* nothing */
+"Sound playing method:" = "Skaņas atskaņošanas metodē:";
+
+/* nothing */
+"External sound playing _program:" = "Ārējā skaņas atskaņošanas _programma:";
+
+/* nothing */
+"_External program" = "Ā_rējā programma";
+
+/* nothing */
+"_Automatic" = "_Automātiski";
+
+/* nothing */
+"Sound files _directory:" = "Skaņas failu _direktorija:";
+
+/* nothing */
+"Sound file:" = "Skaņas fails:";
+
+/* nothing */
+"_Browse..." = "_Pārlūkot...";
+
+/* nothing */
+"_Play" = "_Atskaņot";
+
+/* nothing */
+"Interface" = "Saskarne";
+
+/* nothing */
+"Text box" = "Teksta lodziņš";
+
+/* nothing */
+"User list" = "Lietotāja saraksts";
+
+/* nothing */
+"Channel switcher" = "Kanālu pārslēdzējs";
+
+/* nothing */
+"Colors" = "Krāsas";
+
+/* nothing */
+"Chatting" = "Tērzēšana";
+
+/* nothing */
+"General" = "Vispārīgi";
+
+/* nothing */
+"Sound" = "Skaņa";
+
+/* nothing */
+"Network setup" = "Tīkla uzstādīšana";
+
+/* nothing */
+"File transfers" = "Failu pārsūtīšanas";
+
+/* nothing */
+"Categories" = "Kategorijas";
+
+/* nothing */
+"You cannot place the tree on the top or bottom!\nPlease change to the <b>Tabs</b> layout in the <b>View</b> menu first." = "Jūs nevarat novietot koku augšā, vai apakšā!\nLūdzu izmainiet <b>Cilnes</b> izkārtojumu <b>Skata</b> izvēlnē vispirms.";
+
+/* nothing */
+"Some settings were changed that require a restart to take full effect." = "Tika izmainīti daži uzstādījumi, kuriem nepieciešamas restarts, lai varētu stāties spēkā.";
+
+/* nothing */
+"*WARNING*\nAuto accepting DCC to your home directory\ncan be dangerous and is exploitable. Eg:\nSomeone could send you a .bash_profile" = "*BRĪDINĀJUMS*\nAutomātiski akceptēt DCC uz savu mājas direktoriju\nvar būt bīstami un viegli exploitējams. Piem.:\nKāds var atsūtīt tev .bash_profile";
+
+/* nothing */
+"XChat: Preferences" = "XChat: Uzstādījumi";
+
+/* nothing */
+"There was an error parsing the string" = "Atgadījās kļūda parsējot virkni";
+
+/* nothing */
+"This signal is only passed %d args, $%d is invalid" = "Šis signāls izdeva tikai %d argumentus, $%d ir nederīgs";
+
+/* nothing */
+"Print Texts File" = "Drukāt teksta failu";
+
+/* nothing */
+"Edit Events" = "Rediģēt notikumus";
+
+/* nothing */
+"$ Number" = "$ Numurs";
+
+/* nothing */
+"Load From..." = "Ielādēt no...";
+
+/* nothing */
+"Test All" = "Testēt Visu";
+
+/* nothing */
+"URL" = "URL";
+
+/* nothing */
+"XChat: URL Grabber" = "XChat: URL apstrādātājs";
+
+/* nothing */
+"Clear list" = "Atīrīt sarakstu";
+
+/* nothing */
+"Copy selected URL" = "Kopēt atlasīto URL";
+
+/* nothing */
+"Copy" = "Kopēt";
+
+/* nothing */
+"Save list to a file" = "Saglabāt sarakstu failā";
+
+/* nothing */
+"%d ops, %d total" = "%d ops, %d kopā";
+

@@ -34,17 +34,6 @@ jobs:
       - name: Install dependencies
         run: brew install glib gettext openssl@3
 
-      # The .strings files are generated from the .po sources and are not in
-      # the repository, and Xcode fails on missing build inputs before it
-      # would run the script phase that makes them.
-      - name: Generate the localizations
-        working-directory: tools/localization
-        run: |
-          PROJECT_DIR="$GITHUB_WORKSPACE" \
-          BUILT_PRODUCTS_DIR="$GITHUB_WORKSPACE/build/gen" \
-          ACTION=build \
-          bash _AUTOUPDATE.sh
-
       - name: Build
         run: |
           xcodebuild \

@@ -1,0 +1,3699 @@
+/* nothing */
+"" = "Project-Id-Version: xchat-2.0.7pre1\nReport-Msgid-Bugs-To: www.xchat.org\nPOT-Creation-Date: 2010-05-30 13:56+1000\nPO-Revision-Date: 2004-03-12 22:22+0200\nLast-Translator: Metin Amiroff <metin@karegen.com>\nLanguage-Team: Azerbaijani <translation-team-az@lists.sourceforge.net>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n";
+
+/* nothing */
+"Cannot create ~/.xchat2" = "~/.xchat2 yaradıla bilmir";
+
+/* nothing */
+"I'm busy" = "Məşğulam";
+
+/* nothing */
+"Leaving" = "Gedirəm";
+
+/* nothing */
+"* Running IRC as root is stupid! You should\n  create a User Account and use that to login.\n" = "IRC-ni Ali İstifadəçi olaraq işlətmək dəlilikdir.\n  Xahiş edirik istifadəçi hesabı yaradın.\n";
+
+/* nothing */
+"Waiting" = "Gözləyir";
+
+/* nothing */
+"Active" = "Fəal";
+
+/* nothing */
+"Failed" = "Bacarılmadı";
+
+/* nothing */
+"Done" = "Oldu";
+
+/* nothing */
+"Connect" = "Bağlan";
+
+/* nothing */
+"Aborted" = "Ləğv Edildi";
+
+/* nothing */
+"Cannot access %s\n" = "%s ünvanına yetişilə bilmir\n";
+
+/* nothing */
+"Error" = "Xəta";
+
+/* nothing */
+"%s is offering \"%s\". Do you want to accept?" = "";
+
+/* nothing */
+"No active DCCs\n" = "Fəal DCC-lər yoxdur\n";
+
+/* nothing */
+"YES  " = "BƏLİ  ";
+
+/* nothing */
+"NO   " = "XEYİR ";
+
+/* nothing */
+"You are being CTCP flooded from %s, ignoring %s\n" = "";
+
+/* nothing */
+"You are being MSG flooded from %s, setting gui_auto_open_dialog OFF.\n" = "";
+
+/* nothing */
+"  %-20s online\n" = "  %-20s xətdədir\n";
+
+/* nothing */
+"  %-20s offline\n" = "  %-20s xətdə deyil\n";
+
+/* nothing */
+"No channel joined. Try /join #<channel>\n" = "Heç bir kanalda deyilsiniz. /join #<kanal> əmrini verin\n";
+
+/* nothing */
+"Not connected. Try /server <host> [<port>]\n" = "Bağlı deyilsiniz. /server <qovşaq> [<port>] əmrini verin\n";
+
+/* nothing */
+"Already marked away: %s\n" = "";
+
+/* nothing */
+"Already marked back.\n" = "";
+
+/* nothing */
+"I need /bin/sh to run!\n" = "/bin/sh əmrini icra etməliyəm!\n";
+
+/* nothing */
+"Commands Available:" = "\nMövcud Əmrlər:\n\n  ";
+
+/* nothing */
+"User defined commands:" = "İstifadəçi tə'yinli əmrlər:\n\n  ";
+
+/* nothing */
+"Plugin defined commands:" = "İstifadəçi tə'yinli əmrlər:\n\n  ";
+
+/* nothing */
+"Type /HELP <command> for more information, or /HELP -l" = "\n\nDaha çox mə'lumat üçün  /HELP <əmr> ya da or /HELP -l yazın\n\n";
+
+/* nothing */
+"Unknown arg '%s' ignored." = "";
+
+/* nothing */
+"No such plugin found.\n" = "";
+
+/* nothing */
+"That plugin is refusing to unload.\n" = "";
+
+/* nothing */
+"ADDBUTTON <name> <action>, adds a button under the user-list" = "";
+
+/* nothing */
+"ALLCHAN <cmd>, sends a command to all channels you're in" = "";
+
+/* nothing */
+"ALLCHANL <cmd>, sends a command to all channels you're in" = "";
+
+/* nothing */
+"ALLSERV <cmd>, sends a command to all servers you're in" = "";
+
+/* nothing */
+"AWAY [<reason>], sets you away" = "";
+
+/* nothing */
+"BACK, sets you back (not away)" = "";
+
+/* nothing */
+"BAN <mask> [<bantype>], bans everyone matching the mask from the current channel. If they are already on the channel this doesn't kick them (needs chanop)" = "";
+
+/* nothing */
+"CHANOPT [-quiet] <variable> [<value>]" = "";
+
+/* nothing */
+"CLEAR [ALL|HISTORY], Clears the current text window or command history" = "";
+
+/* nothing */
+"CLOSE, Closes the current window/tab" = "";
+
+/* nothing */
+"COUNTRY [-s] <code|wildcard>, finds a country code, eg: au = australia" = "";
+
+/* nothing */
+"CTCP <nick> <message>, send the CTCP message to nick, common messages are VERSION and USERINFO" = "";
+
+/* nothing */
+"CYCLE [<channel>], parts the current or given channel and immediately rejoins" = "";
+
+/* nothing */
+"\nDCC GET <nick>                      - accept an offered file\nDCC SEND [-maxcps=#] <nick> [file]  - send a file to someone\nDCC PSEND [-maxcps=#] <nick> [file] - send a file using passive mode\nDCC LIST                            - show DCC list\nDCC CHAT <nick>                     - offer DCC CHAT to someone\nDCC PCHAT <nick>                    - offer DCC CHAT using passive mode\nDCC CLOSE <type> <nick> <file>         example:\n         /dcc close send johnsmith file.tar.gz" = "";
+
+/* nothing */
+"DEHOP <nick>, removes chanhalf-op status from the nick on the current channel (needs chanop)" = "";
+
+/* nothing */
+"DELBUTTON <name>, deletes a button from under the user-list" = "";
+
+/* nothing */
+"DEOP <nick>, removes chanop status from the nick on the current channel (needs chanop)" = "";
+
+/* nothing */
+"DEVOICE <nick>, removes voice status from the nick on the current channel (needs chanop)" = "";
+
+/* nothing */
+"DISCON, Disconnects from server" = "";
+
+/* nothing */
+"DNS <nick|host|ip>, Finds a users IP number" = "";
+
+/* nothing */
+"ECHO <text>, Prints text locally" = "";
+
+/* nothing */
+"EXEC [-o] <command>, runs the command. If -o flag is used then output is sent to current channel, else is printed to current text box" = "";
+
+/* nothing */
+"EXECCONT, sends the process SIGCONT" = "";
+
+/* nothing */
+"EXECKILL [-9], kills a running exec in the current session. If -9 is given the process is SIGKILL'ed" = "";
+
+/* nothing */
+"EXECSTOP, sends the process SIGSTOP" = "";
+
+/* nothing */
+"EXECWRITE, sends data to the processes stdin" = "";
+
+/* nothing */
+"FLUSHQ, flushes the current server's send queue" = "";
+
+/* nothing */
+"GATE <host> [<port>], proxies through a host, port defaults to 23" = "";
+
+/* nothing */
+"GHOST <nick> [password], Kills a ghosted nickname" = "";
+
+/* nothing */
+"HOP <nick>, gives chanhalf-op status to the nick (needs chanop)" = "";
+
+/* nothing */
+"ID <password>, identifies yourself to nickserv" = "";
+
+/* nothing */
+"IGNORE <mask> <types..> <options..>\n    mask - host mask to ignore, eg: *!*@*.aol.com\n    types - types of data to ignore, one or all of:\n            PRIV, CHAN, NOTI, CTCP, DCC, INVI, ALL\n    options - NOSAVE, QUIET" = "";
+
+/* nothing */
+"INVITE <nick> [<channel>], invites someone to a channel, by default the current channel (needs chanop)" = "";
+
+/* nothing */
+"JOIN <channel>, joins the channel" = "";
+
+/* nothing */
+"KICK <nick>, kicks the nick from the current channel (needs chanop)" = "";
+
+/* nothing */
+"KICKBAN <nick>, bans then kicks the nick from the current channel (needs chanop)" = "";
+
+/* nothing */
+"LAGCHECK, forces a new lag check" = "";
+
+/* nothing */
+"LASTLOG <string>, searches for a string in the buffer" = "";
+
+/* nothing */
+"LOAD [-e] <file>, loads a plugin or script" = "";
+
+/* nothing */
+"MDEHOP, Mass deop's all chanhalf-ops in the current channel (needs chanop)" = "";
+
+/* nothing */
+"MDEOP, Mass deop's all chanops in the current channel (needs chanop)" = "";
+
+/* nothing */
+"ME <action>, sends the action to the current channel (actions are written in the 3rd person, like /me jumps)" = "";
+
+/* nothing */
+"MKICK, Mass kicks everyone except you in the current channel (needs chanop)" = "";
+
+/* nothing */
+"MOP, Mass op's all users in the current channel (needs chanop)" = "";
+
+/* nothing */
+"MSG <nick> <message>, sends a private message" = "";
+
+/* nothing */
+"NAMES, Lists the nicks on the current channel" = "";
+
+/* nothing */
+"NCTCP <nick> <message>, Sends a CTCP notice" = "";
+
+/* nothing */
+"NEWSERVER [-noconnect] <hostname> [<port>]" = "";
+
+/* nothing */
+"NICK <nickname>, sets your nick" = "";
+
+/* nothing */
+"NOTICE <nick/channel> <message>, sends a notice. Notices are a type of message that should be auto reacted to" = "";
+
+/* nothing */
+"NOTIFY [-n network1[,network2,...]] [<nick>], displays your notify list or adds someone to it" = "";
+
+/* nothing */
+"OP <nick>, gives chanop status to the nick (needs chanop)" = "";
+
+/* nothing */
+"PART [<channel>] [<reason>], leaves the channel, by default the current one" = "";
+
+/* nothing */
+"PING <nick | channel>, CTCP pings nick or channel" = "";
+
+/* nothing */
+"QUERY [-nofocus] <nick>, opens up a new privmsg window to someone" = "";
+
+/* nothing */
+"QUIT [<reason>], disconnects from the current server" = "";
+
+/* nothing */
+"QUOTE <text>, sends the text in raw form to the server" = "";
+
+/* nothing */
+"RECONNECT [-ssl] [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers" = "";
+
+/* nothing */
+"RECONNECT [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers" = "";
+
+/* nothing */
+"RECV <text>, send raw data to xchat, as if it was received from the irc server" = "";
+
+/* nothing */
+"SAY <text>, sends the text to the object in the current window" = "";
+
+/* nothing */
+"SEND <nick> [<file>]" = "";
+
+/* nothing */
+"SERVCHAN [-ssl] <host> <port> <channel>, connects and joins a channel" = "";
+
+/* nothing */
+"SERVCHAN <host> <port> <channel>, connects and joins a channel" = "";
+
+/* nothing */
+"SERVER [-ssl] <host> [<port>] [<password>], connects to a server, the default port is 6667 for normal connections, and 9999 for ssl connections" = "";
+
+/* nothing */
+"SERVER <host> [<port>] [<password>], connects to a server, the default port is 6667" = "";
+
+/* nothing */
+"SET [-e] [-off|-on] [-quiet] <variable> [<value>]" = "";
+
+/* nothing */
+"SETCURSOR [-|+]<position>" = "";
+
+/* nothing */
+"TOPIC [<topic>], sets the topic if one is given, else shows the current topic" = "";
+
+/* nothing */
+"\nTRAY -f <timeout> <file1> [<file2>] Blink tray between two icons.\nTRAY -f <filename>                  Set tray to a fixed icon.\nTRAY -i <number>                    Blink tray with an internal icon.\nTRAY -t <text>                      Set the tray tooltip.\nTRAY -b <title> <text>              Set the tray balloon." = "";
+
+/* nothing */
+"UNBAN <mask> [<mask>...], unbans the specified masks." = "";
+
+/* nothing */
+"UNIGNORE <mask> [QUIET]" = "";
+
+/* nothing */
+"UNLOAD <name>, unloads a plugin or script" = "";
+
+/* nothing */
+"URL <url>, opens a URL in your browser" = "";
+
+/* nothing */
+"USELECT [-a] [-s] <nick1> <nick2> etc, highlights nick(s) in channel userlist" = "";
+
+/* nothing */
+"VOICE <nick>, gives voice status to someone (needs chanop)" = "";
+
+/* nothing */
+"WALLCHAN <message>, writes the message to all channels" = "";
+
+/* nothing */
+"WALLCHOP <message>, sends the message to all chanops on the current channel" = "";
+
+/* nothing */
+"Usage: %s\n" = "İstifadə Qaydası: %s\n";
+
+/* nothing */
+"\nNo help available on that command.\n" = "\nBu əmrlə əlaqəli yardım mövcud deyil.\n";
+
+/* nothing */
+"No such command.\n" = "Belə əmr yoxdur.\n";
+
+/* nothing */
+"Bad arguments for user command.\n" = "";
+
+/* nothing */
+"Too many recursive usercommands, aborting." = "";
+
+/* nothing */
+"Unknown Command. Try /help\n" = "Namə'lum Əmr. Yardım üçün /help əmrini verin\n";
+
+/* nothing */
+"No xchat_plugin_init symbol; is this really an xchat plugin?" = "";
+
+/* nothing */
+"Are you sure this is a SSL capable server and port?\n" = "";
+
+/* nothing */
+"Cannot resolve hostname %s\nCheck your IP Settings!\n" = "%s qovşaq adı tapıla bilmir\nIP qurğularınızı yoxlayın!\n";
+
+/* nothing */
+"Proxy traversal failed.\n" = "Vəkil traversalı bacarılmadı.\n";
+
+/* nothing */
+"Cycling to next server in %s...\n" = "%s üstündəki növbəti vericiyə keçilir...\n";
+
+/* nothing */
+"Warning: \"%s\" character set is unknown. No conversion will be applied for network %s." = "";
+
+/* nothing */
+"%C22*%O$t$1 added to notify list." = "";
+
+/* nothing */
+"%C22*%O$t$1 Banlist:%C19 $4%C20 $2%C21 $3" = "";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(You are banned)." = "";
+
+/* nothing */
+"%C22*%O$t$1 is now known as $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets ban on $2" = "";
+
+/* nothing */
+"%C22*%O$tChannel $1 created on $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes channel half-operator status from%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes channel operator status from%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes voice from%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets exempt on $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives channel half-operator status to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets invite on $2" = "";
+
+/* nothing */
+"%UChannel          Users   Topic" = "%UKanalı          İstifadəçi   Mövzu%O";
+
+/* nothing */
+"%C22*%O$t$1 sets mode $2$3 $4" = "";
+
+/* nothing */
+"%C22*%O$t%C22Channel $1 modes: $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives channel operator status to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes exempt on $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes invite on $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes channel keyword" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes user limit" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets channel keyword to $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets channel limit to $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes ban on $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives voice to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C22Connected. Now logging in..." = "";
+
+/* nothing */
+"%C22*%O$t%C22Connecting to $1 ($2) port $3%O..." = "";
+
+/* nothing */
+"%C21*%O$t%C21Connection failed. Error: $1" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP $1 from $2" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP $1 from $2 (to $3)" = "";
+
+/* nothing */
+"%C19>%O$1%C19<%O$tCTCP $2" = "%C3>%O$1%C3<%O$tCTCP $2%O";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP Sound $1 from $2" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP Sound $1 from $2 (to $3)" = "";
+
+/* nothing */
+"%C22*%O$tDCC CHAT to %C26$1%O aborted." = "";
+
+/* nothing */
+"%C22*%O$tDCC CHAT connection established to %C26$1 %C30[%O$2%C30]" = "";
+
+/* nothing */
+"%C22*%O$tDCC CHAT to %C26$1%O lost ($4)." = "";
+
+/* nothing */
+"%C22*%O$tReceived a DCC CHAT offer from $1" = "";
+
+/* nothing */
+"%C22*%O$tOffering DCC CHAT to $1" = "";
+
+/* nothing */
+"%C22*%O$tAlready offering CHAT to $1" = "";
+
+/* nothing */
+"%C22*%O$tDCC $1 connect attempt to%C26 $2%O failed (err=$3)." = "";
+
+/* nothing */
+"%C22*%O$tReceived '$1%O' from $2" = "";
+
+/* nothing */
+"%C24,18 Type  To/From    Status  Size    Pos     File         " = "";
+
+/* nothing */
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O$tContents of packet: $2" = "";
+
+/* nothing */
+"%C22*%O$tOffering%C26 $1%O to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$tNo such DCC offer." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $2%O to%C26 $1%O aborted." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV connection established to%C26 $1 %C30[%O$2%C30]" = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O failed ($4)." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV: Cannot open $1 for writing ($2)." = "";
+
+/* nothing */
+"%C22*%O$tThe file%C26 $1%C already exists, saving it as%C26 $2%O instead." = "";
+
+/* nothing */
+"%C22*%O$t%C26$1 %Ohas requested to resume%C26 $2 %Cfrom%C26 $3%C." = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $2%O to%C26 $1%O aborted." = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O complete %C30[%C26$3%O cps%C30]%O." = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND connection established to%C26 $1 %C30[%O$2%C30]" = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O failed. $3" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1 %Ohas offered%C26 $2 %O(%C26$3 %Obytes)" = "";
+
+/* nothing */
+"%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Cstalled - aborting." = "";
+
+/* nothing */
+"%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Otimed out - aborting." = "";
+
+/* nothing */
+"%C22*%O$t$1 deleted from notify list." = "%O%C11$1%O rədd siyahısından silindi.";
+
+/* nothing */
+"%C22*%O$tDisconnected ($1)." = "-%C10-%C11-%O$tBağlantı kəsildi ($1).";
+
+/* nothing */
+"%C22*%O$tFound your IP: [$1]" = "";
+
+/* nothing */
+"%O%C26$1%O added to ignore list." = "%O%C11$1%O rədd siyahısından silindi.";
+
+/* nothing */
+"Ignore on %C26$1%O changed." = "";
+
+/* nothing */
+"%C24,18                                                              " = "%C08,02                                                              %O";
+
+/* nothing */
+"%C24,18 Hostmask                  PRIV NOTI CHAN CTCP DCC  INVI UNIG " = "%C08,02 Hostmask                  PRIV NOTI CHAN CTCP DCC  INVI UNIG %O";
+
+/* nothing */
+"%O%C26$1%O removed from ignore list." = "%O%C11$1%O rədd siyahısından silindi.";
+
+/* nothing */
+"  Ignore list is empty." = "  Rədd siyahısı boşdur.";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(Channel is invite only)." = "";
+
+/* nothing */
+"%C22*%O$tYou have been invited to%C26 $1%O by%C26 $2%C (%C26$3%C)" = "";
+
+/* nothing */
+"%C19*%O$t%C19%B$1 %B($3) has joined $2" = "";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(Requires keyword)." = "";
+
+/* nothing */
+"%C21*%O$t%C21$1 has kicked $2 from $3 ($4%O%C21)" = "";
+
+/* nothing */
+"%C22*%O$tYou have been killed by $1 ($2%O%C22)" = "";
+
+/* nothing */
+"%C22*%O$t%C22MOTD Skipped." = "";
+
+/* nothing */
+"%C22*%O$t$1 already in use. Retrying with $2..." = "";
+
+/* nothing */
+"%C22*%O$tNickname already in use. Use /NICK to try another." = "";
+
+/* nothing */
+"%C22*%O$tNo such DCC." = "";
+
+/* nothing */
+"%C22*%O$tNo process is currently running" = "";
+
+/* nothing */
+"$tNotify list is empty." = "  Rədd siyahısı boşdur.";
+
+/* nothing */
+"%C24,18 %B  Notify List                           " = "";
+
+/* nothing */
+"%C22*%O$t$1 users in notify list." = "";
+
+/* nothing */
+"%C22*%O$tNotify: $1 is offline ($3)." = "";
+
+/* nothing */
+"%C22*%O$tNotify: $1 is online ($3)." = "";
+
+/* nothing */
+"%C23*%O$t%C23$1 (%O%C23$2) has left $3" = "";
+
+/* nothing */
+"%C23*%O$t%C23$1 (%O%C23$2) has left $3 (%O%C23%B%B$4%O%C23)" = "";
+
+/* nothing */
+"%C22*%O$tPing reply from $1: $2 second(s)" = "";
+
+/* nothing */
+"%C22*%O$tNo ping reply for $1 seconds, disconnecting." = "";
+
+/* nothing */
+"%C22*%O$tA process is already running" = "";
+
+/* nothing */
+"%C23*%O$t%C23$1 has quit (%O%C23%B%B$2%O%C23)" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets modes%B %C30[%O$2%B%C30]" = "";
+
+/* nothing */
+"%C28-%C29$1/Wallops%C28-%O$t$2" = "%C12-%C13$1%C12-%O$t$2%O";
+
+/* nothing */
+"%C22*%O$tLooking up IP number for%C26 $1%O..." = "";
+
+/* nothing */
+"%C22*%O$t%C22Connected." = "";
+
+/* nothing */
+"%C22*%O$t%C22Looking up $1" = "";
+
+/* nothing */
+"%C22*%O$tStopped previous connection attempt (pid=$1)" = "";
+
+/* nothing */
+"%C29*%O$t%C29Topic for $1%C %C29is: $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 has changed the topic to: $2" = "";
+
+/* nothing */
+"%C29*%O$t%C29Topic for $1%C %C29set by $2%C %C29at $3" = "";
+
+/* nothing */
+"%C22*%O$tUnknown host. Maybe you misspelled it?" = "-%C10-%C11-%O$tNamə'lum qovşaq. Bəlkə onu səhv yazmışsınız?";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(User limit reached)." = "";
+
+/* nothing */
+"%C22*%O$t%C26Users on $1:%C $2" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %O$2%C27 $3" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %Cis away %C30(%O$2%O%C30)" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O $2" = "%C2<%O$1%C2>%O$t$2%O";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %OEnd of WHOIS list." = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2%O, signon:%C26 $3" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %Oreal user@host%C27 $2%O, real IP%C27 $3" = "";
+
+/* nothing */
+"%C19*%O$t%C19Now talking on $2" = "";
+
+/* nothing */
+"%C23*$tYou have been kicked from $2 by $3 ($4%O%C23)" = "";
+
+/* nothing */
+"%C23*$tYou have left channel $3" = "";
+
+/* nothing */
+"%C23*$tYou have left channel $3 (%O%C23%B%B$4%O%C23)" = "";
+
+/* nothing */
+"%C22*%O$tYou've invited%C26 $1%O to%C26 $2%O (%C26$3%O)" = "";
+
+/* nothing */
+"%C22*%O$tYou are now known as $2" = "";
+
+/* nothing */
+"Loaded log from" = "Buradan Yüklə";
+
+/* nothing */
+"**** ENDING LOGGING AT %s\n" = "";
+
+/* nothing */
+"**** BEGIN LOGGING AT %s\n" = "";
+
+/* nothing */
+"* Can't open log file(s) for writing. Check the\n  permissions on %s/xchatlogs" = "";
+
+/* nothing */
+"Left message" = "Sol ismarış";
+
+/* nothing */
+"Right message" = "Sağ ismarış";
+
+/* nothing */
+"The nick of the joining person" = "Daxil olan şəxsin ləqəbi";
+
+/* nothing */
+"The channel being joined" = "Daxil olunan kanal";
+
+/* nothing */
+"The host of the person" = "Şəxsin qovşağı";
+
+/* nothing */
+"Nickname" = "Ləqəb";
+
+/* nothing */
+"The action" = "Gedişat";
+
+/* nothing */
+"Mode char" = "Mod hərfi";
+
+/* nothing */
+"Identified text" = "Mə'lumat mətni";
+
+/* nothing */
+"The text" = "Mətn";
+
+/* nothing */
+"The message" = "İsmarış";
+
+/* nothing */
+"Old nickname" = "Köhnə ləqəb";
+
+/* nothing */
+"New nickname" = "Yeni ləqəb";
+
+/* nothing */
+"Nick of person who changed the topic" = "Mövzunu dəyişdirən şəxsin ləqəbi";
+
+/* nothing */
+"Topic" = "Mövzu";
+
+/* nothing */
+"Channel" = "Kanal";
+
+/* nothing */
+"The nickname of the kicker" = "Atanın ləqəbi";
+
+/* nothing */
+"The person being kicked" = "Atılanın ləqəbi";
+
+/* nothing */
+"The channel" = "Kanal";
+
+/* nothing */
+"The reason" = "Səbəb";
+
+/* nothing */
+"The nick of the person leaving" = "Ayrılan şəxsin ləqəbi";
+
+/* nothing */
+"The time" = "Vaxt";
+
+/* nothing */
+"The creator" = "Yaradıcı";
+
+/* nothing */
+"Nick" = "Ləqəb";
+
+/* nothing */
+"Reason" = "Səbəb";
+
+/* nothing */
+"Host" = "Qovşaq";
+
+/* nothing */
+"Who it's from" = "Mənşəyi";
+
+/* nothing */
+"The time in x.x format (see below)" = "x.x şəklində vaxt (alta baxın)";
+
+/* nothing */
+"The Channel it's going to" = "Getdiyi kanal";
+
+/* nothing */
+"The sound" = "Səs";
+
+/* nothing */
+"The nick of the person" = "Şəxsin ləqəbi";
+
+/* nothing */
+"The CTCP event" = "CTCP hadisəsi";
+
+/* nothing */
+"The nick of the person who set the key" = "Üçarı seçən şəxsin ləqəbi";
+
+/* nothing */
+"The key" = "Açar";
+
+/* nothing */
+"The nick of the person who set the limit" = "Hüdudu seçən şəxsin ləqəbi";
+
+/* nothing */
+"The limit" = "Hüdud";
+
+/* nothing */
+"The nick of the person who did the op'ing" = "Oplayan şəxsin ləqəbi";
+
+/* nothing */
+"The nick of the person who has been op'ed" = "Oplanan şəxsin ləqəbi";
+
+/* nothing */
+"The nick of the person who has been halfop'ed" = "Yarı oplanan şəxsin ləqəbi";
+
+/* nothing */
+"The nick of the person who did the halfop'ing" = "Yarı oplayan şəxsin ləqəbi";
+
+/* nothing */
+"The nick of the person who did the voice'ing" = "Voice-layan şəxsin ləqəbi";
+
+/* nothing */
+"The nick of the person who has been voice'ed" = "Voice-lanan şəxsin ləqəbi";
+
+/* nothing */
+"The nick of the person who did the banning" = "Banlayan şəxsin ləqəbi";
+
+/* nothing */
+"The ban mask" = "Ban maskası";
+
+/* nothing */
+"The nick who removed the key" = "Açarı ləğv edənin ləqəbi";
+
+/* nothing */
+"The nick who removed the limit" = "Hüdüdu ləğv edənin ləqəbi";
+
+/* nothing */
+"The nick of the person of did the deop'ing" = "";
+
+/* nothing */
+"The nick of the person who has been deop'ed" = "";
+
+/* nothing */
+"The nick of the person of did the dehalfop'ing" = "/";
+
+/* nothing */
+"The nick of the person who has been dehalfop'ed" = "";
+
+/* nothing */
+"The nick of the person of did the devoice'ing" = "/";
+
+/* nothing */
+"The nick of the person who has been devoice'ed" = "";
+
+/* nothing */
+"The nick of the person of did the unban'ing" = "";
+
+/* nothing */
+"The nick of the person who did the exempt" = "";
+
+/* nothing */
+"The exempt mask" = "Exempt maskası";
+
+/* nothing */
+"The nick of the person removed the exempt" = "";
+
+/* nothing */
+"The nick of the person who did the invite" = "";
+
+/* nothing */
+"The invite mask" = "Dəvət maskası";
+
+/* nothing */
+"The nick of the person removed the invite" = "";
+
+/* nothing */
+"The nick of the person setting the mode" = "";
+
+/* nothing */
+"The mode's sign (+/-)" = "Modun işarəsi (+/-)";
+
+/* nothing */
+"The mode letter" = "Mod hərfi";
+
+/* nothing */
+"The channel it's being set on" = "";
+
+/* nothing */
+"Username" = "İstifadəçi adı";
+
+/* nothing */
+"Full name" = "Tam ad";
+
+/* nothing */
+"Channel Membership/\"is an IRC operator\"" = "";
+
+/* nothing */
+"Server Information" = "Verici Haqqında";
+
+/* nothing */
+"Idle time" = "Passiv olma vaxtı";
+
+/* nothing */
+"Signon time" = "Giriş vaxtı";
+
+/* nothing */
+"Away reason" = "Uzaqlaşma səbəbi";
+
+/* nothing */
+"Message" = "İsmarış";
+
+/* nothing */
+"Account" = "Hesab";
+
+/* nothing */
+"Real user@host" = "Həqiqi istifadəçi@qovşaq";
+
+/* nothing */
+"Real IP" = "Həqiqi IP";
+
+/* nothing */
+"Channel Name" = "Kanal Adı";
+
+/* nothing */
+"Text" = "Mətn";
+
+/* nothing */
+"Server Name" = "Verici Adı";
+
+/* nothing */
+"Raw Numeric or Identifier" = "";
+
+/* nothing */
+"Nick of person who invited you" = "Sizi dəvət edən şəxsin ləqəbi";
+
+/* nothing */
+"Users" = "İstifadəçilər";
+
+/* nothing */
+"Nickname in use" = "Ləqəb istifadədədir";
+
+/* nothing */
+"Nick being tried" = "Ləqəb sınanır";
+
+/* nothing */
+"IP" = "IP";
+
+/* nothing */
+"Port" = "Port";
+
+/* nothing */
+"Network" = "Şəbəkə";
+
+/* nothing */
+"Modes string" = "Mod qatarı";
+
+/* nothing */
+"IP address" = "IP ünvanı";
+
+/* nothing */
+"DCC Type" = "DCC Növü";
+
+/* nothing */
+"Filename" = "Fayl adı";
+
+/* nothing */
+"Destination filename" = "Hədəf fayl adı";
+
+/* nothing */
+"CPS" = "CPS";
+
+/* nothing */
+"Pathname" = "Cığır adı";
+
+/* nothing */
+"Position" = "Mövqe";
+
+/* nothing */
+"Size" = "Böyüklük";
+
+/* nothing */
+"DCC String" = "DCC Qatarı";
+
+/* nothing */
+"Number of notify items" = "Bildiriş üzvləri ədədi";
+
+/* nothing */
+"Old Filename" = "Köhnə Fayl Adı";
+
+/* nothing */
+"New Filename" = "Yeni Fayl Adı";
+
+/* nothing */
+"Receiver" = "Alıcı";
+
+/* nothing */
+"Hostmask" = "Qovşaq Maskası";
+
+/* nothing */
+"Hostname" = "Qovşaq Adı";
+
+/* nothing */
+"The Packet" = "Paket";
+
+/* nothing */
+"Seconds" = "Saniyə";
+
+/* nothing */
+"Nick of person who have been invited" = "Dəvət edilən şəxsin ləqəbi";
+
+/* nothing */
+"Banmask" = "Ban Maskası";
+
+/* nothing */
+"Who set the ban" = "Banı qoyan";
+
+/* nothing */
+"Ban time" = "Ban vaxtı";
+
+/* nothing */
+"Error parsing event %s.\nLoading default." = "";
+
+/* nothing */
+"Cannot read sound file:\n%s" = "";
+
+/* nothing */
+"Remote host closed socket" = "Uzaq qovşaq soketi bağladı";
+
+/* nothing */
+"Connection refused" = "Bağlantı rədd edildi";
+
+/* nothing */
+"No route to host" = "Uzaq qovşaq yoxdur";
+
+/* nothing */
+"Connection timed out" = "Bağlantı vaxtı doldu";
+
+/* nothing */
+"Cannot assign that address" = "Bu ünvan verilə bilməz";
+
+/* nothing */
+"Connection reset by peer" = "Bağlantı düyün tərəfindən sıfırlandı";
+
+/* nothing */
+"Ascension Island" = "Kakos Adaları";
+
+/* nothing */
+"Andorra" = "Andorra";
+
+/* nothing */
+"United Arab Emirates" = "Birləşmiş Ərəb Əmirlikləri";
+
+/* nothing */
+"Afghanistan" = "Əfqanıstan";
+
+/* nothing */
+"Antigua and Barbuda" = "Antiqua və Barbuda";
+
+/* nothing */
+"Anguilla" = "Anquilla";
+
+/* nothing */
+"Albania" = "Albaniya";
+
+/* nothing */
+"Armenia" = "Ermənistan";
+
+/* nothing */
+"Netherlands Antilles" = "Holland Antilləri";
+
+/* nothing */
+"Angola" = "Anqola";
+
+/* nothing */
+"Antarctica" = "Antarktika";
+
+/* nothing */
+"Argentina" = "Argentina";
+
+/* nothing */
+"Reverse DNS" = "Reverse DNS";
+
+/* nothing */
+"American Samoa" = "Amerikan Samoa";
+
+/* nothing */
+"Austria" = "Avstriya";
+
+/* nothing */
+"Nato Fiel" = "Nato Fiel";
+
+/* nothing */
+"Australia" = "Avstraliya";
+
+/* nothing */
+"Aruba" = "Aruba";
+
+/* nothing */
+"Aland Islands" = "Falkland Adaları";
+
+/* nothing */
+"Azerbaijan" = "Azərbaycan";
+
+/* nothing */
+"Bosnia and Herzegovina" = "Bosniya və Herzoqovina";
+
+/* nothing */
+"Barbados" = "Barbados";
+
+/* nothing */
+"Bangladesh" = "Banqladeş";
+
+/* nothing */
+"Belgium" = "Belçika";
+
+/* nothing */
+"Burkina Faso" = "Burkina Faso";
+
+/* nothing */
+"Bulgaria" = "Bolqarıstan";
+
+/* nothing */
+"Bahrain" = "Bahreyn";
+
+/* nothing */
+"Burundi" = "Burundi";
+
+/* nothing */
+"Businesses" = "Təşkilatlar";
+
+/* nothing */
+"Benin" = "Benin";
+
+/* nothing */
+"Bermuda" = "Bermuda";
+
+/* nothing */
+"Brunei Darussalam" = "Bruney Darüssəlim";
+
+/* nothing */
+"Bolivia" = "Boliviya";
+
+/* nothing */
+"Brazil" = "Braziliya";
+
+/* nothing */
+"Bahamas" = "Bahamalar";
+
+/* nothing */
+"Bhutan" = "Butan";
+
+/* nothing */
+"Bouvet Island" = "Buvet Adası";
+
+/* nothing */
+"Botswana" = "Botsvana";
+
+/* nothing */
+"Belarus" = "Belarusiya";
+
+/* nothing */
+"Belize" = "Beliz";
+
+/* nothing */
+"Canada" = "Kanada";
+
+/* nothing */
+"Cocos Islands" = "Kakos Adaları";
+
+/* nothing */
+"Democratic Republic of Congo" = "";
+
+/* nothing */
+"Central African Republic" = "Mərkəzi Afrika Respublikası";
+
+/* nothing */
+"Congo" = "Konqo";
+
+/* nothing */
+"Switzerland" = "İsveçrə";
+
+/* nothing */
+"Cote d'Ivoire" = "Kot Divuar";
+
+/* nothing */
+"Cook Islands" = "Kuku Adaları";
+
+/* nothing */
+"Chile" = "Çili";
+
+/* nothing */
+"Cameroon" = "Kamerun";
+
+/* nothing */
+"China" = "Çin";
+
+/* nothing */
+"Colombia" = "Kolumbiya";
+
+/* nothing */
+"Internic Commercial" = "Internic Təşkilatı";
+
+/* nothing */
+"Costa Rica" = "Kosta Rika";
+
+/* nothing */
+"Serbia and Montenegro" = "";
+
+/* nothing */
+"Cuba" = "Kuba";
+
+/* nothing */
+"Cape Verde" = "Keyp Verde";
+
+/* nothing */
+"Christmas Island" = "Kristmas Adası";
+
+/* nothing */
+"Cyprus" = "Kipr";
+
+/* nothing */
+"Czech Republic" = "Çex Respublikası";
+
+/* nothing */
+"Germany" = "Almaniya";
+
+/* nothing */
+"Djibouti" = "Cibuti";
+
+/* nothing */
+"Denmark" = "Danimarka";
+
+/* nothing */
+"Dominica" = "Dominik";
+
+/* nothing */
+"Dominican Republic" = "Dominikan Respublikası";
+
+/* nothing */
+"Algeria" = "Əlcəzair";
+
+/* nothing */
+"Ecuador" = "Ekvador";
+
+/* nothing */
+"Educational Institution" = "Tədris Təşkilatı";
+
+/* nothing */
+"Estonia" = "Estoniya";
+
+/* nothing */
+"Egypt" = "Misir";
+
+/* nothing */
+"Western Sahara" = "Qərbi Saxara";
+
+/* nothing */
+"Eritrea" = "Eritre";
+
+/* nothing */
+"Spain" = "İspaniya";
+
+/* nothing */
+"Ethiopia" = "Efiopiya";
+
+/* nothing */
+"European Union" = "";
+
+/* nothing */
+"Finland" = "Finlandiya";
+
+/* nothing */
+"Fiji" = "Fici";
+
+/* nothing */
+"Falkland Islands" = "Falkland Adaları";
+
+/* nothing */
+"Micronesia" = "Mikroneziya";
+
+/* nothing */
+"Faroe Islands" = "Faro Adaları";
+
+/* nothing */
+"France" = "Fransa";
+
+/* nothing */
+"Gabon" = "Qabon";
+
+/* nothing */
+"Great Britain" = "Böyük Britaniya";
+
+/* nothing */
+"Grenada" = "Qrenada";
+
+/* nothing */
+"Georgia" = "Gürcüstan";
+
+/* nothing */
+"French Guiana" = "Fransız Gvineyası";
+
+/* nothing */
+"British Channel Isles" = "Britaniya Kanal Adaları";
+
+/* nothing */
+"Ghana" = "Qana";
+
+/* nothing */
+"Gibraltar" = "Gibraltar";
+
+/* nothing */
+"Greenland" = "Qrinland";
+
+/* nothing */
+"Gambia" = "Qambiya";
+
+/* nothing */
+"Guinea" = "Qvineya";
+
+/* nothing */
+"Government" = "Hökümət";
+
+/* nothing */
+"Guadeloupe" = "Quadelup";
+
+/* nothing */
+"Equatorial Guinea" = "Ekvatorial Qvineya";
+
+/* nothing */
+"Greece" = "Yunanıstan";
+
+/* nothing */
+"S. Georgia and S. Sandwich Isles" = "S. Georgia və S. Sandwich Adaları.";
+
+/* nothing */
+"Guatemala" = "Quatemala";
+
+/* nothing */
+"Guam" = "Quam";
+
+/* nothing */
+"Guinea-Bissau" = "Qvineya Bissau";
+
+/* nothing */
+"Guyana" = "Quyana";
+
+/* nothing */
+"Hong Kong" = "Honq Konq";
+
+/* nothing */
+"Heard and McDonald Islands" = "Hird Adası və Mkdonald Adaları";
+
+/* nothing */
+"Honduras" = "Honduras";
+
+/* nothing */
+"Croatia" = "Xırvatıstan";
+
+/* nothing */
+"Haiti" = "Haiti";
+
+/* nothing */
+"Hungary" = "Macarıstan";
+
+/* nothing */
+"Indonesia" = "İndoneziya";
+
+/* nothing */
+"Ireland" = "İrlandiya";
+
+/* nothing */
+"Israel" = "İsrail";
+
+/* nothing */
+"Isle of Man" = "";
+
+/* nothing */
+"India" = "Hindistan";
+
+/* nothing */
+"Informational" = "Məlumat verici";
+
+/* nothing */
+"International" = "Beynəlmilləl";
+
+/* nothing */
+"British Indian Ocean Territory" = "Britaniya Hind Okeanı Sahəsi";
+
+/* nothing */
+"Iraq" = "İraq";
+
+/* nothing */
+"Iran" = "İran";
+
+/* nothing */
+"Iceland" = "İslandiya";
+
+/* nothing */
+"Italy" = "İtaliya";
+
+/* nothing */
+"Jersey" = "";
+
+/* nothing */
+"Jamaica" = "Yamayka";
+
+/* nothing */
+"Jordan" = "İordaniya";
+
+/* nothing */
+"Japan" = "Yaponiya";
+
+/* nothing */
+"Kenya" = "Kenya";
+
+/* nothing */
+"Kyrgyzstan" = "Qırğızıstan";
+
+/* nothing */
+"Cambodia" = "Kambodiya";
+
+/* nothing */
+"Kiribati" = "Kiribati";
+
+/* nothing */
+"Comoros" = "Komor";
+
+/* nothing */
+"St. Kitts and Nevis" = "St. Kitts və Nevis";
+
+/* nothing */
+"North Korea" = "Şimali Koreya";
+
+/* nothing */
+"South Korea" = "Cənubi Koreya";
+
+/* nothing */
+"Kuwait" = "Küveyt";
+
+/* nothing */
+"Cayman Islands" = "Kayman Adaları";
+
+/* nothing */
+"Kazakhstan" = "Qazaxstan";
+
+/* nothing */
+"Laos" = "Laos";
+
+/* nothing */
+"Lebanon" = "Livan";
+
+/* nothing */
+"Saint Lucia" = "Müqəddəs Lusiya";
+
+/* nothing */
+"Liechtenstein" = "Lixtenşteyn";
+
+/* nothing */
+"Sri Lanka" = "Şri Lanka";
+
+/* nothing */
+"Liberia" = "Liberiya";
+
+/* nothing */
+"Lesotho" = "Lesoto";
+
+/* nothing */
+"Lithuania" = "Litva";
+
+/* nothing */
+"Luxembourg" = "Lüksemburq";
+
+/* nothing */
+"Latvia" = "Latviya";
+
+/* nothing */
+"Libya" = "Liviya";
+
+/* nothing */
+"Morocco" = "Mərakeş";
+
+/* nothing */
+"Monaco" = "Monako";
+
+/* nothing */
+"Moldova" = "Moldova";
+
+/* nothing */
+"United States Medical" = "ABŞ Medikalı";
+
+/* nothing */
+"Madagascar" = "Madaqaskar";
+
+/* nothing */
+"Marshall Islands" = "Marşal Adaları";
+
+/* nothing */
+"Military" = "Silahlı Qüvvələr";
+
+/* nothing */
+"Macedonia" = "Makedoniya";
+
+/* nothing */
+"Mali" = "Mali";
+
+/* nothing */
+"Myanmar" = "Myanmar";
+
+/* nothing */
+"Mongolia" = "Monqolustan";
+
+/* nothing */
+"Macau" = "Makau";
+
+/* nothing */
+"Northern Mariana Islands" = "Şimali Marian Adaları";
+
+/* nothing */
+"Martinique" = "Martiniq";
+
+/* nothing */
+"Mauritania" = "Mavritaniya";
+
+/* nothing */
+"Montserrat" = "Montserrat";
+
+/* nothing */
+"Malta" = "Malta";
+
+/* nothing */
+"Mauritius" = "Maurit";
+
+/* nothing */
+"Maldives" = "Maldiv";
+
+/* nothing */
+"Malawi" = "Malavi";
+
+/* nothing */
+"Mexico" = "Meksika";
+
+/* nothing */
+"Malaysia" = "Malayziya";
+
+/* nothing */
+"Mozambique" = "Mozambiq";
+
+/* nothing */
+"Namibia" = "Namibiya";
+
+/* nothing */
+"New Caledonia" = "Yeni Kaledoniya";
+
+/* nothing */
+"Niger" = "Niger";
+
+/* nothing */
+"Internic Network" = "Internic Şəbəkəsi";
+
+/* nothing */
+"Norfolk Island" = "Norfolk Adaları";
+
+/* nothing */
+"Nigeria" = "Nigeriya";
+
+/* nothing */
+"Nicaragua" = "Nikaraqua";
+
+/* nothing */
+"Netherlands" = "Hollandiya";
+
+/* nothing */
+"Norway" = "Norveç";
+
+/* nothing */
+"Nepal" = "Nepal";
+
+/* nothing */
+"Nauru" = "Nauru";
+
+/* nothing */
+"Niue" = "Niu";
+
+/* nothing */
+"New Zealand" = "Yeni Zellandiya";
+
+/* nothing */
+"Oman" = "Oman";
+
+/* nothing */
+"Internic Non-Profit Organization" = "Internic Təşkilatı";
+
+/* nothing */
+"Panama" = "Panama";
+
+/* nothing */
+"Peru" = "Peru";
+
+/* nothing */
+"French Polynesia" = "Fransız Poloneziyası";
+
+/* nothing */
+"Papua New Guinea" = "Papua Yeni Qvineya";
+
+/* nothing */
+"Philippines" = "Filippinlər";
+
+/* nothing */
+"Pakistan" = "Pakistan";
+
+/* nothing */
+"Poland" = "Polşa";
+
+/* nothing */
+"St. Pierre and Miquelon" = "St. Pierre və Miquelon";
+
+/* nothing */
+"Pitcairn" = "Pitkairn";
+
+/* nothing */
+"Puerto Rico" = "Puerto Riko";
+
+/* nothing */
+"Palestinian Territory" = "Britaniya Hind Okeanı Sahəsi";
+
+/* nothing */
+"Portugal" = "Portuqaliya";
+
+/* nothing */
+"Palau" = "Palau";
+
+/* nothing */
+"Paraguay" = "Paraqvay";
+
+/* nothing */
+"Qatar" = "Katar";
+
+/* nothing */
+"Reunion" = "Reyunion";
+
+/* nothing */
+"Romania" = "Rumıniya";
+
+/* nothing */
+"Old School ARPAnet" = "Old School ARPAnet";
+
+/* nothing */
+"Russian Federation" = "Rusiya Federasiyası";
+
+/* nothing */
+"Rwanda" = "Ruanda";
+
+/* nothing */
+"Saudi Arabia" = "Səudiyyə Ərəbistan";
+
+/* nothing */
+"Solomon Islands" = "Solomon Adaları";
+
+/* nothing */
+"Seychelles" = "Seyşel";
+
+/* nothing */
+"Sudan" = "Sudan";
+
+/* nothing */
+"Sweden" = "İsveç";
+
+/* nothing */
+"Singapore" = "Sinqapur";
+
+/* nothing */
+"St. Helena" = "St. Helena";
+
+/* nothing */
+"Slovenia" = "Sloveniya";
+
+/* nothing */
+"Svalbard and Jan Mayen Islands" = "Svalbard və Jan Mayen Adaları";
+
+/* nothing */
+"Slovak Republic" = "Slovakiya Respublikası";
+
+/* nothing */
+"Sierra Leone" = "Siera Lione";
+
+/* nothing */
+"San Marino" = "San Marino";
+
+/* nothing */
+"Senegal" = "Seneqal";
+
+/* nothing */
+"Somalia" = "Somali";
+
+/* nothing */
+"Suriname" = "Surinam";
+
+/* nothing */
+"Sao Tome and Principe" = "Sao Tome və Prinsip";
+
+/* nothing */
+"Former USSR" = "Köhnə SSSR";
+
+/* nothing */
+"El Salvador" = "El Salvador";
+
+/* nothing */
+"Syria" = "Siriya";
+
+/* nothing */
+"Swaziland" = "Svaziland";
+
+/* nothing */
+"Turks and Caicos Islands" = "Türk və Kaykos Adaları";
+
+/* nothing */
+"Chad" = "Çad";
+
+/* nothing */
+"French Southern Territories" = "Cənubi Fransız Sahələri";
+
+/* nothing */
+"Togo" = "Toqo";
+
+/* nothing */
+"Thailand" = "Tayland";
+
+/* nothing */
+"Tajikistan" = "Tacikistan";
+
+/* nothing */
+"Tokelau" = "Tokelo";
+
+/* nothing */
+"East Timor" = "Şərqi Timor";
+
+/* nothing */
+"Turkmenistan" = "Türkmənistan";
+
+/* nothing */
+"Tunisia" = "Tunis";
+
+/* nothing */
+"Tonga" = "Tonqa";
+
+/* nothing */
+"Turkey" = "Türkiyə";
+
+/* nothing */
+"Trinidad and Tobago" = "Trinidad və Tobaqo";
+
+/* nothing */
+"Tuvalu" = "Tuvalu";
+
+/* nothing */
+"Taiwan" = "Tayvan";
+
+/* nothing */
+"Tanzania" = "Tanzaniya";
+
+/* nothing */
+"Ukraine" = "Ukrayna";
+
+/* nothing */
+"Uganda" = "Uqanda";
+
+/* nothing */
+"United Kingdom" = "Birləşmiş Krallıq";
+
+/* nothing */
+"United States of America" = "Amerika Birləşmiş Ştatları";
+
+/* nothing */
+"Uruguay" = "Uruqvay";
+
+/* nothing */
+"Uzbekistan" = "Özbəkistan";
+
+/* nothing */
+"Vatican City State" = "Vatikan Şəhər Höküməti";
+
+/* nothing */
+"St. Vincent and the Grenadines" = "St. Vincent və qrenadinlər";
+
+/* nothing */
+"Venezuela" = "Venezuela";
+
+/* nothing */
+"British Virgin Islands" = "Britaniya Virgin Adaları";
+
+/* nothing */
+"US Virgin Islands" = "ABŞ Virgin Adaları";
+
+/* nothing */
+"Vietnam" = "Vyetnam";
+
+/* nothing */
+"Vanuatu" = "Vanuatu";
+
+/* nothing */
+"Wallis and Futuna Islands" = "Vallis və Futuna Adaları";
+
+/* nothing */
+"Samoa" = "Samoa";
+
+/* nothing */
+"Yemen" = "Yəmən";
+
+/* nothing */
+"Mayotte" = "Mayot";
+
+/* nothing */
+"Yugoslavia" = "Yuqoslaviya";
+
+/* nothing */
+"South Africa" = "Cənubi Afrika";
+
+/* nothing */
+"Zambia" = "Zambiya";
+
+/* nothing */
+"Zimbabwe" = "Zimbabve";
+
+/* nothing */
+"Unknown" = "Namə'lum";
+
+/* nothing */
+"_Open Dialog Window" = "Dialoq Pəncərəsini Aç";
+
+/* nothing */
+"_Send a File" = "Fayl Yolla";
+
+/* nothing */
+"_User Info (WhoIs)" = "";
+
+/* nothing */
+"_Add to Friends List" = "Yapışdırılacaq ünvan:";
+
+/* nothing */
+"O_perator Actions" = "";
+
+/* nothing */
+"Give Ops" = "Op Ver";
+
+/* nothing */
+"Take Ops" = "Op Al";
+
+/* nothing */
+"Give Voice" = "Voice Ver";
+
+/* nothing */
+"Take Voice" = "Voice Al";
+
+/* nothing */
+"Kick/Ban" = "Kick/Ban";
+
+/* nothing */
+"Kick" = "Kick-lə";
+
+/* nothing */
+"Ban" = "Ban-la";
+
+/* nothing */
+"KickBan" = "KickBan-la";
+
+/* nothing */
+"Leave Channel" = "Kanaldan Çıx";
+
+/* nothing */
+"Join Channel..." = "Kanala Daxil Ol...";
+
+/* nothing */
+"Enter Channel to Join:" = "Daxil Olunacaq Kanalı Bildir:";
+
+/* nothing */
+"Server Links" = "Verici Körpüləri";
+
+/* nothing */
+"Ping Server" = "Vericini Pinglə";
+
+/* nothing */
+"Hide Version" = "Buraxılışı Gizlət";
+
+/* nothing */
+"Op" = "Op";
+
+/* nothing */
+"DeOp" = "DeOp";
+
+/* nothing */
+"bye" = "Di ha!";
+
+/* nothing */
+"Enter reason to kick %s:" = "Kickləmə səbəbi %s:";
+
+/* nothing */
+"Sendfile" = "Fayl yolla";
+
+/* nothing */
+"Dialog" = "Dialoq";
+
+/* nothing */
+"WhoIs" = "WhoIs";
+
+/* nothing */
+"Send" = "Yolla";
+
+/* nothing */
+"Chat" = "Söhbət";
+
+/* nothing */
+"Clear" = "Təmizlə";
+
+/* nothing */
+"Ping" = "Ping";
+
+/* nothing */
+"Couldn't connect to session bus" = "";
+
+/* nothing */
+"Failed to complete NameHasOwner" = "";
+
+/* nothing */
+"Failed to complete Command" = "Yazə növü açıla bilmədi:\n\n%s";
+
+/* nothing */
+"remote access" = "%s ünvanına yetişilə bilmir\n";
+
+/* nothing */
+"plugin for remote access using DBUS" = "";
+
+/* nothing */
+"Couldn't connect to session bus: %s\n" = "";
+
+/* nothing */
+"Failed to acquire %s: %s\n" = "Yazə növü açıla bilmədi:\n\n%s";
+
+/* nothing */
+"About " = "_Haqqında";
+
+/* nothing */
+"A multiplatform IRC Client" = "Çox Platformlu IRC Alıcısı";
+
+/* nothing */
+"Character Chart" = "Hərf Cədvəli";
+
+/* nothing */
+"Not connected." = "Bağlanana qədər sına";
+
+/* nothing */
+"You must select some bans." = "Bir iki ban seçməlisiniz.";
+
+/* nothing */
+"Are you sure you want to remove all bans in %s?" = "";
+
+/* nothing */
+"Mask" = "Maska";
+
+/* nothing */
+"From" = "Göndərən";
+
+/* nothing */
+"Date" = "Tarix";
+
+/* nothing */
+"You can only open the Ban List window while in a channel tab." = "";
+
+/* nothing */
+"XChat: Ban List (%s)" = "X-Chat: Ban Siyahısı (%s)";
+
+/* nothing */
+"Remove" = "Sil";
+
+/* nothing */
+"Crop" = "Kəs";
+
+/* nothing */
+"Refresh" = "Yenilə";
+
+/* nothing */
+"Displaying %d/%d users on %d/%d channels." = "İstifadəçi və Kanal Statistikaları: %d/%d istifadəçi toplam %d/%d kanalda";
+
+/* nothing */
+"Select an output filename" = "Çıxış fay adını seç";
+
+/* nothing */
+"_Join Channel" = "Kanala Daxil Ol";
+
+/* nothing */
+"_Copy Channel Name" = "Kanal Adı";
+
+/* nothing */
+"Copy _Topic Text" = "";
+
+/* nothing */
+"XChat: Channel List (%s)" = "X-Chat: Kanal Siyahısı (%s)";
+
+/* nothing */
+"_Search" = "";
+
+/* nothing */
+"_Download List" = "Faylları buraya endir:";
+
+/* nothing */
+"Save _List..." = "Verici Siyahısı...";
+
+/* nothing */
+"Show only:" = "";
+
+/* nothing */
+"channels with" = "Kanalların açılma şəkli:";
+
+/* nothing */
+"to" = "";
+
+/* nothing */
+"users." = "İstifadəçilər";
+
+/* nothing */
+"Look in:" = "";
+
+/* nothing */
+"Channel name" = "Kanal adı";
+
+/* nothing */
+"Search type:" = "Mətni Axtar...";
+
+/* nothing */
+"Simple Search" = "";
+
+/* nothing */
+"Pattern Match (Wildcards)" = "";
+
+/* nothing */
+"Regular Expression" = "";
+
+/* nothing */
+"Find:" = "Axtar:";
+
+/* nothing */
+"Send file to %s" = "Faylı %s-a yolla";
+
+/* nothing */
+"That file is not resumable." = "Bu fayl davam etdirilə bilən deyil.";
+
+/* nothing */
+"Cannot access file: %s\n%s.\nResuming not possible." = "Fayla yetişilə bilmir: %s\n%s.\nDavam etdirmə mümkün olmayacaqdır.";
+
+/* nothing */
+"File in download directory is larger than file offered. Resuming not possible." = "Endirilən fayl təklif olunandan daha böyükdür. Davam etdirmə mümkün deyil.";
+
+/* nothing */
+"Cannot resume the same file from two people." = "Eyni fayl iki nəfərdən davam etdirilə bilməz.";
+
+/* nothing */
+"XChat: Uploads and Downloads" = "";
+
+/* nothing */
+"Status" = "Vəziyyət";
+
+/* nothing */
+"File" = "Fayl";
+
+/* nothing */
+"ETA" = "ETA";
+
+/* nothing */
+"Both" = "Hər ikisi də";
+
+/* nothing */
+"Uploads" = "";
+
+/* nothing */
+"Downloads" = "Faylları buraya endir:";
+
+/* nothing */
+"Details" = "";
+
+/* nothing */
+"File:" = "Fayl";
+
+/* nothing */
+"Address:" = "IP ünvanı";
+
+/* nothing */
+"Abort" = "Ləğv Et";
+
+/* nothing */
+"Accept" = "Qəbul Et";
+
+/* nothing */
+"Resume" = "Davam Et";
+
+/* nothing */
+"Open Folder..." = "";
+
+/* nothing */
+"XChat: DCC Chat List" = "X-Chat: DCC Söhbət Siyahısı";
+
+/* nothing */
+"Recv" = "Alc";
+
+/* nothing */
+"Sent" = "Gnd";
+
+/* nothing */
+"Start Time" = "Başlanğıc Vaxtı";
+
+/* nothing */
+"*NEW*" = "*YENİ*";
+
+/* nothing */
+"EDIT ME" = "MƏNİ DÜZƏLT";
+
+/* nothing */
+"Name" = "Ad";
+
+/* nothing */
+"Command" = "Əmr";
+
+/* nothing */
+"Move Up" = "Yuxarı Daşı";
+
+/* nothing */
+"Move Dn" = "Aşağı Daşı";
+
+/* nothing */
+"Cancel" = "Ləğv Et";
+
+/* nothing */
+"Save" = "Qeyd Et";
+
+/* nothing */
+"Add New" = "Yenisini Əlavə Et";
+
+/* nothing */
+"Delete" = "Sil";
+
+/* nothing */
+"Sort" = "Nizamla";
+
+/* nothing */
+"Help" = "Yardım";
+
+/* nothing */
+"Don't auto connect to servers" = "Vericiyə avtomatik olaraq yenidən bağlan";
+
+/* nothing */
+"Use a different config directory" = "başqa quraşdırma cərgəsi işlət";
+
+/* nothing */
+"Don't auto load any plugins" = "heç bir əlavəni avtomatik yükləmə";
+
+/* nothing */
+"Show plugin auto-load directory" = "";
+
+/* nothing */
+"Show user config directory" = "";
+
+/* nothing */
+"Open an irc://server:port/channel URL" = "";
+
+/* nothing */
+"Execute command:" = "Bağlanma Əmri:";
+
+/* nothing */
+"Open URL or execute command in an existing XChat" = "";
+
+/* nothing */
+"Begin minimized. Level 0=Normal 1=Iconified 2=Tray" = "";
+
+/* nothing */
+"level" = "Qətiyyən";
+
+/* nothing */
+"Show version information" = "buraxılış mə'lumatını göstər";
+
+/* nothing */
+"Failed to open font:\n\n%s" = "Yazə növü açıla bilmədi:\n\n%s";
+
+/* nothing */
+"Search buffer is empty.\n" = "Axtarış bufferi boşdur.\n";
+
+/* nothing */
+"%d bytes" = "%d bayt";
+
+/* nothing */
+"Network send queue: %d bytes" = "";
+
+/* nothing */
+"The Run Command action runs the data in Data 1 as if it has been typed into the entry box where you pressed the key sequence. Thus it can contain text (which will be sent to the channel/person), commands or user commands. When run all \\n characters in Data 1 are used to deliminate seperate commands so it is possible to run more than one command. If you want a \\ in the actual text run then enter \\\\" = "";
+
+/* nothing */
+"The Change Page command switches between pages in the notebook. Set Data 1 to the page you want to switch to. If Data 2 is set to anything then the switch will be relative to the current position" = "";
+
+/* nothing */
+"The Insert in Buffer command will insert the contents of Data 1 into the entry where the key sequence was pressed at the current cursor position" = "";
+
+/* nothing */
+"The Scroll Page command scrolls the text widget up or down one page or one line. Set Data 1 to either Up, Down, +1 or -1." = "";
+
+/* nothing */
+"The Set Buffer command sets the entry where the key sequence was entered to the contents of Data 1" = "";
+
+/* nothing */
+"The Last Command command sets the entry to contain the last command entered - the same as pressing up in a shell" = "";
+
+/* nothing */
+"The Next Command command sets the entry to contain the next command entered - the same as pressing down in a shell" = "";
+
+/* nothing */
+"This command changes the text in the entry to finish an incomplete nickname or command. If Data 1 is set then double-tabbing in a string will select the last nick, not the next" = "";
+
+/* nothing */
+"This command scrolls up and down through the list of nicks. If Data 1 is set to anything it will scroll up, else it scrolls down" = "";
+
+/* nothing */
+"This command checks the last word entered in the entry against the replace list and replaces it if it finds a match" = "";
+
+/* nothing */
+"This command moves the front tab left by one" = "";
+
+/* nothing */
+"This command moves the front tab right by one" = "";
+
+/* nothing */
+"This command moves the current tab family to the left" = "";
+
+/* nothing */
+"This command moves the current tab family to the right" = "";
+
+/* nothing */
+"Push input line into history but doesn't send to server" = "";
+
+/* nothing */
+"There was an error loading key bindings configuration" = "";
+
+/* nothing */
+"<none>" = "<boş>";
+
+/* nothing */
+"Mod" = "Mod";
+
+/* nothing */
+"Key" = "Düymə";
+
+/* nothing */
+"Action" = "Gedişat";
+
+/* nothing */
+"XChat: Keyboard Shortcuts" = "";
+
+/* nothing */
+"Shift" = "Shift";
+
+/* nothing */
+"Alt" = "Alt";
+
+/* nothing */
+"Ctrl" = "Ctrl";
+
+/* nothing */
+"Data 1" = "Verilən 1";
+
+/* nothing */
+"Data 2" = "Verilən 2";
+
+/* nothing */
+"Error opening keys config file\n" = "Düymə quraşdırma faylı açıla bilmədi\n";
+
+/* nothing */
+"Unknown keyname %s in key bindings config file\nLoad aborted, please fix %s/keybindings.conf\n" = "";
+
+/* nothing */
+"Unknown action %s in key bindings config file\nLoad aborted, Please fix %s/keybindings\n" = "";
+
+/* nothing */
+"Expecting Data line (beginning Dx{:|!}) but got:\n%s\n\nLoad aborted, Please fix %s/keybindings\n" = "";
+
+/* nothing */
+"Key bindings config file is corrupt, load aborted\nPlease fix %s/keybindings.conf\n" = "";
+
+/* nothing */
+"Cannot write to that file." = "Bu fayla yazıla bilmir.";
+
+/* nothing */
+"Cannot read that file." = "Bu fayl oxuna bilmir.";
+
+/* nothing */
+"That mask already exists." = "Bu maska onsuz da mövcuddur.";
+
+/* nothing */
+"Private" = "Şəxsi";
+
+/* nothing */
+"Notice" = "Bildiriş";
+
+/* nothing */
+"CTCP" = "CTCP";
+
+/* nothing */
+"DCC" = "DCC";
+
+/* nothing */
+"Invite" = "Dəvət Et";
+
+/* nothing */
+"Unignore" = "Qəbul Et";
+
+/* nothing */
+"Enter mask to ignore:" = "Rədd ediləcək maskanı bildir:";
+
+/* nothing */
+"XChat: Ignore list" = "X-Chat: Rədd siyahısı";
+
+/* nothing */
+"Ignore Stats:" = "Rədd Statistikaları:";
+
+/* nothing */
+"Channel:" = "Kanal:";
+
+/* nothing */
+"Private:" = "Şəxsi:";
+
+/* nothing */
+"Notice:" = "Bildiriş:";
+
+/* nothing */
+"CTCP:" = "CTCP:";
+
+/* nothing */
+"Invite:" = "Dəvət:";
+
+/* nothing */
+"Add..." = "Əlavə Et";
+
+/* nothing */
+"Channel name too short, try again." = "";
+
+/* nothing */
+"XChat: Connection Complete" = "Bağlantı vaxtı doldu";
+
+/* nothing */
+"Connection to %s complete." = "Bağlantı düyün tərəfindən sıfırlandı";
+
+/* nothing */
+"In the Server-List window, no channel (chat room) has been entered to be automatically joined for this network." = "";
+
+/* nothing */
+"What would you like to do next?" = "";
+
+/* nothing */
+"_Nothing, I'll join a channel later." = "";
+
+/* nothing */
+"_Join this channel:" = "Bağlanacaq Kanallar:";
+
+/* nothing */
+"If you know the name of the channel you want to join, enter it here." = "";
+
+/* nothing */
+"O_pen the Channel-List window." = "Kanalların açılma şəkli:";
+
+/* nothing */
+"Retrieving the Channel-List may take a minute or two." = "";
+
+/* nothing */
+"_Always show this dialog after connecting." = "";
+
+/* nothing */
+"Dialog with" = "Dialoq";
+
+/* nothing */
+"Topic for %s is: %s" = "%s mövzusu: %s";
+
+/* nothing */
+"No topic is set" = "Mövzu seçilməyib";
+
+/* nothing */
+"This server still has %d channels or dialogs associated with it. Close them all?" = "";
+
+/* nothing */
+"Quit XChat?" = "X-Chat Haqqında";
+
+/* nothing */
+"Don't ask next time." = "";
+
+/* nothing */
+"You are connected to %i IRC networks." = "";
+
+/* nothing */
+"Are you sure you want to quit?" = "";
+
+/* nothing */
+"Some file transfers are still active." = "Bə'zi fayl transferləri hələ də fəaldır, xchat sonlandırılsın?";
+
+/* nothing */
+"_Minimize to Tray" = "";
+
+/* nothing */
+"Insert Attribute or Color Code" = "Rəng kodu daxil et";
+
+/* nothing */
+"<b>Bold</b>" = "";
+
+/* nothing */
+"<u>Underline</u>" = "";
+
+/* nothing */
+"Normal" = "Norveç";
+
+/* nothing */
+"Colors 0-7" = "Rənglər";
+
+/* nothing */
+"Colors 8-15" = "Rənglər";
+
+/* nothing */
+"_Settings" = "_Qurğular";
+
+/* nothing */
+"_Log to Disk" = "";
+
+/* nothing */
+"_Reload Scrollback" = "";
+
+/* nothing */
+"_Hide Join/Part Messages" = "Gizlət";
+
+/* nothing */
+"_Extra Alerts" = "";
+
+/* nothing */
+"Beep on _Message" = "İsmarış gələndə səs çal";
+
+/* nothing */
+"Blink Tray _Icon" = "";
+
+/* nothing */
+"Blink Task _Bar" = "";
+
+/* nothing */
+"_Detach" = "Səkməni Ayır";
+
+/* nothing */
+"_Close" = "_Bağla";
+
+/* nothing */
+"User limit must be a number!\n" = "İstifadəçi hüdüdu nömrə olmalıdır!\n";
+
+/* nothing */
+"Topic Protection" = "Mövzu Qoruması";
+
+/* nothing */
+"No outside messages" = "Xarici ismarışlar göstərilməsin";
+
+/* nothing */
+"Secret" = "Gizli";
+
+/* nothing */
+"Invite Only" = "Ancaq Dəvət Et";
+
+/* nothing */
+"Moderated" = "Modereytlənmiş";
+
+/* nothing */
+"Ban List" = "Ban Siyahısı";
+
+/* nothing */
+"Keyword" = "Açar Kəlmə";
+
+/* nothing */
+"User Limit" = "İstifadəçi Hüdüdu";
+
+/* nothing */
+"Show/Hide userlist" = "İstifadəçi siyahısını göstər/gizlət";
+
+/* nothing */
+"Unable to set transparent background!\n\nYou may be using a non-compliant window\nmanager that is not currently supported.\n" = "";
+
+/* nothing */
+"Enter new nickname:" = "Yeni ləqəb bildir:";
+
+/* nothing */
+"Host unknown" = "Namə'lum qovşaq";
+
+/* nothing */
+"<tt><b>%-11s</b></tt> %s" = "";
+
+/* nothing */
+"Real Name:" = "Həqiqi Adınız:";
+
+/* nothing */
+"User:" = "İstifadəçi";
+
+/* nothing */
+"Country:" = "Ölkə: %s";
+
+/* nothing */
+"Server:" = "Verici";
+
+/* nothing */
+"%u minutes ago" = "";
+
+/* nothing */
+"Last Msg:" = "Son ismarış: %s";
+
+/* nothing */
+"Away Msg:" = "Uzaq İstifadəçi:";
+
+/* nothing */
+"%d nicks selected." = "";
+
+/* nothing */
+"The Menubar is now hidden. You can show it again by pressing F9 or right-clicking in a blank part of the main text area." = "";
+
+/* nothing */
+"Open Link in Browser" = "";
+
+/* nothing */
+"Copy Selected Link" = "Seçili URL-ni Köçür";
+
+/* nothing */
+"Join Channel" = "Kanala Daxil Ol";
+
+/* nothing */
+"Part Channel" = "Part Kanalı";
+
+/* nothing */
+"Cycle Channel" = "Cycle Kanalı";
+
+/* nothing */
+"_Remove from Favorites" = "";
+
+/* nothing */
+"_Add to Favorites" = "";
+
+/* nothing */
+"XChat: User menu" = "X-Chat: İstifadəçi menyusu";
+
+/* nothing */
+"Edit This Menu..." = "Bu Menyunu Dəyişdir...";
+
+/* nothing */
+"Retrieve channel list..." = "Kanal Siyahısı...";
+
+/* nothing */
+"User Commands - Special codes:\n\n%c  =  current channel\n%e  =  current network name\n%m  =  machine info\n%n  =  your nick\n%t  =  time/date\n%v  =  xchat version\n%2  =  word 2\n%3  =  word 3\n&2  =  word 2 to the end of line\n&3  =  word 3 to the end of line\n\neg:\n/cmd john hello\n\n%2 would be \"john\"\n&2 would be \"john hello\"." = "";
+
+/* nothing */
+"Userlist Buttons - Special codes:\n\n%a  =  all selected nicks\n%c  =  current channel\n%e  =  current network name\n%h  =  selected nick's hostname\n%m  =  machine info\n%n  =  your nick\n%s  =  selected nick\n%t  =  time/date\n" = "";
+
+/* nothing */
+"Dialog Buttons - Special codes:\n\n%a  =  all selected nicks\n%c  =  current channel\n%e  =  current network name\n%h  =  selected nick's hostname\n%m  =  machine info\n%n  =  your nick\n%s  =  selected nick\n%t  =  time/date\n" = "";
+
+/* nothing */
+"CTCP Replies - Special codes:\n\n%d  =  data (the whole ctcp)\n%e  =  current network name\n%m  =  machine info\n%s  =  nick who sent the ctcp\n%t  =  time/date\n%2  =  word 2\n%3  =  word 3\n&2  =  word 2 to the end of line\n&3  =  word 3 to the end of line\n\n" = "";
+
+/* nothing */
+"URL Handlers - Special codes:\n\n%s  =  the URL string\n\nPutting a ! infront of the command\nindicates it should be sent to a\nshell instead of XChat" = "";
+
+/* nothing */
+"XChat: User Defined Commands" = "X-Chat: İstifadəçi Tə'yinli Əmrlər";
+
+/* nothing */
+"XChat: Userlist Popup menu" = "X-Chat: İstifadəçi siyahısı popup menyusu";
+
+/* nothing */
+"Replace with" = "";
+
+/* nothing */
+"XChat: Replace" = "X-Chat: Əvəz Et";
+
+/* nothing */
+"XChat: URL Handlers" = "X-Chat: URL Açıcıları";
+
+/* nothing */
+"XChat: Userlist buttons" = "X-Chat: İstifadəçi siyahısı düymələri";
+
+/* nothing */
+"XChat: Dialog buttons" = "X-Chat: Dialoq düymələri";
+
+/* nothing */
+"XChat: CTCP Replies" = "X-Chat: CTCP Cavabları";
+
+/* nothing */
+"_XChat" = "_X-Chat";
+
+/* nothing */
+"Network Li_st..." = "Şəbəkə qurğusu";
+
+/* nothing */
+"_New" = "Yeni";
+
+/* nothing */
+"Server Tab..." = "Verici Səkməsi...";
+
+/* nothing */
+"Channel Tab..." = "Kanal Səkməsi...";
+
+/* nothing */
+"Server Window..." = "Verici Pəncərəsi...";
+
+/* nothing */
+"Channel Window..." = "Kanal Pəncərəsi...";
+
+/* nothing */
+"_Load Plugin or Script..." = "Əlavə ya da skript yüklə...";
+
+/* nothing */
+"_Quit" = "Çıx";
+
+/* nothing */
+"_View" = "";
+
+/* nothing */
+"_Menu Bar" = "Menyu Çubuğu";
+
+/* nothing */
+"_Topic Bar" = "Mövzu Çubuğu";
+
+/* nothing */
+"_User List" = "İstifadəçi Siyahısı";
+
+/* nothing */
+"U_serlist Buttons" = "İstifadəçi Siyahısı Düymələri...";
+
+/* nothing */
+"M_ode Buttons" = "Mod Düymələri";
+
+/* nothing */
+"_Channel Switcher" = "Kanal Siyahısı...";
+
+/* nothing */
+"_Tabs" = "Səkmələrdə";
+
+/* nothing */
+"T_ree" = "Trace";
+
+/* nothing */
+"_Network Meters" = "Şəbəkə qurğusu";
+
+/* nothing */
+"Off" = "Bağlı";
+
+/* nothing */
+"Graph" = "Qrafika";
+
+/* nothing */
+"_Server" = "_Verici";
+
+/* nothing */
+"_Disconnect" = "Bağlantını Kəs";
+
+/* nothing */
+"_Reconnect" = "Yenidən Bağlan";
+
+/* nothing */
+"Join a Channel..." = "Kanala Daxil Ol...";
+
+/* nothing */
+"List of Channels..." = "Kanala Daxil Ol...";
+
+/* nothing */
+"Marked Away" = "Uzaqda";
+
+/* nothing */
+"_Usermenu" = "İstifadəçi adı";
+
+/* nothing */
+"S_ettings" = "_Qurğular";
+
+/* nothing */
+"_Preferences" = "Seçimlər...";
+
+/* nothing */
+"Advanced" = "";
+
+/* nothing */
+"Auto Replace..." = "Avtomatik Əvəz Et...";
+
+/* nothing */
+"CTCP Replies..." = "CTCP Cavabları...";
+
+/* nothing */
+"Dialog Buttons..." = "Dialoq Düymələri...";
+
+/* nothing */
+"Keyboard Shortcuts..." = "";
+
+/* nothing */
+"Text Events..." = "Mətn Hadisələri...";
+
+/* nothing */
+"URL Handlers..." = "URL Açıcıları...";
+
+/* nothing */
+"User Commands..." = "İstifadəçi Əmrləri...";
+
+/* nothing */
+"Userlist Buttons..." = "İstifadəçi Siyahısı Düymələri...";
+
+/* nothing */
+"Userlist Popup..." = "İstifadəçi Siyahısı Popup-ı...";
+
+/* nothing */
+"_Window" = "_Pəncərə";
+
+/* nothing */
+"Ban List..." = "Ban Siyahısı...";
+
+/* nothing */
+"Character Chart..." = "Hərf Cədvəli...";
+
+/* nothing */
+"Direct Chat..." = "Birbaşa Söhbət...";
+
+/* nothing */
+"File Transfers..." = "Fayl transferləri";
+
+/* nothing */
+"Friends List..." = "Ban Siyahısı...";
+
+/* nothing */
+"Ignore List..." = "Rədd Siyahısı...";
+
+/* nothing */
+"Plugins and Scripts..." = "Əlavələr və Skriptlər...";
+
+/* nothing */
+"Raw Log..." = "Xam Qeyd...";
+
+/* nothing */
+"URL Grabber..." = "URL Alıcısı...";
+
+/* nothing */
+"Reset Marker Line" = "";
+
+/* nothing */
+"C_lear Text" = "Mətni _Təmizlə";
+
+/* nothing */
+"Search Text..." = "Mətni Axtar...";
+
+/* nothing */
+"Save Text..." = "Mətni Qeyd Et...";
+
+/* nothing */
+"_Help" = "_Yardım";
+
+/* nothing */
+"_Contents" = "_Məzmun";
+
+/* nothing */
+"Check for updates" = "";
+
+/* nothing */
+"_About" = "_Haqqında";
+
+/* nothing */
+"_Attach" = "Səkməni İlişdir";
+
+/* nothing */
+"Last Seen" = "Son Görülmüşdür";
+
+/* nothing */
+"Offline" = "Xətdən Xaric";
+
+/* nothing */
+"Never" = "Qətiyyən";
+
+/* nothing */
+"%d minutes ago" = "";
+
+/* nothing */
+"Online" = "Xətdə";
+
+/* nothing */
+"Enter nickname to add:" = "Əlavə ediləcək ləqəbi yazın:";
+
+/* nothing */
+"Notify on these networks:" = "";
+
+/* nothing */
+"Comma separated list of networks is accepted." = "";
+
+/* nothing */
+"XChat: Friends List" = "X-Chat: Fayl Göndəriş Siyahısı";
+
+/* nothing */
+"Open Dialog" = "Dialoq Pəncərəsini Aç";
+
+/* nothing */
+"Cannot find 'notify-send' to open balloon alerts.\nPlease install libnotify." = "";
+
+/* nothing */
+"XChat: Connected to %u networks and %u channels" = "";
+
+/* nothing */
+"_Restore" = "";
+
+/* nothing */
+"_Hide" = "Göstərmə";
+
+/* nothing */
+"_Blink on" = "";
+
+/* nothing */
+"Channel Message" = "Kanal Adı";
+
+/* nothing */
+"Private Message" = "açık xüsusi";
+
+/* nothing */
+"Highlighted Message" = "açık";
+
+/* nothing */
+"_Change status" = "";
+
+/* nothing */
+"_Away" = "";
+
+/* nothing */
+"_Back" = "";
+
+/* nothing */
+"XChat: Highlighted message from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u highlighted messages, latest from: %s (%s)" = "";
+
+/* nothing */
+"XChat: New public message from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u new public messages." = "";
+
+/* nothing */
+"XChat: Private message from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u private messages, latest from: %s (%s)" = "";
+
+/* nothing */
+"XChat: File offer from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u file offers, latest from: %s (%s)" = "";
+
+/* nothing */
+"Version" = "Buraxılış";
+
+/* nothing */
+"Description" = "İzahat";
+
+/* nothing */
+"Select a Plugin or Script to load" = "Yüklənəcək Əlavə ya da Skripti Seç";
+
+/* nothing */
+"XChat: Plugins and Scripts" = "X-Chat: Əlavələr və Skriptlər";
+
+/* nothing */
+"_Load..." = "_Yüklə...";
+
+/* nothing */
+"_UnLoad" = "Çı_xart";
+
+/* nothing */
+"Save As..." = "Fərqli Qeyd Et";
+
+/* nothing */
+"XChat: Rawlog (%s)" = "X-Chat: Xam qeyd (%s)";
+
+/* nothing */
+"Clear rawlog" = "Xam qeydi təmizlə";
+
+/* nothing */
+"The window you opened this Search for doesn't exist anymore." = "Bu axtarışı açtığınız pəncərə artıq mövcud deyil.";
+
+/* nothing */
+"Search hit end, not found." = "";
+
+/* nothing */
+"XChat: Search" = "X-Chat: Axtarış";
+
+/* nothing */
+"_Match case" = "";
+
+/* nothing */
+"Search _backwards" = "";
+
+/* nothing */
+"_Find" = "Axtar";
+
+/* nothing */
+"New Network" = "Yeni Şəbəkə";
+
+/* nothing */
+"Really remove network \"%s\" and all its servers?" = "Həqiqətən də \"%s\" şəbəkəsi və bütün onun vericiləri silinsin?";
+
+/* nothing */
+"#channel" = "Kanal";
+
+/* nothing */
+"XChat: Favorite Channels (Auto-Join List)" = "X-Chat: Kanal Siyahısı (%s)";
+
+/* nothing */
+"These channels will be joined whenever you connect to %s." = "";
+
+/* nothing */
+"Key (Password)" = "Şifrə:";
+
+/* nothing */
+"_Edit" = "";
+
+/* nothing */
+"%s has been removed." = "";
+
+/* nothing */
+"%s has been added." = "";
+
+/* nothing */
+"User name and Real name cannot be left blank." = "";
+
+/* nothing */
+"XChat: Edit %s" = "X-Chat: Ban Siyahısı (%s)";
+
+/* nothing */
+"Servers for %s" = "Verici: %s";
+
+/* nothing */
+"Connect to selected server only" = "";
+
+/* nothing */
+"Don't cycle through all the servers when the connection fails." = "";
+
+/* nothing */
+"Your Details" = "";
+
+/* nothing */
+"Use global user information" = "Ümumi istifadəçi mə'lumatını işlət";
+
+/* nothing */
+"_Nick name:" = "Ləqəb:";
+
+/* nothing */
+"Second choice:" = "Səs faylı: ";
+
+/* nothing */
+"_User name:" = "İstifadəçi adı:";
+
+/* nothing */
+"Rea_l name:" = "Həqiqi Adınız:";
+
+/* nothing */
+"Connecting" = "Bağlan";
+
+/* nothing */
+"Auto connect to this network at startup" = "Avtomatik bağlan";
+
+/* nothing */
+"Bypass proxy server" = "Vəkil vericisi işlət";
+
+/* nothing */
+"Use SSL for all the servers on this network" = "";
+
+/* nothing */
+"Accept invalid SSL certificate" = "Hökmsüz vəs. qəbulu";
+
+/* nothing */
+"_Favorite channels:" = "Bağlanacaq Kanallar:";
+
+/* nothing */
+"Channels to join, separated by commas, but not spaces!" = "Daxil olunacaq kanallar (vegüllə ayırın)";
+
+/* nothing */
+"Connect command:" = "Bağlanma Əmri:";
+
+/* nothing */
+"Extra command to execute after connecting. If you need more than one, set this to LOAD -e <filename>, where <filename> is a text-file full of commands to execute." = "";
+
+/* nothing */
+"Nickserv password:" = "Verici Şifrəsi:";
+
+/* nothing */
+"If your nickname requires a password, enter it here. Not all IRC networks support this." = "";
+
+/* nothing */
+"Server password:" = "Verici Şifrəsi:";
+
+/* nothing */
+"Password for the server, if in doubt, leave blank." = "";
+
+/* nothing */
+"Character set:" = "Hərf Dəstəsi:";
+
+/* nothing */
+"XChat: Network List" = "X-Chat: Bildiriş Siyahısı";
+
+/* nothing */
+"User Information" = "Verici Haqqında";
+
+/* nothing */
+"Third choice:" = "";
+
+/* nothing */
+"Networks" = "Şəbəkələr";
+
+/* nothing */
+"Skip network list on startup" = "Başlanğıcda verici siyahısını göstərmə";
+
+/* nothing */
+"_Edit..." = "_Yüklə...";
+
+/* nothing */
+"_Sort" = "Nizamla";
+
+/* nothing */
+"Sorts the network list in alphabetical order. Use SHIFT-UP and SHIFT-DOWN keys to move a row." = "";
+
+/* nothing */
+"C_onnect" = "_Bağlan";
+
+/* nothing */
+"Text Box Appearance" = "";
+
+/* nothing */
+"Font:" = "Yazı növü:";
+
+/* nothing */
+"Background image:" = "Arxa plan rəsmi:";
+
+/* nothing */
+"Scrollback lines:" = "Geri dönüş sətiri miqdarı:";
+
+/* nothing */
+"Colored nick names" = "Rəngli ləqəblər";
+
+/* nothing */
+"Give each person on IRC a different color" = "";
+
+/* nothing */
+"Indent nick names" = "Ləqəbləri çərtmələ";
+
+/* nothing */
+"Make nick names right-justified" = "";
+
+/* nothing */
+"Transparent background" = "Şəffaf arxa plan";
+
+/* nothing */
+"Show marker line" = "Uzaqda cəziyyətini bir dəfə göstər";
+
+/* nothing */
+"Insert a red line after the last read text." = "";
+
+/* nothing */
+"Transparency Settings" = "Rəngli şəffaflıq";
+
+/* nothing */
+"Red:" = "";
+
+/* nothing */
+"Green:" = "Qrinland";
+
+/* nothing */
+"Blue:" = "";
+
+/* nothing */
+"Time Stamps" = "Tarix mühürü mətni";
+
+/* nothing */
+"Enable time stamps" = "Qeydlərə tarix mühürünü daxil et";
+
+/* nothing */
+"Time stamp format:" = "Tarix mühürü şəkli:";
+
+/* nothing */
+"See strftime manpage for details." = "Təfərruatlar üçün strftime man səhifəsinə baxın";
+
+/* nothing */
+"A-Z" = "A-Z";
+
+/* nothing */
+"Last-spoke order" = "";
+
+/* nothing */
+"Input box" = "Giriş qutusu";
+
+/* nothing */
+"Use the Text box font and colors" = "Söhbət pəncərəsi yazı növü və rənglərini işlət";
+
+/* nothing */
+"Spell checking" = "";
+
+/* nothing */
+"Nick Completion" = "Avtomatik ləqəb tamamlaması";
+
+/* nothing */
+"Automatic nick completion (without TAB key)" = "Avtomatik ləqəb tamamlaması";
+
+/* nothing */
+"Nick completion suffix:" = "";
+
+/* nothing */
+"Nick completion sorted:" = "Ləqəb sınanır";
+
+/* nothing */
+"Input Box Codes" = "Giriş qutusu";
+
+/* nothing */
+"Interpret %nnn as an ASCII value" = "%nnn-ı ASCII qiyməti olaraq qəbul et";
+
+/* nothing */
+"Interpret %C, %B as Color, Bold etc" = "";
+
+/* nothing */
+"A-Z, Ops first" = "A-Z, Əvvəlcə Oplar";
+
+/* nothing */
+"Z-A, Ops last" = "Z-A, Oplar Sonda";
+
+/* nothing */
+"Z-A" = "Z-A";
+
+/* nothing */
+"Unsorted" = "Nizamsız";
+
+/* nothing */
+"Left (Upper)" = "";
+
+/* nothing */
+"Left (Lower)" = "";
+
+/* nothing */
+"Right (Upper)" = "";
+
+/* nothing */
+"Right (Lower)" = "";
+
+/* nothing */
+"Top" = "Üstdə";
+
+/* nothing */
+"Bottom" = "Altda";
+
+/* nothing */
+"Hidden" = "Göstərmə";
+
+/* nothing */
+"User List" = "İstifadəçi Siyahısı";
+
+/* nothing */
+"Show hostnames in user list" = "İstifadəçi siyahısında qovşaq adlarını göstər";
+
+/* nothing */
+"User list sorted by:" = "İstifadəçi siyahısının nizamlanma şəkli:";
+
+/* nothing */
+"Show user list at:" = "İstifadəçi siyahısını göstər/gizlət";
+
+/* nothing */
+"Away tracking" = "Uzaqlaşma səbəbi";
+
+/* nothing */
+"Track the Away status of users and mark them in a different color" = "";
+
+/* nothing */
+"On channels smaller than:" = "Kanalların açılma şəkli:";
+
+/* nothing */
+"Action Upon Double Click" = "";
+
+/* nothing */
+"Windows" = "Pəncərələrdə";
+
+/* nothing */
+"Tabs" = "Səkmələrdə";
+
+/* nothing */
+"Always" = "Uzaq İstifadəçi:";
+
+/* nothing */
+"Only requested tabs" = "";
+
+/* nothing */
+"Tree" = "Trace";
+
+/* nothing */
+"Switcher type:" = "";
+
+/* nothing */
+"Open an extra tab for server messages" = "Verici ismarışları üçün səkmə aç";
+
+/* nothing */
+"Open an extra tab for server notices" = "Verici bildirişləri üçün səkmə aç";
+
+/* nothing */
+"Open a new tab when you receive a private message" = "";
+
+/* nothing */
+"Sort tabs in alphabetical order" = "";
+
+/* nothing */
+"Smaller text" = "Mətni _Təmizlə";
+
+/* nothing */
+"Focus new tabs:" = "";
+
+/* nothing */
+"Show channel switcher at:" = "";
+
+/* nothing */
+"Shorten tab labels to:" = "Tabların böyüklüyü:";
+
+/* nothing */
+"letters." = "hərf.";
+
+/* nothing */
+"Tabs or Windows" = "Pəncərələrdə";
+
+/* nothing */
+"Open channels in:" = "Kanalların açılma şəkli:";
+
+/* nothing */
+"Open dialogs in:" = "Dialoqların açılma şəkli:";
+
+/* nothing */
+"Open utilities in:" = "Vasitələrin açılma şəkli:";
+
+/* nothing */
+"Open DCC, Ignore, Notify etc, in tabs or windows?" = "DCC Açılması, Rədd Etmə, Bildirişlər səkmələrdəmi yoxsa pəncərələrdəmi açılsın?";
+
+/* nothing */
+"No" = "";
+
+/* nothing */
+"Yes" = "";
+
+/* nothing */
+"Browse for save folder every time" = "";
+
+/* nothing */
+"Files and Directories" = "";
+
+/* nothing */
+"Auto accept file offers:" = "Faylları avtomatik qəbul et ";
+
+/* nothing */
+"Download files to:" = "Faylları buraya endir:";
+
+/* nothing */
+"Move completed files to:" = "Tamamlanan faylları buraya daşı:";
+
+/* nothing */
+"Save nick name in filenames" = "Fayl adlarına ləqəbi qeyd et";
+
+/* nothing */
+"Network Settings" = "Qurğuları Yenilə";
+
+/* nothing */
+"Get my address from the IRC server" = "IP-mi IRC vericisindən al";
+
+/* nothing */
+"Asks the IRC server for your real address. Use this if you have a 192.168.*.* address!" = "Həqiqi ünvanınızı bilmək üçün özünüzü /WHOIS-ləyin. Əgər 192.168.*.* bənzəri ünvanınız varsa bunu işlədin.";
+
+/* nothing */
+"DCC IP address:" = "DCC IP ünvanı:";
+
+/* nothing */
+"Claim you are at this address when offering files." = "Fayl təklif edəndə bu ünvanda olduğunu bildir.";
+
+/* nothing */
+"First DCC send port:" = "Birinci DCC göndərmə portu:";
+
+/* nothing */
+"Last DCC send port:" = "Sonuncu DCC göndərmə portu:";
+
+/* nothing */
+"!Leave ports at zero for full range." = "(Tam aralıq üçün portları boş buraxın)";
+
+/* nothing */
+"Maximum File Transfer Speeds (bytes per second)" = "";
+
+/* nothing */
+"One upload:" = "";
+
+/* nothing */
+"Maximum speed for one transfer" = "Bir transfer üçün maksimal sür'ət";
+
+/* nothing */
+"One download:" = "";
+
+/* nothing */
+"All uploads combined:" = "";
+
+/* nothing */
+"Maximum speed for all files" = "Bütün alış verişlər üçün maksimal sür'ət";
+
+/* nothing */
+"All downloads combined:" = "";
+
+/* nothing */
+"Alerts" = "Alt";
+
+/* nothing */
+"Show tray balloons on:" = "Səkmələrin göstərilmə şəkli:";
+
+/* nothing */
+"Blink tray icon on:" = "";
+
+/* nothing */
+"Blink task bar on:" = "";
+
+/* nothing */
+"Make a beep sound on:" = "";
+
+/* nothing */
+"Enable system tray icon" = "";
+
+/* nothing */
+"Highlighted Messages" = "açık";
+
+/* nothing */
+"Highlighted messages are ones where your nickname is mentioned, but also:" = "";
+
+/* nothing */
+"Extra words to highlight:" = "İşıqlandırılacaq əlavə kəlmələr:";
+
+/* nothing */
+"Nick names not to highlight:" = "İşıqlandırılacaq əlavə kəlmələr:";
+
+/* nothing */
+"Nick names to always highlight:" = "";
+
+/* nothing */
+"Separate multiple words with commas.\nWildcards are accepted." = "";
+
+/* nothing */
+"Default Messages" = "Ön qurğulu çıxış ismarışı:";
+
+/* nothing */
+"Quit:" = "Çıx";
+
+/* nothing */
+"Leave channel:" = "Kanaldan Çıx";
+
+/* nothing */
+"Away:" = "Uzaq İstifadəçi:";
+
+/* nothing */
+"Away" = "Norveç";
+
+/* nothing */
+"Announce away messages" = "";
+
+/* nothing */
+"Announce your away messages to all channels" = "";
+
+/* nothing */
+"Show away once" = "Uzaqda cəziyyətini bir dəfə göstər";
+
+/* nothing */
+"Show identical away messages only once" = "Göstər";
+
+/* nothing */
+"Automatically unmark away" = "";
+
+/* nothing */
+"Unmark yourself as away before sending messages" = "əvvəl";
+
+/* nothing */
+"Advanced Settings" = "Qurğuları Yenilə";
+
+/* nothing */
+"Auto reconnect delay:" = "Avtomatik:";
+
+/* nothing */
+"Display MODEs in raw form" = "Göstər in";
+
+/* nothing */
+"Whois on notify" = "açık";
+
+/* nothing */
+"Sends a /WHOIS when a user comes online in your notify list" = "a a in";
+
+/* nothing */
+"Hide join and part messages" = "Gizlət";
+
+/* nothing */
+"Hide channel join/part messages by default" = "Gizlət ön qurğulu";
+
+/* nothing */
+"Auto Open DCC Windows" = "Dialoq pəncərələrini avtomatik aç";
+
+/* nothing */
+"Send window" = "Fayl Yolla";
+
+/* nothing */
+"Receive window" = "Alıcı";
+
+/* nothing */
+"Chat window" = "Kanal Pəncərəsi...";
+
+/* nothing */
+"Logging" = "Qeyd";
+
+/* nothing */
+"Display scrollback from previous session" = "";
+
+/* nothing */
+"Enable logging of conversations to disk" = "Fəallaşdır /";
+
+/* nothing */
+"Log filename:" = "Fayl adı";
+
+/* nothing */
+"%s=Server %c=Channel %n=Network." = "(%s=Verici %c=Kanal %n=Şəbəkə)";
+
+/* nothing */
+"Insert timestamps in logs" = "Qeydlərə tarix mühürünü daxil et";
+
+/* nothing */
+"Log timestamp format:" = "";
+
+/* nothing */
+"(Disabled)" = "(Qeyri fəaldır)";
+
+/* nothing */
+"Wingate" = "Wingate";
+
+/* nothing */
+"Socks4" = "Socks4";
+
+/* nothing */
+"Socks5" = "Socks5";
+
+/* nothing */
+"HTTP" = "HTTP";
+
+/* nothing */
+"MS Proxy (ISA)" = "";
+
+/* nothing */
+"All Connections" = "Bağlantı rədd edildi";
+
+/* nothing */
+"IRC Server Only" = "Ancaq Dəvət Et";
+
+/* nothing */
+"DCC Get Only" = "";
+
+/* nothing */
+"Your Address" = "IP ünvanı";
+
+/* nothing */
+"Bind to:" = "Axtar:";
+
+/* nothing */
+"Only useful for computers with multiple addresses." = "";
+
+/* nothing */
+"Proxy Server" = "Vəkil vericisi";
+
+/* nothing */
+"Hostname:" = "Qovşaq adı:";
+
+/* nothing */
+"Port:" = "Qapı:";
+
+/* nothing */
+"Type:" = "Növ:";
+
+/* nothing */
+"Use proxy for:" = "Vəkil vericisi işlət";
+
+/* nothing */
+"Proxy Authentication" = "";
+
+/* nothing */
+"Use Authentication (MS Proxy, HTTP or Socks5 only)" = "";
+
+/* nothing */
+"Use Authentication (HTTP or Socks5 only)" = "";
+
+/* nothing */
+"Username:" = "İstifadəçi adı:";
+
+/* nothing */
+"Password:" = "Şifrə:";
+
+/* nothing */
+"Select an Image File" = "Rəsm faylı seç";
+
+/* nothing */
+"Select Download Folder" = "Rəng seç";
+
+/* nothing */
+"Select font" = "Yazı növü seç";
+
+/* nothing */
+"Browse..." = "Gəz...";
+
+/* nothing */
+"Mark identified users with:" = "";
+
+/* nothing */
+"Mark not-identified users with:" = "";
+
+/* nothing */
+"Open Data Folder" = "";
+
+/* nothing */
+"Select color" = "Rəng seç";
+
+/* nothing */
+"Text Colors" = "Rənglər";
+
+/* nothing */
+"mIRC colors:" = "mIRC rəngləri:";
+
+/* nothing */
+"Local colors:" = "mIRC rəngləri:";
+
+/* nothing */
+"Foreground:" = "Ön plan:";
+
+/* nothing */
+"Background:" = "Arxa plan:";
+
+/* nothing */
+"Marking Text" = "Mətni _Təmizlə";
+
+/* nothing */
+"Interface Colors" = "Ara üz";
+
+/* nothing */
+"New data:" = "Yeni Mə'lumat:";
+
+/* nothing */
+"Marker line:" = "Ön işarə:";
+
+/* nothing */
+"New message:" = "Yeni İsmarış:";
+
+/* nothing */
+"Away user:" = "Uzaq İstifadəçi:";
+
+/* nothing */
+"Highlight:" = "İşıqlandırma:";
+
+/* nothing */
+"Event" = "Hadisə";
+
+/* nothing */
+"Sound file" = "Səs faylı: ";
+
+/* nothing */
+"Select a sound file" = "Çıxış fay adını seç";
+
+/* nothing */
+"Sound playing method:" = "";
+
+/* nothing */
+"External sound playing _program:" = "";
+
+/* nothing */
+"_External program" = "Xarici";
+
+/* nothing */
+"_Automatic" = "Antarktika";
+
+/* nothing */
+"Sound files _directory:" = "Faylları buraya endir:";
+
+/* nothing */
+"Sound file:" = "Səs faylı: ";
+
+/* nothing */
+"_Browse..." = "Gəz...";
+
+/* nothing */
+"_Play" = "Palau";
+
+/* nothing */
+"Interface" = "Ara üz";
+
+/* nothing */
+"Text box" = "Söhbət pəncərəsi";
+
+/* nothing */
+"User list" = "İstifadəçi siyahısı";
+
+/* nothing */
+"Channel switcher" = "Kanal Siyahısı...";
+
+/* nothing */
+"Colors" = "Rənglər";
+
+/* nothing */
+"Chatting" = "Söhbət";
+
+/* nothing */
+"General" = "Ümumi";
+
+/* nothing */
+"Sound" = "Səs";
+
+/* nothing */
+"Network setup" = "Şəbəkə qurğusu";
+
+/* nothing */
+"File transfers" = "Fayl transferləri";
+
+/* nothing */
+"Categories" = "Kateqoriyalar";
+
+/* nothing */
+"You cannot place the tree on the top or bottom!\nPlease change to the <b>Tabs</b> layout in the <b>View</b> menu first." = "";
+
+/* nothing */
+"Some settings were changed that require a restart to take full effect." = "Bə'zi seçimlərin tətbiq edilməsi üçün proqramı yenidən başlatmalısınız.";
+
+/* nothing */
+"*WARNING*\nAuto accepting DCC to your home directory\ncan be dangerous and is exploitable. Eg:\nSomeone could send you a .bash_profile" = "";
+
+/* nothing */
+"XChat: Preferences" = "X-Chat: Seçimlər";
+
+/* nothing */
+"There was an error parsing the string" = "Qatar oxunanda xəta yarandı";
+
+/* nothing */
+"This signal is only passed %d args, $%d is invalid" = "";
+
+/* nothing */
+"Print Texts File" = "Mətn Faylını Çap Et";
+
+/* nothing */
+"Edit Events" = "Hadisələri Dəyişdir";
+
+/* nothing */
+"$ Number" = "$ Nömrəsi";
+
+/* nothing */
+"Load From..." = "Buradan Yüklə";
+
+/* nothing */
+"Test All" = "Hamısı Sına";
+
+/* nothing */
+"URL" = "URL";
+
+/* nothing */
+"XChat: URL Grabber" = "X-Chat: URL Alıcısı";
+
+/* nothing */
+"Clear list" = "Siyahını təmizlə";
+
+/* nothing */
+"Copy selected URL" = "Seçili URL-ni Köçür";
+
+/* nothing */
+"Copy" = "Köçür";
+
+/* nothing */
+"Save list to a file" = "Siyahını fayla qeyd et";
+
+/* nothing */
+"%d ops, %d total" = "%d op, %d toplam";
+

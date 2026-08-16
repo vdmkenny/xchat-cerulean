@@ -1,0 +1,3699 @@
+/* nothing */
+"" = "Project-Id-Version: xchat 2.0.7pre1\nReport-Msgid-Bugs-To: www.xchat.org\nPOT-Creation-Date: 2010-05-30 13:56+1000\nPO-Revision-Date: 2004-04-05 18:55+0200\nLast-Translator: Pablo Saratxaga <pablo@walon.org>\nLanguage-Team: Walloon <linux-wa@walon.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nX-Generator: KBabel 1.0.2\n";
+
+/* nothing */
+"Cannot create ~/.xchat2" = "Dji n' sai askepyî ~/.xchat2";
+
+/* nothing */
+"I'm busy" = "Dji so-st ocupé";
+
+/* nothing */
+"Leaving" = "Cwitant";
+
+/* nothing */
+"* Running IRC as root is stupid! You should\n  create a User Account and use that to login.\n" = "* C' est vormint biesse di s' raloyî a l' IRC dizo root!\n  Vos dvrîz fé on conte uzeu eyet l' eployî po vs elodjî.\n";
+
+/* nothing */
+"Waiting" = "Ratindant";
+
+/* nothing */
+"Active" = "En alaedje";
+
+/* nothing */
+"Failed" = "Berwete";
+
+/* nothing */
+"Done" = "Fwait";
+
+/* nothing */
+"Connect" = "Raloyaedje";
+
+/* nothing */
+"Aborted" = "Rinoncî";
+
+/* nothing */
+"Cannot access %s\n" = "Dji n' sai acceder a %s\n";
+
+/* nothing */
+"Error" = "Aroke";
+
+/* nothing */
+"%s is offering \"%s\". Do you want to accept?" = "";
+
+/* nothing */
+"No active DCCs\n" = "";
+
+/* nothing */
+"YES  " = "OYI  ";
+
+/* nothing */
+"NO   " = "NENI ";
+
+/* nothing */
+"You are being CTCP flooded from %s, ignoring %s\n" = "";
+
+/* nothing */
+"You are being MSG flooded from %s, setting gui_auto_open_dialog OFF.\n" = "";
+
+/* nothing */
+"  %-20s online\n" = "";
+
+/* nothing */
+"  %-20s offline\n" = "";
+
+/* nothing */
+"No channel joined. Try /join #<channel>\n" = "";
+
+/* nothing */
+"Not connected. Try /server <host> [<port>]\n" = "";
+
+/* nothing */
+"Already marked away: %s\n" = "";
+
+/* nothing */
+"Already marked back.\n" = "";
+
+/* nothing */
+"I need /bin/sh to run!\n" = "Dj' a mezåjhe di /bin/sh po roter!\n";
+
+/* nothing */
+"Commands Available:" = "\nComandes k' i gn a:\n\n  ";
+
+/* nothing */
+"User defined commands:" = "";
+
+/* nothing */
+"Plugin defined commands:" = "";
+
+/* nothing */
+"Type /HELP <command> for more information, or /HELP -l" = "";
+
+/* nothing */
+"Unknown arg '%s' ignored." = "";
+
+/* nothing */
+"No such plugin found.\n" = "";
+
+/* nothing */
+"That plugin is refusing to unload.\n" = "";
+
+/* nothing */
+"ADDBUTTON <name> <action>, adds a button under the user-list" = "";
+
+/* nothing */
+"ALLCHAN <cmd>, sends a command to all channels you're in" = "";
+
+/* nothing */
+"ALLCHANL <cmd>, sends a command to all channels you're in" = "";
+
+/* nothing */
+"ALLSERV <cmd>, sends a command to all servers you're in" = "";
+
+/* nothing */
+"AWAY [<reason>], sets you away" = "";
+
+/* nothing */
+"BACK, sets you back (not away)" = "";
+
+/* nothing */
+"BAN <mask> [<bantype>], bans everyone matching the mask from the current channel. If they are already on the channel this doesn't kick them (needs chanop)" = "";
+
+/* nothing */
+"CHANOPT [-quiet] <variable> [<value>]" = "";
+
+/* nothing */
+"CLEAR [ALL|HISTORY], Clears the current text window or command history" = "";
+
+/* nothing */
+"CLOSE, Closes the current window/tab" = "";
+
+/* nothing */
+"COUNTRY [-s] <code|wildcard>, finds a country code, eg: au = australia" = "";
+
+/* nothing */
+"CTCP <nick> <message>, send the CTCP message to nick, common messages are VERSION and USERINFO" = "";
+
+/* nothing */
+"CYCLE [<channel>], parts the current or given channel and immediately rejoins" = "";
+
+/* nothing */
+"\nDCC GET <nick>                      - accept an offered file\nDCC SEND [-maxcps=#] <nick> [file]  - send a file to someone\nDCC PSEND [-maxcps=#] <nick> [file] - send a file using passive mode\nDCC LIST                            - show DCC list\nDCC CHAT <nick>                     - offer DCC CHAT to someone\nDCC PCHAT <nick>                    - offer DCC CHAT using passive mode\nDCC CLOSE <type> <nick> <file>         example:\n         /dcc close send johnsmith file.tar.gz" = "";
+
+/* nothing */
+"DEHOP <nick>, removes chanhalf-op status from the nick on the current channel (needs chanop)" = "";
+
+/* nothing */
+"DELBUTTON <name>, deletes a button from under the user-list" = "";
+
+/* nothing */
+"DEOP <nick>, removes chanop status from the nick on the current channel (needs chanop)" = "";
+
+/* nothing */
+"DEVOICE <nick>, removes voice status from the nick on the current channel (needs chanop)" = "";
+
+/* nothing */
+"DISCON, Disconnects from server" = "";
+
+/* nothing */
+"DNS <nick|host|ip>, Finds a users IP number" = "";
+
+/* nothing */
+"ECHO <text>, Prints text locally" = "";
+
+/* nothing */
+"EXEC [-o] <command>, runs the command. If -o flag is used then output is sent to current channel, else is printed to current text box" = "";
+
+/* nothing */
+"EXECCONT, sends the process SIGCONT" = "";
+
+/* nothing */
+"EXECKILL [-9], kills a running exec in the current session. If -9 is given the process is SIGKILL'ed" = "";
+
+/* nothing */
+"EXECSTOP, sends the process SIGSTOP" = "";
+
+/* nothing */
+"EXECWRITE, sends data to the processes stdin" = "";
+
+/* nothing */
+"FLUSHQ, flushes the current server's send queue" = "";
+
+/* nothing */
+"GATE <host> [<port>], proxies through a host, port defaults to 23" = "";
+
+/* nothing */
+"GHOST <nick> [password], Kills a ghosted nickname" = "";
+
+/* nothing */
+"HOP <nick>, gives chanhalf-op status to the nick (needs chanop)" = "";
+
+/* nothing */
+"ID <password>, identifies yourself to nickserv" = "";
+
+/* nothing */
+"IGNORE <mask> <types..> <options..>\n    mask - host mask to ignore, eg: *!*@*.aol.com\n    types - types of data to ignore, one or all of:\n            PRIV, CHAN, NOTI, CTCP, DCC, INVI, ALL\n    options - NOSAVE, QUIET" = "";
+
+/* nothing */
+"INVITE <nick> [<channel>], invites someone to a channel, by default the current channel (needs chanop)" = "";
+
+/* nothing */
+"JOIN <channel>, joins the channel" = "";
+
+/* nothing */
+"KICK <nick>, kicks the nick from the current channel (needs chanop)" = "";
+
+/* nothing */
+"KICKBAN <nick>, bans then kicks the nick from the current channel (needs chanop)" = "";
+
+/* nothing */
+"LAGCHECK, forces a new lag check" = "";
+
+/* nothing */
+"LASTLOG <string>, searches for a string in the buffer" = "";
+
+/* nothing */
+"LOAD [-e] <file>, loads a plugin or script" = "";
+
+/* nothing */
+"MDEHOP, Mass deop's all chanhalf-ops in the current channel (needs chanop)" = "";
+
+/* nothing */
+"MDEOP, Mass deop's all chanops in the current channel (needs chanop)" = "";
+
+/* nothing */
+"ME <action>, sends the action to the current channel (actions are written in the 3rd person, like /me jumps)" = "";
+
+/* nothing */
+"MKICK, Mass kicks everyone except you in the current channel (needs chanop)" = "";
+
+/* nothing */
+"MOP, Mass op's all users in the current channel (needs chanop)" = "";
+
+/* nothing */
+"MSG <nick> <message>, sends a private message" = "";
+
+/* nothing */
+"NAMES, Lists the nicks on the current channel" = "";
+
+/* nothing */
+"NCTCP <nick> <message>, Sends a CTCP notice" = "";
+
+/* nothing */
+"NEWSERVER [-noconnect] <hostname> [<port>]" = "";
+
+/* nothing */
+"NICK <nickname>, sets your nick" = "";
+
+/* nothing */
+"NOTICE <nick/channel> <message>, sends a notice. Notices are a type of message that should be auto reacted to" = "";
+
+/* nothing */
+"NOTIFY [-n network1[,network2,...]] [<nick>], displays your notify list or adds someone to it" = "";
+
+/* nothing */
+"OP <nick>, gives chanop status to the nick (needs chanop)" = "";
+
+/* nothing */
+"PART [<channel>] [<reason>], leaves the channel, by default the current one" = "";
+
+/* nothing */
+"PING <nick | channel>, CTCP pings nick or channel" = "";
+
+/* nothing */
+"QUERY [-nofocus] <nick>, opens up a new privmsg window to someone" = "";
+
+/* nothing */
+"QUIT [<reason>], disconnects from the current server" = "";
+
+/* nothing */
+"QUOTE <text>, sends the text in raw form to the server" = "";
+
+/* nothing */
+"RECONNECT [-ssl] [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers" = "";
+
+/* nothing */
+"RECONNECT [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers" = "";
+
+/* nothing */
+"RECV <text>, send raw data to xchat, as if it was received from the irc server" = "";
+
+/* nothing */
+"SAY <text>, sends the text to the object in the current window" = "";
+
+/* nothing */
+"SEND <nick> [<file>]" = "";
+
+/* nothing */
+"SERVCHAN [-ssl] <host> <port> <channel>, connects and joins a channel" = "";
+
+/* nothing */
+"SERVCHAN <host> <port> <channel>, connects and joins a channel" = "";
+
+/* nothing */
+"SERVER [-ssl] <host> [<port>] [<password>], connects to a server, the default port is 6667 for normal connections, and 9999 for ssl connections" = "";
+
+/* nothing */
+"SERVER <host> [<port>] [<password>], connects to a server, the default port is 6667" = "";
+
+/* nothing */
+"SET [-e] [-off|-on] [-quiet] <variable> [<value>]" = "";
+
+/* nothing */
+"SETCURSOR [-|+]<position>" = "";
+
+/* nothing */
+"TOPIC [<topic>], sets the topic if one is given, else shows the current topic" = "";
+
+/* nothing */
+"\nTRAY -f <timeout> <file1> [<file2>] Blink tray between two icons.\nTRAY -f <filename>                  Set tray to a fixed icon.\nTRAY -i <number>                    Blink tray with an internal icon.\nTRAY -t <text>                      Set the tray tooltip.\nTRAY -b <title> <text>              Set the tray balloon." = "";
+
+/* nothing */
+"UNBAN <mask> [<mask>...], unbans the specified masks." = "";
+
+/* nothing */
+"UNIGNORE <mask> [QUIET]" = "";
+
+/* nothing */
+"UNLOAD <name>, unloads a plugin or script" = "";
+
+/* nothing */
+"URL <url>, opens a URL in your browser" = "";
+
+/* nothing */
+"USELECT [-a] [-s] <nick1> <nick2> etc, highlights nick(s) in channel userlist" = "";
+
+/* nothing */
+"VOICE <nick>, gives voice status to someone (needs chanop)" = "";
+
+/* nothing */
+"WALLCHAN <message>, writes the message to all channels" = "";
+
+/* nothing */
+"WALLCHOP <message>, sends the message to all chanops on the current channel" = "";
+
+/* nothing */
+"Usage: %s\n" = "";
+
+/* nothing */
+"\nNo help available on that command.\n" = "";
+
+/* nothing */
+"No such command.\n" = "";
+
+/* nothing */
+"Bad arguments for user command.\n" = "";
+
+/* nothing */
+"Too many recursive usercommands, aborting." = "";
+
+/* nothing */
+"Unknown Command. Try /help\n" = "";
+
+/* nothing */
+"No xchat_plugin_init symbol; is this really an xchat plugin?" = "";
+
+/* nothing */
+"Are you sure this is a SSL capable server and port?\n" = "";
+
+/* nothing */
+"Cannot resolve hostname %s\nCheck your IP Settings!\n" = "";
+
+/* nothing */
+"Proxy traversal failed.\n" = "";
+
+/* nothing */
+"Cycling to next server in %s...\n" = "";
+
+/* nothing */
+"Warning: \"%s\" character set is unknown. No conversion will be applied for network %s." = "";
+
+/* nothing */
+"%C22*%O$t$1 added to notify list." = "";
+
+/* nothing */
+"%C22*%O$t$1 Banlist:%C19 $4%C20 $2%C21 $3" = "";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(You are banned)." = "";
+
+/* nothing */
+"%C22*%O$t$1 is now known as $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets ban on $2" = "";
+
+/* nothing */
+"%C22*%O$tChannel $1 created on $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes channel half-operator status from%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes channel operator status from%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O removes voice from%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets exempt on $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives channel half-operator status to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets invite on $2" = "";
+
+/* nothing */
+"%UChannel          Users   Topic" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets mode $2$3 $4" = "";
+
+/* nothing */
+"%C22*%O$t%C22Channel $1 modes: $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives channel operator status to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes exempt on $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes invite on $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes channel keyword" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes user limit" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets channel keyword to $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets channel limit to $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 removes ban on $2" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1%O gives voice to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C22Connected. Now logging in..." = "";
+
+/* nothing */
+"%C22*%O$t%C22Connecting to $1 ($2) port $3%O..." = "";
+
+/* nothing */
+"%C21*%O$t%C21Connection failed. Error: $1" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP $1 from $2" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP $1 from $2 (to $3)" = "";
+
+/* nothing */
+"%C19>%O$1%C19<%O$tCTCP $2" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP Sound $1 from $2" = "";
+
+/* nothing */
+"%C22*%O$tReceived a CTCP Sound $1 from $2 (to $3)" = "";
+
+/* nothing */
+"%C22*%O$tDCC CHAT to %C26$1%O aborted." = "";
+
+/* nothing */
+"%C22*%O$tDCC CHAT connection established to %C26$1 %C30[%O$2%C30]" = "";
+
+/* nothing */
+"%C22*%O$tDCC CHAT to %C26$1%O lost ($4)." = "";
+
+/* nothing */
+"%C22*%O$tReceived a DCC CHAT offer from $1" = "";
+
+/* nothing */
+"%C22*%O$tOffering DCC CHAT to $1" = "";
+
+/* nothing */
+"%C22*%O$tAlready offering CHAT to $1" = "";
+
+/* nothing */
+"%C22*%O$tDCC $1 connect attempt to%C26 $2%O failed (err=$3)." = "";
+
+/* nothing */
+"%C22*%O$tReceived '$1%O' from $2" = "";
+
+/* nothing */
+"%C24,18 Type  To/From    Status  Size    Pos     File         " = "";
+
+/* nothing */
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O$tContents of packet: $2" = "";
+
+/* nothing */
+"%C22*%O$tOffering%C26 $1%O to%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$tNo such DCC offer." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $2%O to%C26 $1%O aborted." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV connection established to%C26 $1 %C30[%O$2%C30]" = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O failed ($4)." = "";
+
+/* nothing */
+"%C22*%O$tDCC RECV: Cannot open $1 for writing ($2)." = "";
+
+/* nothing */
+"%C22*%O$tThe file%C26 $1%C already exists, saving it as%C26 $2%O instead." = "";
+
+/* nothing */
+"%C22*%O$t%C26$1 %Ohas requested to resume%C26 $2 %Cfrom%C26 $3%C." = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $2%O to%C26 $1%O aborted." = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O complete %C30[%C26$3%O cps%C30]%O." = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND connection established to%C26 $1 %C30[%O$2%C30]" = "";
+
+/* nothing */
+"%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O failed. $3" = "";
+
+/* nothing */
+"%C22*%O$t%C26$1 %Ohas offered%C26 $2 %O(%C26$3 %Obytes)" = "";
+
+/* nothing */
+"%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Cstalled - aborting." = "";
+
+/* nothing */
+"%C22*%O$tDCC $1%C26 $2 %Oto%C26 $3 %Otimed out - aborting." = "";
+
+/* nothing */
+"%C22*%O$t$1 deleted from notify list." = "";
+
+/* nothing */
+"%C22*%O$tDisconnected ($1)." = "";
+
+/* nothing */
+"%C22*%O$tFound your IP: [$1]" = "";
+
+/* nothing */
+"%O%C26$1%O added to ignore list." = "";
+
+/* nothing */
+"Ignore on %C26$1%O changed." = "";
+
+/* nothing */
+"%C24,18                                                              " = "";
+
+/* nothing */
+"%C24,18 Hostmask                  PRIV NOTI CHAN CTCP DCC  INVI UNIG " = "";
+
+/* nothing */
+"%O%C26$1%O removed from ignore list." = "";
+
+/* nothing */
+"  Ignore list is empty." = "";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(Channel is invite only)." = "";
+
+/* nothing */
+"%C22*%O$tYou have been invited to%C26 $1%O by%C26 $2%C (%C26$3%C)" = "";
+
+/* nothing */
+"%C19*%O$t%C19%B$1 %B($3) has joined $2" = "";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(Requires keyword)." = "";
+
+/* nothing */
+"%C21*%O$t%C21$1 has kicked $2 from $3 ($4%O%C21)" = "";
+
+/* nothing */
+"%C22*%O$tYou have been killed by $1 ($2%O%C22)" = "";
+
+/* nothing */
+"%C22*%O$t%C22MOTD Skipped." = "";
+
+/* nothing */
+"%C22*%O$t$1 already in use. Retrying with $2..." = "";
+
+/* nothing */
+"%C22*%O$tNickname already in use. Use /NICK to try another." = "";
+
+/* nothing */
+"%C22*%O$tNo such DCC." = "";
+
+/* nothing */
+"%C22*%O$tNo process is currently running" = "";
+
+/* nothing */
+"$tNotify list is empty." = "";
+
+/* nothing */
+"%C24,18 %B  Notify List                           " = "";
+
+/* nothing */
+"%C22*%O$t$1 users in notify list." = "";
+
+/* nothing */
+"%C22*%O$tNotify: $1 is offline ($3)." = "";
+
+/* nothing */
+"%C22*%O$tNotify: $1 is online ($3)." = "";
+
+/* nothing */
+"%C23*%O$t%C23$1 (%O%C23$2) has left $3" = "";
+
+/* nothing */
+"%C23*%O$t%C23$1 (%O%C23$2) has left $3 (%O%C23%B%B$4%O%C23)" = "";
+
+/* nothing */
+"%C22*%O$tPing reply from $1: $2 second(s)" = "";
+
+/* nothing */
+"%C22*%O$tNo ping reply for $1 seconds, disconnecting." = "";
+
+/* nothing */
+"%C22*%O$tA process is already running" = "";
+
+/* nothing */
+"%C23*%O$t%C23$1 has quit (%O%C23%B%B$2%O%C23)" = "";
+
+/* nothing */
+"%C22*%O$t$1 sets modes%B %C30[%O$2%B%C30]" = "";
+
+/* nothing */
+"%C28-%C29$1/Wallops%C28-%O$t$2" = "";
+
+/* nothing */
+"%C22*%O$tLooking up IP number for%C26 $1%O..." = "";
+
+/* nothing */
+"%C22*%O$t%C22Connected." = "";
+
+/* nothing */
+"%C22*%O$t%C22Looking up $1" = "";
+
+/* nothing */
+"%C22*%O$tStopped previous connection attempt (pid=$1)" = "";
+
+/* nothing */
+"%C29*%O$t%C29Topic for $1%C %C29is: $2" = "";
+
+/* nothing */
+"%C22*%O$t$1 has changed the topic to: $2" = "";
+
+/* nothing */
+"%C29*%O$t%C29Topic for $1%C %C29set by $2%C %C29at $3" = "";
+
+/* nothing */
+"%C22*%O$tUnknown host. Maybe you misspelled it?" = "";
+
+/* nothing */
+"%C22*%O$tCannot join%C26 %B$1 %O(User limit reached)." = "";
+
+/* nothing */
+"%C22*%O$t%C26Users on $1:%C $2" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %O$2%C27 $3" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %Cis away %C30(%O$2%O%C30)" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O $2" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %OEnd of WHOIS list." = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2%O, signon:%C26 $3" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4" = "";
+
+/* nothing */
+"%C22*%O$t%C28[%O$1%C28] %Oreal user@host%C27 $2%O, real IP%C27 $3" = "";
+
+/* nothing */
+"%C19*%O$t%C19Now talking on $2" = "";
+
+/* nothing */
+"%C23*$tYou have been kicked from $2 by $3 ($4%O%C23)" = "";
+
+/* nothing */
+"%C23*$tYou have left channel $3" = "";
+
+/* nothing */
+"%C23*$tYou have left channel $3 (%O%C23%B%B$4%O%C23)" = "";
+
+/* nothing */
+"%C22*%O$tYou've invited%C26 $1%O to%C26 $2%O (%C26$3%O)" = "";
+
+/* nothing */
+"%C22*%O$tYou are now known as $2" = "";
+
+/* nothing */
+"Loaded log from" = "Tcherdjî di";
+
+/* nothing */
+"**** ENDING LOGGING AT %s\n" = "";
+
+/* nothing */
+"**** BEGIN LOGGING AT %s\n" = "";
+
+/* nothing */
+"* Can't open log file(s) for writing. Check the\n  permissions on %s/xchatlogs" = "";
+
+/* nothing */
+"Left message" = "";
+
+/* nothing */
+"Right message" = "";
+
+/* nothing */
+"The nick of the joining person" = "";
+
+/* nothing */
+"The channel being joined" = "";
+
+/* nothing */
+"The host of the person" = "";
+
+/* nothing */
+"Nickname" = "";
+
+/* nothing */
+"The action" = "";
+
+/* nothing */
+"Mode char" = "";
+
+/* nothing */
+"Identified text" = "";
+
+/* nothing */
+"The text" = "";
+
+/* nothing */
+"The message" = "";
+
+/* nothing */
+"Old nickname" = "";
+
+/* nothing */
+"New nickname" = "";
+
+/* nothing */
+"Nick of person who changed the topic" = "";
+
+/* nothing */
+"Topic" = "";
+
+/* nothing */
+"Channel" = "Canå";
+
+/* nothing */
+"The nickname of the kicker" = "";
+
+/* nothing */
+"The person being kicked" = "";
+
+/* nothing */
+"The channel" = "";
+
+/* nothing */
+"The reason" = "";
+
+/* nothing */
+"The nick of the person leaving" = "";
+
+/* nothing */
+"The time" = "";
+
+/* nothing */
+"The creator" = "";
+
+/* nothing */
+"Nick" = "";
+
+/* nothing */
+"Reason" = "Råjhon";
+
+/* nothing */
+"Host" = "Lodjoe";
+
+/* nothing */
+"Who it's from" = "";
+
+/* nothing */
+"The time in x.x format (see below)" = "";
+
+/* nothing */
+"The Channel it's going to" = "";
+
+/* nothing */
+"The sound" = "";
+
+/* nothing */
+"The nick of the person" = "";
+
+/* nothing */
+"The CTCP event" = "";
+
+/* nothing */
+"The nick of the person who set the key" = "";
+
+/* nothing */
+"The key" = "";
+
+/* nothing */
+"The nick of the person who set the limit" = "";
+
+/* nothing */
+"The limit" = "";
+
+/* nothing */
+"The nick of the person who did the op'ing" = "";
+
+/* nothing */
+"The nick of the person who has been op'ed" = "";
+
+/* nothing */
+"The nick of the person who has been halfop'ed" = "";
+
+/* nothing */
+"The nick of the person who did the halfop'ing" = "";
+
+/* nothing */
+"The nick of the person who did the voice'ing" = "";
+
+/* nothing */
+"The nick of the person who has been voice'ed" = "";
+
+/* nothing */
+"The nick of the person who did the banning" = "";
+
+/* nothing */
+"The ban mask" = "";
+
+/* nothing */
+"The nick who removed the key" = "";
+
+/* nothing */
+"The nick who removed the limit" = "";
+
+/* nothing */
+"The nick of the person of did the deop'ing" = "";
+
+/* nothing */
+"The nick of the person who has been deop'ed" = "";
+
+/* nothing */
+"The nick of the person of did the dehalfop'ing" = "";
+
+/* nothing */
+"The nick of the person who has been dehalfop'ed" = "";
+
+/* nothing */
+"The nick of the person of did the devoice'ing" = "";
+
+/* nothing */
+"The nick of the person who has been devoice'ed" = "";
+
+/* nothing */
+"The nick of the person of did the unban'ing" = "";
+
+/* nothing */
+"The nick of the person who did the exempt" = "";
+
+/* nothing */
+"The exempt mask" = "";
+
+/* nothing */
+"The nick of the person removed the exempt" = "";
+
+/* nothing */
+"The nick of the person who did the invite" = "";
+
+/* nothing */
+"The invite mask" = "";
+
+/* nothing */
+"The nick of the person removed the invite" = "";
+
+/* nothing */
+"The nick of the person setting the mode" = "";
+
+/* nothing */
+"The mode's sign (+/-)" = "";
+
+/* nothing */
+"The mode letter" = "";
+
+/* nothing */
+"The channel it's being set on" = "";
+
+/* nothing */
+"Username" = "No d' uzeu";
+
+/* nothing */
+"Full name" = "";
+
+/* nothing */
+"Channel Membership/\"is an IRC operator\"" = "";
+
+/* nothing */
+"Server Information" = "Informåcions sol sierveu";
+
+/* nothing */
+"Idle time" = "";
+
+/* nothing */
+"Signon time" = "";
+
+/* nothing */
+"Away reason" = "";
+
+/* nothing */
+"Message" = "Messaedje";
+
+/* nothing */
+"Account" = "Conte";
+
+/* nothing */
+"Real user@host" = "";
+
+/* nothing */
+"Real IP" = "";
+
+/* nothing */
+"Channel Name" = "No do canå";
+
+/* nothing */
+"Text" = "Tecse";
+
+/* nothing */
+"Server Name" = "No do sierveu";
+
+/* nothing */
+"Raw Numeric or Identifier" = "";
+
+/* nothing */
+"Nick of person who invited you" = "";
+
+/* nothing */
+"Users" = "Uzeus";
+
+/* nothing */
+"Nickname in use" = "";
+
+/* nothing */
+"Nick being tried" = "";
+
+/* nothing */
+"IP" = "IP";
+
+/* nothing */
+"Port" = "Pôrt";
+
+/* nothing */
+"Network" = "Rantoele";
+
+/* nothing */
+"Modes string" = "";
+
+/* nothing */
+"IP address" = "Adresse IP";
+
+/* nothing */
+"DCC Type" = "Sôre DCC";
+
+/* nothing */
+"Filename" = "No do fitchî";
+
+/* nothing */
+"Destination filename" = "No do fitchî såme";
+
+/* nothing */
+"CPS" = "";
+
+/* nothing */
+"Pathname" = "No do tchmin";
+
+/* nothing */
+"Position" = "Eplaeçmint";
+
+/* nothing */
+"Size" = "Grandeu";
+
+/* nothing */
+"DCC String" = "Tchinne DCC";
+
+/* nothing */
+"Number of notify items" = "";
+
+/* nothing */
+"Old Filename" = "Vî no d' fitchî";
+
+/* nothing */
+"New Filename" = "Novea no d' fitchî";
+
+/* nothing */
+"Receiver" = "Riçuveu";
+
+/* nothing */
+"Hostmask" = "";
+
+/* nothing */
+"Hostname" = "No do lodjoe";
+
+/* nothing */
+"The Packet" = "";
+
+/* nothing */
+"Seconds" = "";
+
+/* nothing */
+"Nick of person who have been invited" = "";
+
+/* nothing */
+"Banmask" = "";
+
+/* nothing */
+"Who set the ban" = "";
+
+/* nothing */
+"Ban time" = "";
+
+/* nothing */
+"Error parsing event %s.\nLoading default." = "";
+
+/* nothing */
+"Cannot read sound file:\n%s" = "";
+
+/* nothing */
+"Remote host closed socket" = "";
+
+/* nothing */
+"Connection refused" = "";
+
+/* nothing */
+"No route to host" = "";
+
+/* nothing */
+"Connection timed out" = "";
+
+/* nothing */
+"Cannot assign that address" = "";
+
+/* nothing */
+"Connection reset by peer" = "";
+
+/* nothing */
+"Ascension Island" = "Iyes Cocos";
+
+/* nothing */
+"Andorra" = "Andore";
+
+/* nothing */
+"United Arab Emirates" = "Emirats Arabes Unis";
+
+/* nothing */
+"Afghanistan" = "Afganistan";
+
+/* nothing */
+"Antigua and Barbuda" = "Antigua eyet Barbuda";
+
+/* nothing */
+"Anguilla" = "Anguila";
+
+/* nothing */
+"Albania" = "Albaneye";
+
+/* nothing */
+"Armenia" = "Årmeneye";
+
+/* nothing */
+"Netherlands Antilles" = "Antiyes neyerlandesses";
+
+/* nothing */
+"Angola" = "Angola";
+
+/* nothing */
+"Antarctica" = "Antartike";
+
+/* nothing */
+"Argentina" = "Årdjintene";
+
+/* nothing */
+"Reverse DNS" = "";
+
+/* nothing */
+"American Samoa" = "Samowa amerikinne";
+
+/* nothing */
+"Austria" = "Otriche";
+
+/* nothing */
+"Nato Fiel" = "";
+
+/* nothing */
+"Australia" = "Ostraleye";
+
+/* nothing */
+"Aruba" = "Arouba";
+
+/* nothing */
+"Aland Islands" = "Iyes Malouwines";
+
+/* nothing */
+"Azerbaijan" = "Azerbaydjan";
+
+/* nothing */
+"Bosnia and Herzegovina" = "Bosneye";
+
+/* nothing */
+"Barbados" = "Bårbades";
+
+/* nothing */
+"Bangladesh" = "Bangladesh";
+
+/* nothing */
+"Belgium" = "Beldjike";
+
+/* nothing */
+"Burkina Faso" = "Bourkina Fasso";
+
+/* nothing */
+"Bulgaria" = "Bulgåreye";
+
+/* nothing */
+"Bahrain" = "Bareyn";
+
+/* nothing */
+"Burundi" = "Bouroundi";
+
+/* nothing */
+"Businesses" = "";
+
+/* nothing */
+"Benin" = "Benin";
+
+/* nothing */
+"Bermuda" = "Bermudes";
+
+/* nothing */
+"Brunei Darussalam" = "Bruney";
+
+/* nothing */
+"Bolivia" = "Boliveye";
+
+/* nothing */
+"Brazil" = "Braezi";
+
+/* nothing */
+"Bahamas" = "Bahamas";
+
+/* nothing */
+"Bhutan" = "Boutan";
+
+/* nothing */
+"Bouvet Island" = "Iye Bouvet";
+
+/* nothing */
+"Botswana" = "Boswana";
+
+/* nothing */
+"Belarus" = "Belaruss";
+
+/* nothing */
+"Belize" = "Belize";
+
+/* nothing */
+"Canada" = "Canada";
+
+/* nothing */
+"Cocos Islands" = "Iyes Cocos";
+
+/* nothing */
+"Democratic Republic of Congo" = "";
+
+/* nothing */
+"Central African Republic" = "Cintrafrike";
+
+/* nothing */
+"Congo" = "Congo";
+
+/* nothing */
+"Switzerland" = "Swisse";
+
+/* nothing */
+"Cote d'Ivoire" = "Coisse d' Ivwere";
+
+/* nothing */
+"Cook Islands" = "Iyes Cook";
+
+/* nothing */
+"Chile" = "Tchili";
+
+/* nothing */
+"Cameroon" = "Camrone";
+
+/* nothing */
+"China" = "Chine";
+
+/* nothing */
+"Colombia" = "Colombeye";
+
+/* nothing */
+"Internic Commercial" = "";
+
+/* nothing */
+"Costa Rica" = "Costa Rica";
+
+/* nothing */
+"Serbia and Montenegro" = "";
+
+/* nothing */
+"Cuba" = "Cuba";
+
+/* nothing */
+"Cape Verde" = "Cap Vert";
+
+/* nothing */
+"Christmas Island" = "Iye Christmas";
+
+/* nothing */
+"Cyprus" = "Chipe";
+
+/* nothing */
+"Czech Republic" = "Tchekeye";
+
+/* nothing */
+"Germany" = "Almagne";
+
+/* nothing */
+"Djibouti" = "Djibouti";
+
+/* nothing */
+"Denmark" = "Daenmåtche";
+
+/* nothing */
+"Dominica" = "Dominike";
+
+/* nothing */
+"Dominican Republic" = "Republike Dominikinne";
+
+/* nothing */
+"Algeria" = "Aldjereye";
+
+/* nothing */
+"Ecuador" = "Ecwåteur";
+
+/* nothing */
+"Educational Institution" = "";
+
+/* nothing */
+"Estonia" = "Estoneye";
+
+/* nothing */
+"Egypt" = "Edjipe";
+
+/* nothing */
+"Western Sahara" = "Sara Coûtchantrece";
+
+/* nothing */
+"Eritrea" = "Eritrêye";
+
+/* nothing */
+"Spain" = "Espagne";
+
+/* nothing */
+"Ethiopia" = "Etiopeye";
+
+/* nothing */
+"European Union" = "";
+
+/* nothing */
+"Finland" = "Finlande";
+
+/* nothing */
+"Fiji" = "Fidji";
+
+/* nothing */
+"Falkland Islands" = "Iyes Malouwines";
+
+/* nothing */
+"Micronesia" = "Micronezeye";
+
+/* nothing */
+"Faroe Islands" = "Iyes Faeroyé";
+
+/* nothing */
+"France" = "France";
+
+/* nothing */
+"Gabon" = "Gabon";
+
+/* nothing */
+"Great Britain" = "Grande Burtaegne";
+
+/* nothing */
+"Grenada" = "Grenåde";
+
+/* nothing */
+"Georgia" = "Djeyordjeye";
+
+/* nothing */
+"French Guiana" = "Guyane francesse";
+
+/* nothing */
+"British Channel Isles" = "Iyes anglo-normandes";
+
+/* nothing */
+"Ghana" = "Gana";
+
+/* nothing */
+"Gibraltar" = "Djibraltar";
+
+/* nothing */
+"Greenland" = "Groenlande";
+
+/* nothing */
+"Gambia" = "Gambeye";
+
+/* nothing */
+"Guinea" = "Guinêye";
+
+/* nothing */
+"Government" = "Govienmint US";
+
+/* nothing */
+"Guadeloupe" = "Gwadeloupe";
+
+/* nothing */
+"Equatorial Guinea" = "Guinêye Ecwåtoriåle";
+
+/* nothing */
+"Greece" = "Grece";
+
+/* nothing */
+"S. Georgia and S. Sandwich Isles" = "Iyes Sandwitch do sud";
+
+/* nothing */
+"Guatemala" = "Gwatemala";
+
+/* nothing */
+"Guam" = "Gwam";
+
+/* nothing */
+"Guinea-Bissau" = "Guinêye-Bissaw";
+
+/* nothing */
+"Guyana" = "Guyana";
+
+/* nothing */
+"Hong Kong" = "Hong Kong";
+
+/* nothing */
+"Heard and McDonald Islands" = "";
+
+/* nothing */
+"Honduras" = "Honduras";
+
+/* nothing */
+"Croatia" = "Crowåceye";
+
+/* nothing */
+"Haiti" = "Hayiti";
+
+/* nothing */
+"Hungary" = "Hongreye";
+
+/* nothing */
+"Indonesia" = "Indonezeye";
+
+/* nothing */
+"Ireland" = "Irlande";
+
+/* nothing */
+"Israel" = "Israyel";
+
+/* nothing */
+"Isle of Man" = "";
+
+/* nothing */
+"India" = "Inde";
+
+/* nothing */
+"Informational" = "";
+
+/* nothing */
+"International" = "Eternåcionå";
+
+/* nothing */
+"British Indian Ocean Territory" = "Teritweres britanikes di l' Oceyan Indyin";
+
+/* nothing */
+"Iraq" = "Irak";
+
+/* nothing */
+"Iran" = "Iran";
+
+/* nothing */
+"Iceland" = "Izlande";
+
+/* nothing */
+"Italy" = "Itåleye";
+
+/* nothing */
+"Jersey" = "";
+
+/* nothing */
+"Jamaica" = "Djamayike";
+
+/* nothing */
+"Jordan" = "Djordaneye";
+
+/* nothing */
+"Japan" = "Djapon";
+
+/* nothing */
+"Kenya" = "Kenia";
+
+/* nothing */
+"Kyrgyzstan" = "Kirguiztan";
+
+/* nothing */
+"Cambodia" = "Cambodje";
+
+/* nothing */
+"Kiribati" = "Kiribati";
+
+/* nothing */
+"Comoros" = "Comores";
+
+/* nothing */
+"St. Kitts and Nevis" = "";
+
+/* nothing */
+"North Korea" = "Corêye (bijhe)";
+
+/* nothing */
+"South Korea" = "Corêye (nonne)";
+
+/* nothing */
+"Kuwait" = "Kuweyt";
+
+/* nothing */
+"Cayman Islands" = "Iyes Cayman";
+
+/* nothing */
+"Kazakhstan" = "Kazaxhtan";
+
+/* nothing */
+"Laos" = "Lawosse";
+
+/* nothing */
+"Lebanon" = "Liban";
+
+/* nothing */
+"Saint Lucia" = "";
+
+/* nothing */
+"Liechtenstein" = "Lîchtensteyn";
+
+/* nothing */
+"Sri Lanka" = "Sri Lanka";
+
+/* nothing */
+"Liberia" = "Liberia";
+
+/* nothing */
+"Lesotho" = "Lessoto";
+
+/* nothing */
+"Lithuania" = "Litwaneye";
+
+/* nothing */
+"Luxembourg" = "Lussimbork";
+
+/* nothing */
+"Latvia" = "Letoneye";
+
+/* nothing */
+"Libya" = "Libeye";
+
+/* nothing */
+"Morocco" = "Marok";
+
+/* nothing */
+"Monaco" = "Monaco";
+
+/* nothing */
+"Moldova" = "Moldova";
+
+/* nothing */
+"United States Medical" = "";
+
+/* nothing */
+"Madagascar" = "Madagascar";
+
+/* nothing */
+"Marshall Islands" = "Iyes Marshall";
+
+/* nothing */
+"Military" = "";
+
+/* nothing */
+"Macedonia" = "Macedoneye";
+
+/* nothing */
+"Mali" = "Mali";
+
+/* nothing */
+"Myanmar" = "Birmaneye";
+
+/* nothing */
+"Mongolia" = "Mongoleye";
+
+/* nothing */
+"Macau" = "";
+
+/* nothing */
+"Northern Mariana Islands" = "Iyes Marianes bijhreces";
+
+/* nothing */
+"Martinique" = "Martinike";
+
+/* nothing */
+"Mauritania" = "Moritanreye";
+
+/* nothing */
+"Montserrat" = "Montserrat";
+
+/* nothing */
+"Malta" = "Male";
+
+/* nothing */
+"Mauritius" = "Iye Môrice";
+
+/* nothing */
+"Maldives" = "Maldives";
+
+/* nothing */
+"Malawi" = "Malawi";
+
+/* nothing */
+"Mexico" = "Mecsike";
+
+/* nothing */
+"Malaysia" = "Malaizeye";
+
+/* nothing */
+"Mozambique" = "Mozambike";
+
+/* nothing */
+"Namibia" = "Namibeye";
+
+/* nothing */
+"New Caledonia" = "Nouve Caledonreye";
+
+/* nothing */
+"Niger" = "Nidjer";
+
+/* nothing */
+"Internic Network" = "";
+
+/* nothing */
+"Norfolk Island" = "Iye Norfolk";
+
+/* nothing */
+"Nigeria" = "Nidjeria";
+
+/* nothing */
+"Nicaragua" = "Nicaragwa";
+
+/* nothing */
+"Netherlands" = "Bas Payis";
+
+/* nothing */
+"Norway" = "Norvedje";
+
+/* nothing */
+"Nepal" = "Nepal";
+
+/* nothing */
+"Nauru" = "Nawouro";
+
+/* nothing */
+"Niue" = "Niuwé";
+
+/* nothing */
+"New Zealand" = "Nouve Zelande";
+
+/* nothing */
+"Oman" = "Oman";
+
+/* nothing */
+"Internic Non-Profit Organization" = "";
+
+/* nothing */
+"Panama" = "Panama";
+
+/* nothing */
+"Peru" = "Perou";
+
+/* nothing */
+"French Polynesia" = "Polinezeye francesse";
+
+/* nothing */
+"Papua New Guinea" = "Papouwazeye Nouve Guinêye";
+
+/* nothing */
+"Philippines" = "Filipenes";
+
+/* nothing */
+"Pakistan" = "Pakistan";
+
+/* nothing */
+"Poland" = "Pologne";
+
+/* nothing */
+"St. Pierre and Miquelon" = "";
+
+/* nothing */
+"Pitcairn" = "Pitcairn";
+
+/* nothing */
+"Puerto Rico" = "Porto Rico";
+
+/* nothing */
+"Palestinian Territory" = "Teritweres britanikes di l' Oceyan Indyin";
+
+/* nothing */
+"Portugal" = "Portugal";
+
+/* nothing */
+"Palau" = "Palawou";
+
+/* nothing */
+"Paraguay" = "Paragway";
+
+/* nothing */
+"Qatar" = "Katar";
+
+/* nothing */
+"Reunion" = "Reyunion";
+
+/* nothing */
+"Romania" = "Roumaneye";
+
+/* nothing */
+"Old School ARPAnet" = "";
+
+/* nothing */
+"Russian Federation" = "Rûsseye";
+
+/* nothing */
+"Rwanda" = "Rwanda";
+
+/* nothing */
+"Saudi Arabia" = "Arabeye Sawoudite";
+
+/* nothing */
+"Solomon Islands" = "Iyes Solomon";
+
+/* nothing */
+"Seychelles" = "Seycheles";
+
+/* nothing */
+"Sudan" = "Soudan";
+
+/* nothing */
+"Sweden" = "Suwede";
+
+/* nothing */
+"Singapore" = "Singapour";
+
+/* nothing */
+"St. Helena" = "Sinte Helene";
+
+/* nothing */
+"Slovenia" = "Esloveneye";
+
+/* nothing */
+"Svalbard and Jan Mayen Islands" = "";
+
+/* nothing */
+"Slovak Republic" = "Eslovakeye";
+
+/* nothing */
+"Sierra Leone" = "Siera Leyone";
+
+/* nothing */
+"San Marino" = "Sint Marin";
+
+/* nothing */
+"Senegal" = "Senegål";
+
+/* nothing */
+"Somalia" = "Somaleye";
+
+/* nothing */
+"Suriname" = "Suriname";
+
+/* nothing */
+"Sao Tome and Principe" = "São Tomé et Prince";
+
+/* nothing */
+"Former USSR" = "Ancyinne Union Sovietike";
+
+/* nothing */
+"El Salvador" = "El Salvador";
+
+/* nothing */
+"Syria" = "Sireye";
+
+/* nothing */
+"Swaziland" = "Suwazilande";
+
+/* nothing */
+"Turks and Caicos Islands" = "";
+
+/* nothing */
+"Chad" = "Tchad";
+
+/* nothing */
+"French Southern Territories" = "";
+
+/* nothing */
+"Togo" = "Togo";
+
+/* nothing */
+"Thailand" = "Taylande";
+
+/* nothing */
+"Tajikistan" = "Tadjikistan";
+
+/* nothing */
+"Tokelau" = "";
+
+/* nothing */
+"East Timor" = "Timor Ess";
+
+/* nothing */
+"Turkmenistan" = "Turcmenistan";
+
+/* nothing */
+"Tunisia" = "Tunizeye";
+
+/* nothing */
+"Tonga" = "Tonga";
+
+/* nothing */
+"Turkey" = "Turkeye";
+
+/* nothing */
+"Trinidad and Tobago" = "Trinité et Tobago";
+
+/* nothing */
+"Tuvalu" = "Touvalou";
+
+/* nothing */
+"Taiwan" = "Taiwan";
+
+/* nothing */
+"Tanzania" = "Tanzaneye";
+
+/* nothing */
+"Ukraine" = "Oucrinne";
+
+/* nothing */
+"Uganda" = "Ouganda";
+
+/* nothing */
+"United Kingdom" = "Rweyåme Uni";
+
+/* nothing */
+"United States of America" = "Estats Unis d' Amerike";
+
+/* nothing */
+"Uruguay" = "Ourougway";
+
+/* nothing */
+"Uzbekistan" = "Ouzbekistan";
+
+/* nothing */
+"Vatican City State" = "Vatican";
+
+/* nothing */
+"St. Vincent and the Grenadines" = "";
+
+/* nothing */
+"Venezuela" = "Venezwela";
+
+/* nothing */
+"British Virgin Islands" = "";
+
+/* nothing */
+"US Virgin Islands" = "";
+
+/* nothing */
+"Vietnam" = "Vietnam";
+
+/* nothing */
+"Vanuatu" = "Vanouatou";
+
+/* nothing */
+"Wallis and Futuna Islands" = "";
+
+/* nothing */
+"Samoa" = "Samowa";
+
+/* nothing */
+"Yemen" = "Yemen";
+
+/* nothing */
+"Mayotte" = "Mayote";
+
+/* nothing */
+"Yugoslavia" = "Yougoslaveye";
+
+/* nothing */
+"South Africa" = "Nonne Afrike";
+
+/* nothing */
+"Zambia" = "Zambeye";
+
+/* nothing */
+"Zimbabwe" = "Zimbabwè";
+
+/* nothing */
+"Unknown" = "Nén cnoxhou";
+
+/* nothing */
+"_Open Dialog Window" = "";
+
+/* nothing */
+"_Send a File" = "Evoyî fitchî";
+
+/* nothing */
+"_User Info (WhoIs)" = "";
+
+/* nothing */
+"_Add to Friends List" = "Adresses a s' raloyî avou:";
+
+/* nothing */
+"O_perator Actions" = "";
+
+/* nothing */
+"Give Ops" = "";
+
+/* nothing */
+"Take Ops" = "";
+
+/* nothing */
+"Give Voice" = "";
+
+/* nothing */
+"Take Voice" = "";
+
+/* nothing */
+"Kick/Ban" = "";
+
+/* nothing */
+"Kick" = "";
+
+/* nothing */
+"Ban" = "";
+
+/* nothing */
+"KickBan" = "";
+
+/* nothing */
+"Leave Channel" = "Cwiter l' canå";
+
+/* nothing */
+"Join Channel..." = "Adjonde li canå...";
+
+/* nothing */
+"Enter Channel to Join:" = "Tapez l' canå a-z adjonde:";
+
+/* nothing */
+"Server Links" = "";
+
+/* nothing */
+"Ping Server" = "";
+
+/* nothing */
+"Hide Version" = "Catchî l' modêye";
+
+/* nothing */
+"Op" = "";
+
+/* nothing */
+"DeOp" = "";
+
+/* nothing */
+"bye" = "";
+
+/* nothing */
+"Enter reason to kick %s:" = "";
+
+/* nothing */
+"Sendfile" = "";
+
+/* nothing */
+"Dialog" = "";
+
+/* nothing */
+"WhoIs" = "";
+
+/* nothing */
+"Send" = "Evoyî";
+
+/* nothing */
+"Chat" = "Tchater";
+
+/* nothing */
+"Clear" = "Netyî";
+
+/* nothing */
+"Ping" = "Ping";
+
+/* nothing */
+"Couldn't connect to session bus" = "";
+
+/* nothing */
+"Failed to complete NameHasOwner" = "";
+
+/* nothing */
+"Failed to complete Command" = "";
+
+/* nothing */
+"remote access" = "Dji n' sai acceder a %s\n";
+
+/* nothing */
+"plugin for remote access using DBUS" = "";
+
+/* nothing */
+"Couldn't connect to session bus: %s\n" = "";
+
+/* nothing */
+"Failed to acquire %s: %s\n" = "";
+
+/* nothing */
+"About " = "Å _dfait";
+
+/* nothing */
+"A multiplatform IRC Client" = "On cliyint IRC multi-platfômes";
+
+/* nothing */
+"Character Chart" = "Tåvlea di caracteres";
+
+/* nothing */
+"Not connected." = "Continouwer e blouke disk' a s' raloyî";
+
+/* nothing */
+"You must select some bans." = "";
+
+/* nothing */
+"Are you sure you want to remove all bans in %s?" = "";
+
+/* nothing */
+"Mask" = "";
+
+/* nothing */
+"From" = "Di";
+
+/* nothing */
+"Date" = "Date";
+
+/* nothing */
+"You can only open the Ban List window while in a channel tab." = "";
+
+/* nothing */
+"XChat: Ban List (%s)" = "X-Chat: Djivêye des canås (%s)";
+
+/* nothing */
+"Remove" = "Oister";
+
+/* nothing */
+"Crop" = "";
+
+/* nothing */
+"Refresh" = "Rafrister";
+
+/* nothing */
+"Displaying %d/%d users on %d/%d channels." = "Sitatistikes uzeu et canås: %d/%d uzeus so %d/%d canås";
+
+/* nothing */
+"Select an output filename" = "Tchoezixhoz on fitchî pol rexhowe";
+
+/* nothing */
+"_Join Channel" = "Adjonde li canå";
+
+/* nothing */
+"_Copy Channel Name" = "No do canå";
+
+/* nothing */
+"Copy _Topic Text" = "";
+
+/* nothing */
+"XChat: Channel List (%s)" = "X-Chat: Djivêye des canås (%s)";
+
+/* nothing */
+"_Search" = "";
+
+/* nothing */
+"_Download List" = "";
+
+/* nothing */
+"Save _List..." = "Djivêye des sierveus...";
+
+/* nothing */
+"Show only:" = "";
+
+/* nothing */
+"channels with" = "Djivêye des canås...";
+
+/* nothing */
+"to" = "";
+
+/* nothing */
+"users." = "Uzeus";
+
+/* nothing */
+"Look in:" = "";
+
+/* nothing */
+"Channel name" = "No do canå";
+
+/* nothing */
+"Search type:" = "Cweri l' tecse...";
+
+/* nothing */
+"Simple Search" = "";
+
+/* nothing */
+"Pattern Match (Wildcards)" = "";
+
+/* nothing */
+"Regular Expression" = "";
+
+/* nothing */
+"Find:" = "Trover:";
+
+/* nothing */
+"Send file to %s" = "Evoyî fitchî a %s";
+
+/* nothing */
+"That file is not resumable." = "";
+
+/* nothing */
+"Cannot access file: %s\n%s.\nResuming not possible." = "";
+
+/* nothing */
+"File in download directory is larger than file offered. Resuming not possible." = "";
+
+/* nothing */
+"Cannot resume the same file from two people." = "";
+
+/* nothing */
+"XChat: Uploads and Downloads" = "";
+
+/* nothing */
+"Status" = "Estat";
+
+/* nothing */
+"File" = "Fitchî";
+
+/* nothing */
+"ETA" = "";
+
+/* nothing */
+"Both" = "Ambedeus";
+
+/* nothing */
+"Uploads" = "";
+
+/* nothing */
+"Downloads" = "";
+
+/* nothing */
+"Details" = "";
+
+/* nothing */
+"File:" = "Fitchî";
+
+/* nothing */
+"Address:" = "Adresse IP";
+
+/* nothing */
+"Abort" = "Rinoncî";
+
+/* nothing */
+"Accept" = "Accepter";
+
+/* nothing */
+"Resume" = "Rataker";
+
+/* nothing */
+"Open Folder..." = "";
+
+/* nothing */
+"XChat: DCC Chat List" = "X-Chat: Djivêye des canås (%s)";
+
+/* nothing */
+"Recv" = "Riçuv.";
+
+/* nothing */
+"Sent" = "Evoyî";
+
+/* nothing */
+"Start Time" = "Eure å cmince";
+
+/* nothing */
+"*NEW*" = "*NOVEA*";
+
+/* nothing */
+"EDIT ME" = "CANDJÎZ MU";
+
+/* nothing */
+"Name" = "No";
+
+/* nothing */
+"Command" = "Comande";
+
+/* nothing */
+"Move Up" = "Monter";
+
+/* nothing */
+"Move Dn" = "Dischinde";
+
+/* nothing */
+"Cancel" = "Rinoncî";
+
+/* nothing */
+"Save" = "Schaper";
+
+/* nothing */
+"Add New" = "Radjouter novea";
+
+/* nothing */
+"Delete" = "Disfacer";
+
+/* nothing */
+"Sort" = "Relére";
+
+/* nothing */
+"Help" = "Aidance";
+
+/* nothing */
+"Don't auto connect to servers" = "";
+
+/* nothing */
+"Use a different config directory" = "eployî on ridant d' apontiaedje diferin";
+
+/* nothing */
+"Don't auto load any plugins" = "";
+
+/* nothing */
+"Show plugin auto-load directory" = "";
+
+/* nothing */
+"Show user config directory" = "";
+
+/* nothing */
+"Open an irc://server:port/channel URL" = "";
+
+/* nothing */
+"Execute command:" = "Comande å raloyaedje:";
+
+/* nothing */
+"Open URL or execute command in an existing XChat" = "";
+
+/* nothing */
+"Begin minimized. Level 0=Normal 1=Iconified 2=Tray" = "";
+
+/* nothing */
+"level" = "Måy";
+
+/* nothing */
+"Show version information" = "Informåcions sol sierveu";
+
+/* nothing */
+"Failed to open font:\n\n%s" = "";
+
+/* nothing */
+"Search buffer is empty.\n" = "";
+
+/* nothing */
+"%d bytes" = "";
+
+/* nothing */
+"Network send queue: %d bytes" = "";
+
+/* nothing */
+"The Run Command action runs the data in Data 1 as if it has been typed into the entry box where you pressed the key sequence. Thus it can contain text (which will be sent to the channel/person), commands or user commands. When run all \\n characters in Data 1 are used to deliminate seperate commands so it is possible to run more than one command. If you want a \\ in the actual text run then enter \\\\" = "";
+
+/* nothing */
+"The Change Page command switches between pages in the notebook. Set Data 1 to the page you want to switch to. If Data 2 is set to anything then the switch will be relative to the current position" = "";
+
+/* nothing */
+"The Insert in Buffer command will insert the contents of Data 1 into the entry where the key sequence was pressed at the current cursor position" = "";
+
+/* nothing */
+"The Scroll Page command scrolls the text widget up or down one page or one line. Set Data 1 to either Up, Down, +1 or -1." = "";
+
+/* nothing */
+"The Set Buffer command sets the entry where the key sequence was entered to the contents of Data 1" = "";
+
+/* nothing */
+"The Last Command command sets the entry to contain the last command entered - the same as pressing up in a shell" = "";
+
+/* nothing */
+"The Next Command command sets the entry to contain the next command entered - the same as pressing down in a shell" = "";
+
+/* nothing */
+"This command changes the text in the entry to finish an incomplete nickname or command. If Data 1 is set then double-tabbing in a string will select the last nick, not the next" = "";
+
+/* nothing */
+"This command scrolls up and down through the list of nicks. If Data 1 is set to anything it will scroll up, else it scrolls down" = "";
+
+/* nothing */
+"This command checks the last word entered in the entry against the replace list and replaces it if it finds a match" = "";
+
+/* nothing */
+"This command moves the front tab left by one" = "";
+
+/* nothing */
+"This command moves the front tab right by one" = "";
+
+/* nothing */
+"This command moves the current tab family to the left" = "";
+
+/* nothing */
+"This command moves the current tab family to the right" = "";
+
+/* nothing */
+"Push input line into history but doesn't send to server" = "";
+
+/* nothing */
+"There was an error loading key bindings configuration" = "";
+
+/* nothing */
+"<none>" = "<nouk>";
+
+/* nothing */
+"Mod" = "";
+
+/* nothing */
+"Key" = "Tape";
+
+/* nothing */
+"Action" = "Accion";
+
+/* nothing */
+"XChat: Keyboard Shortcuts" = "";
+
+/* nothing */
+"Shift" = "Shift";
+
+/* nothing */
+"Alt" = "Alt";
+
+/* nothing */
+"Ctrl" = "Ctrl";
+
+/* nothing */
+"Data 1" = "";
+
+/* nothing */
+"Data 2" = "";
+
+/* nothing */
+"Error opening keys config file\n" = "";
+
+/* nothing */
+"Unknown keyname %s in key bindings config file\nLoad aborted, please fix %s/keybindings.conf\n" = "Li no d' tape «%s» dins l' fitchî d' apontiaedje n' est nén cnoxhou\nDji rnonce a tcherdjî, coridjîz %s/keybindings.conf s' i vs plait\n";
+
+/* nothing */
+"Unknown action %s in key bindings config file\nLoad aborted, Please fix %s/keybindings\n" = "";
+
+/* nothing */
+"Expecting Data line (beginning Dx{:|!}) but got:\n%s\n\nLoad aborted, Please fix %s/keybindings\n" = "";
+
+/* nothing */
+"Key bindings config file is corrupt, load aborted\nPlease fix %s/keybindings.conf\n" = "";
+
+/* nothing */
+"Cannot write to that file." = "Dji n' sai scrire dins ç' fitchî la.";
+
+/* nothing */
+"Cannot read that file." = "Dji n' sai lére ci fitchî la.";
+
+/* nothing */
+"That mask already exists." = "";
+
+/* nothing */
+"Private" = "Privé";
+
+/* nothing */
+"Notice" = "";
+
+/* nothing */
+"CTCP" = "";
+
+/* nothing */
+"DCC" = "";
+
+/* nothing */
+"Invite" = "Priyî";
+
+/* nothing */
+"Unignore" = "";
+
+/* nothing */
+"Enter mask to ignore:" = "";
+
+/* nothing */
+"XChat: Ignore list" = "X-Chat: Djivêye a ignorer";
+
+/* nothing */
+"Ignore Stats:" = "";
+
+/* nothing */
+"Channel:" = "Canå:";
+
+/* nothing */
+"Private:" = "Privé:";
+
+/* nothing */
+"Notice:" = "";
+
+/* nothing */
+"CTCP:" = "";
+
+/* nothing */
+"Invite:" = "Priyî:";
+
+/* nothing */
+"Add..." = "Radjouter";
+
+/* nothing */
+"Channel name too short, try again." = "";
+
+/* nothing */
+"XChat: Connection Complete" = "";
+
+/* nothing */
+"Connection to %s complete." = "";
+
+/* nothing */
+"In the Server-List window, no channel (chat room) has been entered to be automatically joined for this network." = "";
+
+/* nothing */
+"What would you like to do next?" = "";
+
+/* nothing */
+"_Nothing, I'll join a channel later." = "";
+
+/* nothing */
+"_Join this channel:" = "Adjonde canås:";
+
+/* nothing */
+"If you know the name of the channel you want to join, enter it here." = "";
+
+/* nothing */
+"O_pen the Channel-List window." = "";
+
+/* nothing */
+"Retrieving the Channel-List may take a minute or two." = "";
+
+/* nothing */
+"_Always show this dialog after connecting." = "";
+
+/* nothing */
+"Dialog with" = "";
+
+/* nothing */
+"Topic for %s is: %s" = "";
+
+/* nothing */
+"No topic is set" = "";
+
+/* nothing */
+"This server still has %d channels or dialogs associated with it. Close them all?" = "";
+
+/* nothing */
+"Quit XChat?" = "Å dfait di X-Chat";
+
+/* nothing */
+"Don't ask next time." = "";
+
+/* nothing */
+"You are connected to %i IRC networks." = "";
+
+/* nothing */
+"Are you sure you want to quit?" = "";
+
+/* nothing */
+"Some file transfers are still active." = "";
+
+/* nothing */
+"_Minimize to Tray" = "";
+
+/* nothing */
+"Insert Attribute or Color Code" = "";
+
+/* nothing */
+"<b>Bold</b>" = "";
+
+/* nothing */
+"<u>Underline</u>" = "";
+
+/* nothing */
+"Normal" = "Norvedje";
+
+/* nothing */
+"Colors 0-7" = "Coleurs";
+
+/* nothing */
+"Colors 8-15" = "Coleurs";
+
+/* nothing */
+"_Settings" = "A_pontiaedjes";
+
+/* nothing */
+"_Log to Disk" = "";
+
+/* nothing */
+"_Reload Scrollback" = "";
+
+/* nothing */
+"_Hide Join/Part Messages" = "";
+
+/* nothing */
+"_Extra Alerts" = "";
+
+/* nothing */
+"Beep on _Message" = "Novea messaedje:";
+
+/* nothing */
+"Blink Tray _Icon" = "";
+
+/* nothing */
+"Blink Task _Bar" = "";
+
+/* nothing */
+"_Detach" = "";
+
+/* nothing */
+"_Close" = "_Clôre";
+
+/* nothing */
+"User limit must be a number!\n" = "";
+
+/* nothing */
+"Topic Protection" = "";
+
+/* nothing */
+"No outside messages" = "";
+
+/* nothing */
+"Secret" = "Sicret";
+
+/* nothing */
+"Invite Only" = "";
+
+/* nothing */
+"Moderated" = "";
+
+/* nothing */
+"Ban List" = "";
+
+/* nothing */
+"Keyword" = "";
+
+/* nothing */
+"User Limit" = "";
+
+/* nothing */
+"Show/Hide userlist" = "";
+
+/* nothing */
+"Unable to set transparent background!\n\nYou may be using a non-compliant window\nmanager that is not currently supported.\n" = "";
+
+/* nothing */
+"Enter new nickname:" = "";
+
+/* nothing */
+"Host unknown" = "";
+
+/* nothing */
+"<tt><b>%-11s</b></tt> %s" = "";
+
+/* nothing */
+"Real Name:" = "Vraiy no:";
+
+/* nothing */
+"User:" = "Uzeu";
+
+/* nothing */
+"Country:" = "Payis: %s";
+
+/* nothing */
+"Server:" = "Sierveu";
+
+/* nothing */
+"%u minutes ago" = "";
+
+/* nothing */
+"Last Msg:" = "";
+
+/* nothing */
+"Away Msg:" = "";
+
+/* nothing */
+"%d nicks selected." = "";
+
+/* nothing */
+"The Menubar is now hidden. You can show it again by pressing F9 or right-clicking in a blank part of the main text area." = "";
+
+/* nothing */
+"Open Link in Browser" = "";
+
+/* nothing */
+"Copy Selected Link" = "Copyî l' tchoezeye hårdêye";
+
+/* nothing */
+"Join Channel" = "Adjonde li canå";
+
+/* nothing */
+"Part Channel" = "";
+
+/* nothing */
+"Cycle Channel" = "";
+
+/* nothing */
+"_Remove from Favorites" = "";
+
+/* nothing */
+"_Add to Favorites" = "";
+
+/* nothing */
+"XChat: User menu" = "X-Chat: Menu da vosse";
+
+/* nothing */
+"Edit This Menu..." = "Candjî ç' menu ci...";
+
+/* nothing */
+"Retrieve channel list..." = "Djivêye des canås...";
+
+/* nothing */
+"User Commands - Special codes:\n\n%c  =  current channel\n%e  =  current network name\n%m  =  machine info\n%n  =  your nick\n%t  =  time/date\n%v  =  xchat version\n%2  =  word 2\n%3  =  word 3\n&2  =  word 2 to the end of line\n&3  =  word 3 to the end of line\n\neg:\n/cmd john hello\n\n%2 would be \"john\"\n&2 would be \"john hello\"." = "";
+
+/* nothing */
+"Userlist Buttons - Special codes:\n\n%a  =  all selected nicks\n%c  =  current channel\n%e  =  current network name\n%h  =  selected nick's hostname\n%m  =  machine info\n%n  =  your nick\n%s  =  selected nick\n%t  =  time/date\n" = "";
+
+/* nothing */
+"Dialog Buttons - Special codes:\n\n%a  =  all selected nicks\n%c  =  current channel\n%e  =  current network name\n%h  =  selected nick's hostname\n%m  =  machine info\n%n  =  your nick\n%s  =  selected nick\n%t  =  time/date\n" = "";
+
+/* nothing */
+"CTCP Replies - Special codes:\n\n%d  =  data (the whole ctcp)\n%e  =  current network name\n%m  =  machine info\n%s  =  nick who sent the ctcp\n%t  =  time/date\n%2  =  word 2\n%3  =  word 3\n&2  =  word 2 to the end of line\n&3  =  word 3 to the end of line\n\n" = "";
+
+/* nothing */
+"URL Handlers - Special codes:\n\n%s  =  the URL string\n\nPutting a ! infront of the command\nindicates it should be sent to a\nshell instead of XChat" = "";
+
+/* nothing */
+"XChat: User Defined Commands" = "X-Chat: Menu da vosse";
+
+/* nothing */
+"XChat: Userlist Popup menu" = "X-Chat: Menu da vosse";
+
+/* nothing */
+"Replace with" = "";
+
+/* nothing */
+"XChat: Replace" = "X-Chat: Replaecî";
+
+/* nothing */
+"XChat: URL Handlers" = "";
+
+/* nothing */
+"XChat: Userlist buttons" = "X-Chat: Menu da vosse";
+
+/* nothing */
+"XChat: Dialog buttons" = "";
+
+/* nothing */
+"XChat: CTCP Replies" = "X-Chat: Replaecî";
+
+/* nothing */
+"_XChat" = "_X-Chat";
+
+/* nothing */
+"Network Li_st..." = "Apontiaedje del rantoele";
+
+/* nothing */
+"_New" = "Novea";
+
+/* nothing */
+"Server Tab..." = "Linwete di sierveu...";
+
+/* nothing */
+"Channel Tab..." = "Linwete di canå...";
+
+/* nothing */
+"Server Window..." = "";
+
+/* nothing */
+"Channel Window..." = "";
+
+/* nothing */
+"_Load Plugin or Script..." = "Tchôke-divins eyet scripes...";
+
+/* nothing */
+"_Quit" = "Cwiter";
+
+/* nothing */
+"_View" = "";
+
+/* nothing */
+"_Menu Bar" = "";
+
+/* nothing */
+"_Topic Bar" = "";
+
+/* nothing */
+"_User List" = "Djivêye des uzeus";
+
+/* nothing */
+"U_serlist Buttons" = "Djivêye des uzeus";
+
+/* nothing */
+"M_ode Buttons" = "";
+
+/* nothing */
+"_Channel Switcher" = "Djivêye des canås...";
+
+/* nothing */
+"_Tabs" = "Linwetes";
+
+/* nothing */
+"T_ree" = "";
+
+/* nothing */
+"_Network Meters" = "Apontiaedje del rantoele";
+
+/* nothing */
+"Off" = "";
+
+/* nothing */
+"Graph" = "";
+
+/* nothing */
+"_Server" = "_Sierveu";
+
+/* nothing */
+"_Disconnect" = "Disraloyî";
+
+/* nothing */
+"_Reconnect" = "Riraloyî";
+
+/* nothing */
+"Join a Channel..." = "Adjonde li canå...";
+
+/* nothing */
+"List of Channels..." = "Adjonde li canå...";
+
+/* nothing */
+"Marked Away" = "";
+
+/* nothing */
+"_Usermenu" = "No d' uzeu";
+
+/* nothing */
+"S_ettings" = "A_pontiaedjes";
+
+/* nothing */
+"_Preferences" = "Preferinces...";
+
+/* nothing */
+"Advanced" = "";
+
+/* nothing */
+"Auto Replace..." = "";
+
+/* nothing */
+"CTCP Replies..." = "";
+
+/* nothing */
+"Dialog Buttons..." = "";
+
+/* nothing */
+"Keyboard Shortcuts..." = "";
+
+/* nothing */
+"Text Events..." = "";
+
+/* nothing */
+"URL Handlers..." = "";
+
+/* nothing */
+"User Commands..." = "";
+
+/* nothing */
+"Userlist Buttons..." = "";
+
+/* nothing */
+"Userlist Popup..." = "";
+
+/* nothing */
+"_Window" = "_Purnea";
+
+/* nothing */
+"Ban List..." = "";
+
+/* nothing */
+"Character Chart..." = "";
+
+/* nothing */
+"Direct Chat..." = "";
+
+/* nothing */
+"File Transfers..." = "Transfers di fitchîs";
+
+/* nothing */
+"Friends List..." = "Djivêye des sierveus...";
+
+/* nothing */
+"Ignore List..." = "";
+
+/* nothing */
+"Plugins and Scripts..." = "Tchôke-divins eyet scripes...";
+
+/* nothing */
+"Raw Log..." = "";
+
+/* nothing */
+"URL Grabber..." = "";
+
+/* nothing */
+"Reset Marker Line" = "";
+
+/* nothing */
+"C_lear Text" = "_Netyî l' tecse";
+
+/* nothing */
+"Search Text..." = "Cweri l' tecse...";
+
+/* nothing */
+"Save Text..." = "Schaper l' tecse...";
+
+/* nothing */
+"_Help" = "_Aidance";
+
+/* nothing */
+"_Contents" = "Åd_vins";
+
+/* nothing */
+"Check for updates" = "";
+
+/* nothing */
+"_About" = "Å _dfait";
+
+/* nothing */
+"_Attach" = "";
+
+/* nothing */
+"Last Seen" = "";
+
+/* nothing */
+"Offline" = "";
+
+/* nothing */
+"Never" = "Måy";
+
+/* nothing */
+"%d minutes ago" = "";
+
+/* nothing */
+"Online" = "";
+
+/* nothing */
+"Enter nickname to add:" = "";
+
+/* nothing */
+"Notify on these networks:" = "";
+
+/* nothing */
+"Comma separated list of networks is accepted." = "";
+
+/* nothing */
+"XChat: Friends List" = "X-Chat: Djivêye des fitchîs a evoyî";
+
+/* nothing */
+"Open Dialog" = "";
+
+/* nothing */
+"Cannot find 'notify-send' to open balloon alerts.\nPlease install libnotify." = "";
+
+/* nothing */
+"XChat: Connected to %u networks and %u channels" = "";
+
+/* nothing */
+"_Restore" = "";
+
+/* nothing */
+"_Hide" = "Catchî";
+
+/* nothing */
+"_Blink on" = "";
+
+/* nothing */
+"Channel Message" = "No do canå";
+
+/* nothing */
+"Private Message" = "Novea messaedje:";
+
+/* nothing */
+"Highlighted Message" = "";
+
+/* nothing */
+"_Change status" = "";
+
+/* nothing */
+"_Away" = "";
+
+/* nothing */
+"_Back" = "";
+
+/* nothing */
+"XChat: Highlighted message from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u highlighted messages, latest from: %s (%s)" = "";
+
+/* nothing */
+"XChat: New public message from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u new public messages." = "";
+
+/* nothing */
+"XChat: Private message from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u private messages, latest from: %s (%s)" = "";
+
+/* nothing */
+"XChat: File offer from: %s (%s)" = "";
+
+/* nothing */
+"XChat: %u file offers, latest from: %s (%s)" = "";
+
+/* nothing */
+"Version" = "Modêye";
+
+/* nothing */
+"Description" = "Discrijhaedje";
+
+/* nothing */
+"Select a Plugin or Script to load" = "Tchoezixhoz on tchôke-divins ou on scripe a tcherdjî";
+
+/* nothing */
+"XChat: Plugins and Scripts" = "X-Chat: Tchôke-divins eyet scripes";
+
+/* nothing */
+"_Load..." = "_Tcherdjî...";
+
+/* nothing */
+"_UnLoad" = "_Distcherdjî";
+
+/* nothing */
+"Save As..." = "Schaper et rlomer";
+
+/* nothing */
+"XChat: Rawlog (%s)" = "X-Chat: Djivêye des canås (%s)";
+
+/* nothing */
+"Clear rawlog" = "";
+
+/* nothing */
+"The window you opened this Search for doesn't exist anymore." = "";
+
+/* nothing */
+"Search hit end, not found." = "";
+
+/* nothing */
+"XChat: Search" = "X-Chat: Cweraedje";
+
+/* nothing */
+"_Match case" = "";
+
+/* nothing */
+"Search _backwards" = "";
+
+/* nothing */
+"_Find" = "Trover";
+
+/* nothing */
+"New Network" = "Novele rantoele";
+
+/* nothing */
+"Really remove network \"%s\" and all its servers?" = "Voloz vs vormint oister l' rantoele «%s» eyet tos ses sierveus?";
+
+/* nothing */
+"#channel" = "Canå";
+
+/* nothing */
+"XChat: Favorite Channels (Auto-Join List)" = "X-Chat: Djivêye des canås (%s)";
+
+/* nothing */
+"These channels will be joined whenever you connect to %s." = "";
+
+/* nothing */
+"Key (Password)" = "Sicret:";
+
+/* nothing */
+"_Edit" = "";
+
+/* nothing */
+"%s has been removed." = "";
+
+/* nothing */
+"%s has been added." = "";
+
+/* nothing */
+"User name and Real name cannot be left blank." = "";
+
+/* nothing */
+"XChat: Edit %s" = "X-Chat: Candjî les tapes rascourtis";
+
+/* nothing */
+"Servers for %s" = "Sierveu: %s";
+
+/* nothing */
+"Connect to selected server only" = "";
+
+/* nothing */
+"Don't cycle through all the servers when the connection fails." = "";
+
+/* nothing */
+"Your Details" = "";
+
+/* nothing */
+"Use global user information" = "Informåcions sol sierveu";
+
+/* nothing */
+"_Nick name:" = "";
+
+/* nothing */
+"Second choice:" = "Fitchî son: ";
+
+/* nothing */
+"_User name:" = "No d' uzeu:";
+
+/* nothing */
+"Rea_l name:" = "Vraiy no:";
+
+/* nothing */
+"Connecting" = "Raloyaedje";
+
+/* nothing */
+"Auto connect to this network at startup" = "";
+
+/* nothing */
+"Bypass proxy server" = "Sierveu procsi";
+
+/* nothing */
+"Use SSL for all the servers on this network" = "";
+
+/* nothing */
+"Accept invalid SSL certificate" = "";
+
+/* nothing */
+"_Favorite channels:" = "Adjonde canås:";
+
+/* nothing */
+"Channels to join, separated by commas, but not spaces!" = "Canås a-z adjonde, separés pa des comas, sins nou vude inte di zels!";
+
+/* nothing */
+"Connect command:" = "Comande å raloyaedje:";
+
+/* nothing */
+"Extra command to execute after connecting. If you need more than one, set this to LOAD -e <filename>, where <filename> is a text-file full of commands to execute." = "";
+
+/* nothing */
+"Nickserv password:" = "Sicret pol sierveu:";
+
+/* nothing */
+"If your nickname requires a password, enter it here. Not all IRC networks support this." = "";
+
+/* nothing */
+"Server password:" = "Sicret pol sierveu:";
+
+/* nothing */
+"Password for the server, if in doubt, leave blank." = "";
+
+/* nothing */
+"Character set:" = "Ecôdaedje:";
+
+/* nothing */
+"XChat: Network List" = "X-Chat: Djivêye des sierveus";
+
+/* nothing */
+"User Information" = "Informåcions sol sierveu";
+
+/* nothing */
+"Third choice:" = "";
+
+/* nothing */
+"Networks" = "Rantoeles";
+
+/* nothing */
+"Skip network list on startup" = "";
+
+/* nothing */
+"_Edit..." = "_Tcherdjî...";
+
+/* nothing */
+"_Sort" = "Relére";
+
+/* nothing */
+"Sorts the network list in alphabetical order. Use SHIFT-UP and SHIFT-DOWN keys to move a row." = "";
+
+/* nothing */
+"C_onnect" = "Ralo_yî";
+
+/* nothing */
+"Text Box Appearance" = "";
+
+/* nothing */
+"Font:" = "Fonte:";
+
+/* nothing */
+"Background image:" = "";
+
+/* nothing */
+"Scrollback lines:" = "";
+
+/* nothing */
+"Colored nick names" = "";
+
+/* nothing */
+"Give each person on IRC a different color" = "";
+
+/* nothing */
+"Indent nick names" = "";
+
+/* nothing */
+"Make nick names right-justified" = "";
+
+/* nothing */
+"Transparent background" = "";
+
+/* nothing */
+"Show marker line" = "";
+
+/* nothing */
+"Insert a red line after the last read text." = "";
+
+/* nothing */
+"Transparency Settings" = "";
+
+/* nothing */
+"Red:" = "";
+
+/* nothing */
+"Green:" = "Groenlande";
+
+/* nothing */
+"Blue:" = "";
+
+/* nothing */
+"Time Stamps" = "";
+
+/* nothing */
+"Enable time stamps" = "Sititchî l' eure dins les djournås";
+
+/* nothing */
+"Time stamp format:" = "";
+
+/* nothing */
+"See strftime manpage for details." = "";
+
+/* nothing */
+"A-Z" = "A-Z";
+
+/* nothing */
+"Last-spoke order" = "";
+
+/* nothing */
+"Input box" = "Boesse d' intrêye";
+
+/* nothing */
+"Use the Text box font and colors" = "";
+
+/* nothing */
+"Spell checking" = "";
+
+/* nothing */
+"Nick Completion" = "";
+
+/* nothing */
+"Automatic nick completion (without TAB key)" = "";
+
+/* nothing */
+"Nick completion suffix:" = "";
+
+/* nothing */
+"Nick completion sorted:" = "";
+
+/* nothing */
+"Input Box Codes" = "Boesse d' intrêye";
+
+/* nothing */
+"Interpret %nnn as an ASCII value" = "";
+
+/* nothing */
+"Interpret %C, %B as Color, Bold etc" = "";
+
+/* nothing */
+"A-Z, Ops first" = "";
+
+/* nothing */
+"Z-A, Ops last" = "";
+
+/* nothing */
+"Z-A" = "Z-A";
+
+/* nothing */
+"Unsorted" = "Nén rélî";
+
+/* nothing */
+"Left (Upper)" = "";
+
+/* nothing */
+"Left (Lower)" = "";
+
+/* nothing */
+"Right (Upper)" = "";
+
+/* nothing */
+"Right (Lower)" = "";
+
+/* nothing */
+"Top" = "Al copete";
+
+/* nothing */
+"Bottom" = "Al valêye";
+
+/* nothing */
+"Hidden" = "Catchî";
+
+/* nothing */
+"User List" = "";
+
+/* nothing */
+"Show hostnames in user list" = "";
+
+/* nothing */
+"User list sorted by:" = "Djivêye des uzeus";
+
+/* nothing */
+"Show user list at:" = "Mostrer les linwetes:";
+
+/* nothing */
+"Away tracking" = "";
+
+/* nothing */
+"Track the Away status of users and mark them in a different color" = "";
+
+/* nothing */
+"On channels smaller than:" = "";
+
+/* nothing */
+"Action Upon Double Click" = "";
+
+/* nothing */
+"Windows" = "Purneas";
+
+/* nothing */
+"Tabs" = "Linwetes";
+
+/* nothing */
+"Always" = "";
+
+/* nothing */
+"Only requested tabs" = "";
+
+/* nothing */
+"Tree" = "Grece";
+
+/* nothing */
+"Switcher type:" = "";
+
+/* nothing */
+"Open an extra tab for server messages" = "";
+
+/* nothing */
+"Open an extra tab for server notices" = "";
+
+/* nothing */
+"Open a new tab when you receive a private message" = "";
+
+/* nothing */
+"Sort tabs in alphabetical order" = "";
+
+/* nothing */
+"Smaller text" = "_Netyî l' tecse";
+
+/* nothing */
+"Focus new tabs:" = "";
+
+/* nothing */
+"Show channel switcher at:" = "";
+
+/* nothing */
+"Shorten tab labels to:" = "Mostrer les linwetes:";
+
+/* nothing */
+"letters." = "";
+
+/* nothing */
+"Tabs or Windows" = "Purneas";
+
+/* nothing */
+"Open channels in:" = "";
+
+/* nothing */
+"Open dialogs in:" = "";
+
+/* nothing */
+"Open utilities in:" = "";
+
+/* nothing */
+"Open DCC, Ignore, Notify etc, in tabs or windows?" = "";
+
+/* nothing */
+"No" = "";
+
+/* nothing */
+"Yes" = "";
+
+/* nothing */
+"Browse for save folder every time" = "";
+
+/* nothing */
+"Files and Directories" = "";
+
+/* nothing */
+"Auto accept file offers:" = "";
+
+/* nothing */
+"Download files to:" = "";
+
+/* nothing */
+"Move completed files to:" = "";
+
+/* nothing */
+"Save nick name in filenames" = "No do fitchî såme";
+
+/* nothing */
+"Network Settings" = "Apontiaedje del rantoele";
+
+/* nothing */
+"Get my address from the IRC server" = "";
+
+/* nothing */
+"Asks the IRC server for your real address. Use this if you have a 192.168.*.* address!" = "";
+
+/* nothing */
+"DCC IP address:" = "";
+
+/* nothing */
+"Claim you are at this address when offering files." = "";
+
+/* nothing */
+"First DCC send port:" = "";
+
+/* nothing */
+"Last DCC send port:" = "";
+
+/* nothing */
+"!Leave ports at zero for full range." = "";
+
+/* nothing */
+"Maximum File Transfer Speeds (bytes per second)" = "";
+
+/* nothing */
+"One upload:" = "";
+
+/* nothing */
+"Maximum speed for one transfer" = "";
+
+/* nothing */
+"One download:" = "";
+
+/* nothing */
+"All uploads combined:" = "";
+
+/* nothing */
+"Maximum speed for all files" = "";
+
+/* nothing */
+"All downloads combined:" = "";
+
+/* nothing */
+"Alerts" = "Alt";
+
+/* nothing */
+"Show tray balloons on:" = "Mostrer les linwetes:";
+
+/* nothing */
+"Blink tray icon on:" = "";
+
+/* nothing */
+"Blink task bar on:" = "";
+
+/* nothing */
+"Make a beep sound on:" = "";
+
+/* nothing */
+"Enable system tray icon" = "";
+
+/* nothing */
+"Highlighted Messages" = "";
+
+/* nothing */
+"Highlighted messages are ones where your nickname is mentioned, but also:" = "";
+
+/* nothing */
+"Extra words to highlight:" = "";
+
+/* nothing */
+"Nick names not to highlight:" = "";
+
+/* nothing */
+"Nick names to always highlight:" = "";
+
+/* nothing */
+"Separate multiple words with commas.\nWildcards are accepted." = "";
+
+/* nothing */
+"Default Messages" = "Novea messaedje:";
+
+/* nothing */
+"Quit:" = "Cwiter";
+
+/* nothing */
+"Leave channel:" = "Cwiter l' canå";
+
+/* nothing */
+"Away:" = "";
+
+/* nothing */
+"Away" = "Norvedje";
+
+/* nothing */
+"Announce away messages" = "";
+
+/* nothing */
+"Announce your away messages to all channels" = "";
+
+/* nothing */
+"Show away once" = "";
+
+/* nothing */
+"Show identical away messages only once" = "";
+
+/* nothing */
+"Automatically unmark away" = "";
+
+/* nothing */
+"Unmark yourself as away before sending messages" = "";
+
+/* nothing */
+"Advanced Settings" = "A_pontiaedjes";
+
+/* nothing */
+"Auto reconnect delay:" = "Tårdjaedje po s' riraloyî otomaticmint:";
+
+/* nothing */
+"Display MODEs in raw form" = "";
+
+/* nothing */
+"Whois on notify" = "";
+
+/* nothing */
+"Sends a /WHOIS when a user comes online in your notify list" = "";
+
+/* nothing */
+"Hide join and part messages" = "";
+
+/* nothing */
+"Hide channel join/part messages by default" = "";
+
+/* nothing */
+"Auto Open DCC Windows" = "";
+
+/* nothing */
+"Send window" = "Evoyî fitchî";
+
+/* nothing */
+"Receive window" = "Riçuveu";
+
+/* nothing */
+"Chat window" = "";
+
+/* nothing */
+"Logging" = "Elodjaedje";
+
+/* nothing */
+"Display scrollback from previous session" = "";
+
+/* nothing */
+"Enable logging of conversations to disk" = "Mete en alaedje les djournås des berdelaedjes";
+
+/* nothing */
+"Log filename:" = "Patron po les nos d' fitchî des djournås:";
+
+/* nothing */
+"%s=Server %c=Channel %n=Network." = "(%s=Sierveu %c=Canå %n=Rantoele).";
+
+/* nothing */
+"Insert timestamps in logs" = "Sititchî l' eure dins les djournås";
+
+/* nothing */
+"Log timestamp format:" = "Cogne po l' eure/date dins les djournås:";
+
+/* nothing */
+"(Disabled)" = "(Dismetou)";
+
+/* nothing */
+"Wingate" = "Wingate";
+
+/* nothing */
+"Socks4" = "Socks4";
+
+/* nothing */
+"Socks5" = "Socks5";
+
+/* nothing */
+"HTTP" = "HTTP";
+
+/* nothing */
+"MS Proxy (ISA)" = "";
+
+/* nothing */
+"All Connections" = "Raloyaedje";
+
+/* nothing */
+"IRC Server Only" = "";
+
+/* nothing */
+"DCC Get Only" = "";
+
+/* nothing */
+"Your Address" = "Adresse IP";
+
+/* nothing */
+"Bind to:" = "Trover:";
+
+/* nothing */
+"Only useful for computers with multiple addresses." = "(Ahessåve seulmint po les copiutreces k' on pus d' ene adresse).";
+
+/* nothing */
+"Proxy Server" = "Sierveu procsi";
+
+/* nothing */
+"Hostname:" = "No do lodjoe:";
+
+/* nothing */
+"Port:" = "Pôrt:";
+
+/* nothing */
+"Type:" = "Sôre:";
+
+/* nothing */
+"Use proxy for:" = "";
+
+/* nothing */
+"Proxy Authentication" = "";
+
+/* nothing */
+"Use Authentication (MS Proxy, HTTP or Socks5 only)" = "";
+
+/* nothing */
+"Use Authentication (HTTP or Socks5 only)" = "";
+
+/* nothing */
+"Username:" = "No d' uzeu:";
+
+/* nothing */
+"Password:" = "Sicret:";
+
+/* nothing */
+"Select an Image File" = "Tchoezixhoz on fitchî imådje";
+
+/* nothing */
+"Select Download Folder" = "Tchoezixhoz l' coleur";
+
+/* nothing */
+"Select font" = "Tchoezixhoz l' fonte";
+
+/* nothing */
+"Browse..." = "Foyter...";
+
+/* nothing */
+"Mark identified users with:" = "";
+
+/* nothing */
+"Mark not-identified users with:" = "";
+
+/* nothing */
+"Open Data Folder" = "";
+
+/* nothing */
+"Select color" = "Tchoezixhoz l' coleur";
+
+/* nothing */
+"Text Colors" = "Coleurs";
+
+/* nothing */
+"mIRC colors:" = "Coleurs mIRC:";
+
+/* nothing */
+"Local colors:" = "Coleurs des linwetes";
+
+/* nothing */
+"Foreground:" = "Coleur di dvant:";
+
+/* nothing */
+"Background:" = "Coleur di fond:";
+
+/* nothing */
+"Marking Text" = "_Netyî l' tecse";
+
+/* nothing */
+"Interface Colors" = "Eterface";
+
+/* nothing */
+"New data:" = "Nouve Zelande";
+
+/* nothing */
+"Marker line:" = "";
+
+/* nothing */
+"New message:" = "Novea messaedje:";
+
+/* nothing */
+"Away user:" = "";
+
+/* nothing */
+"Highlight:" = "";
+
+/* nothing */
+"Event" = "Evenmint";
+
+/* nothing */
+"Sound file" = "Fitchî son: ";
+
+/* nothing */
+"Select a sound file" = "Tchoezixhoz on fitchî pol rexhowe";
+
+/* nothing */
+"Sound playing method:" = "";
+
+/* nothing */
+"External sound playing _program:" = "";
+
+/* nothing */
+"_External program" = "Difoûtrin";
+
+/* nothing */
+"_Automatic" = "Antartike";
+
+/* nothing */
+"Sound files _directory:" = "Fitchî son: ";
+
+/* nothing */
+"Sound file:" = "Fitchî son: ";
+
+/* nothing */
+"_Browse..." = "Foyter...";
+
+/* nothing */
+"_Play" = "Palawou";
+
+/* nothing */
+"Interface" = "Eterface";
+
+/* nothing */
+"Text box" = "Boesse di tecse";
+
+/* nothing */
+"User list" = "Djivêye des uzeus";
+
+/* nothing */
+"Channel switcher" = "Djivêye des canås...";
+
+/* nothing */
+"Colors" = "Coleurs";
+
+/* nothing */
+"Chatting" = "";
+
+/* nothing */
+"General" = "Djenerå";
+
+/* nothing */
+"Sound" = "Son";
+
+/* nothing */
+"Network setup" = "Apontiaedje del rantoele";
+
+/* nothing */
+"File transfers" = "Transfers di fitchîs";
+
+/* nothing */
+"Categories" = "Categoreyes";
+
+/* nothing */
+"You cannot place the tree on the top or bottom!\nPlease change to the <b>Tabs</b> layout in the <b>View</b> menu first." = "";
+
+/* nothing */
+"Some settings were changed that require a restart to take full effect." = "";
+
+/* nothing */
+"*WARNING*\nAuto accepting DCC to your home directory\ncan be dangerous and is exploitable. Eg:\nSomeone could send you a .bash_profile" = "";
+
+/* nothing */
+"XChat: Preferences" = "X-Chat: Preferinces";
+
+/* nothing */
+"There was an error parsing the string" = "";
+
+/* nothing */
+"This signal is only passed %d args, $%d is invalid" = "";
+
+/* nothing */
+"Print Texts File" = "";
+
+/* nothing */
+"Edit Events" = "Candjî les evenmints";
+
+/* nothing */
+"$ Number" = "";
+
+/* nothing */
+"Load From..." = "Tcherdjî di";
+
+/* nothing */
+"Test All" = "Sayî ttafwait";
+
+/* nothing */
+"URL" = "Hårdêye";
+
+/* nothing */
+"XChat: URL Grabber" = "X-Chat: Replaecî";
+
+/* nothing */
+"Clear list" = "Netyî l' djivêye";
+
+/* nothing */
+"Copy selected URL" = "Copyî l' tchoezeye hårdêye";
+
+/* nothing */
+"Copy" = "Copyî";
+
+/* nothing */
+"Save list to a file" = "Schaper l' djivêye en on fitchî";
+
+/* nothing */
+"%d ops, %d total" = "%d ops, %d totå";
+

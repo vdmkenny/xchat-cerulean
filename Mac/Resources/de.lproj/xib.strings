@@ -1,0 +1,201 @@
+/* Main Menu */
+"X-Chat Aqua" = "X-Chat Aqua";
+"XChat Azure" = "XChat Azure";
+  "About X-Chat Aqua" = "Über X-Chat Aqua";
+  "About XChat Azure" = "Über XChat Azure";
+  "Preferences..." = "Einstellungen...";
+  "Preferences Lists" = "Einstellungs Listen";
+  "Check for updates..." = "nach Updates suchen...";
+  "Services" = "Dienste";
+  "Hide X-Chat Aqua" = "X-Chat Aqua verstecken";
+  "Hide XChat Azure" = "XChat Azure verstecken";
+  "Hide Others" = "Andere verstecken";
+  "Show All" = "Alle einblenden";
+/* File */
+  "Attach/Detach Tab" = "Attach/Detach Tab";
+  "Edit" = "Editieren";
+    "mIRC Format" = "mIRC Format";
+      "Color" = "Color";
+      "Italic/Reverse" = "Italic/Reverse";
+  "Undo" = "Rückgängig";
+  "Redo" = "Erneut Anwenden";
+  "Cut" = "Ausschneiden";
+  "Paste" = "Einfügen";
+  "Copy" = "Kopieren";
+  "Delete" = "Löschen";
+  "Select All" = "Alle auswählen";
+  "Clear Window" = "Fenster löschen / leeren";
+  /* Find */
+    "Find..." = "Suchen...";
+    "Find Next" = "nächstes Suchen";
+    "Find Previous" = "Find Previous";
+    "Use Selection for Find" = "Use Selection for Find";
+    "Jump to Selection" = "Jump to Selection";
+  "Spelling and Grammar" = "Spelling and Grammar";
+    "Check Document Now" = "Check Document Now";
+    "Check Grammar With Spelling" = "Check Grammar With Spelling";
+    "Correct Spelling Automatically" = "Correct Spelling Automatically";
+  "Substitutions" = "Substitutions";
+    "Smart Copy/Paste" = "Smart Copy/Paste";
+    "Smart Quotes" = "Smart Quotes";
+    "Smart Dashes" = "Smart Dashes";
+    "Smart Links" = "Smart Links";
+    "Data Detectors" = "Data Detectors";
+    "Text Replacement" = "Text Replacement";
+  "Transformations" = "Transformations";
+    "Make Upper Case" = "Make Upper Case";
+    "Make Lower Case" = "Make Lower Case";
+    "Capitalize" = "Capitalize";
+  "Speech" = "Speech";
+    "Start Speaking" = "Start Speaking";
+    "Stop Speaking" = "Stop Speaking";
+"IRC" = "IRC";
+  "Invisible" = "Unsichtbar";
+  "Receive Wallops" = "WALLOPs empfangen";
+  "Receive Server Notices" = "Server Nachrichten Empfangen";
+"Window" = "Fenster";
+  "Minimize" = "Minimieren";
+  "Next Window" = "nächstes Fenster";
+  "Previous Window" = "vorheriges Fenter";
+  "File Receive..." = "Datei Empfangen...";
+  "File Send..." = "Datei Senden...";
+  "Log List..." = "Log Liste...";
+  "Bring All to Front" = "Alle in den Vordergrund bringen";
+ /* Help */
+  "X-Chat Aqua Homepage..." = "X-Chat Aqua Webseite...";
+  "XChat Azure Homepage..." = "XChat Azure Webseite...";
+  "X-Chat Aqua Download..." = "X-Chat Aqua Download...";
+  "XChat Azure Download..." = "XChat Azure Download...";
+  "X-Chat Aqua IRC Channel..." = "X-Chat Aqua IRC Channel...";
+  "XChat Azure IRC Channel..." = "XChat Azure IRC Channel...";
+  "Release Note..." = "Release Notes...";
+  "Online Docs..." = "Online Dokumentation...";
+
+/* ChatWindow */
+"Conference Mode" = "Konferenz Mode";
+"Bold" = "Fett";
+"Underline" = "Unterstrichen";
+"Reverse" = "Reverse";
+"Reset" = "Zurücksetzen";
+/* Topic */
+"Confirm" = "Bestätigen";
+"You have uncommited changes. Do you want to save the changes?" = "You have uncommited changes. Do you want to save the changes?";
+
+/* File Transfer */
+"From" = "Von";
+"To" = "An";
+"Limit:" = "Limit:";
+"Total download speed: %{value1}@" = "Gesamt Download Geschwindigkeit: %{value1}@";
+"Total upload speed: %{value1}@" = "Gesamt Upload Geschwindigkeit: %{value1}@";
+
+/* Log Viewer */
+"Log file" = "Log Datei";
+"Open in TextEdit" = "In TextEdit öffnen";
+
+/* Preference */
+"Show Prefs Files" = "Zeige Konfigurations Dateien";
+  /* Interface */
+    /* Text box */
+      "Line height:" = "Line height:";
+      "Strip scrollback color" = "Strip scrollback color";
+      "Transparency:" = "Transparent:";
+      "Transparent Windows" = "Transparente Fenster";
+      "Show separator" = "Zeige Separator";
+      "Strip mIRC color" = "mIRC Farben herausfiltern";
+    /* Input box */
+      "Suffix style nick completion" = "Nick-Vervolständigungs Suffix";
+      "Scroll tab-key completion choices" = "Scroll Tab-Taste Vervollständigungsauswahl";
+    /* User list */
+      "Hide user list" = "Benutzerliste verstecken";
+      "Userlist buttons enabled" = "Benutzerliste Buttons aktivieren";
+    /* Channel switch */
+      "Show tabs at:" = "Zeige Tabs:";
+      "Switch tabs with:" = "Wechsle Tabs mit:";
+      "Pop new tabs to front" = "Zeige neue Tabs im Vordergrund";
+      "Hide \"close\" buttons on tabs" = "Verstecke \"Schließen\" Button auf den Tabs";
+      "Left" = "Links";
+      "Right" = "Rechts";
+      "Outline" = "Outline";
+    /* Other */
+      "Show channel mode buttons" = "Zeige Channel-Mode Knöpfe";
+      "Default character set:" = "Standard Zeichensatz:";
+      "(Change takes effect at next launch)" = "(Zeigt nach dem nächten Neustart Wirkung)";
+      "Nick link command:" = "Nick link command:";
+      "URL link command:" = "URL link command:";
+      "Channel link command:" = "Channel link command:";
+    /* Colors */
+      "Load Default Colors" = "Load Default Colors";
+      "Load From File..." = "Load From File...";
+  /* Chattings */
+    /* Alerts */
+      "Beep on private messages" = "Piepe bei Privaten Nachrichten";
+      "Beep on channel messages" = "Piepe bei Channel Nachrichten";
+    /* General */
+      "Sleep:" = "Schlafen:";
+      "Automatically rejoin channel" = "den Channel automatisch wieder betreten";
+      "/part channels on sleep" = "Verlasse Channel im ruhezustand";
+      "Auto-away after" = "Autom. Abwesenheit nach";
+      "minutes" = "Minuten";
+    /* Events/Sounds */
+      "G = Show event with Growl" = "G = Zeige Ereignis mit Growl";
+      "B = Bounce the dock icon" = "B = Dock-Icon animieren";
+      "S = Show indicator in the dock" = "S = Indikator im Dock-Icon anzeigen";
+      "Perform when X-Chat Aqua is not in front" = "nur ausführen wenn X-Chat Aqua nicht im Vordergrund läuft";
+      "Perform when XChat Azure is not in front" = "nur ausführen wenn XChat Azure nicht im Vordergrund läuft";
+      "Perform always" = "immer ausführen";
+  /* Network */
+    /* Network Settings */
+      "seconds" = "Sekunden";
+      "Auto reconnect to server after" = "erneut zum Server verbinden nach";
+      "Check for new version at startup" = "Beim Start nach neuer Version suchen";
+      "Never give up reconnect" = "wiederverbinden niemals aufgeben";
+      "Enable built-in identd (requires administrator privileges)" = "Eingebauten Identd aktivieren (benötigt Administrative Rechte)";
+    /* File transfer */
+      "Auto Accept" = "autom. akzeptieren";
+      "Ask me" = "Frage mich";
+      "Convert spaces to underscore" = "Leerzeichen zu Unterstrichen konvertieren";
+      "DCC Chat Action" = "DCC Chat Aktion";
+      "DCC receive Action" = "DCC Empfangs Aktion";
+      "Auto open DCC send list" = "DCC Sende Liste automatisch öffnen";
+      "Auto open DCC receive list" = "DCC Empfangs Liste automatisch öffnen";
+      "Auto open DCC chat list" = "DCC Chat Liste automatisch öffnen";
+
+/* Server List */
+"Show server list on startup" = "Zeige Server-Liste beim Starten";
+"Favorite" = "Favorit";
+"Auto connect" = "autom. Verbinden";
+"On Join" = "Beim Betreten";
+"Command (without the slash)" = "Kommando (ohne Schrägstrich)";
+"Password" = "Passwort";
+"Command (without the slash)" = "Kommando (ohne Schrägstrick)";
+"Connect in a new tab" = "In neuem Tab verbinden";
+"Show details" = "Zeige Details";
+"Hide details" = "Verstecke Details";
+"Use custom user information" = "Nutzer benutzerdefinierte Benutzer-Informationen";
+
+/* Tab Menu */
+"Detach" = "Detach";
+
+/* User Commands */
+"Use multiple lines for multiple commands" = "Use multiple lines for multiple commands";
+
+/* Channel List */
+"List display options" = "Listen Optionen";
+"Minimum Users:" = "Minimum Benutzer:";
+"Maximum Users:" = "Maximun Benutzer:";
+"Search Filter" = "Such Filter";
+"User and Channel Statistics:" = "Benutzer und Channel Statistiken";
+
+/* Plugin */
+"Auto Start" = "Auto Start";
+"Embedded Plugins" = "Embedded Plugins";
+"User Plugins" = "User Plugins";
+"Loaded Plugins" = "Loaded Plugins";
+
+/* Common */
+"OK" = "OK";
+"Yes" = "Ja";
+"No" = "Nein";
+"Apply" = "Anwenden";
+"Cancel" = "Abbrechen";
+"Reveal in Finder" = "Im Finder anzeigen";
