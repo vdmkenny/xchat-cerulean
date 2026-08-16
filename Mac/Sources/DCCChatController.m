@@ -90,7 +90,7 @@
 {
     [super awakeFromNib];
 
-    [dccListView setTitle:NSLocalizedStringFromTable(@"Cerulean: DCC Chat List", @"xchat", @"")];
+    [dccListView setTitle:NSLocalizedStringFromTable(@"DCC Chat List", @"xchat", @"")];
     [dccListView setTabTitle:NSLocalizedStringFromTable(@"dccchat", @"xchataqua", @"Title of Tab: MainMenu->Window->DCC Chat...")];
 }
 

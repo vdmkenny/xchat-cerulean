@@ -28,7 +28,7 @@
 
 - (id) initAsRawLogWindow {
     [self setServer:current_sess->server];
-    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Cerulean: Rawlog (%s)", @"xchat", @""), self->server->servername]];
+    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Rawlog (%s)", @"xchat", @""), self->server->servername]];
     [self setTabTitle:NSLocalizedStringFromTable(@"rawlog", @"xchataqua", @"")];
     return self;
 }

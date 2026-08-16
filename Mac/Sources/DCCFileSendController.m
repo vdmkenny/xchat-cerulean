@@ -91,7 +91,7 @@ extern int dcc_sendcpssum;
     cpssum = &dcc_sendcpssum;
     [super awakeFromNib];
     
-    [dccListView setTitle:NSLocalizedStringFromTable(@"Cerulean: File Send List", @"xchataqua", @"")];
+    [dccListView setTitle:NSLocalizedStringFromTable(@"File Send List", @"xchataqua", @"")];
     [dccListView setTabTitle:NSLocalizedStringFromTable(@"dccsend", @"xchataqua", @"")];
 }
 

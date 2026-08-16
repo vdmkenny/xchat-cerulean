@@ -60,7 +60,7 @@ static int do_add_url (const void *key, void *cbd)
 {
     [self->urlTableView setTarget:self];
     
-    [self setTitle:NSLocalizedStringFromTable(@"Cerulean: URL Grabber", @"xchat", @"Title of Window: MainMenu->Window->URL Grabber...")];
+    [self setTitle:NSLocalizedStringFromTable(@"URL Grabber", @"xchat", @"Title of Window: MainMenu->Window->URL Grabber...")];
     [self setTabTitle:NSLocalizedStringFromTable(@"urlgrabber", @"xchataqua", @"")];
     
     tree_foreach ((tree *)url_tree, do_add_url, self);

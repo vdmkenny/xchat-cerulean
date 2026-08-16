@@ -752,7 +752,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showSearchPanel:(id)sender
 {
     [searchString autorelease];
-    searchString = [[SGRequest stringByRequestWithTitle:NSLocalizedStringFromTable(@"Cerulean: Search", @"xchat", @"") defaultValue:searchString] retain];
+    searchString = [[SGRequest stringByRequestWithTitle:NSLocalizedStringFromTable(@"Search", @"xchat", @"") defaultValue:searchString] retain];
     [self findNext:sender];
 }
 
@@ -947,7 +947,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         }
     } else {
         if (isAway) {
-            awayColor = [NSColor grayColor];
+            awayColor = [NSColor secondaryLabelColor];
         } else {
             awayColor = [NSColor textColor];
         }
@@ -995,7 +995,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showCtcpRepliesWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:CTCPRepliesWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: CTCP Replies", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->Preference Lists->CTCP Replies...")];
+    [window setTitle:NSLocalizedStringFromTable(@"CTCP Replies", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->Preference Lists->CTCP Replies...")];
     [window loadDataFromList:&ctcp_list filename:@"ctcpreply.conf"];                              
     [window setHelp:ctcp_help];
     [window makeKeyAndOrderFront:self];
@@ -1014,7 +1014,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showUserlistButtonsWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:UserlistButtonsWindowKey windowNibName:@"EditListWindow"];    
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Userlist buttons", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Buttons...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Userlist buttons", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Buttons...")];
     [window loadDataFromList:&button_list filename:@"buttons.conf"];
     [window setHelp:ulbutton_help];
     [window makeKeyAndOrderFront:self];
@@ -1024,7 +1024,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showUserlistPopupWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:UserlistPopupWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Userlist Popup menu", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Popup...")];
+    [window setTitle:NSLocalizedStringFromTable(@"Userlist Popup menu", @"xchat", @"Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Popup...")];
     [window loadDataFromList:&popup_list filename:@"popup.conf"];
     [window setHelp:ulbutton_help];
     [window makeKeyAndOrderFront:self];
@@ -1044,7 +1044,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showDialogButtonsWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:DialogButtonsWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Dialog buttons", @"xchat", @"")];
+    [window setTitle:NSLocalizedStringFromTable(@"Dialog buttons", @"xchat", @"")];
     [window loadDataFromList:&dlgbutton_list filename:@"dlgbuttons.conf"];
     [window setHelp:dlgbutton_help];
     [window makeKeyAndOrderFront:self];
@@ -1054,7 +1054,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showReplacePopupWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:ReplacePopupWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: Replace", @"xchat", @"")];
+    [window setTitle:NSLocalizedStringFromTable(@"Replace", @"xchat", @"")];
     [window loadDataFromList:&replace_list filename:@"replace.conf"];
     [window makeKeyAndOrderFront:self];
 }
@@ -1068,7 +1068,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void) showUrlHandlersWindow:(id)sender
 {
     EditListWindow *window = [UtilityWindow utilityByKey:URLHandlersWindowKey windowNibName:@"EditListWindow"];
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: URL Handlers", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->URL Handler...")];
+    [window setTitle:NSLocalizedStringFromTable(@"URL Handlers", @"xchat", "Title of Window: MainMenu->X-Chat Aqua->References Lists->URL Handler...")];
     [window loadDataFromList:&urlhandler_list filename:@"urlhandlers.conf"];
     [window setHelp:url_help];
     [window makeKeyAndOrderFront:self];    
@@ -1078,7 +1078,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {
     EditListWindow *window = [UtilityWindow utilityByKey:UserMenusWindowKey windowNibName:@"EditListWindow"];
 
-    [window setTitle:NSLocalizedStringFromTable(@"Cerulean: User menu", @"xchat", @"Title of Window: MainMenu->User Menu->Edit This Menu...")];
+    [window setTitle:NSLocalizedStringFromTable(@"User menu", @"xchat", @"Title of Window: MainMenu->User Menu->Edit This Menu...")];
     [window loadDataFromList:&usermenu_list filename:@"usermenu.conf"];
     [window makeKeyAndOrderFront:self];    
     [window setTarget:[AquaChat sharedAquaChat] didCloseSelector:@selector(updateUsermenu)];

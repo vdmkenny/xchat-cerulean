@@ -52,14 +52,14 @@ static inline CGRect CGRectFromNSRect(NSRect nsRect)
 	if (drawInfo.kind == CLLevelIndicatorFlat) {
 		NSRect bar, rest;
 		
-		[[NSColor grayColor] set];
+		[[NSColor tertiaryLabelColor] set];
 		[NSBezierPath setDefaultLineWidth:1];
 		[NSBezierPath strokeRect:cellFrame];
 		
 		NSDivideRect(NSInsetRect(cellFrame, 1, 1), &bar, &rest, cellFrame.size.width * [self floatValue], NSMinXEdge);
 		[NSBezierPath fillRect:bar];
 		
-		[[NSColor colorWithDeviceWhite:0.9 alpha:1.0] set];
+		[[NSColor quaternaryLabelColor] set];
 		[NSBezierPath fillRect:rest];
 	} else {
 		drawInfo.bounds = CGRectFromNSRect(cellFrame);

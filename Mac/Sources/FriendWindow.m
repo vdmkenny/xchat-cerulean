@@ -103,7 +103,7 @@
 
 - (void) awakeFromNib
 {
-    [self setTitle:NSLocalizedStringFromTable(@"Cerulean: Friends List", @"xchat", @"")];
+    [self setTitle:NSLocalizedStringFromTable(@"Friends List", @"xchat", @"")];
     [self setTabTitle:NSLocalizedStringFromTable(@"friends", @"xchataqua", @"")];
     
     [self update];

@@ -277,7 +277,7 @@ NSImage *XATabViewOutlineCellCloseImage;
     NSView *parent = scrollView.superview;
     if (![parent isKindOfClass:[NSSplitView class]]) return;
 
-    // Clean up any effect view a previous build inserted here.
+    // Any effect view previously placed alongside the list is removed.
     for (NSView *sibling in [[parent.subviews copy] autorelease]) {
         if ([sibling isKindOfClass:[NSVisualEffectView class]])
             [sibling removeFromSuperview];
@@ -479,7 +479,7 @@ NSNib *XATabViewItemTabMenuNib;
 
 - (NSColor *)titleColor {
     if (!prefs.style_namelistgad && self.titleColorIndex == XAColorForeground) {
-        return [NSColor blackColor];
+        return [NSColor textColor];
     }
     return [[[AquaChat sharedAquaChat] palette] getColor:self.titleColorIndex];
 }
@@ -983,17 +983,17 @@ typedef OSStatus
     HIThemeDrawGroupBox(&paneRect, &drawInfo, [[NSGraphicsContext currentContext] CGContext],
                         [self isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
 #elif BACKGROUND_VERSION == kBackgroundStyleCL
-    [[[NSColor blackColor] colorWithAlphaComponent:0.05] set];
+    [[NSColor windowBackgroundColor] set];
     [NSBezierPath fillRect:r];
     
     [NSBezierPath setDefaultLineWidth:1];
     [[NSGraphicsContext currentContext] setShouldAntialias:false];
     
     r = NSInsetRect(r,-0.5,-0.5);
-    [[[NSColor grayColor] colorWithAlphaComponent:0.25] set];
+    [[[NSColor separatorColor] colorWithAlphaComponent:0.5] set];
     [NSBezierPath strokeRect:r];
     r = NSInsetRect(r,-1,-1);
-    [[[NSColor grayColor] colorWithAlphaComponent:0.5] set];
+    [[NSColor separatorColor] set];
     [NSBezierPath strokeRect:r];
 #endif // BACKGROUND_VERSION
 }
@@ -1109,7 +1109,7 @@ typedef OSStatus
         if (prefs.tab_layout == 2 && prefs.style_namelistgad) {
             color = [[[AquaChat sharedAquaChat] palette] getColor:XAColorForeground];
         } else {
-            color = [NSColor blackColor];
+            color = [NSColor textColor];
         }
         [cell setTextColor:color];
         [cell setHasCloseButton:NO];

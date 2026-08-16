@@ -226,7 +226,7 @@ static const char * strip_crap (const char *s)
 {    
     arrowImage = [[NSImage imageNamed:@"down.tiff"] retain];
     
-    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Cerulean: Channel List (%s)", @"xchat", @""), self->server->servername]];
+    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Channel List (%s)", @"xchat", @""), self->server->servername]];
     [self setTabTitle:NSLocalizedStringFromTable(@"chanlist", @"xchataqua", @"")];
     
     [self resetCounters];

@@ -109,7 +109,7 @@
     [self setServer:sess->server];
     
     NSString *serverInfo = [NSString stringWithFormat:@"%s, %s", sess->channel, sess->server->servername];
-    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Cerulean: Ban List (%s)", @"xchat", @""), [serverInfo UTF8String]]];
+    [self setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Ban List (%s)", @"xchat", @""), [serverInfo UTF8String]]];
     [self setTabTitle:NSLocalizedStringFromTable(@"banlist", @"xchataqua", @"Title of Tab: MainMenu->Window->Ban List...")];
 }
 

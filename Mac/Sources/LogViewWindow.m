@@ -124,7 +124,7 @@
 
 - (void) awakeFromNib
 {
-    [self setTitle:NSLocalizedStringFromTable(@"Cerulean: Log Viewer", @"xchataqua", @"Title of Window: MainMenu->Window->Log List")];
+    [self setTitle:NSLocalizedStringFromTable(@"Log Viewer", @"xchataqua", @"Title of Window: MainMenu->Window->Log List")];
     [self setTabTitle:NSLocalizedStringFromTable(@"logviewer", @"xchataqua", @"Title of Tab: MainMenu->Window->Log List")];
     
 #if 0

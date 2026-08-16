@@ -356,7 +356,7 @@
         if (prefs.style_namelistgad) {
             color = [palette getColor:XAColorForeground];
         } else {
-            color = [NSColor blackColor];
+            color = [NSColor textColor];
         }
     }
     NSDictionary *attr = @{NSForegroundColorAttributeName: color};
@@ -1318,8 +1318,9 @@ static NSImage *emptyBulletImage;
 {
     ColorPalette *palette = [[[AquaChat sharedAquaChat] palette] copy];
     
-    [palette setColor:XAColorForeground color:[NSColor blackColor]];
-    [palette setColor:XAColorBackground color:[NSColor whiteColor]];
+    // The topic draws on the window background, so it follows the appearance.
+    [palette setColor:XAColorForeground color:[NSColor textColor]];
+    [palette setColor:XAColorBackground color:[NSColor textBackgroundColor]];
     
     [topicTextField setStringValue:[MIRCString stringWithUTF8String:topic
                                                             palette:palette
@@ -1760,7 +1761,8 @@ static NSImage *emptyBulletImage;
             // else fall through
             
         default:
-            title = [NSString stringWithFormat:@"%s %s", PRODUCT_NAME, XCHAT_AQUA_VERSION];
+            // The version belongs in About, not the titlebar.
+            title = @PRODUCT_NAME;
     }
     [self.chatView setTitle:title];
 }
