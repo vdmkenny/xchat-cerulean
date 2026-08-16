@@ -702,8 +702,10 @@ static BOOL XAIsReceivedFile (NSURL *url)
     switch (wordType)
     {
         case WORD_URL:
-            // processed by native support
-            break;
+            /* Handled natively by the link attribute, when it carries one.
+             * A URL that was deliberately left unlinked has nothing to open,
+             * and there is no command to run for one either. */
+            return;
         case WORD_HOST:
         case WORD_EMAIL:
             cmd = prefs.xa_urlcommand;

@@ -86,10 +86,13 @@ nick_command_parse (struct session *sess, const char *cmd, const char *nick, con
     struct User *user;
     size_t len;
     
+    if (cmd == NULL || nick == NULL || allnick == NULL)
+        return;
+
     user = userlist_find (sess, (char *)nick);
     if (user && user->hostname)
         host = strchr (user->hostname, '@') + 1;
-    
+
     /* this can't overflow, since popup->cmd is only 256 */
     len = strlen (cmd) + strlen (nick) + strlen (allnick) + 512;
     buf = (char *) malloc (len);
