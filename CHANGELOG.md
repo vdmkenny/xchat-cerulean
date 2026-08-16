@@ -5,6 +5,17 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.5] - 2026-08-16
+
+### Fixed
+
+- **Ruby scripts could not be turned on.** Loading one was refused as an
+  unknown file type, with a suggestion to install the perl or python plugin.
+  Only scripts placed in the configuration directory were ever picked up, so
+  every script shipped in the app, including the ones that have always been
+  there, could be listed but never enabled. The ruby interpreter now claims
+  its own files when loading and unloading, as the perl one does.
+
 ## [2.3.4] - 2026-08-16
 
 ### Added
