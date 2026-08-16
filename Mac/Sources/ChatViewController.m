@@ -637,6 +637,10 @@ static NSImage *XAStatusOrb (NSColor *color)
     // init ColorPalette
     ColorPalette *p = [[AquaChat sharedAquaChat] palette];
     [chatTextView setFont:[[AquaChat sharedAquaChat] font] boldFont:[[AquaChat sharedAquaChat] boldFont]];
+
+    /* The indent depends on the timestamp format as well as the font, and
+     * setFont: only recomputes it when the font itself changed. */
+    [chatTextView adjustMargin];
     chatTextView.enclosingScrollView.backgroundColor = [p getColor:XAColorBackground];
 
     NSColor *foregroundColor = [p getColor:XAColorForeground];

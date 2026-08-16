@@ -195,6 +195,23 @@ static NSCursor *XAChatTextViewSizableCursor;
 - (void)adjustMargin {
     CGFloat indent = prefs.xa_text_manual_indent_chars * fontSize.width;
 
+    /* The line is the timestamp, a tab, then the nick right aligned on the
+     * indent. A stamp wider than the column it shares with the nick would
+     * otherwise run over the separator, so the indent grows to fit whatever
+     * the chosen format renders to. */
+    if (prefs.timestamp && prefs.stamp_format[0]) {
+        char sample[128];
+        time_t now = time (NULL);
+
+        if (strftime (sample, sizeof (sample), prefs.stamp_format, localtime (&now)) > 0) {
+            NSDictionary *attributes = normalFont ? @{NSFontAttributeName: normalFont} : nil;
+            CGFloat stampWidth = [@(sample) sizeWithAttributes:attributes].width;
+
+            /* Room for the stamp and a short nick beside it. */
+            indent = MAX (indent, stampWidth + fontSize.width * 4);
+        }
+    }
+
     NSMutableParagraphStyle *style = [[[NSMutableParagraphStyle alloc] init] autorelease];
 
     NSTextTab *tabStop = [[[NSTextTab alloc] initWithType:NSRightTabStopType location:indent] autorelease];
