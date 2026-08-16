@@ -332,6 +332,7 @@
                 <outlet property="networkUseCustomInformationToggleButton" destination="299" id="611"/>
                 <outlet property="networkUseProxyToggleButton" destination="328" id="521"/>
                 <outlet property="networkUseSslToggleButton" destination="326" id="523"/>
+                <outlet property="networkUseSaslToggleButton" destination="9001" id="9004"/>
                 <outlet property="networkUsernameTextField" destination="317" id="612"/>
                 <outlet property="nick1TextField" destination="173" id="613"/>
                 <outlet property="nick2TextField" destination="175" id="614"/>
@@ -641,6 +642,17 @@
                                         </buttonCell>
                                         <connections>
                                             <action selector="setFlagWithControl:" target="41" id="585"/>
+                                        </connections>
+                                    </button>
+                                    <button id="9001">
+                                        <rect key="frame" x="14" y="253" width="330" height="19"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Authenticate with SASL" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="9002">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setFlagWithControl:" target="41" id="9003"/>
                                         </connections>
                                     </button>
                                     <textField verticalHuggingPriority="750" id="329" customClass="NSSecureTextField">

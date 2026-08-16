@@ -44,7 +44,10 @@
 static void
 irc_login (server *serv, char *user, char *realname)
 {
-	if (serv->password[0])
+	/* With SASL the password goes through AUTHENTICATE, so sending it as
+	 * PASS as well would hand the server the same secret twice, once
+	 * outside the exchange. */
+	if (serv->password[0] && !serv->use_sasl)
 		tcp_sendf (serv, "PASS %s\r\n", serv->password);
 	tcp_sendf (serv, "CAP LS\r\n");
 
@@ -459,6 +462,22 @@ process_numeric (session * sess, int n,
 
 	switch (n)
 	{
+	/* SASL, from the IRCv3 specification. 903 ends the exchange
+	 * successfully and the rest end it otherwise; either way registration
+	 * cannot continue until CAP END is sent. A failure is not fatal: the
+	 * connection carries on unauthenticated. */
+	case 903:	/* RPL_SASLSUCCESS */
+	case 904:	/* ERR_SASLFAIL */
+	case 905:	/* ERR_SASLTOOLONG */
+	case 906:	/* ERR_SASLABORTED */
+	case 907:	/* ERR_SASLALREADY */
+		if (serv->sasl_waiting)
+		{
+			serv->sasl_waiting = FALSE;
+			tcp_send_len (serv, "CAP END\r\n", 9);
+		}
+		goto def;
+
 	case 1:
 		inbound_login_start (sess, word[3], word[1]);
 		/* if network is PTnet then you must get your IP address
@@ -1122,17 +1141,41 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 		case WORDL('C','A','P','\0'):
 			if (strncasecmp(word[4], "ACK", 3) == 0)
 			{
-				if (strncasecmp(word[5][0]==':' ? word[5]+1 : word[5],
-					"identify-msg", 12) == 0)
-				{
+				char *acked = word_eol[5][0] == ':' ? word_eol[5] + 1 : word_eol[5];
+
+				if (strstr (acked, "identify-msg") != NULL)
 					serv->have_idmsg = TRUE;
-					tcp_send_len(serv, "CAP END\r\n", 9);
+
+				if (strstr (acked, "sasl") != NULL)
+				{
+					/* The exchange runs before CAP END, which is sent once
+					 * the server reports the outcome. */
+					serv->sasl_waiting = TRUE;
+					tcp_sendf (serv, "AUTHENTICATE PLAIN\r\n");
+					return;
 				}
+
+				tcp_send_len(serv, "CAP END\r\n", 9);
 			}
 			else if (strncasecmp(word[4], "LS", 2) == 0)
 			{
-				if (strstr(word_eol[5], "identify-msg") != 0)
-					tcp_send_len(serv, "CAP REQ :identify-msg\r\n", 23);
+				char *offered = word_eol[5][0] == ':' ? word_eol[5] + 1 : word_eol[5];
+				char request[128];
+
+				request[0] = 0;
+				if (serv->use_sasl && serv->password[0] && strstr (offered, "sasl") != NULL)
+					safe_strcpy (request, "sasl", sizeof (request));
+				if (strstr (offered, "identify-msg") != NULL)
+				{
+					if (request[0])
+						safe_strcpy (request + strlen (request), " identify-msg",
+										 sizeof (request) - strlen (request));
+					else
+						safe_strcpy (request, "identify-msg", sizeof (request));
+				}
+
+				if (request[0])
+					tcp_sendf (serv, "CAP REQ :%s\r\n", request);
 				else
 					tcp_send_len(serv, "CAP END\r\n", 9);
 			}
@@ -1141,6 +1184,7 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 				tcp_send_len(serv, "CAP END\r\n", 9);
 			}
 			return;
+
 		}
 	}
 
@@ -1159,6 +1203,40 @@ process_named_servermsg (session *sess, char *buf, char *rawname, char *word_eol
 	if (!strncmp (buf, "PING ", 5))
 	{
 		tcp_sendf (sess->server, "PONG %s\r\n", buf + 5);
+		return;
+	}
+	if (!strncmp (buf, "AUTHENTICATE ", 13))
+	{
+		server *serv = sess->server;
+
+		/* The server asks for the response with a bare +. PLAIN is authzid
+		 * NUL authcid NUL password, base64'd; the account is the nick the
+		 * network is configured with.
+		 *
+		 * The specification splits a response into 400 byte chunks, and
+		 * requires a trailing "AUTHENTICATE +" when the last one is exactly
+		 * 400. Neither applies here: a nick is at most 63 characters and a
+		 * password 85, so the payload cannot exceed 213 bytes, which encodes
+		 * to 284. One chunk always, never exactly 400. */
+		if (serv->sasl_waiting && buf[13] == '+')
+		{
+			char plain[256];
+			char *encoded;
+			int len;
+
+			len = snprintf (plain, sizeof (plain), "%s%c%s%c%s",
+								 serv->nick, 0, serv->nick, 0, serv->password);
+			if (len < 0 || len >= (int)sizeof (plain))
+			{
+				tcp_send_len (serv, "AUTHENTICATE *\r\n", 16);
+				return;
+			}
+
+			encoded = g_base64_encode ((const guchar *)plain, len);
+			tcp_sendf (serv, "AUTHENTICATE %s\r\n", encoded);
+			memset (plain, 0, sizeof (plain));
+			g_free (encoded);
+		}
 		return;
 	}
 	if (!strncmp (buf, "ERROR", 5))

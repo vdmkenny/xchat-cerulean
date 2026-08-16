@@ -435,6 +435,7 @@ static NSString *charsets[] =
     [networkUseProxyToggleButton setTag:~FLAG_USE_PROXY];
     [networkUseSslToggleButton setTag:FLAG_USE_SSL];
     [networkAcceptInvalidCertificationToggleButton setTag:FLAG_ALLOW_INVALID];
+    [networkUseSaslToggleButton setTag:FLAG_USE_SASL];
     [networkSelectedOnlyToggleButton setTag:~FLAG_CYCLE];
     
     [networkNicknameTextField setTag:STRUCT_OFFSET_STR(struct ircnet, nick)];

@@ -41,6 +41,7 @@
     IBOutlet NSButton       *networkUseProxyToggleButton;
     IBOutlet NSButton       *networkUseSslToggleButton;
     IBOutlet NSButton       *networkAcceptInvalidCertificationToggleButton;
+    IBOutlet NSButton       *networkUseSaslToggleButton;
     IBOutlet NSTextField    *networkUsernameTextField;
     IBOutlet NSTextField    *nick1TextField;
     IBOutlet NSTextField    *nick2TextField;

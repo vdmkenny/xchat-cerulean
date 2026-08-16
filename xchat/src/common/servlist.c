@@ -185,6 +185,11 @@ servlist_connect (session *sess, ircnet *net, gboolean join)
 
 	serv->dont_use_proxy = (net->flags & FLAG_USE_PROXY) ? FALSE : TRUE;
 
+	/* Cleared here as well as set, so a reconnect never starts out thinking
+	 * an exchange from the previous attempt is still running. */
+	serv->use_sasl = (net->flags & FLAG_USE_SASL) ? TRUE : FALSE;
+	serv->sasl_waiting = FALSE;
+
 #ifdef USE_OPENSSL
 	serv->use_ssl = (net->flags & FLAG_USE_SSL) ? TRUE : FALSE;
 	serv->accept_invalid_cert =

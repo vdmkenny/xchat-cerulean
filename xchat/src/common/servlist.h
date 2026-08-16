@@ -33,7 +33,8 @@ extern GSList *network_list;
 #define FLAG_USE_PROXY			16
 #define FLAG_ALLOW_INVALID		32
 #define FLAG_FAVORITE			64
-#define FLAG_COUNT				7
+#define FLAG_USE_SASL			128
+#define FLAG_COUNT				8
 
 void servlist_init (void);
 int servlist_save (void);
