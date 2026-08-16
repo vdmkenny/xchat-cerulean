@@ -483,9 +483,31 @@ static NSCursor *XAChatTextViewSizableCursor;
                 substring = [substring stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithRange:NSMakeRange(' ', '~')]];
                 NSURL *url = [NSURL URLWithString:substring];
                 if (url)
+                {
+                    /* A local path is mostly noise in the middle of a
+                     * conversation, so a file URL shows its name and carries
+                     * the path in a tooltip. */
+                    if (url.isFileURL)
+                    {
+                        NSString *name = url.lastPathComponent;
+                        if (name.length > 0 && name.length < range.length)
+                        {
+                            [self.textStorage replaceCharactersInRange:range withString:name];
+                            range.length = name.length;
+                            s = [self.textStorage string];
+                            slen = [self.textStorage length];
+                        }
+                        if (url.path)
+                            [self.textStorage addAttribute:NSToolTipAttributeName
+                                                     value:url.path
+                                                     range:range];
+                    }
+
                     [self.textStorage addAttribute:NSLinkAttributeName
                                              value:url
                                              range:range];
+                    idx = NSMaxRange (range) - 1;
+                }
             }
         }
         else if (type == WORD_NICK && prefs.colorednicks)

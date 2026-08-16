@@ -555,7 +555,7 @@
                                     <action selector="showDccChatWindow:" target="853" id="1455"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="File Receive..." id="1177">
+                            <menuItem title="File Receive..." keyEquivalent="d" id="1177">
                                 <connections>
                                     <action selector="showDccReceiveWindow:" target="853" id="1456"/>
                                 </connections>

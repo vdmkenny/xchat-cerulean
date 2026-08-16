@@ -1335,7 +1335,7 @@ static char * const pevt_dccrecverr_help[] = {
 
 static char * const pevt_dccrecvcomp_help[] = {
 	N_("Filename"),
-	N_("Destination filename"),
+	N_("File URL"),
 	N_("Nickname"),
 	N_("CPS"),
 };

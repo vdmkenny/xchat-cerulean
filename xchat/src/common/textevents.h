@@ -156,7 +156,7 @@ N_("%C22*%O$tNo such DCC offer.")},
 N_("%C22*%O$tDCC RECV%C26 $2%O to%C26 $1%O aborted.")},
 
 {"DCC RECV Complete", pevt_dccrecvcomp_help, 4, 
-N_("%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O.")},
+N_("%C22*%O$tDCC RECV%C26 $2%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O.")},
 
 {"DCC RECV Connect", pevt_dcccon_help, 3, 
 N_("%C22*%O$tDCC RECV connection established to%C26 $1 %C30[%O$2%C30]")},

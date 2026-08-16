@@ -307,7 +307,7 @@ pevt_dccfileabort_help
 DCC RECV Complete
 XP_TE_DCCRECVCOMP
 pevt_dccrecvcomp_help
-%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O.
+%C22*%O$tDCC RECV%C26 $2%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O.
 4
 
 DCC RECV Connect

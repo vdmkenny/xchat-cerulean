@@ -28,6 +28,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <time.h>
 #include <errno.h>
 #include <sys/stat.h>
@@ -311,6 +312,39 @@ dcc_lookup_proxy (char *host, struct sockaddr_in *addr)
 }
 
 #define DCC_USE_PROXY() (prefs.proxy_host[0] && prefs.proxy_type>0 && prefs.proxy_type<5 && prefs.proxy_use!=1)
+
+/* A file:// URL for a finished transfer. Everything outside the unreserved
+ * set is percent encoded, so a name with spaces in it still arrives in the
+ * chat view as a single word and is picked up as a link. */
+static void
+dcc_file_url (struct DCC *dcc, char *buf, size_t buf_size)
+{
+	static const char unreserved[] = "-._~/";
+	char path[PATHLEN + 1];
+	const unsigned char *p;
+	size_t out;
+
+	/* A finished file is moved to the completed directory, unless that is
+	 * unset or is where it already sits. */
+	if (prefs.dcc_completed_dir[0] &&
+		 strcmp (prefs.dcc_completed_dir, prefs.dccdir) != 0)
+		snprintf (path, sizeof (path), "%s/%s", prefs.dcc_completed_dir,
+					 file_part (dcc->destfile));
+	else
+		safe_strcpy (path, dcc->destfile, sizeof (path));
+
+	out = snprintf (buf, buf_size, "file://");
+
+	for (p = (const unsigned char *) path; *p && out + 4 < buf_size; p++)
+	{
+		if (isalnum (*p) || strchr (unreserved, *p))
+			buf[out++] = (char) *p;
+		else
+			out += sprintf (buf + out, "%%%02X", *p);
+	}
+
+	buf[out] = 0;
+}
 
 /* The address to show for a transfer: the literal when the peer is on IPv6,
  * the usual dotted quad otherwise. */
@@ -712,6 +746,7 @@ dcc_read (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 {
 	char *old;
 	char buf[4096];
+	char url[(PATHLEN * 3) + 16];
 	ssize_t n;
 	gboolean need_ack = FALSE;
 
@@ -818,8 +853,9 @@ dcc_read (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 			dcc_close (dcc, STAT_DONE, FALSE);
 			dcc_calc_average_cps (dcc);	/* this must be done _after_ dcc_close, or dcc_remove_from_sum will see the wrong value in dcc->cps */
 			sprintf (buf, "%"DCC_SFMT, dcc->cps);
+			dcc_file_url (dcc, url, sizeof (url));
 			EMIT_SIGNAL (XP_TE_DCCRECVCOMP, dcc->serv->front_session,
-							 dcc->file, dcc->destfile, dcc->nick, buf, 0);
+							 dcc->file, url, dcc->nick, buf, 0);
 			return TRUE;
 		}
 	}

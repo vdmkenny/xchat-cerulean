@@ -893,6 +893,32 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     [self openDCCReceiveWindowAndShow:YES];
 }
 
+/* Transfers are the one thing worth reaching without going through the
+ * window first, so they get a Dock menu entry as well as a shortcut. */
+- (NSMenu *) applicationDockMenu:(NSApplication *)sender
+{
+    NSMenu *menu = [[[NSMenu alloc] initWithTitle:@""] autorelease];
+    NSMenuItem *item = [menu addItemWithTitle:NSLocalizedString(@"File Transfers", @"Dock menu")
+                                       action:@selector(showDccReceiveWindow:)
+                                keyEquivalent:@""];
+    item.target = self;
+
+    int active = 0;
+    for (GSList *list = dcc_list; list; list = list->next)
+    {
+        struct DCC *dcc = (struct DCC *) list->data;
+        if ((dcc->type == TYPE_SEND || dcc->type == TYPE_RECV) &&
+            (dcc->dccstat == STAT_ACTIVE || dcc->dccstat == STAT_CONNECTING))
+            active++;
+    }
+
+    if (active > 0)
+        item.title = [NSString stringWithFormat:
+                      NSLocalizedString(@"File Transfers (%d running)", @"Dock menu"), active];
+
+    return menu;
+}
+
 - (void) showDccChatWindow:(id)sender
 {
     [self openDCCChatWindowAndShow:YES];
