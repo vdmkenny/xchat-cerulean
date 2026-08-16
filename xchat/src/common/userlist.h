@@ -18,6 +18,7 @@ struct User
 	unsigned int voice:1;
 	unsigned int me:1;
 	unsigned int away:1;
+	unsigned int account_known:1;	/* the server told us, so no account means logged out */
 	unsigned int selected:1;
 };
 

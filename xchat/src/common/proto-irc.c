@@ -414,7 +414,13 @@ irc_join_info (server *serv, char *channel)
 static void
 irc_user_list (server *serv, char *channel)
 {
-	tcp_sendf (serv, "WHO %s\r\n", channel);
+	/* WHOX returns the services account along with everything a plain WHO
+	 * gives. extended-join only covers people who arrive after us, so this
+	 * is the only way to learn the account of someone already here. */
+	if (serv->have_whox)
+		tcp_sendf (serv, "WHO %s %%tcuhsnfar,153\r\n", channel);
+	else
+		tcp_sendf (serv, "WHO %s\r\n", channel);
 }
 
 /* userhost */
@@ -859,8 +865,27 @@ process_numeric (session * sess, int n,
 			unsigned int away = 0;
 			session *who_sess;
 
+			/* irc_user_list sends out a "153": the same fields a plain WHO
+			 * would answer with, plus the account. */
+			if (!strcmp (word[4], "153"))
+			{
+				who_sess = find_channel (serv, word[5]);
+
+				if (*word[10] == 'G')
+					away = 1;
+
+				inbound_user_info (sess, word[5], word[6], word[7], word[8],
+										 word[9], word_eol[12], away);
+				if (who_sess)
+					userlist_set_account (who_sess, word[9], word[11]);
+
+				/* try to show only user initiated whos */
+				if (!who_sess || !who_sess->doing_who)
+					EMIT_SIGNAL (XP_TE_SERVTEXT, serv->server_session, text,
+									 word[1], word[2], NULL, 0);
+			}
 			/* irc_away_status sends out a "152" */
-			if (!strcmp (word[4], "152"))
+			else if (!strcmp (word[4], "152"))
 			{
 				who_sess = find_channel (serv, word[5]);
 

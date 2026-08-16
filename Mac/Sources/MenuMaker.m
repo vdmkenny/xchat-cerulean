@@ -259,6 +259,12 @@ static MenuMaker *defaultMenuMaker;
     [userMenu setAutoenablesItems:false];
 
     [userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Real Name:", @"xchat", @"") value:user->realname]];
+    /* No account is only meaningful once the server has answered: before
+     * that it is not that they are logged out, it is that we have not asked. */
+    const char *account = user->account;
+    if (!account && user->account_known)
+        account = [NSLocalizedStringFromTable(@"Not logged in", @"xchataqua", @"Services account of a user who is not identified.") UTF8String];
+    [userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Account:", @"xchat", @"") value:account]];
     [userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"User:", @"xchat", @"") value:user->hostname]];
     [userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Country:", @"xchat", @"") value:user->hostname ? country(user->hostname) : NULL]];
     [userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Server:", @"xchat", @"") value:user->servername]];

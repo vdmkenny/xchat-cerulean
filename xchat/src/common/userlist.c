@@ -163,8 +163,9 @@ free_user (struct User *user, gpointer data)
 }
 
 /* Which services account a user is logged in to, from extended-join at the
- * moment they arrive and from account-notify whenever it changes. A server
- * says "*" for logged out, which is stored as no account at all. */
+ * moment they arrive, from a WHOX reply for those already here, and from
+ * account-notify whenever it changes. Logged out reads as "*" from the
+ * first two and "0" from WHOX; either way no account is stored. */
 void
 userlist_set_account (session *sess, char *nick, char *account)
 {
@@ -179,8 +180,11 @@ userlist_set_account (session *sess, char *nick, char *account)
 		user->account = NULL;
 	}
 
-	if (account && account[0] && strcmp (account, "*") != 0)
+	if (account && account[0] && strcmp (account, "*") != 0
+		 && strcmp (account, "0") != 0)
 		user->account = strdup (account);
+
+	user->account_known = TRUE;
 
 	fe_userlist_rehash (sess, user);
 }
