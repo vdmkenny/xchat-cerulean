@@ -297,20 +297,55 @@ NSImage *XATabViewOutlineCellCloseImage;
         return;
     }
 
-    /* The scroll view's superview is the split view, so a sibling effect view
-     * would become a third pane and steal width. Make the list transparent
-     * instead and let the window's own material show through behind it. */
     self.backgroundColor = [NSColor clearColor];
     scrollView.drawsBackground = NO;
 
     NSView *parent = scrollView.superview;
+
+    /* Once wrapped the parent is the container, so this runs only the first
+     * time. A sibling of the split view would become a third pane, so the
+     * material goes behind the list inside a container that takes its place
+     * as the pane. */
     if (![parent isKindOfClass:[NSSplitView class]]) return;
 
-    // Any effect view previously placed alongside the list is removed.
-    for (NSView *sibling in [[parent.subviews copy] autorelease]) {
+    for (NSView *sibling in [[[parent subviews] copy] autorelease]) {
         if ([sibling isKindOfClass:[NSVisualEffectView class]])
             [sibling removeFromSuperview];
     }
+
+    /* Remember the pane that follows the list so the container can be put
+     * back in the same slot rather than appended after the conversation. */
+    NSArray *panes = [parent subviews];
+    NSInteger paneIndex = [panes indexOfObject:scrollView];
+    NSView *nextPane = (paneIndex != NSNotFound && paneIndex + 1 < (NSInteger)[panes count])
+        ? panes[paneIndex + 1] : nil;
+
+    NSRect paneFrame = [scrollView frame];
+
+    NSView *container = [[[NSView alloc] initWithFrame:paneFrame] autorelease];
+    container.autoresizingMask = [scrollView autoresizingMask];
+
+    NSVisualEffectView *material =
+        [[[NSVisualEffectView alloc] initWithFrame:[container bounds]] autorelease];
+    material.material = NSVisualEffectMaterialSidebar;
+    material.blendingMode = NSVisualEffectBlendingModeBehindWindow;
+    material.state = NSVisualEffectStateFollowsWindowActiveState;
+    material.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
+    [[scrollView retain] autorelease];
+    [scrollView removeFromSuperview];
+    [scrollView setFrame:[container bounds]];
+    [scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+
+    [container addSubview:material];
+    [container addSubview:scrollView];
+
+    if (nextPane != nil)
+        [parent addSubview:container positioned:NSWindowBelow relativeTo:nextPane];
+    else
+        [parent addSubview:container];
+
+    [parent adjustSubviews];
 }
 
 - (void)selectRowForTabViewItem:(XATabViewItem *)tabViewItem {
