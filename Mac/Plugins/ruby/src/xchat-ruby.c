@@ -910,6 +910,49 @@ static void static_free_xchat_list( xchat_list *list )
 }
 
 
+/* True when the name ends in ".rb", whatever its case. */
+static int static_is_ruby_script( const char *file )
+{
+  size_t len;
+
+  if( file == NULL ) return 0;
+
+  len = strlen( file );
+
+  return len > 3 && strcasecmp( file + len - 3, ".rb" ) == 0;
+}
+
+/* /LOAD and /UNLOAD are the client's own commands and know nothing about
+ * ruby, so a script would be turned away as an unknown file type. These
+ * claim the ones this interpreter can handle and leave everything else to
+ * whoever else is listening, which is how the perl plugin does it too.
+ */
+static int static_command_load( char *word[], char *word_eol[], void *userdata )
+{
+  char command[2048];
+
+  if( !static_is_ruby_script( word[2] ) ) return XCHAT_EAT_NONE;
+
+  snprintf( command, sizeof( command ),
+            "XChatRuby::XChatRubyEnvironment.load_plugin( %%q{%s} )", word[2] );
+  rb_eval_string( command );
+
+  return XCHAT_EAT_ALL;
+}
+
+static int static_command_unload( char *word[], char *word_eol[], void *userdata )
+{
+  char command[2048];
+
+  if( !static_is_ruby_script( word[2] ) ) return XCHAT_EAT_NONE;
+
+  snprintf( command, sizeof( command ),
+            "XChatRuby::XChatRubyEnvironment.unload_plugin( %%q{%s} )", word[2] );
+  rb_eval_string( command );
+
+  return XCHAT_EAT_ALL;
+}
+
 int xchat_plugin_init(xchat_plugin *plugin_handle,
                       char **plugin_name,
                       char **plugin_desc,
@@ -924,6 +967,11 @@ int xchat_plugin_init(xchat_plugin *plugin_handle,
                                  plugin_version );
 
   static_init_ruby_environment();
+
+  xchat_hook_command( plugin_handle, "load", XCHAT_PRI_NORM,
+                      static_command_load, 0, 0 );
+  xchat_hook_command( plugin_handle, "unload", XCHAT_PRI_NORM,
+                      static_command_unload, 0, 0 );
 
   xchat_print( static_plugin_handle,
                "Ruby interface loaded\n" );
