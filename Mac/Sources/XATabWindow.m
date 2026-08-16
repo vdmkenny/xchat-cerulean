@@ -31,9 +31,11 @@
 #pragma mark Toolbar
 
 static NSString * const XAToolbarIdentifier   = @"XAMainToolbar";
+static NSString * const XAToolbarChannelList  = @"toggleChannelList";
+static NSString * const XAToolbarUserList     = @"toggleUserList";
 static NSString * const XAToolbarNetworks     = @"networks";
 static NSString * const XAToolbarJoinChannel  = @"joinChannel";
-static NSString * const XAToolbarChannelList  = @"channelList";
+static NSString * const XAToolbarChannelWindow = @"channelWindow";
 static NSString * const XAToolbarSearch       = @"search";
 static NSString * const XAToolbarPreferences  = @"preferences";
 
@@ -55,7 +57,15 @@ static NSString * const XAToolbarPreferences  = @"preferences";
     NSString *symbol = nil, *label = nil;
     SEL action = NULL;
 
-    if ([identifier isEqualToString:XAToolbarNetworks]) {
+    if ([identifier isEqualToString:XAToolbarChannelList]) {
+        symbol = @"sidebar.left";
+        label = NSLocalizedStringFromTable(@"Channels", @"xchataqua", @"Toolbar item");
+        action = @selector(toggleChannelList:);
+    } else if ([identifier isEqualToString:XAToolbarUserList]) {
+        symbol = @"sidebar.right";
+        label = NSLocalizedStringFromTable(@"Users", @"xchataqua", @"Toolbar item");
+        action = @selector(toggleUserList:);
+    } else if ([identifier isEqualToString:XAToolbarNetworks]) {
         symbol = @"network";
         label = NSLocalizedStringFromTable(@"Networks", @"xchataqua", @"Toolbar item");
         action = @selector(showNetworkWindow:);
@@ -63,7 +73,7 @@ static NSString * const XAToolbarPreferences  = @"preferences";
         symbol = @"plus.bubble";
         label = NSLocalizedStringFromTable(@"Join Channel", @"xchataqua", @"Toolbar item");
         action = @selector(openNewChannel:);
-    } else if ([identifier isEqualToString:XAToolbarChannelList]) {
+    } else if ([identifier isEqualToString:XAToolbarChannelWindow]) {
         symbol = @"list.bullet";
         label = NSLocalizedStringFromTable(@"Channel List", @"xchataqua", @"Toolbar item");
         action = @selector(showChannelWindow:);
@@ -90,18 +100,22 @@ static NSString * const XAToolbarPreferences  = @"preferences";
 }
 
 - (NSArray<NSString *> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return @[XAToolbarNetworks,
+    return @[XAToolbarChannelList,
+             XAToolbarNetworks,
              XAToolbarJoinChannel,
-             XAToolbarChannelList,
+             XAToolbarChannelWindow,
              NSToolbarFlexibleSpaceItemIdentifier,
              XAToolbarSearch,
+             XAToolbarUserList,
              XAToolbarPreferences];
 }
 
 - (NSArray<NSString *> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return @[XAToolbarNetworks,
+    return @[XAToolbarChannelList,
+             XAToolbarUserList,
+             XAToolbarNetworks,
              XAToolbarJoinChannel,
-             XAToolbarChannelList,
+             XAToolbarChannelWindow,
              XAToolbarSearch,
              XAToolbarPreferences,
              NSToolbarFlexibleSpaceItemIdentifier,

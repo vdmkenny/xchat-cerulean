@@ -866,6 +866,16 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     [self applyPreferences:sender];
 }
 
+/* Shows or hides the user list. The menu item drives the same preference
+ * through toggleMenuItem:, so keep it in step. */
+- (IBAction) toggleUserList:(id)sender
+{
+    prefs.hideuserlist = !prefs.hideuserlist;
+    [self.userListMenuItem setState:(prefs.hideuserlist ? NSControlStateValueOff
+                                                        : NSControlStateValueOn)];
+    [self applyPreferences:self];
+}
+
 - (void) toggleInvisible:(id)sender
 {
     [self toggleMenuItem:sender];

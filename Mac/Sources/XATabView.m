@@ -1186,9 +1186,14 @@ typedef OSStatus
     NSSize size = [splitView frame].size;
     CGFloat divider = [splitView dividerThickness];
 
-    CGFloat sidebarWidth = (self->tabViewType == XATabViewTypeOutline)
-        ? MAX(prefs.xa_outline_width, XAMinimumSidebarWidth)
-        : NSWidth([sidebar frame]);
+    CGFloat sidebarWidth;
+    if (_channelListCollapsed) {
+        sidebarWidth = 0.0;
+    } else if (self->tabViewType == XATabViewTypeOutline) {
+        sidebarWidth = MAX(prefs.xa_outline_width, XAMinimumSidebarWidth);
+    } else {
+        sidebarWidth = NSWidth([sidebar frame]);
+    }
 
     // Never let the list crowd out the conversation on a narrow window.
     sidebarWidth = MIN(sidebarWidth, MAX(size.width - divider - 200.0, 0.0));
@@ -1203,7 +1208,25 @@ typedef OSStatus
 constrainMinCoordinate:(CGFloat)proposedMin
          ofSubviewAt:(NSInteger)dividerIndex
 {
-    return XAMinimumSidebarWidth;
+    return _channelListCollapsed ? 0.0 : XAMinimumSidebarWidth;
+}
+
+- (IBAction)toggleChannelList:(id)sender
+{
+    _channelListCollapsed = !_channelListCollapsed;
+
+    NSView *splitView = [[_tabOutlineView enclosingScrollView] superview];
+    if ([splitView isKindOfClass:[NSSplitView class]]) {
+        [(NSSplitView *)splitView adjustSubviews];
+        [splitView setNeedsDisplay:YES];
+    }
+}
+
+- (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item
+{
+    if ([item action] == @selector(toggleChannelList:))
+        return self->tabViewType == XATabViewTypeOutline;
+    return YES;
 }
 
 @end

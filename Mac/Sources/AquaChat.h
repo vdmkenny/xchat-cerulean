@@ -159,6 +159,7 @@ NSApplicationDelegate, XAEventChain, UNUserNotificationCenterDelegate> {
 - (IBAction) showUrlHandlersWindow:(id)sender;
 - (IBAction) showTextEventsWindow:(id)sender;
 // File menu
+- (IBAction) toggleUserList:(id)sender;
 - (IBAction) showNetworkWindow:(id)sender;
 - (IBAction) openNewServer:(id)sender;
 - (IBAction) openNewChannel:(id)sender;

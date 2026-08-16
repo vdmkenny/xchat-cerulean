@@ -35,9 +35,12 @@
     XATabViewItem *_selectedTabViewItem;
     //
     IBOutlet SGBoxView *_chatViewContainer;
+    BOOL _channelListCollapsed;
 @public
     id<NSObject,XATabViewDelegate> _delegate;
 }
+
+- (IBAction)toggleChannelList:(id)sender;
 
 @property(nonatomic, assign) IBOutlet id delegate;
 @property(nonatomic, retain) IBOutlet XATabViewOutlineView *tabOutlineView;
