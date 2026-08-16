@@ -34,6 +34,15 @@ jobs:
       - name: Install dependencies
         run: brew install glib gettext openssl@3
 
+      # Xcode reads BuildNumber.xcconfig when the build starts, while the
+      # Prebuild phase rewrites it during the build, so the version it stamps
+      # is always one build behind. Generating it first means the tag being
+      # released is the version that ships.
+      - name: Stamp the version
+        run: |
+          tools/gen_buildnum_h.pl build_number.h BuildNumber.xcconfig
+          cat BuildNumber.xcconfig
+
       - name: Build
         run: |
           xcodebuild \
