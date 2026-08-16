@@ -1183,6 +1183,12 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 					irc_add_cap (request, sizeof (request), "sasl");
 				if (strstr (offered, "server-time") != NULL)
 					irc_add_cap (request, sizeof (request), "server-time");
+				/* NAMES then carries every mode a user holds rather than
+				 * only the highest. nick_access already counts all the
+				 * leading prefix characters, so the nick still parses; the
+				 * access level it works out simply becomes complete. */
+				if (strstr (offered, "multi-prefix") != NULL)
+					irc_add_cap (request, sizeof (request), "multi-prefix");
 				if (strstr (offered, "identify-msg") != NULL)
 					irc_add_cap (request, sizeof (request), "identify-msg");
 
