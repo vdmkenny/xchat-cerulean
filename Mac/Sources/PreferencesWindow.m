@@ -453,6 +453,7 @@ static void XAHideLabelledControl(NSView *control)
         { downloadsDirectoryTextField, &prefs.dccdir, MYPREF_STRING },
         { completedDownloadsDirectoryTextField, &prefs.dcc_completed_dir, MYPREF_STRING },
         { dccTrustedSendersTextField, &prefs.dcc_trusted_senders, MYPREF_STRING },
+        { checkForUpdatesCheckBox, &prefs.xa_check_for_updates, MYPREF_INT },
         { downloadWithNickCheckBox, &prefs.dccwithnick, MYPREF_INT },
         { downloadSpaceToUnderscoreCheckBox, &prefs.dcc_send_fillspaces, MYPREF_INT },
         { ipFromServerCheckBox, &prefs.ip_from_server, MYPREF_INT },

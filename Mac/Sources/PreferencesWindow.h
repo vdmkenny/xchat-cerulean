@@ -167,6 +167,7 @@ struct PreferenceItem
     IBOutlet NSPopUpButton *autoAcceptDccPopUp;
     IBOutlet NSTextField *downloadsDirectoryTextField, *completedDownloadsDirectoryTextField;
     IBOutlet NSTextField *dccTrustedSendersTextField;
+    IBOutlet NSButton *checkForUpdatesCheckBox;
     IBOutlet NSButton *downloadWithNickCheckBox, *downloadSpaceToUnderscoreCheckBox;
     //  Network Settings
     IBOutlet NSButton *ipFromServerCheckBox;
@@ -175,7 +176,7 @@ struct PreferenceItem
     IBOutlet NSPopUpButton *autoAcceptDccChatPopUp;
     IBOutlet NSButton *autoOpenDccChatCheckBox, *autoOpenDccReceiveCheckBox, *autoOpenDccSendCheckBox;
     
-    struct PreferenceItem preferenceItems[99];
+    struct PreferenceItem preferenceItems[100];
 }
 
 - (IBAction)applyPreferences:(id)sender;

@@ -23,6 +23,12 @@
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="1590"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="9201"/>
+                            <menuItem title="Check for Updates…" id="9202">
+                                <connections>
+                                    <action selector="checkForUpdates:" target="853" id="9203"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="1565">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>

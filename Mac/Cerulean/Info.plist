@@ -49,5 +49,13 @@ Licensed under the GNU General Public License, version 2.</string>
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
+	<key>SUFeedURL</key>
+	<string>https://vdmkenny.github.io/xchat-cerulean/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>MHmftdwRAbG0+ZpcPKxp/hI4UrMf8n4V5O1zqW0EZZE=</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
 </dict>
 </plist>

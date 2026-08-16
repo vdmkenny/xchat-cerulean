@@ -19,6 +19,7 @@
 #import <Growl/GrowlApplicationBridge.h>
 #endif
 #import <UserNotifications/UserNotifications.h>
+@class SPUStandardUpdaterController;
 #include "dcc.h"
 
 #define PreferencesWindowKey    @"PreferencesWindow"
@@ -73,6 +74,7 @@ NSApplicationDelegate, XAEventChain, UNUserNotificationCenterDelegate> {
     
     NSInteger _badgeCount;
     XATabWindow *_mainWindow;
+    SPUStandardUpdaterController *_updaterController;
 
     //Main menu
     // File menu
@@ -197,6 +199,7 @@ NSApplicationDelegate, XAEventChain, UNUserNotificationCenterDelegate> {
 - (IBAction) showUrlGrabberWindow:(id)sender;
 - (IBAction) showLogViewWindow:(id)sender;
 // Help menu
+- (IBAction) checkForUpdates:(id)sender;
 - (IBAction) openHomepage:(id)sender;
 - (IBAction) openDownload:(id)sender;
 - (IBAction) showReleaseNotes:(id)sender;

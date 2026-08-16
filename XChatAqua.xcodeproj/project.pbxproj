@@ -193,6 +193,7 @@
 		38E573E1158F1A76007943DA /* AquaPlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E573E0158F1A76007943DA /* AquaPlugins.m */; };
 		38FC93CA13CAF46E006CB5C8 /* locale in Resources */ = {isa = PBXBuildFile; fileRef = 38FC93C913CAF46E006CB5C8 /* locale */; };
 		3B4D30BA15F5314600704C98 /* XAFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D30B915F5314600704C98 /* XAFileUtil.m */; };
+		3B77C0CE1825C154AED3CAFE /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 37A390C98CFD67B18BB866A8 /* Sparkle */; };
 		7FFE4FDB185313A22ED195BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFD90A86D71ECC03F9E8BAB /* Security.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		D487239E128F9DBC00647D7B /* UtilityWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D487239D128F9DBC00647D7B /* UtilityWindow.m */; };
@@ -1741,6 +1742,7 @@
 				D4FBD9C612E458C4003EA441 /* WebKit.framework in Frameworks */,
 				06D77342F8B59EA08D773FB7 /* UserNotifications.framework in Frameworks */,
 				7FFE4FDB185313A22ED195BE /* Security.framework in Frameworks */,
+				3B77C0CE1825C154AED3CAFE /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2624,6 +2626,9 @@
 				38BC97B3154A9937005894EF /* PBXTargetDependency */,
 			);
 			name = "XChat Cerulean";
+			packageProductDependencies = (
+				37A390C98CFD67B18BB866A8 /* Sparkle */,
+			);
 			productInstallPath = "$(HOME)/Applications";
 			productName = "X-Chat Aqua";
 			productReference = 8D1107320486CEB800E47090 /* X-Chat Aqua.app */;
@@ -2724,6 +2729,9 @@
 				zh_TW,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA;
+			packageReferences = (
+				70BF7D63166C66B6226744F7 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -4469,6 +4477,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "$(XA_CODE_SIGN_IDENTITY)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -4525,6 +4537,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "$(XA_CODE_SIGN_IDENTITY)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
@@ -4626,6 +4642,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70BF7D63166C66B6226744F7 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37A390C98CFD67B18BB866A8 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70BF7D63166C66B6226744F7 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

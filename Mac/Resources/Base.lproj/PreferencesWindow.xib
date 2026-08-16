@@ -855,6 +855,14 @@ Gw
                                                 <rect key="frame" x="0.0" y="0.0" width="449" height="406"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
+                                                    <button id="9301">
+                                                        <rect key="frame" x="17" y="165" width="330" height="18"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="check" title="Check for updates on startup" bezelStyle="rounded" imagePosition="leading" alignment="left" inset="2" id="9302">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                        </buttonCell>
+                                                    </button>
                                                     <button id="91">
                                                         <rect key="frame" x="19" y="357" width="412" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -2596,6 +2604,7 @@ Gw
                 <outlet property="coloredNicksCheckBox" destination="137" id="666"/>
                 <outlet property="colorsTabViewItem" destination="38" id="793"/>
                 <outlet property="completedDownloadsDirectoryTextField" destination="371" id="763"/>
+                <outlet property="checkForUpdatesCheckBox" destination="9301" id="9303"/>
                 <outlet property="dccTrustedSendersTextField" destination="9103" id="9105"/>
                 <outlet property="contentBox" destination="48" id="773"/>
                 <outlet property="dccAddressTextField" destination="71" id="769"/>

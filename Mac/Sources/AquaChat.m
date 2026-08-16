@@ -25,6 +25,7 @@
 
 #import "AquaChat.h"
 #import "Branding.h"
+#import <Sparkle/Sparkle.h>
 #import "AutoAwayController.h"
 #import "MenuMaker.h"
 #import "XATabWindow.h"
@@ -119,6 +120,15 @@ AquaChat *AquaChatSharedObject;
 - (void) awakeFromNib
 {   
     AquaChatSharedObject = self;
+
+    /* Sparkle drives the check itself once a day and on demand from the
+     * menu. Whether it checks on its own is the user's preference, which is
+     * read back here so the two agree. */
+    _updaterController =
+        [[SPUStandardUpdaterController alloc] initWithStartingUpdater:YES
+                                                      updaterDelegate:nil
+                                                   userDriverDelegate:nil];
+    [[_updaterController updater] setAutomaticallyChecksForUpdates:prefs.xa_check_for_updates ? YES : NO];
     #if ENABLE_GROWL
     [GrowlApplicationBridge setGrowlDelegate:self];
     #endif
@@ -1116,6 +1126,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
  */
 
 // Open developer page
+/* Sparkle shows what is new from the appcast, so this needs no UI. */
+- (void) checkForUpdates:(id)sender
+{
+    [_updaterController checkForUpdates:sender];
+}
+
 - (void) openHomepage:(id)sender
 {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@XA_WEBSITE]];

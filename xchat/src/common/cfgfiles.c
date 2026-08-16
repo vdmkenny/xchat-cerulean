@@ -404,6 +404,7 @@ const struct prefs vars[] = {
 	{"dcc_completed_dir", P_OFFSET (dcc_completed_dir), TYPE_STR},
 	{"dcc_dir", P_OFFSET (dccdir), TYPE_STR},
 	{"dcc_trusted_senders", P_OFFSET (dcc_trusted_senders), TYPE_STR},
+	{"xa_check_for_updates", P_OFFINT (xa_check_for_updates), TYPE_BOOL},
 	{"dcc_fast_send", P_OFFINT (fastdccsend), TYPE_BOOL},
 	{"dcc_global_max_get_cps", P_OFFINT (dcc_global_max_get_cps), TYPE_INT},
 	{"dcc_global_max_send_cps", P_OFFINT (dcc_global_max_send_cps), TYPE_INT},
@@ -686,6 +687,7 @@ load_config (void)
 	prefs.lagometer = 1;
 	prefs.throttlemeter = 1;
 	prefs.autoopendccrecvwindow = 1;
+	prefs.xa_check_for_updates = 1;
 	prefs.autoopendccsendwindow = 1;
 	prefs.autoopendccchatwindow = 1;
 	prefs.userhost = 1;

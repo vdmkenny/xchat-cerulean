@@ -100,6 +100,49 @@ jobs:
           name: XChat-Cerulean-${{ steps.version.outputs.value }}
           path: XChat-Cerulean-${{ steps.version.outputs.value }}.zip*
 
+      # Sparkle checks this feed. Updates are signed with EdDSA because an
+      # ad-hoc code signature gives it nothing stable to verify against.
+      - name: Build the appcast
+        env:
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+        run: |
+          VERSION="${{ steps.version.outputs.value }}"
+          TOOLS="$(find build/SourcePackages/artifacts -type d -name bin -path '*Sparkle*' | head -1)"
+          [ -n "$TOOLS" ] || { echo "Sparkle tools not found" >&2; exit 1; }
+
+          mkdir -p appcast-in && cp "XChat-Cerulean-$VERSION.zip" appcast-in/
+          printf '%s' "$SPARKLE_PRIVATE_KEY" > /tmp/sparkle.key
+
+          # generate_appcast embeds an .html file sitting beside the archive
+          # as that version's release notes, so what the update dialog shows
+          # is this version's changelog section.
+          python3 tools/changelog_to_html.py "$VERSION" \
+            > "appcast-in/XChat-Cerulean-$VERSION.html"
+
+          "$TOOLS/generate_appcast" \
+            --ed-key-file /tmp/sparkle.key \
+            --embed-release-notes \
+            --download-url-prefix "https://github.com/${{ github.repository }}/releases/download/$VERSION/" \
+            --link "https://github.com/${{ github.repository }}" \
+            appcast-in
+
+          rm -f /tmp/sparkle.key
+          cp appcast-in/appcast.xml docs/appcast.xml
+          echo "--- appcast ---"; cat docs/appcast.xml
+
+      - name: Publish the appcast to the site
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git fetch origin master
+          git checkout master
+          cp appcast-in/appcast.xml docs/appcast.xml
+          if ! git diff --quiet docs/appcast.xml; then
+            git add docs/appcast.xml
+            git commit -m "Update the appcast for ${{ steps.version.outputs.value }}"
+            git push origin master
+          fi
+
       - name: Publish the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
