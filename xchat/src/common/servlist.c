@@ -34,6 +34,7 @@
 #include "xchatc.h"
 
 #include "servlist.h"
+#include "XAKeychain.h"
 
 
 struct defaultserver
@@ -595,6 +596,10 @@ servlist_load (void)
 				net->real = strdup (buf + 2);
 				break;
 			case 'P':
+				/* An older configuration still holding the secret. It
+				 * replaces whatever the keychain had and moves there on
+				 * the next save. */
+				free (net->pass);
 				net->pass = strdup (buf + 2);
 				break;
 			case 'J':
@@ -626,12 +631,23 @@ servlist_load (void)
 				servlist_server_add (net, buf + 2);
 				break;
 			case 'B':
+				free (net->nickserv);
 				net->nickserv = strdup (buf + 2);
 				break;
 			}
 		}
 		if (buf[0] == 'N')
+		{
 			net = servlist_net_add (buf + 2, /* comment */ NULL, FALSE);
+
+			/* Older configurations kept these in the file itself; those
+			 * are read below and moved across on the next save. */
+			if (net)
+			{
+				net->pass = xa_keychain_get (net->name, "server");
+				net->nickserv = xa_keychain_get (net->name, "nickserv");
+			}
+		}
 	}
 	fclose (fp);
 
@@ -726,12 +742,13 @@ servlist_save (void)
 			fprintf (fp, "U=%s\n", net->user);
 		if (net->real)
 			fprintf (fp, "R=%s\n", net->real);
-		if (net->pass)
-			fprintf (fp, "P=%s\n", net->pass);
+		/* Secrets go to the keychain rather than into this file. Setting
+		 * them unconditionally also clears an entry the user emptied. */
+		xa_keychain_set (net->name, "server", net->pass);
+		xa_keychain_set (net->name, "nickserv", net->nickserv);
+
 		if (net->autojoin)
 			fprintf (fp, "J=%s\n", net->autojoin);
-		if (net->nickserv)
-			fprintf (fp, "B=%s\n", net->nickserv);
 		if (net->encoding && strcasecmp (net->encoding, "System") &&
 			 strcasecmp (net->encoding, "System default"))
 		{

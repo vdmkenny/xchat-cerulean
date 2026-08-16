@@ -74,6 +74,7 @@
 		0FC8F5C40DEEEA3E00504F31 /* libxchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F4AE0DEEE51700504F31 /* libxchat.a */; };
 		0FC8F6AF0DEEF3AC00504F31 /* AquaChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F80CFB2500001AE9AE /* AquaChat.m */; };
 		0FC8F6ED0DEEF64200504F31 /* fe-aqua.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3CE0CFAF7E2001AE9AE /* fe-aqua.m */; };
+		17988F55BE6D1573BF55D831 /* XAKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B55995755E5DA916F6A899A /* XAKeychain.m */; };
 		2D7817CA10E872D200C71AF8 /* fe-aqua_utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7817C910E872D200C71AF8 /* fe-aqua_utility.m */; };
 		380AD19213C6984D003EEE3D /* cfgfiles.c in Sources */ = {isa = PBXBuildFile; fileRef = 380AD18C13C6984D003EEE3D /* cfgfiles.c */; };
 		380AD19313C6984D003EEE3D /* cfgfiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 380AD18D13C6984D003EEE3D /* cfgfiles.h */; };
@@ -192,6 +193,7 @@
 		38E573E1158F1A76007943DA /* AquaPlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E573E0158F1A76007943DA /* AquaPlugins.m */; };
 		38FC93CA13CAF46E006CB5C8 /* locale in Resources */ = {isa = PBXBuildFile; fileRef = 38FC93C913CAF46E006CB5C8 /* locale */; };
 		3B4D30BA15F5314600704C98 /* XAFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D30B915F5314600704C98 /* XAFileUtil.m */; };
+		7FFE4FDB185313A22ED195BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFD90A86D71ECC03F9E8BAB /* Security.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		D487239E128F9DBC00647D7B /* UtilityWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D487239D128F9DBC00647D7B /* UtilityWindow.m */; };
 		D4FBD93E12E449D5003EA441 /* ViewerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD93D12E449D5003EA441 /* ViewerWindow.xib */; };
@@ -1665,10 +1667,13 @@
 		6553D5CCE522A42748D39896 /* Pods-XChat Azure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XChat Azure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XChat Azure/Pods-XChat Azure.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6378DBCA67376E8789F24C /* libPods-glib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-glib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FA6A9EA0F18EE49BD824F3 /* XAScreenshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XAScreenshot.h; path = XAScreenshot.h; sourceTree = "<group>"; };
+		76599D76861BA13BA3665BA8 /* XAKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XAKeychain.h; path = Mac/Sources/XAKeychain.h; sourceTree = "<group>"; };
 		78CD7716F9104D8AEE53764C /* libPods-XChat Azure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XChat Azure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B9AE6485FF4C384F63194FD /* XALayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XALayout.h; path = Mac/Sources/XALayout.h; sourceTree = "<group>"; };
 		7BE5D5FE290D2CFCF55760A7 /* Pods-glib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glib.release.xcconfig"; path = "Pods/Target Support Files/Pods-glib/Pods-glib.release.xcconfig"; sourceTree = "<group>"; };
 		8612B1121EDE1E9D0AD33248 /* libPods-XChat Aqua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XChat Aqua.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B55995755E5DA916F6A899A /* XAKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XAKeychain.m; path = Mac/Sources/XAKeychain.m; sourceTree = "<group>"; };
+		8CFD90A86D71ECC03F9E8BAB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8D1107320486CEB800E47090 /* X-Chat Aqua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "X-Chat Aqua.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7F73883B94430B3BB8571E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		B07C7AB20F4395E200E11B58 /* BuildNumber.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = BuildNumber.xcconfig; sourceTree = "<group>"; };
@@ -1735,6 +1740,7 @@
 				0F8EA70B0CFB384A001AE9AE /* Carbon.framework in Frameworks */,
 				D4FBD9C612E458C4003EA441 /* WebKit.framework in Frameworks */,
 				06D77342F8B59EA08D773FB7 /* UserNotifications.framework in Frameworks */,
+				7FFE4FDB185313A22ED195BE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1963,6 +1969,8 @@
 				E1FAA3B5117B1839C81D06A0 /* Pods */,
 				7B9AE6485FF4C384F63194FD /* XALayout.h */,
 				1EAC87C6A8EB784A6D1CA6A6 /* XALayout.m */,
+				76599D76861BA13BA3665BA8 /* XAKeychain.h */,
+				8B55995755E5DA916F6A899A /* XAKeychain.m */,
 			);
 			indentWidth = 4;
 			name = "X-Chat Aqua";
@@ -1980,6 +1988,7 @@
 				6E6378DBCA67376E8789F24C /* libPods-glib.a */,
 				B267A3D9D784B9A2E6DCDBFF /* libPods-xchat.a */,
 				9C7F73883B94430B3BB8571E /* UserNotifications.framework */,
+				8CFD90A86D71ECC03F9E8BAB /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2993,6 +3002,7 @@
 				3B4D30BA15F5314600704C98 /* XAFileUtil.m in Sources */,
 				D5B7D7B00C79C3EBE9127DC5 /* XAScreenshot.m in Sources */,
 				F7E7FF5E26805C0ED656A194 /* XALayout.m in Sources */,
+				17988F55BE6D1573BF55D831 /* XAKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
