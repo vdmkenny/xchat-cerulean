@@ -47,459 +47,85 @@ struct defaultserver
 
 static const struct defaultserver def[] =
 {
-	{"2600net",	0},
-	{0,			"irc.2600.net"},
-
-	{"7-indonesia",	0},
-	{0,			"irc.7-indonesia.org"},
-
-	{"AccessIRC",	0},
-	{0,			"irc.accessirc.net"},
-	{0,			"eu.accessirc.net"},
-
-	{"AfterNET",	0},
-	{0,			"irc.afternet.org"},
-	{0,			"us.afternet.org"},
-	{0,			"eu.afternet.org"},
-
-	{"Aitvaras",	0},
-#ifdef USE_IPV6
-#ifdef USE_OPENSSL
-	{0,			"irc6.ktu.lt/+7668"},
-#endif
-	{0,			"irc6.ktu.lt/7666"},
-#endif
-#ifdef USE_OPENSSL
-	{0,			"irc.data.lt/+6668"},
-	{0,			"irc-ssl.omnitel.net/+6668"},
-	{0,			"irc-ssl.le.lt/+9999"},
-#endif
-	{0,			"irc.data.lt"},
-	{0,			"irc.omnitel.net"},
-	{0,			"irc.ktu.lt"},
-	{0,			"irc.le.lt"},
-	{0,			"irc.takas.lt"},
-	{0,			"irc.5ci.net"},
-	{0,			"irc.kis.lt"},
-
-	{"AmigaNet",	0},
-	{0,			"irc.amiganet.org"},
-	{0,			"us.amiganet.org"},
-	{0,			"uk.amiganet.org"},
-/*	{0,			"no.amiganet.org"},
-	{0,			"au.amiganet.org"},*/
-
-	{"ARCNet",	0},
-	{0,			"se1.arcnet.vapor.com"},
-	{0,			"us1.arcnet.vapor.com"},
-	{0,			"us2.arcnet.vapor.com"},
-	{0,			"us3.arcnet.vapor.com"},
-	{0,			"ca1.arcnet.vapor.com"},
-	{0,			"de1.arcnet.vapor.com"},
-	{0,			"de3.arcnet.vapor.com"},
-	{0,			"ch1.arcnet.vapor.com"},
-	{0,			"be1.arcnet.vapor.com"},
-	{0,			"nl3.arcnet.vapor.com"},
-	{0,			"uk1.arcnet.vapor.com"},
-	{0,			"uk2.arcnet.vapor.com"},
-/*	{0,			"uk3.arcnet.vapor.com"},*/
-	{0,			"fr1.arcnet.vapor.com"},
-
-	{"AstroLink",	0},
-	{0,			"irc.astrolink.org"},
-
-	{"AustNet",	0},
-	{0,			"au.austnet.org"},
-	{0,			"us.austnet.org"},
-	{0,			"ca.austnet.org"},
-
-/*	{"AxeNet",	0},
-	{0,			"irc.axenet.org"},
-	{0,			"angel.axenet.org"},
-	{0,			"energy.axenet.org"},
-	{0,			"python.axenet.org"},*/
-
-	{"AzzurraNet",	0},
-	{0,			"irc.azzurra.org"},
-	{0,			"crypto.azzurra.org"},
-
-	{"Beirut", 0},
-	{0,			"irc.beirut.com"},
-
-	{"ChattingAway", 0},
-	{0,			"irc.chattingaway.com"},
-
-	{"ChatJunkies",	0, "#xchat"},
-	{0,			"irc.chatjunkies.org"},
-	{0,			"nl.chatjunkies.org"},
-
-	{"ChatNet",	0},
-	{0,			"US.ChatNet.Org"},
-	{0,			"EU.ChatNet.Org"},
-
-	{"ChatSociety", 0},
-	{0,			"us.chatsociety.net"},
-	{0,			"eu.chatsociety.net"},
-
-	{"ChatSpike", 0},
-	{0,			"irc.chatspike.net"},
-
-	{"CoolChat",	0},
-	{0,			"irc.coolchat.net"},
-/*	{0,			"unix.coolchat.net"},
-	{0,			"toronto.coolchat.net"},*/
-
-	{"Criten", 0},
-	{0,			"irc.criten.net"},
-	{0,			"irc.eu.criten.net"},
-
-	{"DALnet",	0},
-	{0,			"irc.dal.net"},
-	{0,			"irc.eu.dal.net"},
-
-	{"Dark-Tou-Net",	0},
-	{0,			"irc.d-t-net.de"},
-	{0,			"bw.d-t-net.de"},
-	{0,			"nc.d-t-net.de"},
-	{0,			"wakka.d-t-net.de"},
-
-	{"DarkMyst", 0},
-	{0,			"irc.darkmyst.org"},
-
-	{"DeepIRC", 0},
-	{0,			"irc.deepirc.net"},
-
-	{"DeltaAnime", 0},
-	{0,			"irc.deltaanime.net"},
-
-	{"EFnet",	0},
-	{0,			"irc.blackened.com"},
-	{0,			"irc.Prison.NET"},
-	{0,			"irc.Qeast.net"},
-	{0,			"irc.efnet.pl"},
-	{0,			"efnet.demon.co.uk"},
-/*	{0,			"irc.lagged.org"},*/
-	{0,			"irc.lightning.net"},
-	{0,			"irc.mindspring.com"},
-	{0,			"irc.easynews.com"},
-	{0,			"irc.servercentral.net"},
-
-	{"EnterTheGame",	0},
-	{0,			"IRC.EnterTheGame.Com"},
-
-	{"EUIrc",	0},
-	{0,			"irc.euirc.net"},
-	{0,			"irc.ham.de.euirc.net"},
-	{0,			"irc.ber.de.euirc.net"},
-	{0,			"irc.ffm.de.euirc.net"},
-	{0,			"irc.bre.de.euirc.net"},
-	{0,			"irc.hes.de.euirc.net"},
-	{0,			"irc.vie.at.euirc.net"},
-	{0,			"irc.inn.at.euirc.net"},
-	{0,			"irc.bas.ch.euirc.net"},
-
-	{"EuropNet", 0},
-	{0,			"irc.europnet.org"},
-
-	{"EU-IRC",	0},
-	{0,			"irc.eu-irc.net"},
-
-	{"FDFNet",	0},
-	{0,			"irc.fdfnet.net"},
-	{0,			"irc.eu.fdfnet.net"},
-
-	{"FEFNet",	0},
-	{0,			"irc.fef.net"},
-	{0,			"irc.ggn.net"},
-	{0,			"irc.vendetta.com"},
+	/* Every entry here was checked by connecting to it. TLS is used
+	 * wherever the network answers on 6697; the three at the end have no
+	 * TLS port at all, so they are plaintext or nothing. Networks that no
+	 * longer answer are not listed. */
 
 	{"Libera.Chat",	0, 0, 0, FLAG_USE_SSL},
-	{0,				"irc.libera.chat/6697"},
+	{0,			"irc.libera.chat/6697"},
 
-/*	{"Freeworld",	0},
-	{0,			"kabel.freeworld.nu"},
-	{0,			"irc.freeworld.nu"},*/
+	{"OFTC",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.oftc.net/6697"},
 
-	{"GalaxyNet",	0},
-	{0,			"irc.galaxynet.org"},
-/*	{0,			"sprynet.us.galaxynet.org"},
-	{0,			"atlanta.ga.us.galaxynet.org"},*/
+	/* irc.efnet.org has no TLS port; these do. */
+	{"EFnet",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.efnet.nl/6697"},
+	{0,			"irc.choopa.net/6697"},
 
-	{"GamesNET",	0},
-	{0,				"irc.gamesnet.net"},
-/*	{0,				"irc.us.gamesnet.net"},
-	{0,				"east.us.gamesnet.net"},
-	{0,				"west.us.gamesnet.net"},*/
-	{0,				"irc.ca.gamesnet.net"},
-	{0,				"irc.eu.gamesnet.net"},
+	{"IRCnet",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.ircnet.ca/6697"},
 
-	{"GeekShed",	0},
-	{0,			"irc.geekshed.net"},
+	{"DALnet",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.dal.net/6697"},
 
-	{"German-Elite",	0},
-	{0,			"dominion.german-elite.net"},
-	{0,			"komatu.german-elite.net"},
-/*	{0,			"liberty.german-elite.net"},*/
+	{"Rizon",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.rizon.net/6697"},
 
-	{"GimpNet",		0},
-	{0,			"irc.gimp.org"},
-/*	{0,			"irc.au.gimp.org"},*/
-	{0,			"irc.us.gimp.org"},
+	{"Snoonet",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.snoonet.org/6697"},
 
-	{"HabberNet",	0},
-	{0,			"irc.habber.net"},
+	{"IRCHighWay",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.irchighway.net/6697"},
 
-	{"Hashmark",	0},
-	{0,			"irc.hashmark.net"},
+	{"hackint",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.hackint.org/6697"},
 
-	{"IdleMonkeys", 0},
-	{0,			"irc.idlemonkeys.net"},
+	{"tilde.chat",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.tilde.chat/6697"},
 
-/*	{"Infinity-IRC",	0},
-	{0,			"Atlanta.GA.US.Infinity-IRC.Org"},
-	{0,			"Babylon.NY.US.Infinity-IRC.Org"},
-	{0,			"Sunshine.Ca.US.Infinity-IRC.Org"},
-	{0,			"IRC.Infinity-IRC.Org"},*/
+	{"GeekShed",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.geekshed.net/6697"},
 
-	{"iZ-smart.net",	0},
-	{0,			"irc.iZ-smart.net/6666"},
-	{0,			"irc.iZ-smart.net/6667"},
-	{0,			"irc.iZ-smart.net/6668"},
+	{"EsperNet",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.esper.net/6697"},
 
-	{"IrcLink",	0},
-	{0,			"irc.irclink.net"},
-	{0,			"Alesund.no.eu.irclink.net"},
-	{0,			"Oslo.no.eu.irclink.net"},
-	{0,			"frogn.no.eu.irclink.net"},
-	{0,			"tonsberg.no.eu.irclink.net"},
+	{"AnonOps",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.anonops.com/6697"},
 
-	{"IRCNet",		0},
-	{0,				"irc.ircnet.com"},
-	{0,				"irc.stealth.net/6668"},
-	{0,				"ircnet.demon.co.uk"},
-/*	{0,				"ircnet.hinet.hr"},*/
-	{0,				"irc.datacomm.ch"},
-/*	{0,				"ircnet.kaptech.fr"},
-	{0,				"ircnet.easynet.co.uk"},*/
-	{0,				"random.ircd.de"},
-	{0,				"ircnet.netvision.net.il"},
-/*	{0,				"irc.seed.net.tw"},*/
-	{0,				"irc.cs.hut.fi"},
+	{"SpotChat",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.spotchat.org/6697"},
 
-	{"Irctoo.net",	0},
-	{0,			"irc.irctoo.net"},
+	{"2600net",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.2600.net/6697"},
 
-	{"Krstarica", 0},
-	{0,			"irc.krstarica.com"},
+	{"SwiftIRC",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.swiftirc.net/6697"},
 
-	{"Librenet",	0},
-	{0,			"irc.librenet.net"},
-	{0,			"ielf.fr.librenet.net"},
+	{"DarkScience",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.darkscience.net/6697"},
 
-	{"LinkNet",	0},
-	{0,			"irc.link-net.org"},
-	{0,			"irc.no.link-net.org"},
-/*	{0,			"irc.gamesden.net.au"},*/
-	{0,			"irc.bahnhof.se"},
-/*	{0,			"irc.kinexuseurope.co.uk"},
-	{0,			"irc.gamiix.com"},*/
+	{"euIRC",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.euirc.net/6697"},
 
-	{"MagicStar",	0},
-	{0,			"irc.magicstar.net"},
+	{"ChatSpike",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.chatspike.net/6697"},
 
-	{"Majistic",	0},
-	{0,			"irc.majistic.net"},
+	{"Abjects",	0, 0, 0, FLAG_USE_SSL},
+	{0,			"irc.abjects.us/6697"},
 
-	{"MindForge",	0},
-	{0,			"irc.mindforge.org"},
+	/* No TLS port is offered by these. */
 
-	{"MintIRC",	0},
-	{0,			"irc.mintirc.net"},
-
-	{"MIXXnet",		0},
-	{0,			"irc.mixxnet.net"},
-
-	{"NeverNET",	0},
-	{0,			"irc.nevernet.net"},
-	{0,			"imagine.nevernet.net"},
-	{0,			"dimension.nevernet.net"},
-	{0,			"universe.nevernet.net"},
-	{0,			"wayland.nevernet.net"},
-	{0,			"forte.nevernet.net"},
-
-	{"NixHelpNet",	0},
-	{0,			"irc.nixhelp.org"},
-	{0,			"us.nixhelp.org"},
-	{0,			"uk.nixhelp.org"},
-	{0,			"uk2.nixhelp.org"},
-	{0,			"uk3.nixhelp.org"},
-	{0,			"nl.nixhelp.org"},
-	{0,			"ca.ld.nixhelp.org"},
-	{0,			"us.co.nixhelp.org"},
-	{0,			"us.ca.nixhelp.org"},
-	{0,			"us.pa.nixhelp.org"},
-
-	{"NullusNet",	0},
-	{0,			"irc.nullus.net"},
-
-	{"Oceanius", 0},
-	{0,			"irc.oceanius.com"},
-
-	{"OFTC",	0},
-	{0,			"irc.oftc.net"},
-
-	{"OtherNet",	0},
-	{0,			"irc.othernet.org"},
-
-	{"Ozinger", 0},
-	{0,         "irc.ozinger.org/6667"},
-	{0,         "irc.ozinger.org/8080"},
-
-	{"OzNet",	0},
-	{0,			"irc.oz.org"},
-
-	{"PIRC.PL",	0},
-	{0,			"irc.pirc.pl"},
-
-	{"PTlink",	0},
-	{0,			"irc.PTlink.net"},
-	{0,			"aaia.PTlink.net"},
-
-	{"PTNet.org",   0},
-	{0,			"irc.PTNet.org"},
-	{0,			"world.PTnet.org"},
-	{0,			"netvisao.PTnet.org"},
-	{0,			"uevora.PTnet.org"},
-	{0,			"vianetworks.PTnet.org"},
-	{0,			"uc.PTnet.org"},
-	{0,			"nfsi.ptnet.org"},
+	{"UnderNet",	0},
+	{0,			"us.undernet.org"},
+	{0,			"eu.undernet.org"},
+	{0,			"irc.undernet.org"},
 
 	{"QuakeNet",	0},
 	{0,			"irc.quakenet.org"},
-	{0,			"irc.se.quakenet.org"},
-	{0,			"irc.dk.quakenet.org"},
-	{0,			"irc.no.quakenet.org"},
-	{0,			"irc.fi.quakenet.org"},
-	{0,			"irc.be.quakenet.org"},
-	{0,			"irc.uk.quakenet.org"},
-	{0,			"irc.de.quakenet.org"},
-	{0,			"irc.it.quakenet.org"},
 
-	{"RebelChat",	0},
-	{0,			"irc.rebelchat.org"},
-
-/*	{"Recycled-IRC",  0},
-	{0,			"irc.recycled-irc.org"},
-	{0,			"vermin.recycled-irc.org"},
-	{0,			"waste.recycled-irc.org"},
-	{0,			"lumber.recycled-irc.org"},
-	{0,			"trash.recycled-irc.org"},
-	{0,			"unwashed.recycled-irc.org"},
-	{0,			"garbage.recycled-irc.org"},
-	{0,			"dustbin.recycled-irc.org"},*/
-
-	{"RizeNET", 0},
-	{0,			"irc.rizenet.org"},
-	{0,			"omega.rizenet.org"},
-	{0,			"evelance.rizenet.org"},
-	{0,			"lisa.rizenet.org"},
-	{0,			"scott.rizenet.org"},
-
-	{"Rizon", 0},
-	{0,			"irc.rizon.net"},
-
-	{"RusNet", 0, 0, "KOI8-R (Cyrillic)"},
-	{0,			"irc.tomsk.net"},
-	{0,			"irc.rinet.ru"},
-	{0,			"irc.run.net"},
-	{0,			"irc.ru"},
-	{0,			"irc.lucky.net"},
-
-	{"SceneNet",	0},
-	{0,			"irc.scene.org"},
-	{0,			"irc.eu.scene.org"},
-	{0,			"irc.us.scene.org"},
-
-	{"SeilEn.de",	0},
-	{0,			"irc.seilen.de"},
-
-	{"SlashNET",	0},
-	{0,			"irc.slashnet.org"},
-	{0,			"area51.slashnet.org"},
-	{0,			"moo.slashnet.org"},
-	{0,			"radon.slashnet.org"},
-
-	{"Snoonet", 0},
-	#ifdef USE_OPENSSL
-	{0,         "irc.snoonet.com/+6697"},
-	#endif
-	{0,         "irc.snoonet.com/6667"},
-
-	{"Sohbet.Net", 0},
-	{0,			"irc.sohbet.net"},
-
-	{"SolidIRC", 0},
-	{0,			"irc.solidirc.com"},
-
-	{"SorceryNet",	0},
-	{0,			"irc.sorcery.net/9000"},
-	{0,			"irc.us.sorcery.net/9000"},
-	{0,			"irc.eu.sorcery.net/9000"},
-
-	{"Spidernet",	0},
-	{0,			"us.spidernet.org"},
-	{0,			"eu.spidernet.org"},
-	{0,			"irc.spidernet.org"},
-
-	{"StarChat", 0},
-	{0,			"irc.starchat.net"},
-	{0,			"gainesville.starchat.net"},
-	{0,			"freebsd.starchat.net"},
-	{0,			"sunset.starchat.net"},
-	{0,			"revenge.starchat.net"},
-	{0,			"tahoma.starchat.net"},
-	{0,			"neo.starchat.net"},
-
-	{"TNI3",			0},
-	{0,			"irc.tni3.com"},
-
-	{"TURLINet",			0},
-	{0,			"irc.turli.net"},
-	{0,			"irc.servx.ru"},
-	{0,			"irc.gavnos.ru"},
-
-	{"UnderNet",	0, 0, 0, FLAG_USE_SSL},
-	{0,			"irc.undernet.org/6697"},
-	{0,			"us.undernet.org/6697"},
-	{0,			"eu.undernet.org/6697"},
-
-	{"UniBG",		0},
-	{0,			"irc.lirex.com"},
-	{0,			"irc.naturella.com"},
-	{0,			"irc.spnet.net"},
-	{0,			"irc.techno-link.com"},
-	{0,			"irc.telecoms.bg"},
-	{0,			"irc.tu-varna.edu"},
-
-	{"uriirc",		0},
-	{0,			"irc.uriirc.org/16667"},
-
-	{"Whiffle",	0},
-	{0,			"irc.whiffle.org"},
-
-	{"Worldnet",		0},
-	{0,			"irc.worldnet.net"},
-	{0,			"irc.fr.worldnet.net"},
-
-	{"Xentonix.net",	0},
-	{0,			"irc.xentonix.net"},
-
-	{"XWorld",	0},
-	{0,			"Buffalo.NY.US.XWorld.org"},
-	{0,			"Minneapolis.MN.US.Xworld.Org"},
-	{0,			"Rochester.NY.US.XWorld.org"},
-	{0,			"Bayern.DE.EU.XWorld.Org"},
-	{0,			"Chicago.IL.US.XWorld.Org"},
+	{"GameSurge",	0},
+	{0,			"irc.gamesurge.net"},
 
 	{0,0}
 };
