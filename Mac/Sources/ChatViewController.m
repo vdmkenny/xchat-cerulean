@@ -426,14 +426,29 @@ static NSImage *emptyBulletImage;
 @synthesize limitTextField, keyTextField;
 @synthesize nickTextField;
 
+/* Flat status dot for the user list. Drawn rather than loaded from an image
+ * so it stays sharp at any scale and follows the system palette. */
+static NSImage *XAStatusOrb (NSColor *color)
+{
+    const CGFloat diameter = 9.0;
+
+    return [NSImage imageWithSize:NSMakeSize(diameter, diameter)
+                          flipped:NO
+                   drawingHandler:^BOOL(NSRect rect) {
+        [color set];
+        [[NSBezierPath bezierPathWithOvalInRect:NSInsetRect(rect, 0.5, 0.5)] fill];
+        return YES;
+    }];
+}
+
 + (void)initialize {
     if (self == [ChatViewController class]) {
-        redBulletImage = [[NSImage imageNamed:@"red.tiff"] retain];
-        purpleBulletImage = [[NSImage imageNamed:@"purple.tiff"] retain];
-        greenBulletImage = [[NSImage imageNamed:@"green.tiff"] retain];
-        blueBulletImage = [[NSImage imageNamed:@"blue.tiff"] retain];
-        yellowBulletImage = [[NSImage imageNamed:@"yellow.tiff"] retain];
-        emptyBulletImage = [[NSImage alloc] initWithSize:NSMakeSize(1.0f,1.0f)];
+        redBulletImage    = [XAStatusOrb ([NSColor systemRedColor]) retain];
+        purpleBulletImage = [XAStatusOrb ([NSColor systemPurpleColor]) retain];
+        greenBulletImage  = [XAStatusOrb ([NSColor systemGreenColor]) retain];
+        blueBulletImage   = [XAStatusOrb ([NSColor systemBlueColor]) retain];
+        yellowBulletImage = [XAStatusOrb ([NSColor systemYellowColor]) retain];
+        emptyBulletImage  = [[NSImage alloc] initWithSize:NSMakeSize(1.0f,1.0f)];
     }
 }
 

@@ -886,8 +886,9 @@ static NSCursor *XAChatTextViewSizableCursor;
         return;
     }
 
-    [[self.palette getColor:XAColorForeground] set];
-    [[NSGraphicsContext currentContext] setShouldAntialias:false];
+    // A hairline rule between the nicks and the messages, not a full-contrast
+    // line in the text colour.
+    [[NSColor separatorColor] set];
     NSBezierPath *p = [NSBezierPath bezierPath];
     [p setLineWidth:1];
     [p moveToPoint:NSMakePoint (lineRect.origin.x + 1, aRect.origin.y)];

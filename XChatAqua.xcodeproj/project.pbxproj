@@ -59,21 +59,16 @@
 		0F8EA6F40CFB347B001AE9AE /* UrlGrabberWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6DB0CFB347B001AE9AE /* UrlGrabberWindow.m */; };
 		0F8EA6F60CFB347B001AE9AE /* UserCommandsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6DF0CFB347B001AE9AE /* UserCommandsWindow.m */; };
 		0F8EA70B0CFB384A001AE9AE /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8EA70A0CFB384A001AE9AE /* Carbon.framework */; };
-		0F8EA7580CFB6BB7001AE9AE /* blue.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA74B0CFB6BB7001AE9AE /* blue.tiff */; };
 		0F8EA75A0CFB6BB7001AE9AE /* close.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA74D0CFB6BB7001AE9AE /* close.tiff */; };
 		0F8EA75C0CFB6BB7001AE9AE /* connect.tif in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA74F0CFB6BB7001AE9AE /* connect.tif */; };
 		0F8EA7610CFB6BB7001AE9AE /* down.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7540CFB6BB7001AE9AE /* down.tiff */; };
-		0F8EA7800CFB6C9A001AE9AE /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7700CFB6C9A001AE9AE /* green.tiff */; };
 		0F8EA7810CFB6C9A001AE9AE /* heart.tif in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7710CFB6C9A001AE9AE /* heart.tif */; };
 		0F8EA7830CFB6C9A001AE9AE /* link.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7730CFB6C9A001AE9AE /* link.tiff */; };
 		0F8EA7840CFB6C9A001AE9AE /* lock.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7740CFB6C9A001AE9AE /* lock.tiff */; };
 		0F8EA7860CFB6C9A001AE9AE /* lr_cursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7760CFB6C9A001AE9AE /* lr_cursor.tiff */; };
-		0F8EA78B0CFB6C9A001AE9AE /* purple.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA77B0CFB6C9A001AE9AE /* purple.tiff */; };
-		0F8EA78D0CFB6C9A001AE9AE /* red.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA77D0CFB6C9A001AE9AE /* red.tiff */; };
 		0F8EA79C0CFB6CF9001AE9AE /* unlock.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7920CFB6CF9001AE9AE /* unlock.tiff */; };
 		0F8EA79F0CFB6CF9001AE9AE /* X-Chat Aqua.scriptSuite in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7950CFB6CF9001AE9AE /* X-Chat Aqua.scriptSuite */; };
 		0F8EA7A00CFB6CF9001AE9AE /* X-Chat Aqua.scriptTerminology in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7960CFB6CF9001AE9AE /* X-Chat Aqua.scriptTerminology */; };
-		0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */; };
 		0F8F08180E1FE01800359159 /* Tcl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8F08170E1FE01800359159 /* Tcl.framework */; };
 		0F8F082A0E1FE06800359159 /* tclplugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F08280E1FE06800359159 /* tclplugin.c */; };
 		0FC8F5C40DEEEA3E00504F31 /* libxchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F4AE0DEEE51700504F31 /* libxchat.a */; };
@@ -374,21 +369,16 @@
 		0F8EA6DE0CFB347B001AE9AE /* UserCommandsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommandsWindow.h; sourceTree = "<group>"; };
 		0F8EA6DF0CFB347B001AE9AE /* UserCommandsWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommandsWindow.m; sourceTree = "<group>"; };
 		0F8EA70A0CFB384A001AE9AE /* Carbon.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		0F8EA74B0CFB6BB7001AE9AE /* blue.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = blue.tiff; path = Resources/blue.tiff; sourceTree = "<group>"; };
 		0F8EA74D0CFB6BB7001AE9AE /* close.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = close.tiff; path = Resources/close.tiff; sourceTree = "<group>"; };
 		0F8EA74F0CFB6BB7001AE9AE /* connect.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = connect.tif; path = Resources/connect.tif; sourceTree = "<group>"; };
 		0F8EA7540CFB6BB7001AE9AE /* down.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = down.tiff; path = Resources/down.tiff; sourceTree = "<group>"; };
-		0F8EA7700CFB6C9A001AE9AE /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = green.tiff; path = Resources/green.tiff; sourceTree = "<group>"; };
 		0F8EA7710CFB6C9A001AE9AE /* heart.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = heart.tif; path = Resources/heart.tif; sourceTree = "<group>"; };
 		0F8EA7730CFB6C9A001AE9AE /* link.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = link.tiff; path = Resources/link.tiff; sourceTree = "<group>"; };
 		0F8EA7740CFB6C9A001AE9AE /* lock.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = lock.tiff; path = Resources/lock.tiff; sourceTree = "<group>"; };
 		0F8EA7760CFB6C9A001AE9AE /* lr_cursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = lr_cursor.tiff; path = Resources/lr_cursor.tiff; sourceTree = "<group>"; };
-		0F8EA77B0CFB6C9A001AE9AE /* purple.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = purple.tiff; path = Resources/purple.tiff; sourceTree = "<group>"; };
-		0F8EA77D0CFB6C9A001AE9AE /* red.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = red.tiff; path = Resources/red.tiff; sourceTree = "<group>"; };
 		0F8EA7920CFB6CF9001AE9AE /* unlock.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = unlock.tiff; path = Resources/unlock.tiff; sourceTree = "<group>"; };
 		0F8EA7950CFB6CF9001AE9AE /* X-Chat Aqua.scriptSuite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.scriptSuite; path = "X-Chat Aqua.scriptSuite"; sourceTree = "<group>"; };
 		0F8EA7960CFB6CF9001AE9AE /* X-Chat Aqua.scriptTerminology */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.scriptTerminology; path = "X-Chat Aqua.scriptTerminology"; sourceTree = "<group>"; };
-		0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = yellow.tiff; path = Resources/yellow.tiff; sourceTree = "<group>"; };
 		0F8F06C10E1FDA5E00359159 /* perl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = perl.c; path = xchat/plugins/perl/perl.c; sourceTree = SOURCE_ROOT; };
 		0F8F08110E1FE00800359159 /* tcl.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tcl.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8F08170E1FE01800359159 /* Tcl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tcl.framework; path = System/Library/Frameworks/Tcl.framework; sourceTree = SDKROOT; };
@@ -2133,15 +2123,10 @@
 			children = (
 				38701ACF15C99AE400FB3EAC /* xchat.icns */,
 				0F8EA7920CFB6CF9001AE9AE /* unlock.tiff */,
-				0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */,
-				0F8EA7700CFB6C9A001AE9AE /* green.tiff */,
 				0F8EA7710CFB6C9A001AE9AE /* heart.tif */,
 				0F8EA7730CFB6C9A001AE9AE /* link.tiff */,
 				0F8EA7740CFB6C9A001AE9AE /* lock.tiff */,
 				0F8EA7760CFB6C9A001AE9AE /* lr_cursor.tiff */,
-				0F8EA77B0CFB6C9A001AE9AE /* purple.tiff */,
-				0F8EA77D0CFB6C9A001AE9AE /* red.tiff */,
-				0F8EA74B0CFB6BB7001AE9AE /* blue.tiff */,
 				0F8EA74D0CFB6BB7001AE9AE /* close.tiff */,
 				0F8EA74F0CFB6BB7001AE9AE /* connect.tif */,
 				0F8EA7540CFB6BB7001AE9AE /* down.tiff */,
@@ -2819,21 +2804,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F8EA7580CFB6BB7001AE9AE /* blue.tiff in Resources */,
 				0F8EA75A0CFB6BB7001AE9AE /* close.tiff in Resources */,
 				0F8EA75C0CFB6BB7001AE9AE /* connect.tif in Resources */,
 				0F8EA7610CFB6BB7001AE9AE /* down.tiff in Resources */,
-				0F8EA7800CFB6C9A001AE9AE /* green.tiff in Resources */,
 				0F8EA7810CFB6C9A001AE9AE /* heart.tif in Resources */,
 				0F8EA7830CFB6C9A001AE9AE /* link.tiff in Resources */,
 				0F8EA7840CFB6C9A001AE9AE /* lock.tiff in Resources */,
 				0F8EA7860CFB6C9A001AE9AE /* lr_cursor.tiff in Resources */,
-				0F8EA78B0CFB6C9A001AE9AE /* purple.tiff in Resources */,
-				0F8EA78D0CFB6C9A001AE9AE /* red.tiff in Resources */,
 				0F8EA79C0CFB6CF9001AE9AE /* unlock.tiff in Resources */,
 				0F8EA79F0CFB6CF9001AE9AE /* X-Chat Aqua.scriptSuite in Resources */,
 				0F8EA7A00CFB6CF9001AE9AE /* X-Chat Aqua.scriptTerminology in Resources */,
-				0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */,
 				0F7065540E1FA32E00FEA21C /* Changes in Resources */,
 				387A1E671E54972800933983 /* libsg.strings in Resources */,
 				387A1E691E54972800933983 /* xchat.strings in Resources */,
