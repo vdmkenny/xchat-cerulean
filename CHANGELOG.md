@@ -5,6 +5,35 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.4.1] - 2026-08-16
+
+### Fixed
+
+- **Capability negotiation was ended more than once.** Registration waits for
+  the client to say it has finished asking for capabilities. Since a server
+  can now offer one mid-session and acknowledge a request for it long after
+  login, that acknowledgement was answered by ending a negotiation that was
+  no longer running. Only the exchange registration is actually waiting on
+  ends it now.
+- **Timestamps from the server were kept out of the log and the scrollback.**
+  A line carries the time the server saw it, which is what matters when a
+  bouncer replays a backlog on reconnect. Only the line on screen used it, so
+  the log and the saved scrollback recorded a replayed conversation as having
+  arrived all at once. Both use it now, falling back to the current time for
+  lines that carry none.
+- **Away status was polled for even when the server announced it.** With
+  `away-notify` the server reports away changes as they happen, but the
+  periodic `WHO` of every channel carried on regardless. It is skipped while
+  the capability is active, and resumes if the server withdraws it. The `WHO`
+  sent on joining still establishes who was already away.
+
+### Added
+
+- **Which services account a user is logged in to**, in the user info menu
+  that opens from the user list or from a nick in the conversation. Where the
+  server supports it the account is fetched for everyone present on joining,
+  rather than only for those who arrive later.
+
 ## [2.4.0] - 2026-08-16
 
 ### Fixed
@@ -435,3 +464,12 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 [2.1.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.1.0
 [2.2.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.2.0
 [2.2.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.2.1
+[2.3.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.0
+[2.3.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.1
+[2.3.2]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.2
+[2.3.3]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.3
+[2.3.4]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.4
+[2.3.5]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.5
+[2.3.6]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.3.6
+[2.4.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.4.0
+[2.4.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.4.1
