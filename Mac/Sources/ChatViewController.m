@@ -839,14 +839,94 @@ static NSImage *emptyBulletImage;
     }
 }
 
+#pragma mark Layout
+
+/* Rebuilds one of the nib's hand-rolled box views as an NSStackView.
+ * Subviews are re-added in the order they actually appear on screen, so the
+ * result does not depend on the old box's ordering rules. Views passed in
+ * `expanding` take the leftover space; everything else keeps its natural size. */
+static NSStackView *XAStackFromBox(NSView *box,
+                                   NSUserInterfaceLayoutOrientation orientation,
+                                   CGFloat spacing,
+                                   NSEdgeInsets insets,
+                                   NSArray *expanding)
+{
+    NSView *parent = [box superview];
+    if (box == nil || parent == nil) return nil;
+
+    BOOL vertical = (orientation == NSUserInterfaceLayoutOrientationVertical);
+    BOOL flipped = [box isFlipped];
+
+    NSArray *ordered = [[box subviews] sortedArrayUsingComparator:^NSComparisonResult(NSView *a, NSView *b) {
+        CGFloat av, bv;
+        if (vertical) {
+            /* A stack fills top to bottom; in unflipped coordinates the
+             * topmost view has the largest y. */
+            av = flipped ? NSMinY(a.frame) : -NSMinY(a.frame);
+            bv = flipped ? NSMinY(b.frame) : -NSMinY(b.frame);
+        } else {
+            av = NSMinX(a.frame);
+            bv = NSMinX(b.frame);
+        }
+        if (av < bv) return NSOrderedAscending;
+        if (av > bv) return NSOrderedDescending;
+        return NSOrderedSame;
+    }];
+
+    NSStackView *stack = [[[NSStackView alloc] initWithFrame:box.frame] autorelease];
+    stack.orientation = orientation;
+    stack.spacing = spacing;
+    stack.edgeInsets = insets;
+    stack.distribution = NSStackViewDistributionFill;
+    stack.alignment = vertical ? NSLayoutAttributeWidth : NSLayoutAttributeHeight;
+    stack.autoresizingMask = box.autoresizingMask;
+    stack.translatesAutoresizingMaskIntoConstraints = YES;
+
+    NSLayoutConstraintOrientation axis = vertical ? NSLayoutConstraintOrientationVertical
+                                                  : NSLayoutConstraintOrientationHorizontal;
+    for (NSView *child in ordered) {
+        [[child retain] autorelease];
+        [child removeFromSuperview];
+        child.translatesAutoresizingMaskIntoConstraints = NO;
+        [stack addArrangedSubview:child];
+        [child setContentHuggingPriority:([expanding containsObject:child]
+                                          ? NSLayoutPriorityDefaultLow
+                                          : NSLayoutPriorityDefaultHigh)
+                          forOrientation:axis];
+    }
+
+    [parent replaceSubview:box with:stack];
+    return stack;
+}
+
+/* Swaps the three box-view columns for stack views. The rows inside them are
+ * left alone: code still adds and removes buttons from those directly. */
+- (void)rebuildLayoutWithStackViews
+{
+    NSScrollView *chatScroll = [chatTextView enclosingScrollView];
+    NSScrollView *userScroll = [userlistTableView enclosingScrollView];
+    if (chatScroll == nil || userScroll == nil) return;
+
+    XAStackFromBox([chatScroll superview], NSUserInterfaceLayoutOrientationVertical,
+                   6.0, NSEdgeInsetsMake(0.0, 0.0, 6.0, 0.0), @[chatScroll]);
+
+    XAStackFromBox([userScroll superview], NSUserInterfaceLayoutOrientationVertical,
+                   6.0, NSEdgeInsetsMake(0.0, 6.0, 6.0, 0.0), @[userScroll]);
+
+    XAStackFromBox([userlistSplitView superview], NSUserInterfaceLayoutOrientationVertical,
+                   8.0, NSEdgeInsetsMake(0.0, 0.0, 0.0, 0.0), @[userlistSplitView]);
+}
+
 - (void) awakeFromNib
 {
     [self.chatView setFrameSize:NSMakeSize (prefs.mainwindow_width, prefs.mainwindow_height)];
     [chatTextView setFrame:[chatScrollView documentVisibleRect]];
-    
+
     [headerBoxView layoutNow];
     self->inputContainerView.layer = [CALayer layer];
-    
+
+    [self rebuildLayoutWithStackViews];
+
     [self applyPreferences:nil];
     
     [self.chatView setServer:sess->server];
