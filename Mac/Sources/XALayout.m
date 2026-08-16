@@ -285,6 +285,33 @@ void XAModernizeScrollView(NSScrollView *scrollView)
     table.gridStyleMask = NSTableViewGridNone;
     if (table.rowHeight < 20.0)
         table.rowHeight = 22.0;
+
+    /* The nib widths predate the current header font, so titles arrive
+     * truncated to an ellipsis. Widen anything narrower than its own
+     * heading, then spread the leftover width across the columns rather
+     * than leaving it as dead space on the right. */
+    NSDictionary *headerAttributes =
+        @{NSFontAttributeName: [NSFont systemFontOfSize:[NSFont smallSystemFontSize]]};
+
+    for (NSTableColumn *column in [table tableColumns]) {
+        NSString *title = [[column headerCell] stringValue];
+        if ([title length] == 0) continue;
+
+        CGFloat needed = ceil([title sizeWithAttributes:headerAttributes].width) + 18.0;
+        if (column.minWidth < needed) column.minWidth = needed;
+        if (column.width < needed) column.width = needed;
+    }
+
+    table.columnAutoresizingStyle = NSTableViewUniformColumnAutoresizingStyle;
+
+    /* Deferred a turn: this runs while the nib is still loading, so the
+     * table does not have its final width yet and would spread the columns
+     * over the wrong total. */
+    [table retain];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [table sizeToFit];
+        [table release];
+    });
 }
 
 void XAModernizeScrollViewsInTree(NSView *root)
