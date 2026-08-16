@@ -5,6 +5,28 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.3] - 2026-08-16
+
+### Changed
+
+- **One instance at a time.** A second copy could be started alongside the
+  first, and the two then shared one configuration directory, each
+  overwriting what the other saved on the way out. Opening the app while it
+  is already running goes to the instance that is there.
+- **Opening a server you are already on takes you to it.** An `irc://` link
+  put the server in a new tab whether or not it was already open, so the same
+  address twice meant connecting twice. It now brings the existing tab
+  forward. When the link names a channel, its tab is shown if you are already
+  in it and joined on that connection otherwise. A link without a port means
+  the usual one for its scheme, so `irc://example.org` and
+  `irc://example.org:6667` count as the same place.
+
+### Fixed
+
+- The command built from an `irc://` link was assembled in a fixed buffer, so
+  a long link was cut short and the client connected to whatever the
+  truncation left behind.
+
 ## [2.3.2] - 2026-08-16
 
 ### Fixed
