@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.3.5</title>
-            <pubDate>Sun, 16 Aug 2026 13:26:53 +0000</pubDate>
+            <title>2.3.6</title>
+            <pubDate>Sun, 16 Aug 2026 13:34:33 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.3.5.1</sparkle:version>
-            <sparkle:shortVersionString>2.3.5</sparkle:shortVersionString>
+            <sparkle:version>2.3.6.1</sparkle:version>
+            <sparkle:shortVersionString>2.3.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -20,11 +20,11 @@ padding:1px 4px;border-radius:3px}
 </style></head><body>
 <h2>Fixed</h2>
 <ul>
-<li><strong>Ruby scripts could not be turned on.</strong> Loading one was refused as an unknown file type, with a suggestion to install the perl or python plugin. Only scripts placed in the configuration directory were ever picked up, so every script shipped in the app, including the ones that have always been there, could be listed but never enabled. The ruby interpreter now claims its own files when loading and unloading, as the perl one does.</li>
+<li><strong>Auto start did nothing for script plugins.</strong> Ticking it called the binary loader directly, which answered that a ruby or perl script is not a valid executable. Loading now goes through the same path as the load command, so the interpreters get the chance to claim their own files.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.5/XChat-Cerulean-2.3.5.zip" length="7036078" type="application/octet-stream" sparkle:edSignature="k3VK52KPh6F3Ci8Oq7QiX1C9tF2Ie2LjjkO6QFszCyBndLvkQ5UDHidpRPkaMc0eXvkIBQoCoZg5/EzIxuYKDA=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.6/XChat-Cerulean-2.3.6.zip" length="7035995" type="application/octet-stream" sparkle:edSignature="dFZPBMvOa0vBbh8ZPURf5illSd4H/B0peRFlGMy1HwjqAbk0ZFrPn7hX/Ky5ALJjLLzZW1dByJYUwLBhMsU7Cg=="/>
         </item>
     </channel>
 </rss>
