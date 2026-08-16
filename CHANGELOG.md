@@ -27,6 +27,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 Neither interpreter is carried in the app. Both bind to what the system
 already provides, as they always did.
 
+- A window in the viewer still asked for the textured appearance that macOS
+  dropped in version 11.
+
+### Changed
+
+- The build is quiet again. The plugin bridges produced 328 warnings between
+  them, all from constructs inside the interpreters' own headers, which are
+  now included as system headers. Also gone: a reference to perl 5.18 that
+  resolved to nothing, generation of a file nothing reads, and a bundle
+  identifier left over from the rename.
+
 ## [2.3.1] - 2026-08-16
 
 ### Fixed
