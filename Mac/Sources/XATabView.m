@@ -268,29 +268,20 @@ NSImage *XATabViewOutlineCellCloseImage;
         return;
     }
 
+    /* The scroll view's superview is the split view, so a sibling effect view
+     * would become a third pane and steal width. Make the list transparent
+     * instead and let the window's own material show through behind it. */
     self.backgroundColor = [NSColor clearColor];
     scrollView.drawsBackground = NO;
 
     NSView *parent = scrollView.superview;
-    if (parent == nil) return;
+    if (![parent isKindOfClass:[NSSplitView class]]) return;
 
-    NSVisualEffectView *material = nil;
-    for (NSView *sibling in parent.subviews) {
-        if ([sibling isKindOfClass:[NSVisualEffectView class]]) {
-            material = (NSVisualEffectView *)sibling;
-            break;
-        }
+    // Clean up any effect view a previous build inserted here.
+    for (NSView *sibling in [[parent.subviews copy] autorelease]) {
+        if ([sibling isKindOfClass:[NSVisualEffectView class]])
+            [sibling removeFromSuperview];
     }
-
-    if (material == nil) {
-        material = [[[NSVisualEffectView alloc] initWithFrame:scrollView.frame] autorelease];
-        material.material = NSVisualEffectMaterialSidebar;
-        material.blendingMode = NSVisualEffectBlendingModeBehindWindow;
-        material.state = NSVisualEffectStateFollowsWindowActiveState;
-        material.autoresizingMask = scrollView.autoresizingMask;
-        [parent addSubview:material positioned:NSWindowBelow relativeTo:scrollView];
-    }
-    material.frame = scrollView.frame;
 }
 
 - (void)selectRowForTabViewItem:(XATabViewItem *)tabViewItem {

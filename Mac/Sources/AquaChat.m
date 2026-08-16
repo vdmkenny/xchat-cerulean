@@ -44,6 +44,7 @@
 #import "PluginWindow.h"
 #import "NetworkWindow.h"
 #import "UrlGrabberWindow.h"
+#import "XAScreenshot.h"
 
 /* Identifiers for the actionable notification type registered at launch. */
 static NSString * const XAMessageNotificationCategory = @"message";
@@ -356,6 +357,7 @@ AquaChat *AquaChatSharedObject;
     [NSApp requestEvents:NSEventTypeKeyDown forWindow:nil forView:nil selector:@selector (myKeyDown:) object:self];
 
     [self setUpNotifications];
+    XAScreenshotInstallHandler ();
 }
 
 - (void)setUpNotifications

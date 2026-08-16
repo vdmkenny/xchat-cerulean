@@ -204,6 +204,7 @@
 		D4FBD93E12E449D5003EA441 /* ViewerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD93D12E449D5003EA441 /* ViewerWindow.xib */; };
 		D4FBD95912E44CD0003EA441 /* ViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD93912E44946003EA441 /* ViewerWindow.m */; };
 		D4FBD9C612E458C4003EA441 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBD9C512E458C4003EA441 /* WebKit.framework */; };
+		D5B7D7B00C79C3EBE9127DC5 /* XAScreenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7308379C4F48D2D388EB19 /* XAScreenshot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1720,6 +1721,7 @@
 		60987199AED34EEA60678E06 /* Pods-glib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-glib/Pods-glib.debug.xcconfig"; sourceTree = "<group>"; };
 		6553D5CCE522A42748D39896 /* Pods-XChat Azure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XChat Azure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XChat Azure/Pods-XChat Azure.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6378DBCA67376E8789F24C /* libPods-glib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-glib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FA6A9EA0F18EE49BD824F3 /* XAScreenshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XAScreenshot.h; path = XAScreenshot.h; sourceTree = "<group>"; };
 		78CD7716F9104D8AEE53764C /* libPods-XChat Azure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XChat Azure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE5D5FE290D2CFCF55760A7 /* Pods-glib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glib.release.xcconfig"; path = "Pods/Target Support Files/Pods-glib/Pods-glib.release.xcconfig"; sourceTree = "<group>"; };
 		8612B1121EDE1E9D0AD33248 /* libPods-XChat Aqua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XChat Aqua.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1741,6 +1743,7 @@
 		D4FBD93D12E449D5003EA441 /* ViewerWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewerWindow.xib; sourceTree = "<group>"; };
 		D4FBD9C512E458C4003EA441 /* WebKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DA7B45E09781F56FCC3C5AE2 /* Pods-XChat Azure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XChat Azure.release.xcconfig"; path = "Pods/Target Support Files/Pods-XChat Azure/Pods-XChat Azure.release.xcconfig"; sourceTree = "<group>"; };
+		DE7308379C4F48D2D388EB19 /* XAScreenshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XAScreenshot.m; path = XAScreenshot.m; sourceTree = "<group>"; };
 		E1F0BEB1FC946EB40959DC4B /* Pods-xchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xchat/Pods-xchat.debug.xcconfig"; sourceTree = "<group>"; };
 		EC34EBF1250894E55E593699 /* Pods-xchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-xchat/Pods-xchat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1899,6 +1902,8 @@
 				0F8EA6CF0CFB347B001AE9AE /* XAVars.h */,
 				3894C1B11590D6F400BCD762 /* NSPanelAdditions.h */,
 				3894C1B21590D6F400BCD762 /* NSPanelAdditions.m */,
+				71FA6A9EA0F18EE49BD824F3 /* XAScreenshot.h */,
+				DE7308379C4F48D2D388EB19 /* XAScreenshot.m */,
 			);
 			name = Sources;
 			path = Mac/Sources;
@@ -3057,6 +3062,7 @@
 				3894C1B41590D93D00BCD762 /* NSPanelAdditions.m in Sources */,
 				3864594B15E509E500C4CA45 /* PluginManager.m in Sources */,
 				3B4D30BA15F5314600704C98 /* XAFileUtil.m in Sources */,
+				D5B7D7B00C79C3EBE9127DC5 /* XAScreenshot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
