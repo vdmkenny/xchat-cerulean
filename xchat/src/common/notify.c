@@ -417,17 +417,17 @@ notify_checklist_for_server (server *serv)
 		notify = list->data;
 		if (notify_do_network (notify, serv))
 		{
+			/* We can't send more than 512 bytes to the server, and splitting
+			 * it over two packets would break offline detection, so the list
+			 * is cut short instead. The room is checked before appending: a
+			 * name added first could already have run past the end of the
+			 * buffer by the time its length was tested. */
+			if (strlen (outbuf) + strlen (notify->name) + 1 > 460)
+				break;
+
 			i++;
 			strcat (outbuf, notify->name);
 			strcat (outbuf, " ");
-			if (strlen (outbuf) > 460)
-			{
-				/* LAME: we can't send more than 512 bytes to the server, but     *
-				 * if we split it in two packets, our offline detection wouldn't  *
-				 work                                                           */
-				/*fprintf (stderr, _("*** XCHAT WARNING: notify list too large.\n"));*/
-				break;
-			}
 		}
 		list = list->next;
 	}

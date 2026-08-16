@@ -2308,8 +2308,14 @@ dcc_resume (struct DCC *dcc)
 					  "DCC RESUME %s %d %"DCC_SFMT,
 					  dcc->file, dcc->port, dcc->resumable);
 
+		/* pasvid comes from the offer, so it can be any int the peer likes.
+		 * The ten bytes held back above are not enough for a sign, ten
+		 * digits, a space and a terminator, so bound the append too. */
 		if (dcc->pasvid)
- 			sprintf (tbuf + strlen (tbuf), " %d", dcc->pasvid);
+		{
+			size_t used = strlen (tbuf);
+			snprintf (tbuf + used, sizeof (tbuf) - used, " %d", dcc->pasvid);
+		}
 
 		dcc->serv->p_ctcp (dcc->serv, dcc->nick, tbuf);
 		return 1;
