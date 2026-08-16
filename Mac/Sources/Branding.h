@@ -20,7 +20,7 @@
 #define XA_PRODUCT_SHORT    "Cerulean"
 
 #define XA_BUNDLE_ID        "dev.vdmkenny.xchatcerulean"
-#define XA_HOMEPAGE         "https://github.com/vdmkenny/xchataqua"
+#define XA_HOMEPAGE         "https://github.com/vdmkenny/xchat-cerulean"
 
 /* What this fork descends from, for about boxes and attribution. */
 #define XA_UPSTREAM_NAME    "X-Chat Aqua"

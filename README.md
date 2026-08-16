@@ -32,8 +32,8 @@ brew install glib gettext openssl@3
 Clone and build:
 
 ```bash
-git clone https://github.com/vdmkenny/xchataqua.git
-cd xchataqua
+git clone https://github.com/vdmkenny/xchat-cerulean.git
+cd xchat-cerulean
 xcodebuild -project XChatAqua.xcodeproj -scheme 'XChat Cerulean' -configuration Release -derivedDataPath build build
 ```
 
