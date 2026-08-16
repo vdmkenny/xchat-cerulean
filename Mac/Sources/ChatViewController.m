@@ -956,6 +956,25 @@ static NSStackView *XAStackFromBox(NSView *box,
     return stack;
 }
 
+/* The user list buttons are a grid rather than a single row, so they become
+ * an NSGridView. This runs before preferences are applied, because applying
+ * them populates the buttons. */
+- (void)rebuildUserlistButtonsAsGrid
+{
+    NSView *buttonBox = (NSView *)buttonBoxView;
+    if (buttonBox == nil || [buttonBox isKindOfClass:[NSGridView class]]) return;
+
+    NSGridView *grid = [NSGridView gridViewWithNumberOfColumns:2 rows:0];
+    grid.frame = [buttonBox frame];
+    grid.autoresizingMask = [buttonBox autoresizingMask];
+    grid.rowSpacing = 4.0;
+    grid.columnSpacing = 4.0;
+    grid.hidden = [buttonBox isHidden];
+
+    [[buttonBox superview] replaceSubview:buttonBox with:grid];
+    buttonBoxView = grid;
+}
+
 /* Converts the three box-view columns. The rows inside them are left alone:
  * code adds and removes buttons from those directly. */
 - (void)rebuildLayoutWithStackViews
@@ -991,6 +1010,7 @@ static NSStackView *XAStackFromBox(NSView *box,
                                              inputTextField ? @[inputTextField] : @[]);
     if (inputStack != nil) inputContainerView = inputStack;
 
+
     XAStackFromBox(chatColumn, NSUserInterfaceLayoutOrientationVertical,
                    10.0, NSEdgeInsetsMake(6.0, 12.0, 12.0, 12.0), @[chatScroll]);
 
@@ -1008,6 +1028,8 @@ static NSStackView *XAStackFromBox(NSView *box,
     
     [headerBoxView layoutSubtreeIfNeeded];
     self->inputContainerView.layer = [CALayer layer];
+
+    [self rebuildUserlistButtonsAsGrid];
 
     [self applyPreferences:nil];
 
@@ -1076,8 +1098,6 @@ static NSStackView *XAStackFromBox(NSView *box,
     [topicTextField setAction:@selector(doTopicTextField:)];
     [topicTextField setTarget:self];
     
-    [buttonBoxView setColumns:2 rows:0];
-    [buttonBoxView setShrinkHoriz:NO vert:YES];
     [self setupUserlistButtons];
     
     [self setupSessMenuButton];
@@ -1195,20 +1215,31 @@ static NSStackView *XAStackFromBox(NSView *box,
 
 - (void) setupUserlistButtons
 {
-    while ([[buttonBoxView subviews] count])
-        [[buttonBoxView subviews][0] removeFromSuperviewWithoutNeedingDisplay];
-    
+    while ([buttonBoxView numberOfRows] > 0)
+        [buttonBoxView removeRowAtIndex:0];
+
+    // Two buttons per row, the way the old row/column view was configured.
+    NSMutableArray *row = [NSMutableArray arrayWithCapacity:2];
+
     for (GSList *list = button_list; list; list = list->next)
     {
         struct popup *p = (struct popup *) list->data;
-        
-        UserlistButton *button = [[UserlistButton alloc] initWithPopup:p];
-        
+
+        UserlistButton *button = [[[UserlistButton alloc] initWithPopup:p] autorelease];
+
         [button setAction:@selector (doUserlistButton:)];
         [button setTarget:self];
-        
-        [buttonBoxView addSubview:button];
-        [button release];
+
+        [row addObject:button];
+        if ([row count] == 2) {
+            [buttonBoxView addRowWithViews:row];
+            [row removeAllObjects];
+        }
+    }
+
+    if ([row count] > 0) {
+        [row addObject:[NSGridCell emptyContentView]];
+        [buttonBoxView addRowWithViews:row];
     }
 }
 

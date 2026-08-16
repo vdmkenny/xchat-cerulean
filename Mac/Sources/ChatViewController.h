@@ -42,7 +42,7 @@
     IBOutlet NSTextField    *topicTextField;
     IBOutlet NSStackView    *headerBoxView;
     IBOutlet ChatSplitView  *userlistSplitView;
-    IBOutlet SGRowColView   *buttonBoxView;
+    IBOutlet NSGridView     *buttonBoxView;
     IBOutlet NSProgressIndicator *progressIndicator;
     IBOutlet NSControl      *throttleIndicator;
     IBOutlet NSControl      *lagIndicator;
