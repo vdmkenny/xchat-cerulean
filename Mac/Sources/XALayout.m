@@ -157,7 +157,26 @@ void XAModernizeFlatLayout(NSView *root,
 {
     if (root == nil || [[root subviews] count] == 0) return;
 
+    /* Already rebuilt. */
+    if ([[root subviews] count] == 1 && [[root subviews][0] isKindOfClass:[NSStackView class]])
+        return;
+
     NSArray *rows = XARowsFromSubviews(root);
+
+    /* A tall view beside short controls means the nib is laid out in columns,
+     * not rows, and grouping by vertical overlap would put a whole panel on
+     * the same line as a button. Those layouts are left alone. */
+    for (NSArray *row in rows) {
+        if ([row count] < 2) continue;
+
+        CGFloat shortest = CGFLOAT_MAX, tallest = 0.0;
+        for (NSView *view in row) {
+            CGFloat height = NSHeight([view frame]);
+            shortest = MIN(shortest, height);
+            tallest = MAX(tallest, height);
+        }
+        if (shortest > 0.0 && tallest / shortest > 2.5) return;
+    }
 
     NSStackView *column = [[[NSStackView alloc] initWithFrame:[root bounds]] autorelease];
     column.orientation = NSUserInterfaceLayoutOrientationVertical;

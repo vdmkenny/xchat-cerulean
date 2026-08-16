@@ -110,6 +110,19 @@ NSMutableDictionary *utilities;
 - (void)modernizeContents
 {
     XAModernizeScrollViewsInTree(self);
+
+    /* The tallest list is what should absorb the window's spare height. */
+    NSView *tallest = nil;
+    for (NSView *child in [self subviews]) {
+        if (![child isKindOfClass:[NSScrollView class]]) continue;
+        if (tallest == nil || NSHeight([child frame]) > NSHeight([tallest frame]))
+            tallest = child;
+    }
+
+    XAModernizeFlatLayout(self,
+                          NSEdgeInsetsMake(14.0, 20.0, 16.0, 20.0),
+                          14.0, 10.0,
+                          tallest ? @[tallest] : @[]);
 }
 
 
