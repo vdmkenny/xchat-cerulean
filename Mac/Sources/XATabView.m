@@ -841,8 +841,14 @@ typedef OSStatus
         else if ([label length] == 0 || [label isEqualToString:@"<none>"])
             symbol = @"bolt.horizontal";
 
+        /* The cell draws the symbol itself, and drawing a template image
+         * directly paints it black rather than tinting it, so the colour is
+         * baked into the image. */
         NSImage *icon = [NSImage imageWithSystemSymbolName:symbol accessibilityDescription:label];
-        icon.template = YES;
+        NSColor *tint = [item titleColor];
+        if (tint == nil) tint = [NSColor secondaryLabelColor];
+        icon = [icon imageWithSymbolConfiguration:
+                [NSImageSymbolConfiguration configurationWithHierarchicalColor:tint]];
         [cell setIcon:icon];
     } else {
         // Server rows read as section headers, so they are quieter than a channel.
