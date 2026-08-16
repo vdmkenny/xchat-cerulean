@@ -28,6 +28,9 @@
 #import "CLTabViewButtonCell.h"
 #import "TabOrWindowView.h"
 
+/* Below this the channel list is not usefully readable. */
+static const CGFloat XAMinimumSidebarWidth = 150.0;
+
 //! @abstract   Cell of each row of outline tab mode
 @interface XATabViewOutlineCell : NSTextFieldCell {
     BOOL _hasCloseButton;
@@ -1129,8 +1132,46 @@ typedef OSStatus
 - (void)splitViewDidResizeSubviews:(NSNotification *)notification {
     if (self->tabViewType == XATabViewTypeOutline) {
         NSScrollView *outlineScroll = [_tabOutlineView enclosingScrollView];
-        prefs.xa_outline_width = outlineScroll.frame.size.width;
+        CGFloat width = outlineScroll.frame.size.width;
+        if (width >= XAMinimumSidebarWidth)
+            prefs.xa_outline_width = width;
     }
+}
+
+/* The channel list keeps its width and the conversation takes the rest.
+ * Laying the panes out here rather than letting adjustSubviews share the
+ * space keeps the list from being squeezed by whatever the conversation
+ * side asks for. */
+- (void)splitView:(NSSplitView *)splitView resizeSubviewsWithOldSize:(NSSize)oldSize {
+    NSArray *panes = [splitView subviews];
+    if ([panes count] != 2) {
+        [splitView adjustSubviews];
+        return;
+    }
+
+    NSView *sidebar = panes[0];
+    NSView *content = panes[1];
+    NSSize size = [splitView frame].size;
+    CGFloat divider = [splitView dividerThickness];
+
+    CGFloat sidebarWidth = (self->tabViewType == XATabViewTypeOutline)
+        ? MAX(prefs.xa_outline_width, XAMinimumSidebarWidth)
+        : NSWidth([sidebar frame]);
+
+    // Never let the list crowd out the conversation on a narrow window.
+    sidebarWidth = MIN(sidebarWidth, MAX(size.width - divider - 200.0, 0.0));
+
+    [sidebar setFrame:NSMakeRect(0.0, 0.0, sidebarWidth, size.height)];
+    [content setFrame:NSMakeRect(sidebarWidth + divider, 0.0,
+                                 MAX(size.width - sidebarWidth - divider, 0.0),
+                                 size.height)];
+}
+
+- (CGFloat)splitView:(NSSplitView *)splitView
+constrainMinCoordinate:(CGFloat)proposedMin
+         ofSubviewAt:(NSInteger)dividerIndex
+{
+    return XAMinimumSidebarWidth;
 }
 
 @end

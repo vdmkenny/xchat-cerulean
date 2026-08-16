@@ -854,6 +854,126 @@ static NSImage *XAStatusOrb (NSColor *color)
     }
 }
 
+#pragma mark Layout
+
+/* Replaces one of the nib's box views with an NSStackView.
+ *
+ * Subviews keep the order they occupy on screen, read from their frames, so
+ * the box's ordering rules do not have to be reproduced here. The box must be
+ * laid out first: its frames are meaningless until then.
+ *
+ * Views in `expanding` take the leftover space. The rest are pinned to the
+ * size the box gave them, because these are hand-built views with no
+ * intrinsic content size for the stack to work from. */
+static NSStackView *XAStackFromBox(NSView *box,
+                                   NSUserInterfaceLayoutOrientation orientation,
+                                   CGFloat spacing,
+                                   NSEdgeInsets insets,
+                                   NSArray *expanding)
+{
+    NSView *parent = [box superview];
+    if (box == nil || parent == nil) return nil;
+
+    BOOL vertical = (orientation == NSUserInterfaceLayoutOrientationVertical);
+    BOOL flipped = [box isFlipped];
+
+    NSArray *ordered = [[box subviews] sortedArrayUsingComparator:^NSComparisonResult(NSView *a, NSView *b) {
+        CGFloat av, bv;
+        if (vertical) {
+            /* A stack fills top to bottom; unflipped, the topmost view has
+             * the largest y. */
+            av = flipped ? NSMinY(a.frame) : -NSMinY(a.frame);
+            bv = flipped ? NSMinY(b.frame) : -NSMinY(b.frame);
+        } else {
+            av = NSMinX(a.frame);
+            bv = NSMinX(b.frame);
+        }
+        if (av < bv) return NSOrderedAscending;
+        if (av > bv) return NSOrderedDescending;
+        return NSOrderedSame;
+    }];
+
+    NSStackView *stack = [[[NSStackView alloc] initWithFrame:box.frame] autorelease];
+    stack.orientation = orientation;
+    stack.spacing = spacing;
+    stack.edgeInsets = insets;
+    stack.distribution = NSStackViewDistributionFill;
+    stack.alignment = vertical ? NSLayoutAttributeWidth : NSLayoutAttributeHeight;
+    stack.autoresizingMask = box.autoresizingMask;
+    stack.translatesAutoresizingMaskIntoConstraints = YES;
+
+    NSLayoutConstraintOrientation axis = vertical ? NSLayoutConstraintOrientationVertical
+                                                  : NSLayoutConstraintOrientationHorizontal;
+    NSLayoutConstraintOrientation across = vertical ? NSLayoutConstraintOrientationHorizontal
+                                                    : NSLayoutConstraintOrientationVertical;
+
+    for (NSView *child in ordered) {
+        CGFloat extent = vertical ? NSHeight(child.frame) : NSWidth(child.frame);
+        BOOL grows = [expanding containsObject:child];
+
+        [[child retain] autorelease];
+        [child removeFromSuperview];
+        child.translatesAutoresizingMaskIntoConstraints = NO;
+        [stack addArrangedSubview:child];
+
+        [child setContentHuggingPriority:(grows ? NSLayoutPriorityDefaultLow
+                                                : NSLayoutPriorityDefaultHigh)
+                          forOrientation:axis];
+
+        if (!grows && extent > 0.0) {
+            NSLayoutConstraint *pin = vertical
+                ? [child.heightAnchor constraintEqualToConstant:extent]
+                : [child.widthAnchor constraintEqualToConstant:extent];
+            pin.priority = NSLayoutPriorityDefaultHigh;
+            pin.active = YES;
+        }
+
+        /* Across the stack the children must be free to shrink so their
+         * content width does not become a floor for the whole window. */
+        [child setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
+                                        forOrientation:across];
+
+        /* A hidden view should not reserve a gap. */
+        if ([child isHidden])
+            [stack setVisibilityPriority:NSStackViewVisibilityPriorityNotVisible forView:child];
+    }
+
+    [stack setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
+                                    forOrientation:NSLayoutConstraintOrientationHorizontal];
+
+    [parent replaceSubview:box with:stack];
+    return stack;
+}
+
+/* Converts the three box-view columns. The rows inside them are left alone:
+ * code adds and removes buttons from those directly. */
+- (void)rebuildLayoutWithStackViews
+{
+    NSScrollView *chatScroll = [chatTextView enclosingScrollView];
+    NSScrollView *userScroll = [userlistTableView enclosingScrollView];
+    if (chatScroll == nil || userScroll == nil) return;
+
+    NSView *chatColumn = [chatScroll superview];
+    NSView *userColumn = [userScroll superview];
+    NSView *rootColumn = [userlistSplitView superview];
+
+    /* The boxes lay out lazily and the conversion reads their frames to
+     * recover the order, so settle them first. */
+    for (NSView *column in @[chatColumn, userColumn, rootColumn]) {
+        if ([column respondsToSelector:@selector(layoutNow)])
+            [(id)column layoutNow];
+    }
+
+    XAStackFromBox(chatColumn, NSUserInterfaceLayoutOrientationVertical,
+                   6.0, NSEdgeInsetsMake(0.0, 0.0, 6.0, 0.0), @[chatScroll]);
+
+    XAStackFromBox(userColumn, NSUserInterfaceLayoutOrientationVertical,
+                   6.0, NSEdgeInsetsMake(0.0, 8.0, 6.0, 2.0), @[userScroll]);
+
+    XAStackFromBox(rootColumn, NSUserInterfaceLayoutOrientationVertical,
+                   6.0, NSEdgeInsetsMake(0.0, 0.0, 0.0, 0.0), @[userlistSplitView]);
+}
+
 - (void) awakeFromNib
 {
     [self.chatView setFrameSize:NSMakeSize (prefs.mainwindow_width, prefs.mainwindow_height)];
@@ -861,9 +981,11 @@ static NSImage *XAStatusOrb (NSColor *color)
     
     [headerBoxView layoutNow];
     self->inputContainerView.layer = [CALayer layer];
-    
+
     [self applyPreferences:nil];
-    
+
+    [self rebuildLayoutWithStackViews];
+
     [self.chatView setServer:sess->server];
     [self.chatView setInitialFirstResponder:inputTextField];
     
