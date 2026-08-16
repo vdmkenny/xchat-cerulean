@@ -192,6 +192,21 @@ static NSCursor *XAChatTextViewSizableCursor;
     [self setBackgroundColor:[_palette getColor:XAColorBackground]];
 }
 
+/* Widest nick seen so far, in points. The column never shrinks during a
+ * session: a name that has been on screen keeps its room. */
+- (void)noteNickWidthFor:(const char *)nick {
+    if (nick == NULL || nick[0] == 0 || normalFont == nil) return;
+
+    NSString *string = @(nick);
+    if (string == nil) return;
+
+    CGFloat width = [string sizeWithAttributes:@{NSFontAttributeName: normalFont}].width;
+    if (width <= widestNick) return;
+
+    widestNick = width;
+    [self adjustMargin];
+}
+
 - (void)adjustMargin {
     CGFloat indent = prefs.xa_text_manual_indent_chars * fontSize.width;
 
@@ -207,9 +222,10 @@ static NSCursor *XAChatTextViewSizableCursor;
             NSDictionary *attributes = normalFont ? @{NSFontAttributeName: normalFont} : nil;
             CGFloat stampWidth = [@(sample) sizeWithAttributes:attributes].width;
 
-            /* Room for the stamp and a short nick beside it. */
-            indent = MAX (indent, stampWidth + fontSize.width * 4);
+            indent = MAX (indent, stampWidth + widestNick + fontSize.width);
         }
+    } else {
+        indent = MAX (indent, widestNick + fontSize.width);
     }
 
     NSMutableParagraphStyle *style = [[[NSMutableParagraphStyle alloc] init] autorelease];
@@ -341,8 +357,10 @@ static NSCursor *XAChatTextViewSizableCursor;
         stamp = time(NULL);
     }
 
+    size_t stampLength = 0;
     if (prefs.timestamp) {
-        prepend += strftime(buff, sizeof(buff), prefs.stamp_format, localtime(&stamp));
+        stampLength = strftime(buff, sizeof(buff), prefs.stamp_format, localtime(&stamp));
+        prepend += stampLength;
     }
 
     char textBuffer[len + 1];
@@ -358,7 +376,15 @@ static NSCursor *XAChatTextViewSizableCursor;
 
         tmp = strchr (text, '\t');
         if (tmp)
+        {
+            /* The nick is right aligned on the indent, so anything wider
+             * than the room left beside the timestamp spills past it and
+             * over the separator. Track the widest one and grow to suit. */
+            *tmp = 0;
+            [self noteNickWidthFor:text];
+            *tmp = '\t';
             tmp ++;
+        }
         else
             *prepend++ = '\t';
     }
@@ -377,6 +403,24 @@ static NSCursor *XAChatTextViewSizableCursor;
                                                    palette:self.palette
                                                       font:normalFont
                                                   boldFont:boldFont];
+
+    /* The timestamp is scaffolding, not content: a size down and a lighter
+     * colour keep it readable while the conversation stays the thing the eye
+     * lands on. The tab that follows it is left alone so the nick still
+     * aligns on the indent. */
+    if (prefs.timestamp && stampLength > 0)
+    {
+        NSRange range = NSMakeRange (0, MIN ((NSUInteger)stampLength, [pre_str length]));
+
+        [pre_str addAttribute:NSFontAttributeName
+                        value:[NSFont monospacedDigitSystemFontOfSize:
+                                  MAX ([normalFont pointSize] - 2.0, 9.0)
+                                                               weight:NSFontWeightRegular]
+                        range:range];
+        [pre_str addAttribute:NSForegroundColorAttributeName
+                        value:[NSColor secondaryLabelColor]
+                        range:range];
+    }
 
 
     //---- HOTFIX upper case file:/// crash bug for OS X 10.8

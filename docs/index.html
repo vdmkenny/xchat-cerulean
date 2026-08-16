@@ -102,6 +102,17 @@
 
   footer { padding: 40px 0 64px; color: var(--fg-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
   footer p { margin: 6px 0; }
+    .shot {
+      margin: 0 0 48px;
+    }
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--line, rgba(127,127,127,.25));
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
 </style>
 </head>
 <body>
@@ -122,6 +133,10 @@
       <a class="btn btn-secondary" href="https://github.com/vdmkenny/xchat-cerulean/blob/main/CHANGELOG.md">Changelog</a>
     </div>
   </header>
+
+  <figure class="shot">
+    <img src="screenshot.png" alt="XChat Cerulean showing a channel, the user list and the channel sidebar">
+  </figure>
 
   <section>
     <h2>Why this exists</h2>

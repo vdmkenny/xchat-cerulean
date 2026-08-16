@@ -39,6 +39,7 @@
     NSString    *word;
     ChatViewController  *dropHandler;
     NSSize      fontSize;
+    CGFloat     widestNick;
     BOOL        atBottom;
     NSInteger   numberOfLines;
     BOOL _scrollingBack;

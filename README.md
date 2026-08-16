@@ -18,6 +18,8 @@ current foundations so it keeps working on modern hardware. It is not
 endorsed by, affiliated with, or supported by the original authors, and bugs
 here should be reported here rather than upstream.
 
+![XChat Cerulean](docs/screenshot.png)
+
 ## Getting started
 
 Download the latest build from

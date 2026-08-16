@@ -709,7 +709,9 @@ load_config (void)
 #ifdef FE_AQUA
 #   include "Sources/XADefaults.h"
 #endif
-	strcpy (prefs.stamp_format, "[%H:%M] ");
+	/* No brackets: the time is scaffolding beside the conversation and does
+	 * not need punctuation drawing attention to it. */
+	strcpy (prefs.stamp_format, "%H:%M ");
 	strcpy (prefs.timestamp_log_format, "%b %d %H:%M:%S ");
 	strcpy (prefs.logmask, "%n-%c.log");
 	strcpy (prefs.nick_suffix, ",");

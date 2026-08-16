@@ -137,8 +137,10 @@ jobs:
           git fetch origin master
           git checkout master
           cp appcast-in/appcast.xml docs/appcast.xml
-          if ! git diff --quiet docs/appcast.xml; then
-            git add docs/appcast.xml
+          # Staged first: a file that is new to the tree shows no diff at all,
+          # so testing before adding would skip the very first publication.
+          git add docs/appcast.xml
+          if ! git diff --cached --quiet -- docs/appcast.xml; then
             git commit -m "Update the appcast for ${{ steps.version.outputs.value }}"
             git push origin master
           fi
