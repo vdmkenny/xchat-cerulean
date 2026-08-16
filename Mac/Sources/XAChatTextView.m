@@ -31,6 +31,31 @@ static NSAttributedString *XAChatTextViewNewLine;
 //static NSAttributedString *tab;
 static NSCursor *XAChatTextViewSizableCursor;
 
+/* Whether a file URL names something sitting in the directory transfers are
+ * saved to. Anything else keeps its full path on screen: a link is worth
+ * shortening only when this client is the one that put the file there. */
+static BOOL XAIsReceivedFile (NSURL *url)
+{
+    NSString *path = [[url path] stringByStandardizingPath];
+    if (path.length == 0)
+        return NO;
+
+    NSString *parent = [path stringByDeletingLastPathComponent];
+    const char *directories[] = { prefs.dccdir, prefs.dcc_completed_dir };
+
+    for (size_t i = 0; i < sizeof (directories) / sizeof (directories[0]); i++)
+    {
+        if (directories[i][0] == '\0')
+            continue;
+
+        NSString *directory = [@(directories[i]) stringByStandardizingPath];
+        if ([parent isEqualToString:directory])
+            return YES;
+    }
+
+    return NO;
+}
+
 @implementation XAChatTextView
 @synthesize palette=_palette;
 @synthesize style=_style;
@@ -484,28 +509,41 @@ static NSCursor *XAChatTextViewSizableCursor;
                 NSURL *url = [NSURL URLWithString:substring];
                 if (url)
                 {
-                    /* A local path is mostly noise in the middle of a
-                     * conversation, so a file URL shows its name and carries
-                     * the path in a tooltip. */
+                    BOOL linkable = YES;
+
                     if (url.isFileURL)
                     {
-                        NSString *name = url.lastPathComponent;
-                        if (name.length > 0 && name.length < range.length)
+                        /* Anyone can put a local path in a message, and a
+                         * click hands it to the system to open. Only a file
+                         * this client saved is worth linking; every other
+                         * local path stays as plain text. */
+                        linkable = XAIsReceivedFile (url);
+
+                        if (linkable)
                         {
-                            [self.textStorage replaceCharactersInRange:range withString:name];
-                            range.length = name.length;
-                            s = [self.textStorage string];
-                            slen = [self.textStorage length];
+                            /* The directory is noise in the middle of a
+                             * conversation, so show the name and keep the
+                             * path in a tooltip. */
+                            NSString *name = url.lastPathComponent;
+                            if (name.length > 0 && name.length < range.length)
+                            {
+                                [self.textStorage replaceCharactersInRange:range withString:name];
+                                range.length = name.length;
+                                s = [self.textStorage string];
+                                slen = [self.textStorage length];
+                            }
+                            if (url.path)
+                                [self.textStorage addAttribute:NSToolTipAttributeName
+                                                         value:url.path
+                                                         range:range];
                         }
-                        if (url.path)
-                            [self.textStorage addAttribute:NSToolTipAttributeName
-                                                     value:url.path
-                                                     range:range];
                     }
 
-                    [self.textStorage addAttribute:NSLinkAttributeName
-                                             value:url
-                                             range:range];
+                    if (linkable)
+                        [self.textStorage addAttribute:NSLinkAttributeName
+                                                 value:url
+                                                 range:range];
+
                     idx = NSMaxRange (range) - 1;
                 }
             }
