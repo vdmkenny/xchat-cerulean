@@ -5,6 +5,22 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.4] - 2026-08-16
+
+### Added
+
+- **A book channel search script**, off unless you turn it on in the plugins
+  window. Asking such a channel for a subject hands you an archive, and every
+  line inside it is the command that requests one item, so the work is
+  unzipping it and copying a line back. `/bsearch` asks, the listing is read
+  as it arrives and then deleted, `/blist` shows it numbered, and `/bget`
+  requests one entry. Requesting stays a separate step rather than following
+  from the search.
+
+  Listings are still confirmed like any other transfer unless you name the
+  search bot as a trusted sender. On Undernet the bot answering is `SearchOok`
+  rather than `SearchBot`, so a pattern such as `Search*` covers it.
+
 ## [2.3.3] - 2026-08-16
 
 ### Changed
