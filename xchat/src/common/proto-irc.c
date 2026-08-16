@@ -1302,8 +1302,8 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 				if (irc_cap_offered (acked, "identify-msg"))
 					serv->have_idmsg = TRUE;
 
-				if (irc_cap_offered (acked, "server-time"))
-					serv->have_server_time = TRUE;
+				if (irc_cap_offered (acked, "away-notify"))
+					serv->have_away_notify = TRUE;
 
 				if (irc_cap_offered (acked, "sasl"))
 				{
@@ -1357,8 +1357,16 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 			}
 			else if (strncasecmp(word[4], "DEL", 3) == 0)
 			{
-				/* The server withdrew one. There is nothing to answer: the
-				 * handlers simply stop hearing from it. */
+				/* The server withdrew one. Nothing is sent back, but any
+				 * behaviour that leans on it has to be dropped: away status
+				 * goes back to being polled once it stops being pushed. */
+				char *removed = word_eol[5][0] == ':' ? word_eol[5] + 1 : word_eol[5];
+
+				if (irc_cap_offered (removed, "away-notify"))
+					serv->have_away_notify = FALSE;
+
+				if (irc_cap_offered (removed, "identify-msg"))
+					serv->have_idmsg = FALSE;
 			}
 			else if (strncasecmp(word[4], "NAK",3) == 0)
 			{

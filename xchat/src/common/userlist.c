@@ -423,8 +423,8 @@ userlist_add (struct session *sess, char *name, char *hostname)
 
 	sess->total++;
 
-	/* most ircds don't support multiple modechars infront of the nickname
-      for /NAMES - though they should. */
+	/* Count every prefix the name carries: with multi-prefix a NAMES entry
+	 * lists all of them, so a user can be both opped and voiced. */
 	while (prefix_chars)
 	{
 		update_counts (sess, user, name[0], TRUE, 1);

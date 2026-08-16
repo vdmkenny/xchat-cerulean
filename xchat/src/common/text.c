@@ -215,10 +215,9 @@ scrollback_shrink (session *sess)
 }
 
 static void
-scrollback_save (session *sess, const char *text)
+scrollback_save (session *sess, const char *text, time_t when)
 {
 	char buf[512 * 4];
-	time_t stamp;
 	size_t len;
 
 	if (sess->type == SESS_SERVER)
@@ -245,11 +244,12 @@ scrollback_save (session *sess, const char *text)
 			return;
 	}
 
-	stamp = time (0);
-	if (sizeof (stamp) == 4)	/* gcc will optimize one of these out */
-		write (sess->scrollfd, buf, snprintf (buf, sizeof (buf), "T %d ", (int)stamp));
+	if (!when)
+		when = time (0);
+	if (sizeof (when) == 4)	/* gcc will optimize one of these out */
+		write (sess->scrollfd, buf, snprintf (buf, sizeof (buf), "T %d ", (int)when));
 	else
-		write (sess->scrollfd, buf, snprintf (buf, sizeof (buf), "T %"G_GINT64_FORMAT" ", (gint64)stamp));
+		write (sess->scrollfd, buf, snprintf (buf, sizeof (buf), "T %"G_GINT64_FORMAT" ", (gint64)when));
 
 	len = strlen (text);
 	write (sess->scrollfd, text, len);
@@ -664,7 +664,7 @@ get_stamp_str (char *fmt, time_t tim, char **ret)
 }
 
 static void
-log_write (session *sess, const char *text)
+log_write (session *sess, const char *text, time_t when)
 {
 	char *temp;
 	char *stamp;
@@ -701,7 +701,7 @@ log_write (session *sess, const char *text)
 
 	if (prefs.timestamp_logs)
 	{
-		len = get_stamp_str (prefs.timestamp_log_format, time (0), &stamp);
+		len = get_stamp_str (prefs.timestamp_log_format, when ? when : time (0), &stamp);
 		if (len)
 		{
 			write (sess->logfd, stamp, len);
@@ -867,6 +867,7 @@ void
 PrintText (session *sess, const char *text)
 {
 	char *conv;
+	time_t stamp;
 
 	if (!sess)
 	{
@@ -886,12 +887,14 @@ PrintText (session *sess, const char *text)
 		conv = text_validate ((char **)&text, &len);
 	}
 
-	log_write (sess, text);
-	scrollback_save (sess, text);
-
 	/* With server-time the line carries when the server saw it, which is
-	 * what matters after a reconnect or when a bouncer replays a backlog. */
-	fe_print_text (sess, text, sess->server ? sess->server->next_stamp : 0);
+	 * what matters after a reconnect or when a bouncer replays a backlog.
+	 * The log and the scrollback outlive the window, so they need it too. */
+	stamp = sess->server ? sess->server->next_stamp : 0;
+
+	log_write (sess, text, stamp);
+	scrollback_save (sess, text, stamp);
+	fe_print_text (sess, text, stamp);
 
 	if (conv)
 		g_free (conv);

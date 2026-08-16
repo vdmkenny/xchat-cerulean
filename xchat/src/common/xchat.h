@@ -537,7 +537,7 @@ typedef struct server
 	unsigned int have_idmsg:1;		/* freenode's IDENTIFY-MSG */
 	time_t next_stamp;			/* server-time of the line being processed, 0 if none */
 	unsigned int use_sasl:1;		/* the network asked for SASL */
-	unsigned int have_server_time:1;	/* the server-time capability is on */
+	unsigned int have_away_notify:1;	/* away changes arrive unprompted */
 	unsigned int sasl_waiting:1;	/* mid-handshake: CAP END is not ours to send yet */
 	unsigned int have_except:1;	/* ban exemptions +e */
 	unsigned int using_cp1255:1;	/* encoding is CP1255/WINDOWS-1255? */

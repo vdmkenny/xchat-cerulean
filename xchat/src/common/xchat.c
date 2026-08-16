@@ -219,7 +219,11 @@ doover:
 	{
 		sess = list->data;
 
+		/* away-notify makes the server announce away changes as they
+		 * happen, so re-WHOing the channel finds nothing new. The WHO sent
+		 * on join still establishes who was already away. */
 		if (sess->server->connected &&
+			 !sess->server->have_away_notify &&
 			 sess->type == SESS_CHANNEL &&
 			 sess->channel[0] &&
 			 sess->total <= prefs.away_size_max)
