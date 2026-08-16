@@ -87,13 +87,11 @@ struct PreferenceItem
     IBOutlet NSTextField *doubleClickCommandTextField;
     
     // Channel switcher
-    IBOutlet NSPopUpButton *switcherTypePopUp;
     IBOutlet NSButton *useServerTabCheckBox, *useNoticesTabCheckBox, *autoDialogCheckBox;
     //  missing 'sort tabs' 'smaller text' in fe-gtk
     IBOutlet NSButton *newTabsToFrontCheckBox; // not in fe-gtk
     IBOutlet NSButton *hideTabCloseButtonsCheckBox; // fe-aqua
     IBOutlet NSButton *smallerTextTabCheckBox;
-    IBOutlet NSPopUpButton *tabPositionPopUp;
     IBOutlet NSTextField *shortenTabLabelLengthTextField;
     //  missing 'shorten tab labels' in fe-gtk
     //  Tabs or Windows
@@ -172,7 +170,7 @@ struct PreferenceItem
     IBOutlet NSPopUpButton *autoAcceptDccChatPopUp;
     IBOutlet NSButton *autoOpenDccChatCheckBox, *autoOpenDccReceiveCheckBox, *autoOpenDccSendCheckBox;
     
-    struct PreferenceItem preferenceItems[99];
+    struct PreferenceItem preferenceItems[98];
 }
 
 - (IBAction)applyPreferences:(id)sender;

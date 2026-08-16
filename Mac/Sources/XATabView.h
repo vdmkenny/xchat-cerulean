@@ -16,19 +16,15 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA */
 
 
-@class SGWrapView;
 @class XATabViewItem;
 @class XATabViewGroup;
 @class XATabViewOutlineView;
 
-#define XATabViewTypeOutline ((NSTabViewType) 99)
 
 @protocol XATabViewDelegate;
 @interface XATabView : NSView<NSOutlineViewDelegate, NSOutlineViewDataSource, NSSplitViewDelegate, XAEventChain> {
-    NSTabViewType tabViewType;
     // tabs
     XATabViewOutlineView *_tabOutlineView;
-    SGWrapView *_tabButtonView;
     // items
     NSMutableArray *_groups;
     NSMutableArray *_tabViewItems;
@@ -61,12 +57,10 @@
 - (void) selectPreviousTabViewItem:(id)sender;
 - (XATabViewItem *) tabViewItemAtIndex:(NSInteger) index;
 - (XATabViewItem *) selectedTabViewItem;
-- (void) setTabViewType:(NSTabViewType) tabViewType;
 - (NSInteger) indexOfTabViewItem:(XATabViewItem *) tabViewItem;
 
 // XATabView only methods
 - (void) addTabViewItem:(XATabViewItem *) tabViewItem toGroup:(NSInteger) group;
-- (void) setHideCloseButtons:(BOOL) hidem;
 - (void) setName:(NSString *) name forGroup:(NSInteger) group;
 - (void) setOutlineWidth:(CGFloat) width;
 - (XATabViewGroup *)groupForIdentifier:(NSInteger)identifier;
@@ -81,7 +75,6 @@
 
 #pragma mark -
 
-@class XATabViewButton;
 
 @interface XATabViewItem : NSObject
 {
@@ -91,7 +84,6 @@
     NSString* _label;
     NSInteger _groupIdentifier;
     id _initialFirstResponder;
-    XATabViewButton *_tabButton;
     NSArray *_topLevelObjects;
 @public    // TODO - fix this
     IBOutlet NSMenu *contextMenu;
@@ -103,12 +95,10 @@
 @property(nonatomic, assign) NSInteger groupIdentifier;
 @property(nonatomic, retain) NSView *view;
 @property(nonatomic, assign) XATabView *tabView;
-@property(nonatomic, readonly) XATabViewButton *tabButton;
 @property(nonatomic, assign) id initialFirstResponder;
 @property(nonatomic, readonly, getter=isFrontTab) BOOL frontTab;
 
 - (id)initWithIdentifier:(id) identifier;
-- (void)setHideCloseButton:(BOOL) hidem;
 - (void)redrawTitle;
 
 - (IBAction)performClose:(id)sender;

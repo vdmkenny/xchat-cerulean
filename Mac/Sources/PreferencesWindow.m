@@ -233,7 +233,6 @@ extern struct XATextEventItem XATextEvents[];
         { newTabsToFrontCheckBox, &prefs.newtabstofront, MYPREF_INT },
         { hideTabCloseButtonsCheckBox, &prefs.xa_hide_tab_close_buttons, MYPREF_INT },
         { smallerTextTabCheckBox, &prefs.tab_small, MYPREF_INT },
-        { tabPositionPopUp, &prefs._tabs_position, MYPREF_MENU },
         { shortenTabLabelLengthTextField, &prefs.truncchans, MYPREF_INT },
         { openChannelsInPopUp, &prefs.tabchannels, MYPREF_MENU },
         { openDialogsInPopUp, &prefs.privmsgtab, MYPREF_MENU },
@@ -418,8 +417,6 @@ extern struct XATextEventItem XATextEvents[];
                 break;
         }
     }
-    
-    prefs.tab_layout = (int)[switcherTypePopUp indexOfSelectedItem] * 2; // 1 is reserved
     
     ColorPalette *palette = [[AquaChat sharedAquaChat] palette];
     for (NSUInteger i = 0; i < [palette numberOfColors]; i++) {
@@ -652,8 +649,6 @@ extern struct XATextEventItem XATextEvents[];
                 break;
         }
     }
-    
-    [switcherTypePopUp selectItemAtIndex:prefs.tab_layout/2];
     
     ColorPalette *palette = [[AquaChat sharedAquaChat] palette];
     

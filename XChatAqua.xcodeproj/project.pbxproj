@@ -125,7 +125,6 @@
 		380AD1F413C698E1003EEE3D /* xchat.h in Headers */ = {isa = PBXBuildFile; fileRef = 380AD1E813C698E1003EEE3D /* xchat.h */; };
 		380AD1F513C698E1003EEE3D /* xchatc.h in Headers */ = {isa = PBXBuildFile; fileRef = 380AD1E913C698E1003EEE3D /* xchatc.h */; };
 		3839010413C06619004D20BC /* CLTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839010313C06619004D20BC /* CLTabCell.m */; };
-		3839010713C0667B004D20BC /* CLTabViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839010613C0667B004D20BC /* CLTabViewButtonCell.m */; };
 		384A96461588F2CC00268814 /* xchat-ruby.c in Sources */ = {isa = PBXBuildFile; fileRef = 384A963E1588F2CC00268814 /* xchat-ruby.c */; };
 		384A964B1588F6FE00268814 /* DEVELOPERS in CopyFiles */ = {isa = PBXBuildFile; fileRef = 384A96341588F2CC00268814 /* DEVELOPERS */; };
 		384A964C1588F6FE00268814 /* rubyenv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 384A96481588F66100268814 /* rubyenv */; };
@@ -154,7 +153,6 @@
 		388BDCD113C6A0CB00B95036 /* XATabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388BDCBC13C6A0CB00B95036 /* XATabView.m */; };
 		388BDCD213C6A0CB00B95036 /* SGVBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388BDCBE13C6A0CB00B95036 /* SGVBoxView.m */; };
 		388BDCD313C6A0CB00B95036 /* SGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388BDCC013C6A0CB00B95036 /* SGView.m */; };
-		388BDCD413C6A0CB00B95036 /* SGWrapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388BDCC213C6A0CB00B95036 /* SGWrapView.m */; };
 		388C8E8713C6E10500AAF20D /* BanWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388C89DE13C6E10100AAF20D /* BanWindow.xib */; };
 		388C8E8913C6E10500AAF20D /* ChannelWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388C89E013C6E10100AAF20D /* ChannelWindow.xib */; };
 		388C8E8B13C6E10500AAF20D /* ChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388C89E213C6E10100AAF20D /* ChatView.xib */; };
@@ -459,8 +457,6 @@
 		381A6D7315F0530E00E76478 /* perl-mountainlion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "perl-mountainlion-Info.plist"; sourceTree = "<group>"; };
 		3839010213C06619004D20BC /* CLTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTabCell.h; sourceTree = "<group>"; };
 		3839010313C06619004D20BC /* CLTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTabCell.m; sourceTree = "<group>"; };
-		3839010513C0667B004D20BC /* CLTabViewButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTabViewButtonCell.h; sourceTree = "<group>"; };
-		3839010613C0667B004D20BC /* CLTabViewButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTabViewButtonCell.m; sourceTree = "<group>"; };
 		384A96321588F2B700268814 /* ruby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ruby-Info.plist"; path = "../ruby-Info.plist"; sourceTree = "<group>"; };
 		384A96341588F2CC00268814 /* DEVELOPERS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DEVELOPERS; sourceTree = "<group>"; };
 		384A963C1588F2CC00268814 /* xchat-plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "xchat-plugin.h"; sourceTree = "<group>"; };
@@ -1685,8 +1681,6 @@
 		388BDCBE13C6A0CB00B95036 /* SGVBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGVBoxView.m; sourceTree = "<group>"; };
 		388BDCBF13C6A0CB00B95036 /* SGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGView.h; sourceTree = "<group>"; };
 		388BDCC013C6A0CB00B95036 /* SGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGView.m; sourceTree = "<group>"; };
-		388BDCC113C6A0CB00B95036 /* SGWrapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWrapView.h; sourceTree = "<group>"; };
-		388BDCC213C6A0CB00B95036 /* SGWrapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWrapView.m; sourceTree = "<group>"; };
 		3894C1B11590D6F400BCD762 /* NSPanelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSPanelAdditions.h; sourceTree = "<group>"; };
 		3894C1B21590D6F400BCD762 /* NSPanelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSPanelAdditions.m; sourceTree = "<group>"; };
 		38A613FC1E3A1FCF00E03175 /* perl-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "perl-Info.plist"; sourceTree = "<group>"; };
@@ -2431,8 +2425,6 @@
 				388BDCAD13C6A0CB00B95036 /* SGHBoxView.m */,
 				388BDCBD13C6A0CB00B95036 /* SGVBoxView.h */,
 				388BDCBE13C6A0CB00B95036 /* SGVBoxView.m */,
-				388BDCC113C6A0CB00B95036 /* SGWrapView.h */,
-				388BDCC213C6A0CB00B95036 /* SGWrapView.m */,
 			);
 			name = SGView;
 			path = Mac/SGLibrary;
@@ -2449,8 +2441,6 @@
 				0F8EA6B00CFB3398001AE9AE /* CLLevelIndicatorCell.m */,
 				3839010213C06619004D20BC /* CLTabCell.h */,
 				3839010313C06619004D20BC /* CLTabCell.m */,
-				3839010513C0667B004D20BC /* CLTabViewButtonCell.h */,
-				3839010613C0667B004D20BC /* CLTabViewButtonCell.m */,
 				388BDCB013C6A0CB00B95036 /* SGLockableTextField.h */,
 				388BDCB113C6A0CB00B95036 /* SGLockableTextField.m */,
 				388BDCB913C6A0CB00B95036 /* SGTableView.h */,
@@ -3024,7 +3014,6 @@
 				D487239E128F9DBC00647D7B /* UtilityWindow.m in Sources */,
 				D4FBD95912E44CD0003EA441 /* ViewerWindow.m in Sources */,
 				3839010413C06619004D20BC /* CLTabCell.m in Sources */,
-				3839010713C0667B004D20BC /* CLTabViewButtonCell.m in Sources */,
 				388BDCC313C6A0CB00B95036 /* SGAlert.m in Sources */,
 				388BDCC413C6A0CB00B95036 /* SGApplication.m in Sources */,
 				388BDCC613C6A0CB00B95036 /* SGBoxView.m in Sources */,
@@ -3039,7 +3028,6 @@
 				388BDCD113C6A0CB00B95036 /* XATabView.m in Sources */,
 				388BDCD213C6A0CB00B95036 /* SGVBoxView.m in Sources */,
 				388BDCD313C6A0CB00B95036 /* SGView.m in Sources */,
-				388BDCD413C6A0CB00B95036 /* SGWrapView.m in Sources */,
 				387676941589BC41007366B7 /* XATabWindow.m in Sources */,
 				387676971589BC49007366B7 /* UserListTableView.m in Sources */,
 				38E57380158EEF39007943DA /* xchatext.m in Sources */,

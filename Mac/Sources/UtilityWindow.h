@@ -55,4 +55,7 @@
 + (id)utilityByKey:(id)key viewNibName:(NSString *)nibName;
 - (void)becomeTabOrWindowAndShow:(BOOL)flag;
 
+/* Called once after the nib loads; see UtilityWindow. */
+- (void)modernizeContents;
+
 @end

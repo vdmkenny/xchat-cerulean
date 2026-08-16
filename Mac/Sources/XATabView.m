@@ -23,9 +23,7 @@
 #import "AquaChat.h"
 #import "ColorPalette.h"
 #import "SGGuiUtility.h"
-#import "SGWrapView.h"
 #import "XATabView.h"
-#import "CLTabViewButtonCell.h"
 #import "TabOrWindowView.h"
 
 /* Below this the channel list is not usefully readable. */
@@ -384,75 +382,6 @@ NSImage *XATabViewOutlineCellCloseImage;
 #pragma mark -
 
 //! @abstract   Button for tab mode
-@interface XATabViewButton: NSButton
-
-- (void) setHideCloseButton:(BOOL) hideit;
-
-@end
-
-@implementation XATabViewButton
-
-+ (Class)cellClass {
-    return [CLTabViewButtonCell class];
-}
-
-/* CL: undocumented method used to update the cell when the window is activated/deactivated */
-- (void)_windowChangedKeyState
-{
-    [self updateCell:[self cell]];
-}
-
-- (id)init {
-    self = [super init];
-    if (self != nil) {
-        [self setButtonType:NSButtonTypeOnOff];
-        
-        CLTabViewButtonCell *cell = [[[[self class] cellClass] alloc] init];
-        [self setCell:cell];
-        [cell setControlSize:NSControlSizeSmall];
-        [cell release];
-        
-        CGFloat fontSize = [NSFont smallSystemFontSize];
-        if (prefs.tab_small) {
-            fontSize *= 0.86;
-        }
-        [self setFont:[NSFont systemFontOfSize:fontSize]];
-        [self setImagePosition:NSNoImage];
-        [self setBezelStyle:NSBezelStyleShadowlessSquare];
-        [self sizeToFit];
-    }
-    return self;
-}
-
-- (void) setHideCloseButton:(BOOL) hideit
-{
-    [[self cell] setHideCloseButton:hideit];
-    [self sizeToFit];
-}
-
-- (void)setHasLeftCap:(BOOL)hasCap {
-    [[self cell] setHasLeftCap:hasCap];
-}
-
-- (void)setHasRightCap:(BOOL)hasCap {
-    [[self cell] setHasRightCap:hasCap];
-}
-
-- (void)setTitleColor:(NSColor *)color {
-    [[self cell] setTitleColor:color];
-    [self setNeedsDisplay:true];
-}
-
-- (void)mouseDown:(NSEvent *)event {
-    [[self cell] mouseDown:event controlView:self];
-}
-
-- (BOOL) isFlipped
-{
-    return NO;
-}
-
-@end
 
 #pragma mark -
 
@@ -463,7 +392,6 @@ NSNib *XATabViewItemTabMenuNib;
 @synthesize label=_label;
 @synthesize groupIdentifier=_groupIdentifier;
 @synthesize tabView=_tabView;
-@synthesize tabButton=_tabButton;
 @synthesize titleColorIndex=_titleColorIndex;
 @synthesize initialFirstResponder=_initialFirstResponder;
 
@@ -489,56 +417,16 @@ NSNib *XATabViewItemTabMenuNib;
 {
     self.label = nil;
     self.view = nil;
-    [self->_tabButton release];
     [contextMenu release];
     [super dealloc];
-}
-
-- (void)makeButton:(SGWrapView *)box order:(NSUInteger)order {
-    self->_tabButton = [[XATabViewButton alloc] init]; // ???: not released here?
-    [self->_tabButton setAction:@selector(performSelect:)];
-    [self->_tabButton setTarget:self];
-    [self->_tabButton setHideCloseButton:prefs.xa_hide_tab_close_buttons];
-    id cell = [self->_tabButton cell];
-    [cell setCloseAction:@selector(performClose:)];
-    [cell setCloseTarget:self];
-    [cell setMenu:contextMenu];
-    [cell setDelegate:(id)self];
-    
-    [box addSubview:self->_tabButton];
-    [box setOrder:order forView:self->_tabButton];
-
-    if (prefs.tab_layout == 0) {
-        [self redrawTitle];
-    }
-}
-
-- (void)removeButton
-{
-    if (self->_tabButton != nil)
-    {
-        [self->_tabButton removeFromSuperview];
-        [self->_tabButton release];
-        self->_tabButton = nil;
-    }
 }
 
 - (BOOL)isFrontTab {
     return self.tabView.selectedTabViewItem == self;
 }
 
-- (void) setHideCloseButton:(BOOL) hidem
-{
-    [self->_tabButton setHideCloseButton:hidem];
-}
-
 - (void)redrawTitle {
-    if (prefs.tab_layout == 0) {
-        [self->_tabButton setTitle:self->_label];
-        [self->_tabButton sizeToFit];
-    } else {
-        [self.tabView.tabOutlineView reloadData];
-    }
+    [self.tabView.tabOutlineView reloadData];
 }
 
 - (NSColor *)titleColor {
@@ -565,10 +453,7 @@ NSNib *XATabViewItemTabMenuNib;
 }
 
 - (void)performSelect:(id)sender {
-    if (self.tabView) {
-        [self->_tabButton setIntegerValue:1];
-        [self.tabView selectTabViewItem:self];
-    }
+    [self.tabView selectTabViewItem:self];
 }
 
 - (void)setLabel:(NSString *)label {
@@ -576,13 +461,6 @@ NSNib *XATabViewItemTabMenuNib;
     _label = [label retain];
     
     [self redrawTitle];
-}
-
-- (void) setSelected:(BOOL) selected
-{
-    if (self->_tabButton) {
-        [self->_tabButton setIntegerValue:selected];
-    }
 }
 
 - (void) setView:(NSView *)view
@@ -619,7 +497,6 @@ NSNib *XATabViewItemTabMenuNib;
     if (self != nil) {
         [self XATabViewInit];
         [self makeOutline];
-        [self makeTabs];
     }
     return self;
 }
@@ -632,7 +509,6 @@ NSNib *XATabViewItemTabMenuNib;
 
 - (void)awakeFromNib {
     [self makeOutline];
-    [self makeTabs];
 }
 
 - (void)dealloc {
@@ -644,24 +520,7 @@ NSNib *XATabViewItemTabMenuNib;
 }
 
 - (void)applyPreferences:sender {
-    /* The tab type has to be settled before the list applies its own
-     * preferences: putting the sidebar material in place lays the split view
-     * out, and that layout depends on the type. */
-    if ( prefs.tab_layout == 2 ) {
-        tabViewType = XATabViewTypeOutline;
-    } else {
-        switch ( prefs._tabs_position ) {
-            case 0: tabViewType = NSBottomTabsBezelBorder; break;
-            case 1: tabViewType = NSTopTabsBezelBorder; break;
-            case 2: tabViewType = NSRightTabsBezelBorder; break;
-            case 3: tabViewType = NSLeftTabsBezelBorder; break;
-            default:tabViewType = NSBottomTabsBezelBorder; break;
-        }
-    }
-    
-    [self setTabViewType:tabViewType];
     [_tabOutlineView applyPreferences:sender];
-    [self setHideCloseButtons:prefs.xa_hide_tab_close_buttons];
     [self setOutlineWidth:prefs.xa_outline_width];
     [self redrawTabItems];
 }
@@ -672,18 +531,13 @@ NSNib *XATabViewItemTabMenuNib;
 - (void) setOutlineWidth:(CGFloat) width
 {
     prefs.xa_outline_width = MAX(width, XAMinimumSidebarWidth);
-    if (self->tabViewType != XATabViewTypeOutline) return;
 
     NSSplitView *splitView = self.channelSplitView;
     [splitView resizeSubviewsWithOldSize:[splitView frame].size];
 }
 
 - (id)chatView {
-    for (id view in self->_chatViewContainer.subviews) {
-        if (view == self->_tabButtonView) continue;
-        return view;
-    }
-    return nil;
+    return [[_chatViewContainer subviews] firstObject];
 }
 
 - (void)setChatView:(id)chatView {
@@ -696,12 +550,6 @@ NSNib *XATabViewItemTabMenuNib;
     [chatView setFrame:_chatViewContainer.bounds];
     [_chatViewContainer addSubview:chatView];
     [_chatViewContainer setStretchView:chatView];
-    
-    dassert(_tabButtonView);
-    
-    if (self->tabViewType != XATabViewTypeOutline) {
-        [_chatViewContainer addSubview:_tabButtonView];
-    }
 }
 
 - (XATabViewGroup *)groupForIdentifier:(NSInteger)identifier {
@@ -731,42 +579,6 @@ NSNib *XATabViewItemTabMenuNib;
     [self redrawTabItems];
 }
 
-- (void)setHideCloseButtons:(BOOL)hide {
-    for (XATabViewItem *tab in self.tabViewItems) {
-        [tab setHideCloseButton:hide];
-    }
-}
-
-- (void)setTabButtonCaps {
-    for (XATabViewGroup *group in _groups) {
-        for (XATabViewItem *tabItem in group.tabItems) {
-            [tabItem.tabButton setHasLeftCap:NO];
-            [tabItem.tabButton setHasRightCap:NO];
-        }
-        XATabViewItem *firstItem = (group.tabItems)[0];
-        [firstItem.tabButton setHasLeftCap:YES];
-        XATabViewItem *lastItem = [group.tabItems lastObject];
-        [lastItem.tabButton setHasRightCap:YES];
-    }
-}
-
-- (void)makeTabs {
-    _tabButtonView = [[SGWrapView alloc] initWithFrame:NSMakeRect(0.0f, 0.0f, 1.0f, 1.0f)];
-    _tabButtonView.autoresizingMask = NSViewMinXMargin|NSViewWidthSizable|NSViewMaxXMargin|NSViewMinYMargin|NSViewHeightSizable|NSViewMaxYMargin;
-    
-    NSArray *tabViewItems = self.tabViewItems;
-    for (NSUInteger i = 0; i < tabViewItems.count; i ++)
-    {
-        XATabViewItem *tab = tabViewItems[i];
-        [tab makeButton:_tabButtonView order:i];
-    }
-    
-    [self setTabButtonCaps];
-    
-    // No prefs?
-    [_selectedTabViewItem setSelected:YES];
-}
-
 - (void) makeOutline
 {
     [[_tabOutlineView enclosingScrollView] setFrameSize: NSMakeSize(prefs.xa_outline_width, self.frame.size.height)];
@@ -781,67 +593,6 @@ NSNib *XATabViewItemTabMenuNib;
     [_tabOutlineView selectRowForTabViewItem:self.selectedTabViewItem];
 }
 
-- (void) setTabViewType:(NSTabViewType) new_tabViewType
-{
-    self->tabViewType = new_tabViewType;
-
-    if (tabViewType == XATabViewTypeOutline) {
-        [self setOutlineWidth:prefs.xa_outline_width];
-    } else {
-        SGBoxOrientation newOrientation;
-        SGBoxOrder newOrder;
-        float rotation;
-        
-        switch (tabViewType)
-        {
-            case NSBottomTabsBezelBorder:
-                newOrientation = SGBoxOrientationVertical;
-                newOrder = SGBoxOrderLIFO;
-                rotation = 0.0;
-                break;
-                
-            case NSRightTabsBezelBorder:
-                newOrientation = SGBoxOrientationHorizontal;
-                newOrder = SGBoxOrderFIFO;
-                rotation = 90.0;
-                break;
-                
-            case NSLeftTabsBezelBorder:
-                newOrientation = SGBoxOrientationHorizontal;
-                newOrder = SGBoxOrderLIFO;
-                rotation = -90.0;
-                break;
-                
-            case NSTopTabsBezelBorder:
-            default:
-                newOrientation = SGBoxOrientationVertical;
-                newOrder = SGBoxOrderFIFO;
-                rotation = 0.0;
-                break;
-        }
-        
-        [_chatViewContainer setOrientation:newOrientation];
-        [_chatViewContainer setOrder:newOrder];
-        
-        NSScrollView *outlineScrollView = [_tabOutlineView enclosingScrollView];
-        [outlineScrollView setFrameSize:NSMakeSize(1.0, outlineScrollView.frame.size.height)];
-        
-        [_tabButtonView setBoundsRotation:rotation];
-        NSSize size = _tabButtonView.frame.size;
-        if ((rotation == 0.0) ^ (size.height < size.width)) {
-            // restart is better than this...
-            size = NSMakeSize(size.height, size.width);
-        }
-        if (rotation == 0.0) {
-            size = NSMakeSize(_chatViewContainer.bounds.size.width, size.height);
-        } else {
-            size = NSMakeSize(size.width, _chatViewContainer.bounds.size.height);
-        }
-        [_tabButtonView setFrameSize:size];
-        [_tabButtonView queue_layout];
-    }
-    self.chatView = self.chatView; // force reload in bad convention
-}
 
 - (XATabViewItem *)tabViewItemAtIndex:(NSInteger)index {
     if (index < 0 || index >= self.tabViewItems.count) return nil;
@@ -862,7 +613,6 @@ NSNib *XATabViewItemTabMenuNib;
     if (tabViewItem.tabView != self) return;
     
     [tabViewItem.view removeFromSuperview];
-    [tabViewItem removeButton];
     tabViewItem.tabView = nil;
 
     if (_selectedTabViewItem == tabViewItem)
@@ -901,8 +651,6 @@ NSNib *XATabViewItemTabMenuNib;
     [_tabOutlineView reloadData];
     // Removing items above the current item muck up the selected item in the outline
     [self.tabOutlineView selectRowForTabViewItem:self.selectedTabViewItem];
-    
-    [self setTabButtonCaps];
 }
 
 - (void) selectNextTabViewItem:(id)sender
@@ -932,14 +680,12 @@ NSNib *XATabViewItemTabMenuNib;
     if (_selectedTabViewItem)
     {
         [_selectedTabViewItem.view removeFromSuperview];
-        [_selectedTabViewItem setSelected:NO];
     }
 
     self.chatView = tabViewItem.view;
 
     _selectedTabViewItem = tabViewItem;
-    [_selectedTabViewItem setSelected:YES];
-    
+
     NSInteger row = [_tabOutlineView rowForItem:tabViewItem];
     [_tabOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
     
@@ -989,91 +735,6 @@ typedef OSStatus
         HIThemeOrientation              inOrientation);
 #endif
 
-- (void) drawBackground
-{
-    if (self->tabViewType == XATabViewTypeOutline)
-        return;
-        
-    NSRect r = _selectedTabViewItem.view.frame;
-    //NSRect br = [hbox frame];
-#if BACKGROUND_VERSION == kBackgroundStyleGroup
-    //  const float dy = 12;    // floor (br.size.height / [hbox rowCount] / 2)
-    //  const float dx = 12;    // floor (br.size.width / [hbox rowCount] / 2)
-    const float dr = 12;
-#elif BACKGROUND_VERSION == kBackgroundStyleTheme
-    const float d2 = -3;
-    const float dr = kTabBorderInset - d2 - 1;
-    r = NSInsetRect(r, d2, d2);
-#elif BACKGROUND_VERSION == kBackgroundStyleCL
-    const float dr = kTabBorderInset;
-#endif
-
-    switch (tabViewType)
-    {
-        case NSBottomTabsBezelBorder:
-            r.origin.y -= dr;
-        case NSTopTabsBezelBorder:
-        default:
-            r.size.height += dr;
-            break;
-            
-        case NSLeftTabsBezelBorder:
-            r.origin.x -= dr;
-        case NSRightTabsBezelBorder:
-            r.size.width += dr;
-            break;
-    }
-    
-#if BACKGROUND_VERSION == kBackgroundStyleTheme
-    // Doesn't look right on 10.3
-    HIRect paneRect = NSRectToCGRect(r);
-    HIThemeTabPaneDrawInfo drawInfo;
-    drawInfo.version = 1;
-    drawInfo.state = [[self window] isMainWindow] ? kThemeStateActive : kThemeStateInactive;
-    drawInfo.direction = kThemeTabNorth;
-    drawInfo.size = kHIThemeTabSizeNormal;
-    drawInfo.kind = kHIThemeTabKindNormal;
-    drawInfo.adornment = kHIThemeTabPaneAdornmentNormal;
-    
-    OSStatus err = HIThemeDrawTabPane(&paneRect, &drawInfo, [[NSGraphicsContext currentContext] CGContext],
-                                      [self isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
-    if (err != noErr) [NSException raise:NSGenericException format:@"XATabView: HIThemeDrawTabPane returned %d", err];
-#elif BACKGROUND_VERSION == kBackgroundStyleGroup
-    HIRect paneRect = NSRectToCGRect(r);
-    HIThemeGroupBoxDrawInfo drawInfo;
-    drawInfo.version = 1;
-    drawInfo.state = [[self window] isMainWindow] ? kThemeStateActive : kThemeStateInactive;
-    drawInfo.kind = kHIThemeGroupBoxKindPrimary;
-    
-    HIThemeDrawGroupBox(&paneRect, &drawInfo, [[NSGraphicsContext currentContext] CGContext],
-                        [self isFlipped] ? kHIThemeOrientationNormal : kHIThemeOrientationInverted);
-#elif BACKGROUND_VERSION == kBackgroundStyleCL
-    [[NSColor windowBackgroundColor] set];
-    [NSBezierPath fillRect:r];
-    
-    [NSBezierPath setDefaultLineWidth:1];
-    [[NSGraphicsContext currentContext] setShouldAntialias:false];
-    
-    r = NSInsetRect(r,-0.5,-0.5);
-    [[[NSColor separatorColor] colorWithAlphaComponent:0.5] set];
-    [NSBezierPath strokeRect:r];
-    r = NSInsetRect(r,-1,-1);
-    [[NSColor separatorColor] set];
-    [NSBezierPath strokeRect:r];
-#endif // BACKGROUND_VERSION
-}
-
-- (void) drawRect:(NSRect) aRect
-{
-    if (_selectedTabViewItem == nil) {
-        return;
-    }
-
-    if (self->tabViewType != XATabViewTypeOutline) {
-        [self drawBackground];
-    }
-}
-
 - (void)addTabViewItem:(XATabViewItem *)tabViewItem toGroup:(NSInteger)groupIdentifier {
     if (self == tabViewItem.tabView) return;
 
@@ -1102,10 +763,6 @@ typedef OSStatus
     
     XATabViewGroup *group = [self groupForIdentifier:tabViewItem.groupIdentifier];
     [group.tabItems addObject:tabViewItem];
-
-    [tabViewItem makeButton:_tabButtonView order:index];
-    
-    [self setTabButtonCaps];
 
     [_tabOutlineView reloadData];
 
@@ -1206,12 +863,9 @@ typedef OSStatus
 #pragma mark - NSSplitView
 
 - (void)splitViewDidResizeSubviews:(NSNotification *)notification {
-    if (self->tabViewType == XATabViewTypeOutline) {
-        NSScrollView *outlineScroll = [_tabOutlineView enclosingScrollView];
-        CGFloat width = outlineScroll.frame.size.width;
-        if (width >= XAMinimumSidebarWidth)
-            prefs.xa_outline_width = width;
-    }
+    CGFloat width = [[_tabOutlineView enclosingScrollView] frame].size.width;
+    if (width >= XAMinimumSidebarWidth)
+        prefs.xa_outline_width = width;
 }
 
 /* The channel list keeps its width and the conversation takes the rest.
@@ -1230,14 +884,8 @@ typedef OSStatus
     NSSize size = [splitView frame].size;
     CGFloat divider = [splitView dividerThickness];
 
-    CGFloat sidebarWidth;
-    if (_channelListCollapsed) {
-        sidebarWidth = 0.0;
-    } else if (self->tabViewType == XATabViewTypeOutline) {
-        sidebarWidth = MAX(prefs.xa_outline_width, XAMinimumSidebarWidth);
-    } else {
-        sidebarWidth = NSWidth([sidebar frame]);
-    }
+    CGFloat sidebarWidth = _channelListCollapsed
+        ? 0.0 : MAX(prefs.xa_outline_width, XAMinimumSidebarWidth);
 
     // Never let the list crowd out the conversation on a narrow window.
     sidebarWidth = MIN(sidebarWidth, MAX(size.width - divider - 200.0, 0.0));
@@ -1279,8 +927,6 @@ constrainMinCoordinate:(CGFloat)proposedMin
 
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item
 {
-    if ([item action] == @selector(toggleChannelList:))
-        return self->tabViewType == XATabViewTypeOutline;
     return YES;
 }
 
