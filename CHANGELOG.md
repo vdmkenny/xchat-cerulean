@@ -5,6 +5,29 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.1] - 2026-08-16
+
+### Fixed
+
+- **A file link could claim to be something it was not.** 2.3.0 showed any
+  file URL as its last path component, so a message from anybody could carry
+  a link reading `photo.jpg` that pointed elsewhere, and following it hands
+  the target to the system to open. A local path is linked only when it names
+  something in the download directory, which is what the transfer completion
+  line points at. Every other one is left as plain text.
+- **Two string appends could run past their buffer.** The `ISON` builder
+  checked how full its buffer was only after adding a name, by which point a
+  name near the length limit could already have written past the end. And the
+  DCC resume request held back ten bytes for the passive id it appends, which
+  is not enough for a space, a sign, ten digits and a terminator; the id
+  comes from the offer, so the sender chooses it.
+
+### Changed
+
+- The window opens at a size that fits the channel sidebar, a conversation
+  and the user list at once. It was 640x400, which fits none of them. This
+  applies to a fresh configuration; an existing one keeps its own size.
+
 ## [2.3.0] - 2026-08-16
 
 ### Added
