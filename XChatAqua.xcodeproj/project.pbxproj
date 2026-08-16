@@ -194,6 +194,7 @@
 		3B77C0CE1825C154AED3CAFE /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 37A390C98CFD67B18BB866A8 /* Sparkle */; };
 		4455D7453413C38BC96853BD /* XAPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 69474C82D636B643B883BCD0 /* XAPower.m */; };
 		508ABD858B34BED234124613 /* XANetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCA73400603539409D0DE00 /* XANetworkMonitor.m */; };
+		776F7B5B26CB43368B712DD1 /* BookSearch.rb in Copy Plugins */ = {isa = PBXBuildFile; fileRef = CC714F4A5EB938D52BBB3417 /* BookSearch.rb */; };
 		7FFE4FDB185313A22ED195BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFD90A86D71ECC03F9E8BAB /* Security.framework */; };
 		853300D21F0D42A24A0F4840 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B3CE172C2DF4121EFB4FEC /* Network.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -296,6 +297,7 @@
 				38D501DC1593F51A00C9B65D /* JFilter.rb in Copy Plugins */,
 				38D501DD1593F51D00C9B65D /* TimerSample.rb in Copy Plugins */,
 				C511E71922BA2C24292D4E22 /* perl.bundle in Copy Plugins */,
+				776F7B5B26CB43368B712DD1 /* BookSearch.rb in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1694,6 +1696,7 @@
 		B07C7AD70F4398FC00E11B58 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		B267A3D9D784B9A2E6DCDBFF /* libPods-xchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xchat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9230ED6CAED7C0846472E1 /* XANetworkMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XANetworkMonitor.h; path = Mac/Sources/XANetworkMonitor.h; sourceTree = "<group>"; };
+		CC714F4A5EB938D52BBB3417 /* BookSearch.rb */ = {isa = PBXFileReference; includeInIndex = 1; name = BookSearch.rb; path = BookSearch.rb; sourceTree = "<group>"; };
 		CEFBC6DEA7724A39854B5BC9 /* Pods-XChat Aqua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XChat Aqua.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XChat Aqua/Pods-XChat Aqua.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B028C6B821588DDB938F61 /* Pods-XChat Aqua.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XChat Aqua.release.xcconfig"; path = "Pods/Target Support Files/Pods-XChat Aqua/Pods-XChat Aqua.release.xcconfig"; sourceTree = "<group>"; };
 		D406B462129D789400EF6B2B /* fe-aqua_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fe-aqua_common.h"; sourceTree = "<group>"; };
@@ -2481,6 +2484,7 @@
 				38E573E6158F2226007943DA /* JBanner.rb */,
 				38E573E7158F2226007943DA /* JFilter.rb */,
 				38E573E8158F2226007943DA /* TimerSample.rb */,
+				CC714F4A5EB938D52BBB3417 /* BookSearch.rb */,
 			);
 			path = samples;
 			sourceTree = "<group>";
