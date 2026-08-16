@@ -662,8 +662,10 @@ load_config (void)
 	/*prefs.style_inputbox = 1;*/
 	prefs.dccpermissions = 0600;
 	prefs.max_lines = 500;
-	prefs.mainwindow_width = 640;
-	prefs.mainwindow_height = 400;
+	/* Wide enough for the channel sidebar, a conversation and the user list
+	 * without any of them being squeezed. */
+	prefs.mainwindow_width = 1240;
+	prefs.mainwindow_height = 700;
 	prefs.dialog_width = 500;
 	prefs.dialog_height = 256;
 	prefs.gui_join_dialog = 1;
