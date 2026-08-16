@@ -19,6 +19,24 @@
 
 @implementation SGTableView
 
+/* Every table in the utility windows is one of these, so the modern metrics
+ * are applied here rather than in each nib. The nibs ask for 14pt rows and a
+ * bordered scroll view, which is far denser than current macOS. */
+- (void) awakeFromNib
+{
+	[super awakeFromNib];
+
+	self.style = NSTableViewStyleInset;
+	if (self.rowHeight < 20.0)
+		self.rowHeight = 22.0;
+	self.intercellSpacing = NSMakeSize(6.0, 3.0);
+
+	NSScrollView *scrollView = [self enclosingScrollView];
+	scrollView.borderType = NSNoBorder;
+	scrollView.drawsBackground = NO;
+	scrollView.automaticallyAdjustsContentInsets = YES;
+}
+
 - (void) dealloc
 {
 	if (timer)
