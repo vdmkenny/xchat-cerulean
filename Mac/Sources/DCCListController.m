@@ -24,6 +24,7 @@
 #import "AquaChat.h"
 #import "ColorPalette.h"
 #import "DCCListController.h"
+#import "XALayout.h"
 
 //////////////////////////////////////////////////////////////////////
 
@@ -117,8 +118,24 @@
     [itemTableView setNextResponder:self];
     
     [dccListView setDelegate:self];
-    
+
+    [self modernizeLayout];
+
     [self loadData];
+}
+
+/* The transfer nibs place every control at a fixed frame, so the window has
+ * no margins and the buttons run together. Rebuilding the layout as stacks
+ * gives it current spacing without editing the nibs. */
+- (void)modernizeLayout
+{
+    NSScrollView *scrollView = [itemTableView enclosingScrollView];
+    XAModernizeScrollView(scrollView);
+
+    XAModernizeFlatLayout(dccListView,
+                          NSEdgeInsetsMake(14.0, 20.0, 16.0, 20.0),
+                          14.0, 10.0,
+                          scrollView ? @[scrollView] : @[]);
 }
 
 - (void) show:(BOOL) and_bring_to_front

@@ -24,6 +24,7 @@
 //
 
 #import "UtilityWindow.h"
+#import "XALayout.h"
 
 
 @interface LocalizedWindowController: NSWindowController
@@ -38,6 +39,16 @@
 NSMutableDictionary *utilities;
 @implementation UtilityWindow
 @synthesize windowKey;
+
+/* The nibs ask for bezelled scroll views and dense rows, so every list in a
+ * utility window gets current metrics here rather than in each nib. This runs
+ * from the factory methods: subclasses override awakeFromNib without calling
+ * super, so it is not a reliable hook. */
+- (void)modernizeContents
+{
+    XAModernizeScrollViewsInTree([self contentView]);
+}
+
 
 + (void) initialize {
     if (self == [UtilityWindow class]) {
@@ -57,6 +68,7 @@ NSMutableDictionary *utilities;
         utility = [[self alloc] init];
         utility->windowKey = [aKey retain];        
         utilities[aKey] = utility;
+        [utility modernizeContents];
         [utility release];
     }
     return utility;
@@ -69,6 +81,7 @@ NSMutableDictionary *utilities;
         utility = (UtilityWindow *)[windowController window];
         utility->windowKey = [aKey retain];
         utilities[aKey] = utility;
+        [utility modernizeContents];
         [windowController release];
     }
     return utility;
@@ -94,6 +107,12 @@ NSMutableDictionary *utilities;
 @implementation UtilityTabOrWindowView
 @synthesize windowKey;
 
+- (void)modernizeContents
+{
+    XAModernizeScrollViewsInTree(self);
+}
+
+
 + (void) initialize {
     if (self == [UtilityTabOrWindowView class]) {
         if (utilities == nil) {
@@ -113,6 +132,7 @@ NSMutableDictionary *utilities;
         utility = (UtilityTabOrWindowView *)viewController.view;
         utility->windowKey = [aKey retain];
         utilities[aKey] = utility;
+        [utility modernizeContents];
         [viewController release];
     }
     return utility;

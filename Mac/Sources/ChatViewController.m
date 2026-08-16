@@ -17,6 +17,7 @@
 
 #import "AquaChat.h"
 #import "ChatViewController.h"
+#import "XALayout.h"
 #import "ColorPalette.h"
 #import "MIRCString.h"
 #import "MenuMaker.h"
@@ -803,101 +804,6 @@ static NSImage *XAStatusOrb (NSColor *color)
  * Views in `expanding` take the leftover space. The rest are pinned to the
  * size the box gave them, because these are hand-built views with no
  * intrinsic content size for the stack to work from. */
-static NSStackView *XAStackFromBox(NSView *box,
-                                   NSUserInterfaceLayoutOrientation orientation,
-                                   CGFloat spacing,
-                                   NSEdgeInsets insets,
-                                   NSArray *expanding)
-{
-    NSView *parent = [box superview];
-    if (box == nil || parent == nil) return nil;
-
-    BOOL vertical = (orientation == NSUserInterfaceLayoutOrientationVertical);
-    BOOL flipped = [box isFlipped];
-
-    NSArray *ordered = [[box subviews] sortedArrayUsingComparator:^NSComparisonResult(NSView *a, NSView *b) {
-        CGFloat av, bv;
-        if (vertical) {
-            /* A stack fills top to bottom; unflipped, the topmost view has
-             * the largest y. */
-            av = flipped ? NSMinY(a.frame) : -NSMinY(a.frame);
-            bv = flipped ? NSMinY(b.frame) : -NSMinY(b.frame);
-        } else {
-            av = NSMinX(a.frame);
-            bv = NSMinX(b.frame);
-        }
-        if (av < bv) return NSOrderedAscending;
-        if (av > bv) return NSOrderedDescending;
-        return NSOrderedSame;
-    }];
-
-    NSStackView *stack = [[[NSStackView alloc] initWithFrame:box.frame] autorelease];
-    stack.orientation = orientation;
-    stack.spacing = spacing;
-    stack.edgeInsets = insets;
-    stack.distribution = NSStackViewDistributionFill;
-    stack.alignment = vertical ? NSLayoutAttributeWidth : NSLayoutAttributeHeight;
-    stack.autoresizingMask = box.autoresizingMask;
-    stack.translatesAutoresizingMaskIntoConstraints = YES;
-
-    NSLayoutConstraintOrientation axis = vertical ? NSLayoutConstraintOrientationVertical
-                                                  : NSLayoutConstraintOrientationHorizontal;
-    NSLayoutConstraintOrientation across = vertical ? NSLayoutConstraintOrientationHorizontal
-                                                    : NSLayoutConstraintOrientationVertical;
-
-    for (NSView *child in ordered) {
-        CGFloat extent = vertical ? NSHeight(child.frame) : NSWidth(child.frame);
-        BOOL grows = [expanding containsObject:child];
-
-        [[child retain] autorelease];
-        [child removeFromSuperview];
-        child.translatesAutoresizingMaskIntoConstraints = NO;
-        [stack addArrangedSubview:child];
-
-        [child setContentHuggingPriority:(grows ? NSLayoutPriorityDefaultLow
-                                                : NSLayoutPriorityDefaultHigh)
-                          forOrientation:axis];
-
-        if (!grows && extent > 0.0) {
-            NSLayoutConstraint *pin = vertical
-                ? [child.heightAnchor constraintEqualToConstant:extent]
-                : [child.widthAnchor constraintEqualToConstant:extent];
-            pin.priority = NSLayoutPriorityDefaultHigh;
-            pin.active = YES;
-        }
-
-        /* Across the stack the children must be free to shrink so their
-         * content width does not become a floor for the whole window. */
-        [child setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
-                                        forOrientation:across];
-
-        /* A hidden view should not reserve a gap. */
-        if ([child isHidden])
-            [stack setVisibilityPriority:NSStackViewVisibilityPriorityNotVisible forView:child];
-    }
-
-    /* Every row spans the column. The stack's own alignment loses to a row
-     * that hugs its content, which leaves a row sized to its widest control
-     * and parked against one edge, so constrain the widths outright. */
-    if (vertical) {
-        CGFloat sideInsets = insets.left + insets.right;
-        for (NSView *child in [stack arrangedSubviews]) {
-            NSLayoutConstraint *fullWidth =
-                [child.widthAnchor constraintEqualToAnchor:stack.widthAnchor
-                                                  constant:-sideInsets];
-            fullWidth.priority = NSLayoutPriorityRequired - 1;
-            fullWidth.active = YES;
-        }
-    }
-
-    [stack setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
-                                    forOrientation:NSLayoutConstraintOrientationHorizontal];
-    [stack setContentHuggingPriority:NSLayoutPriorityDefaultLow
-                      forOrientation:NSLayoutConstraintOrientationHorizontal];
-
-    [parent replaceSubview:box with:stack];
-    return stack;
-}
 
 /* Puts a vibrant sidebar behind a split view pane, the way a stock source
  * list sits on the window's material. The material cannot be a sibling of

@@ -81,6 +81,29 @@ static void XAScreenshotDumpWindow (NSWindow *window, NSString *directory, NSUIn
     [out writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:NULL];
 }
 
+/* Opens every utility window so one capture run covers them all. Sent on
+ * SIGUSR2; the actions are the same ones the menu bar sends. */
+static void XAScreenshotOpenAllWindows (void)
+{
+    NSArray *actions = @[@"showPreferencesWindow:", @"showNetworkWindow:",
+                         @"showAsciiWindow:", @"showIgnoreWindow:",
+                         @"showFriendWindow:", @"showPluginWindow:",
+                         @"showRawLogWindow:", @"showUrlGrabberWindow:",
+                         @"showLogViewWindow:", @"showDccChatWindow:",
+                         @"showDccReceiveWindow:", @"showDccSendWindow:",
+                         @"showUserCommandsWindow:", @"showCtcpRepliesWindow:",
+                         @"showUserlistButtonsWindow:", @"showUserlistPopupWindow:",
+                         @"showDialogButtonsWindow:", @"showReplacePopupWindow:",
+                         @"showUrlHandlersWindow:", @"showTextEventsWindow:",
+                         @"showUserMenusWindow:"];
+
+    for (NSString *name in actions) {
+        SEL action = NSSelectorFromString (name);
+        if (![NSApp sendAction:action to:nil from:nil])
+            NSLog (@"screenshot: %@ went unhandled", name);
+    }
+}
+
 static void XAScreenshotCaptureAll (void)
 {
     NSString *directory = XAScreenshotDirectory ();
@@ -110,16 +133,28 @@ void XAScreenshotInstallHandler (void)
     /* The default action would kill us, and the dispatch source needs the
      * signal left unhandled by signal(2). */
     signal (SIGUSR1, SIG_IGN);
+    signal (SIGUSR2, SIG_IGN);
 
-    static dispatch_source_t source = nil;
-    source = dispatch_source_create (DISPATCH_SOURCE_TYPE_SIGNAL, SIGUSR1, 0,
-                                     dispatch_get_main_queue ());
-    if (source == nil) return;
+    static dispatch_source_t capture = nil;
+    capture = dispatch_source_create (DISPATCH_SOURCE_TYPE_SIGNAL, SIGUSR1, 0,
+                                      dispatch_get_main_queue ());
+    if (capture == nil) return;
 
-    dispatch_source_set_event_handler (source, ^{
+    dispatch_source_set_event_handler (capture, ^{
         XAScreenshotCaptureAll ();
     });
-    dispatch_resume (source);
+    dispatch_resume (capture);
 
-    NSLog (@"screenshot: SIGUSR1 will capture windows into %@", XAScreenshotDirectory ());
+    static dispatch_source_t openAll = nil;
+    openAll = dispatch_source_create (DISPATCH_SOURCE_TYPE_SIGNAL, SIGUSR2, 0,
+                                      dispatch_get_main_queue ());
+    if (openAll == nil) return;
+
+    dispatch_source_set_event_handler (openAll, ^{
+        XAScreenshotOpenAllWindows ();
+    });
+    dispatch_resume (openAll);
+
+    NSLog (@"screenshot: SIGUSR1 captures windows into %@, SIGUSR2 opens them all",
+           XAScreenshotDirectory ());
 }
