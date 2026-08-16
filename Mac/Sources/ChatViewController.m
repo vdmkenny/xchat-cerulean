@@ -933,9 +933,20 @@ static NSStackView *XAStackFromBox(NSView *box,
             [stack setVisibilityPriority:NSStackViewVisibilityPriorityNotVisible forView:child];
     }
 
-    /* Stretch to the width offered rather than hugging the content: a
-     * converted row nested in a converted column would otherwise shrink to
-     * its widest control. */
+    /* Every row spans the column. The stack's own alignment loses to a row
+     * that hugs its content, which leaves a row sized to its widest control
+     * and parked against one edge, so constrain the widths outright. */
+    if (vertical) {
+        CGFloat sideInsets = insets.left + insets.right;
+        for (NSView *child in [stack arrangedSubviews]) {
+            NSLayoutConstraint *fullWidth =
+                [child.widthAnchor constraintEqualToAnchor:stack.widthAnchor
+                                                  constant:-sideInsets];
+            fullWidth.priority = NSLayoutPriorityRequired - 1;
+            fullWidth.active = YES;
+        }
+    }
+
     [stack setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
                                     forOrientation:NSLayoutConstraintOrientationHorizontal];
     [stack setContentHuggingPriority:NSLayoutPriorityDefaultLow

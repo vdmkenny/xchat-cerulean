@@ -35,9 +35,11 @@ static const CGFloat XAMinimumSidebarWidth = 150.0;
 @interface XATabViewOutlineCell : NSTextFieldCell {
     BOOL _hasCloseButton;
     NSButtonCell *closeCell; // not shown now...
+    NSImage *_icon;
 }
 
 @property (nonatomic, assign) BOOL hasCloseButton;
+@property (nonatomic, retain) NSImage *icon;
 
 @end
 
@@ -45,6 +47,7 @@ NSImage *XATabViewOutlineCellCloseImage;
 
 @implementation XATabViewOutlineCell
 @synthesize hasCloseButton=_hasCloseButton;
+@synthesize icon=_icon;
 
 + (void)initialize {
     if (self == [XATabViewOutlineCell class]) {
@@ -67,6 +70,7 @@ NSImage *XATabViewOutlineCellCloseImage;
 - (void) dealloc
 {
     [closeCell release];
+    [_icon release];
     [super dealloc];
 }
 
@@ -74,6 +78,7 @@ NSImage *XATabViewOutlineCellCloseImage;
 {
     XATabViewOutlineCell *copy = [super copyWithZone:zone];
     copy->closeCell = [closeCell copyWithZone:zone];
+    copy->_icon = [_icon retain];
     return copy;
 }
 
@@ -99,6 +104,25 @@ NSImage *XATabViewOutlineCellCloseImage;
     if (self.hasCloseButton) {
         closeRect = [self calculateCloseRectWithFrame:cellFrame inView:controlView];
         cellFrame.origin.x += closeRect.size.width + 2.0f;
+    }
+
+    /* Leading symbol, the way a Finder source list row is laid out. */
+    if (self.icon != nil) {
+        const CGFloat side = 15.0;
+        const CGFloat gap = 6.0;
+        NSRect iconRect = NSMakeRect(cellFrame.origin.x,
+                                     cellFrame.origin.y + floor((cellFrame.size.height - side) / 2.0),
+                                     side, side);
+
+        [self.icon drawInRect:iconRect
+                     fromRect:NSZeroRect
+                    operation:NSCompositingOperationSourceOver
+                     fraction:1.0
+               respectFlipped:YES
+                        hints:nil];
+
+        cellFrame.origin.x += side + gap;
+        cellFrame.size.width -= side + gap;
     }
 
     [super drawInteriorWithFrame:cellFrame inView:controlView];
@@ -1107,15 +1131,23 @@ typedef OSStatus
     if ([item isKindOfClass:[XATabViewItem class]]) {
         [cell setTextColor:[item titleColor]];
         [cell setHasCloseButton:!prefs.xa_hide_tab_close_buttons];
+
+        /* A channel, a conversation with one person, or the server tab. */
+        NSString *label = [item respondsToSelector:@selector(label)] ? [item label] : nil;
+        NSString *symbol = @"bubble.left";
+        if ([label hasPrefix:@"#"] || [label hasPrefix:@"&"])
+            symbol = @"number";
+        else if ([label length] == 0 || [label isEqualToString:@"<none>"])
+            symbol = @"bolt.horizontal";
+
+        NSImage *icon = [NSImage imageWithSystemSymbolName:symbol accessibilityDescription:label];
+        icon.template = YES;
+        [cell setIcon:icon];
     } else {
-        NSColor *color;
-        if (prefs.tab_layout == 2 && prefs.style_namelistgad) {
-            color = [[[AquaChat sharedAquaChat] palette] getColor:XAColorForeground];
-        } else {
-            color = [NSColor textColor];
-        }
-        [cell setTextColor:color];
+        // Server rows read as section headers, so they are quieter than a channel.
+        [cell setTextColor:[NSColor secondaryLabelColor]];
         [cell setHasCloseButton:NO];
+        [cell setIcon:nil];
     }
 }
 

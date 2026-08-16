@@ -90,11 +90,12 @@
     [panel setMessageText:alertText];
     [panel setAlertStyle:NSAlertStyleInformational];
 
-    /* The answering selector may release the informed object: callers such as
-     * fe_confirm() hand over an object that frees itself once answered. A
-     * __block variable is not retained by the block, so the block does not
-     * release it afterwards and land on freed memory. */
-    __block id target = obj;
+    /* Ownership here is the caller's convention: fe_confirm() releases its
+     * object as soon as this returns, and the answering selector releases it
+     * once more. So take exactly one retain, and use a __block variable so
+     * the block neither retains nor releases it. Retaining twice, or letting
+     * the block release it as well, frees it under the selector. */
+    __block id target = [obj retain];
 
     void (^report)(NSModalResponse) = ^(NSModalResponse response) {
         SEL selector = (response == NSAlertSecondButtonReturn) ? yesSel : noSel;

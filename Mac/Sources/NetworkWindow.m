@@ -492,10 +492,10 @@ static NSString *charsets[] =
 
 /* Panel is a child of the network list, so it travels with it and closes
  * alongside it, which is what the old drawer gave us. */
-- (NSPanel *)detailPanelForWindow:(NSWindow *)parent
+- (NSPanel *)detailPanel
 {
     if (detailPanel != nil) return detailPanel;
-    if (detailContentView == nil || parent == nil) return nil;
+    if (detailContentView == nil) return nil;
 
     NSRect frame = detailContentView.bounds;
     detailPanel = [[NSPanel alloc] initWithContentRect:frame
@@ -515,23 +515,23 @@ static NSString *charsets[] =
 
 - (void) showDetail:(id)sender
 {
-    NSWindow *parent = [self window];
-    NSPanel *panel = [self detailPanelForWindow:parent];
+    /* NetworkWindow is itself the window, so it is the panel's parent. */
+    NSPanel *panel = [self detailPanel];
     if (panel == nil) return;
 
     if ([sender intValue])
     {
         // Sit just to the right of the list, the way the drawer slid out.
-        NSRect parentFrame = parent.frame;
+        NSRect parentFrame = [self frame];
         NSRect panelFrame = panel.frame;
         [panel setFrameOrigin:NSMakePoint(NSMaxX(parentFrame) + 12.0,
                                           NSMaxY(parentFrame) - NSHeight(panelFrame))];
-        [parent addChildWindow:panel ordered:NSWindowAbove];
+        [self addChildWindow:panel ordered:NSWindowAbove];
         [panel orderFront:sender];
     }
     else
     {
-        [parent removeChildWindow:panel];
+        [self removeChildWindow:panel];
         [panel orderOut:sender];
     }
 }
