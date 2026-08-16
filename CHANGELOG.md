@@ -5,6 +5,43 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.1.0] - 2026-08-16
+
+### Added
+
+- **SASL authentication.** xchat's capability negotiation predates IRCv3: it
+  asked only for `identify-msg`, a freenode extension, and there was no way
+  to authenticate before registration finished, which is why a registered
+  nick was greeted with a request to identify. SASL PLAIN is implemented
+  against the IRCv3 3.1 specification and turned on per network under
+  Network details.
+- **Auto-accept for senders you name.** Accepting transfers was a single
+  switch covering everyone: off, ask, or take a file from anybody, which is
+  why leaving it on was a bad idea. Senders listed under File transfers are
+  accepted straight away and every other offer still prompts. Entries are
+  nick masks, so `*Search*` covers a bot whose name carries a suffix.
+- **Unread counts in the sidebar.** A tab with something waiting only
+  changed the colour of its name, which says there is something but not how
+  much. Rows carry a count now. Messages and mentions count; joins and parts
+  do not, and selecting the tab clears it.
+- `tools/make_signing_identity.sh`, which creates a self-signed identity for
+  local builds. A keychain grant is bound to the signature that received it
+  and an ad-hoc signature differs on every build, so rebuilding meant being
+  asked for permission again each time.
+
+### Changed
+
+- **Passwords live in the login keychain**, one entry per network and kind,
+  rather than in `servlist_.conf` in the clear. A configuration still
+  holding them is read as before and the secrets move across on the next
+  save, which is also when they stop being written to disk.
+
+### Security
+
+- Server and NickServ passwords are no longer stored in plaintext on disk.
+- `PASS` is not sent when SASL is in use. It handed the server the same
+  secret a second time, outside the authentication exchange.
+
 ## [2.0.1] - 2026-08-16
 
 ### Changed
@@ -157,3 +194,4 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 
 [2.0.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.0
 [2.0.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.1
+[2.1.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.1.0
