@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.3.3</title>
-            <pubDate>Sun, 16 Aug 2026 12:10:05 +0000</pubDate>
+            <title>2.3.4</title>
+            <pubDate>Sun, 16 Aug 2026 13:15:59 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.3.3.1</sparkle:version>
-            <sparkle:shortVersionString>2.3.3</sparkle:shortVersionString>
+            <sparkle:version>2.3.4.1</sparkle:version>
+            <sparkle:shortVersionString>2.3.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -18,18 +18,13 @@ ul{margin:0 0 8px 18px;padding:0}li{margin:3px 0}
 code{font:11px ui-monospace,monospace;background:rgba(127,127,127,.15);
 padding:1px 4px;border-radius:3px}
 </style></head><body>
-<h2>Changed</h2>
+<h2>Added</h2>
 <ul>
-<li><strong>One instance at a time.</strong> A second copy could be started alongside the first, and the two then shared one configuration directory, each overwriting what the other saved on the way out. Opening the app while it is already running goes to the instance that is there.</li>
-<li><strong>Opening a server you are already on takes you to it.</strong> An <code>irc://</code> link put the server in a new tab whether or not it was already open, so the same address twice meant connecting twice. It now brings the existing tab forward. When the link names a channel, its tab is shown if you are already in it and joined on that connection otherwise. A link without a port means the usual one for its scheme, so <code>irc://example.org</code> and <code>irc://example.org:6667</code> count as the same place.</li>
-</ul>
-<h2>Fixed</h2>
-<ul>
-<li>The command built from an <code>irc://</code> link was assembled in a fixed buffer, so a long link was cut short and the client connected to whatever the truncation left behind.</li>
+<li><strong>A book channel search script</strong>, off unless you turn it on in the plugins window. Asking such a channel for a subject hands you an archive, and every line inside it is the command that requests one item, so the work is unzipping it and copying a line back. <code>/bsearch</code> asks, the listing is read as it arrives and then deleted, <code>/blist</code> shows it numbered, and <code>/bget</code> requests one entry. Requesting stays a separate step rather than following from the search. Listings are still confirmed like any other transfer unless you name the search bot as a trusted sender. Bot names vary, so a pattern rather than an exact name is worth using there.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.3/XChat-Cerulean-2.3.3.zip" length="7032148" type="application/octet-stream" sparkle:edSignature="bCSHB4/8KhM2AUgV4Bi3r9hbGYJSW7wINwg5ZHJVQjNCy/w6apQMwC85uGPXZZjWYHNnV9TDBcJp5kxMorQ9AA=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.4/XChat-Cerulean-2.3.4.zip" length="7035684" type="application/octet-stream" sparkle:edSignature="eQ72YiNF4gva9cNoYPnHBn7DqcEWCL4nTGOfRWOhEM9LXcaCaSEOo+CzT3Xv7rlFpag+OTCmz64LtxtTn3/4CA=="/>
         </item>
     </channel>
 </rss>
