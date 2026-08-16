@@ -23,6 +23,7 @@
 
 #import "AquaChat.h"
 #import "EditListWindow.h"
+#import "XALayout.h"
 
 @interface EditListItem : NSObject
 {
@@ -80,6 +81,24 @@
 {
     self->items = [[NSMutableArray alloc] init];
     [self center];
+}
+
+- (void)modernizeContents
+{
+    [super modernizeContents];
+
+    NSView *content = [self contentView];
+    NSView *tallest = nil;
+    for (NSView *child in [content subviews]) {
+        if (![child isKindOfClass:[NSScrollView class]]) continue;
+        if (tallest == nil || NSHeight([child frame]) > NSHeight([tallest frame]))
+            tallest = child;
+    }
+
+    XAModernizeFlatLayout(content,
+                          NSEdgeInsetsMake(14.0, 20.0, 16.0, 20.0),
+                          14.0, 10.0,
+                          tallest ? @[tallest] : @[]);
 }
 
 - (void)setTarget:(id)aTarget didCloseSelector:(SEL)selector {

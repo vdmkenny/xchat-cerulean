@@ -215,20 +215,30 @@ void XAModernizeFlatLayout(NSView *root,
             rowStack.alignment = NSLayoutAttributeCenterY;
 
             CGFloat previousEdge = -1.0;
+            NSView *previousView = nil;
             BOOL rowFills = NO;
 
             for (NSView *view in sorted) {
                 NSRect frame = [view frame];
                 BOOL grows = [expanding containsObject:view];
+                CGFloat gap = NSMinX(frame) - previousEdge;
 
                 /* A wide gap in the nib separates groups, such as a label on
                  * the left from controls on the right. Narrow gaps are just
                  * spacing and are replaced by the stack's own. */
-                if (previousEdge >= 0.0 && NSMinX(frame) - previousEdge > columnSpacing * 2.0) {
+                if (previousEdge >= 0.0 && gap > columnSpacing * 2.0) {
                     [rowStack addArrangedSubview:XASpacerView()];
+                    previousView = nil;
                     rowFills = YES;
+                } else if (previousView != nil && gap <= 2.0 &&
+                           NSWidth(frame) <= 34.0 && NSWidth([previousView frame]) <= 34.0) {
+                    /* Small controls drawn touching are one set, such as a
+                     * pair of add and remove buttons, and stay joined. Wider
+                     * buttons that happen to abut are just a crowded nib. */
+                    [rowStack setCustomSpacing:0.0 afterView:previousView];
                 }
                 previousEdge = NSMaxX(frame);
+                previousView = view;
 
                 [[view retain] autorelease];
                 [view removeFromSuperview];
