@@ -155,9 +155,34 @@ free_user (struct User *user, gpointer data)
 		free (user->hostname);
 	if (user->servername)
 		free (user->servername);
+	if (user->account)
+		free (user->account);
 	free (user);
 
 	return TRUE;
+}
+
+/* Which services account a user is logged in to, from extended-join at the
+ * moment they arrive and from account-notify whenever it changes. A server
+ * says "*" for logged out, which is stored as no account at all. */
+void
+userlist_set_account (session *sess, char *nick, char *account)
+{
+	struct User *user = userlist_find (sess, nick);
+
+	if (!user)
+		return;
+
+	if (user->account)
+	{
+		free (user->account);
+		user->account = NULL;
+	}
+
+	if (account && account[0] && strcmp (account, "*") != 0)
+		user->account = strdup (account);
+
+	fe_userlist_rehash (sess, user);
 }
 
 void

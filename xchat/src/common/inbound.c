@@ -611,11 +611,29 @@ inbound_upart (server *serv, char *chan, char *ip, char *reason)
 	}
 }
 
+/* One entry from a name reply. With userhost-in-names it is the whole
+ * "nick!user@host" rather than a bare nick, so the host is split off and
+ * kept: that is a user list which is complete on joining instead of after
+ * a WHO comes back. */
+static void
+inbound_names_entry (session *sess, char *entry)
+{
+	char *host = strchr (entry, '!');
+
+	if (host)
+	{
+		*host = 0;
+		userlist_add (sess, entry, host + 1);
+	}
+	else
+		userlist_add (sess, entry, 0);
+}
+
 void
 inbound_nameslist (server *serv, char *chan, char *names)
 {
 	session *sess;
-	char name[NICKLEN];
+	char name[NICKLEN + 256];   /* nick, then !user@host */
 	int pos = 0;
 
 	sess = find_channel (serv, chan);
@@ -641,16 +659,16 @@ inbound_nameslist (server *serv, char *chan, char *names)
 		case 0:
 			name[pos] = 0;
 			if (pos != 0)
-				userlist_add (sess, name, 0);
+				inbound_names_entry (sess, name);
 			return;
 		case ' ':
 			name[pos] = 0;
 			pos = 0;
-			userlist_add (sess, name, 0);
+			inbound_names_entry (sess, name);
 			break;
 		default:
 			name[pos] = *names;
-			if (pos < (NICKLEN-1))
+			if (pos < (sizeof (name) - 1))
 				pos++;
 		}
 		names++;
@@ -735,13 +753,63 @@ inbound_topicnew (server *serv, char *nick, char *chan, char *topic)
 }
 
 void
-inbound_join (server *serv, char *chan, char *user, char *ip)
+inbound_join (server *serv, char *chan, char *user, char *ip,
+				  char *account, char *realname)
 {
 	session *sess = find_channel (serv, chan);
 	if (sess)
 	{
 		EMIT_SIGNAL (XP_TE_JOIN, sess, user, chan, ip, NULL, 0);
 		userlist_add (sess, user, ip);
+
+		/* extended-join carries these on the join itself, so the user list
+		 * knows who someone is without waiting for a WHO. */
+		if (realname && realname[0])
+			userlist_add_hostname (sess, user, ip, realname, NULL, 0xff);
+		if (account)
+			userlist_set_account (sess, user, account);
+	}
+}
+
+/* account-notify: someone logged in to or out of services. */
+void
+inbound_account (server *serv, char *nick, char *account)
+{
+	session *sess;
+	GSList *list = sess_list;
+
+	while (list)
+	{
+		sess = list->data;
+		if (sess->type == SESS_CHANNEL && sess->server == serv)
+			userlist_set_account (sess, nick, account);
+		list = list->next;
+	}
+}
+
+/* setname: someone changed their real name without reconnecting. */
+void
+inbound_setname (server *serv, char *nick, char *realname)
+{
+	session *sess;
+	struct User *user;
+	GSList *list = sess_list;
+
+	while (list)
+	{
+		sess = list->data;
+		if (sess->type == SESS_CHANNEL && sess->server == serv)
+		{
+			user = userlist_find (sess, nick);
+			if (user)
+			{
+				if (user->realname)
+					free (user->realname);
+				user->realname = realname && realname[0] ? strdup (realname) : NULL;
+				fe_userlist_rehash (sess, user);
+			}
+		}
+		list = list->next;
 	}
 }
 

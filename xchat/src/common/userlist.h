@@ -9,6 +9,7 @@ struct User
 	char *hostname;
 	char *realname;
 	char *servername;
+	char *account;					/* services account, NULL when not logged in */
 	time_t lasttalk;
 	unsigned int access;	/* axs bit field */
 	char prefix[2]; /* @ + % */
@@ -35,6 +36,7 @@ int userlist_remove (session *sess, char *name);
 void userlist_remove_user (session *sess, struct User *user);
 int userlist_change (session *sess, char *oldname, char *newname);
 void userlist_update_mode (session *sess, char *name, char mode, char sign);
+void userlist_set_account (session *sess, char *nick, char *account);
 GSList *userlist_flat_list (session *sess);
 GList *userlist_double_list (session *sess);
 void userlist_rehash (session *sess);

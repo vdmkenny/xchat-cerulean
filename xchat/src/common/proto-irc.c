@@ -54,6 +54,50 @@ irc_add_cap (char *request, size_t size, const char *name)
 	safe_strcpy (request + used, name, size - used);
 }
 
+/* Which of the capabilities a server offers are worth having. Shared by the
+ * list sent at login and by any the server announces later. */
+static void
+irc_wanted_caps (server *serv, char *offered, char *request, size_t size)
+{
+	if (serv->use_sasl && serv->password[0] && strstr (offered, "sasl") != NULL)
+		irc_add_cap (request, size, "sasl");
+	if (strstr (offered, "server-time") != NULL)
+		irc_add_cap (request, size, "server-time");
+	/* NAMES then carries every mode a user holds rather than only the
+	 * highest. nick_access already counts all the leading prefix
+	 * characters, so the nick still parses; the access level it works out
+	 * simply becomes complete. */
+	if (strstr (offered, "multi-prefix") != NULL)
+		irc_add_cap (request, size, "multi-prefix");
+	/* Keeps the user list right between name replies: who is away, and a
+	 * host that changed without a reconnect. */
+	if (strstr (offered, "away-notify") != NULL)
+		irc_add_cap (request, size, "away-notify");
+	if (strstr (offered, "chghost") != NULL)
+		irc_add_cap (request, size, "chghost");
+	if (strstr (offered, "identify-msg") != NULL)
+		irc_add_cap (request, size, "identify-msg");
+	/* Who is logged in to services: the account arrives with the join
+	 * itself, and afterwards whenever it changes. */
+	if (strstr (offered, "extended-join") != NULL)
+		irc_add_cap (request, size, "extended-join");
+	if (strstr (offered, "account-notify") != NULL)
+		irc_add_cap (request, size, "account-notify");
+	/* Name replies carry the full user and host, so the list is complete
+	 * on joining rather than once a WHO comes back. */
+	if (strstr (offered, "userhost-in-names") != NULL)
+		irc_add_cap (request, size, "userhost-in-names");
+	/* Lets the server offer capabilities later in the session rather than
+	 * only at the start. */
+	if (strstr (offered, "cap-notify") != NULL)
+		irc_add_cap (request, size, "cap-notify");
+	if (strstr (offered, "invite-notify") != NULL)
+		irc_add_cap (request, size, "invite-notify");
+	/* Someone changing their real name without reconnecting. */
+	if (strstr (offered, "setname") != NULL)
+		irc_add_cap (request, size, "setname");
+}
+
 static void
 irc_login (server *serv, char *user, char *realname)
 {
@@ -974,13 +1018,27 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 		case WORDL('J','O','I','N'):
 			{
 				char *chan = word[3];
+				char *account = NULL;
+				char *realname = NULL;
 
 				if (*chan == ':')
 					chan++;
+
+				/* extended-join sends "JOIN <channel> <account> :<realname>".
+				 * A plain join carries neither, so their presence is what
+				 * distinguishes the longer form. */
+				if (word[4][0])
+				{
+					account = word[4];
+					realname = word_eol[5];
+					if (*realname == ':')
+						realname++;
+				}
+
 				if (!serv->p_cmp (nick, serv->nick))
 					inbound_ujoin (serv, chan, nick, ip);
 				else
-					inbound_join (serv, chan, nick, ip);
+					inbound_join (serv, chan, nick, ip, account, realname);
 			}
 			return;
 
@@ -1051,6 +1109,26 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 		/* this should compile to a bunch of: CMP.L, JE ... nice & fast */
 		switch (t)
 		{
+		/* Both of these are seven characters, so they belong in this block
+		 * rather than the one above, which only reaches four. */
+		case WORDL('A','C','C','O'):	/* ACCOUNT, from account-notify */
+			{
+				char *account = word[3];
+				if (*account == ':')
+					account++;
+				inbound_account (serv, nick, account);
+			}
+			return;
+
+		case WORDL('S','E','T','N'):	/* SETNAME */
+			{
+				char *realname = word_eol[3];
+				if (*realname == ':')
+					realname++;
+				inbound_setname (serv, nick, realname);
+			}
+			return;
+
 		case WORDL('I','N','V','I'):
 			if (ignore_check (word[1], IG_INVI))
 				return;
@@ -1190,32 +1268,35 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 			else if (strncasecmp(word[4], "LS", 2) == 0)
 			{
 				char *offered = word_eol[5][0] == ':' ? word_eol[5] + 1 : word_eol[5];
-				char request[128];
+				char request[256];
 
 				request[0] = 0;
-				if (serv->use_sasl && serv->password[0] && strstr (offered, "sasl") != NULL)
-					irc_add_cap (request, sizeof (request), "sasl");
-				if (strstr (offered, "server-time") != NULL)
-					irc_add_cap (request, sizeof (request), "server-time");
-				/* NAMES then carries every mode a user holds rather than
-				 * only the highest. nick_access already counts all the
-				 * leading prefix characters, so the nick still parses; the
-				 * access level it works out simply becomes complete. */
-				if (strstr (offered, "multi-prefix") != NULL)
-					irc_add_cap (request, sizeof (request), "multi-prefix");
-				/* Keeps the user list right between name replies: who is
-				 * away, and a host that changed without a reconnect. */
-				if (strstr (offered, "away-notify") != NULL)
-					irc_add_cap (request, sizeof (request), "away-notify");
-				if (strstr (offered, "chghost") != NULL)
-					irc_add_cap (request, sizeof (request), "chghost");
-				if (strstr (offered, "identify-msg") != NULL)
-					irc_add_cap (request, sizeof (request), "identify-msg");
+				irc_wanted_caps (serv, offered, request, sizeof (request));
 
 				if (request[0])
 					tcp_sendf (serv, "CAP REQ :%s\r\n", request);
 				else
 					tcp_send_len(serv, "CAP END\r\n", 9);
+			}
+			else if (strncasecmp(word[4], "NEW", 3) == 0)
+			{
+				/* cap-notify: the server gained a capability part way
+				 * through the session. Anything wanted is asked for now
+				 * rather than waiting for the next connection. Login has
+				 * finished by this point, so no CAP END follows. */
+				char *offered = word_eol[5][0] == ':' ? word_eol[5] + 1 : word_eol[5];
+				char request[256];
+
+				request[0] = 0;
+				irc_wanted_caps (serv, offered, request, sizeof (request));
+
+				if (request[0])
+					tcp_sendf (serv, "CAP REQ :%s\r\n", request);
+			}
+			else if (strncasecmp(word[4], "DEL", 3) == 0)
+			{
+				/* The server withdrew one. There is nothing to answer: the
+				 * handlers simply stop hearing from it. */
 			}
 			else if (strncasecmp(word[4], "NAK",3) == 0)
 			{
