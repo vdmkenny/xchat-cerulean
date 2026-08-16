@@ -312,11 +312,51 @@ dcc_lookup_proxy (char *host, struct sockaddr_in *addr)
 
 #define DCC_USE_PROXY() (prefs.proxy_host[0] && prefs.proxy_type>0 && prefs.proxy_type<5 && prefs.proxy_use!=1)
 
+/* The address to show for a transfer: the literal when the peer is on IPv6,
+ * the usual dotted quad otherwise. */
+static char *
+dcc_addr_str (struct DCC *dcc)
+{
+	if (dcc->addr6[0])
+		return dcc->addr6;
+
+	return net_ip (dcc->addr);
+}
+
 static int
 dcc_connect_sok (struct DCC *dcc)
 {
 	int sok;
 	struct sockaddr_in addr;
+
+	/* A sender reachable only over IPv6 gives a literal address. The proxy
+	 * types xchat speaks are IPv4 only, so a proxied transfer cannot use
+	 * one. */
+	if (dcc->addr6[0])
+	{
+		struct sockaddr_in6 addr6;
+
+		if (DCC_USE_PROXY ())
+			return -1;
+
+		sok = socket (AF_INET6, SOCK_STREAM, 0);
+		if (sok == -1)
+			return -1;
+
+		memset (&addr6, 0, sizeof (addr6));
+		addr6.sin6_family = AF_INET6;
+		addr6.sin6_port = htons (dcc->port);
+		if (inet_pton (AF_INET6, dcc->addr6, &addr6.sin6_addr) != 1)
+		{
+			closesocket (sok);
+			return -1;
+		}
+
+		set_nonblocking (sok);
+		connect (sok, (struct sockaddr *) &addr6, sizeof (addr6));
+
+		return sok;
+	}
 
 	sok = socket (AF_INET, SOCK_STREAM, 0);
 	if (sok == -1)
@@ -533,7 +573,7 @@ dcc_chat_line (struct DCC *dcc, char *line)
 	sprintf (portbuf, "%d", dcc->port);
 
 	word[0] = "DCC Chat Text";
-	word[1] = net_ip (dcc->addr);
+	word[1] = dcc_addr_str (dcc);
 	word[2] = portbuf;
 	word[3] = dcc->nick;
 	word[4] = line;
@@ -611,7 +651,7 @@ dcc_read_chat (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 			}
 			sprintf (portbuf, "%d", dcc->port);
 			EMIT_SIGNAL (XP_TE_DCCCHATF, dcc->serv->front_session, dcc->nick,
-							 net_ip (dcc->addr), portbuf,
+							 dcc_addr_str (dcc), portbuf,
 							 errorstring ((len < 0) ? sock_error () : 0), 0);
 			dcc_close (dcc, STAT_FAILED, FALSE);
 			return TRUE;
@@ -854,7 +894,7 @@ dcc_connect_finished (GIOChannel *source, GIOCondition condition, struct DCC *dc
 		return TRUE;
 
 	dcc->dccstat = STAT_ACTIVE;
-	snprintf (host, sizeof host, "%s:%d", net_ip (dcc->addr), dcc->port);
+	snprintf (host, sizeof host, "%s:%d", dcc_addr_str (dcc), dcc->port);
 
 	switch (dcc->type)
 	{
@@ -2271,7 +2311,7 @@ dcc_deny_chat (void *ud)
 }
 
 static struct DCC *
-dcc_add_chat (session *sess, char *nick, int port, guint32 addr, int pasvid)
+dcc_add_chat (session *sess, char *nick, int port, guint32 addr, const char *addr6, int pasvid)
 {
 	struct DCC *dcc;
 
@@ -2282,6 +2322,8 @@ dcc_add_chat (session *sess, char *nick, int port, guint32 addr, int pasvid)
 		dcc->type = TYPE_CHATRECV;
 		dcc->dccstat = STAT_QUEUED;
 		dcc->addr = addr;
+		if (addr6 && addr6[0])
+			safe_strcpy (dcc->addr6, addr6, sizeof (dcc->addr6));
 		dcc->port = port;
 		dcc->pasvid = pasvid;
 		dcc->nick = strdup (nick);
@@ -2335,7 +2377,7 @@ dcc_sender_is_trusted (const char *nick)
 }
 
 static struct DCC *
-dcc_add_file (session *sess, char *file, DCC_SIZE size, int port, char *nick, guint32 addr, int pasvid)
+dcc_add_file (session *sess, char *file, DCC_SIZE size, int port, char *nick, guint32 addr, const char *addr6, int pasvid)
 {
 	struct DCC *dcc;
 	char tbuf[512];
@@ -2343,6 +2385,9 @@ dcc_add_file (session *sess, char *file, DCC_SIZE size, int port, char *nick, gu
 	dcc = new_dcc ();
 	if (dcc)
 	{
+		if (addr6 && addr6[0])
+			safe_strcpy (dcc->addr6, addr6, sizeof (dcc->addr6));
+
 		dcc->file = strdup (file);
 
 		dcc->destfile = g_malloc (strlen (prefs.dccdir) + strlen (nick) +
@@ -2405,11 +2450,34 @@ dcc_add_file (session *sess, char *file, DCC_SIZE size, int port, char *nick, gu
 			fe_dcc_add (dcc);
 	}
 	sprintf (tbuf, "%"DCC_SFMT, size);
-	snprintf (tbuf + 24, 300, "%s:%d", net_ip (addr), port);
+	snprintf (tbuf + 24, 300, "%s:%d", dcc_addr_str (dcc), port);
 	EMIT_SIGNAL (XP_TE_DCCSENDOFFER, sess->server->front_session, nick,
 					 file, tbuf, tbuf + 24, 0);
 
 	return dcc;
+}
+
+/* The address field of a DCC offer carries the sender's IPv4 address as a
+ * 32 bit number. A sender on IPv6 has no way to express that, so clients
+ * put a literal address there instead, and that is what everything else on
+ * the network expects to see. Returns FALSE when the field is neither. */
+static int
+dcc_parse_addr (const char *str, guint32 *addr, char *addr6, size_t addr6_size)
+{
+	struct in6_addr scratch;
+
+	*addr = 0;
+	addr6[0] = 0;
+
+	if (strchr (str, ':') && inet_pton (AF_INET6, str, &scratch) == 1)
+	{
+		safe_strcpy (addr6, str, addr6_size);
+		return TRUE;
+	}
+
+	*addr = (guint32) strtoul (str, NULL, 10);
+
+	return *addr != 0;
 }
 
 void
@@ -2421,13 +2489,14 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 	char *type = word[5];
 	int port, pasvid = 0;
 	guint32 addr;
+	char addr6[46];
 	DCC_SIZE size;
 	int psend = 0;
 
 	if (!strcasecmp (type, "CHAT"))
 	{
 		port = atoi (word[8]);
-		addr = (guint32)strtoul (word[7], NULL, 10);
+		dcc_parse_addr (word[7], &addr, addr6, sizeof (addr6));
 
 		if (port == 0)
 			pasvid = atoi (word[9]);
@@ -2437,7 +2506,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 			psend = 1;
 		}
 
-		if (!addr /*|| (port < 1024 && port != 0)*/
+		if ((!addr && !addr6[0]) /*|| (port < 1024 && port != 0)*/
 			|| port > 0xffff || (port == 0 && pasvid == 0))
 		{
 			dcc_malformed (sess, nick, word_eol[4] + 2);
@@ -2450,6 +2519,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 			if (dcc)
 			{
 				dcc->addr = addr;
+				safe_strcpy (dcc->addr6, addr6, sizeof (dcc->addr6));
 				dcc->port = port;
 				dcc_connect (dcc);
 			} else
@@ -2467,7 +2537,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 		if (dcc)
 			dcc_close (dcc, 0, TRUE);
 
-		dcc_add_chat (sess, nick, port, addr, pasvid);
+		dcc_add_chat (sess, nick, port, addr, addr6, pasvid);
 		return;
 	}
 
@@ -2530,7 +2600,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 		char *file = file_part (word[6]);
 
 		port = atoi (word[8]);
-		addr = (guint32)strtoul (word[7], NULL, 10);
+		dcc_parse_addr (word[7], &addr, addr6, sizeof (addr6));
 		size = BIG_STR_TO_INT (word[9]);
 
 		if (port == 0) /* Passive dcc requested */
@@ -2551,7 +2621,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 		}
 
 
-		if (!addr || !size /*|| (port < 1024 && port != 0)*/
+		if ((!addr && !addr6[0]) || !size /*|| (port < 1024 && port != 0)*/
 			|| port > 0xffff || (port == 0 && pasvid == 0))
 		{
 			dcc_malformed (sess, nick, word_eol[4] + 2);
@@ -2568,6 +2638,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 			if (dcc)
 			{
 				dcc->addr = addr;
+				safe_strcpy (dcc->addr6, addr6, sizeof (dcc->addr6));
 				dcc->port = port;
 				dcc_connect (dcc);
 			} else
@@ -2577,7 +2648,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 			return;
 		}
 
-		dcc_add_file (sess, file, size, port, nick, addr, pasvid);
+		dcc_add_file (sess, file, size, port, nick, addr, addr6, pasvid);
 
 	} else
 	{

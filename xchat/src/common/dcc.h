@@ -36,6 +36,7 @@ struct DCC
 	struct dcc_chat *dccchat;
 	struct proxy_state *proxy;
 	guint32 addr;					/* the 32bit IP number, host byte order */
+	char addr6[46];				/* literal IPv6 address, empty when IPv4 */
 	int fp;							/* file pointer */
 	int sok;
 	int iotag;						/* reading io tag */

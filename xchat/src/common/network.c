@@ -238,35 +238,40 @@ net_resolve (netstore * ns, char *hostname, int port, char **real_host)
 
 /* the only thing making this interface unclean, this shitty sok4, sok6 business */
 
+/* IPv6 is tried before IPv4. getaddrinfo usually returns the addresses in
+ * that order anyway, but only when the host has a global IPv6 address and
+ * the resolver applies RFC 6724, so the preference is stated here rather
+ * than inherited. IPv4 is left as the fallback: its socket is untouched by
+ * the IPv6 attempts, so it is still fresh when they fail. */
 int
 net_connect (netstore * ns, int sok4, int sok6, int *sok_return)
 {
-	struct addrinfo *res, *res0;
+	static const int families[] = { AF_INET6, AF_INET };
+	struct addrinfo *res;
 	int error = -1;
+	unsigned int i;
 
-	res0 = ns->ip6_hostent;
-
-	for (res = res0; res; res = res->ai_next)
+	for (i = 0; i < sizeof (families) / sizeof (families[0]); i++)
 	{
-/*		sok = socket (res->ai_family, res->ai_socktype, res->ai_protocol);
-		if (sok < 0)
-			continue;*/
-		switch (res->ai_family)
+		for (res = ns->ip6_hostent; res; res = res->ai_next)
 		{
-		case AF_INET:
-			error = connect (sok4, res->ai_addr, res->ai_addrlen);
-			*sok_return = sok4;
-			break;
-		case AF_INET6:
-			error = connect (sok6, res->ai_addr, res->ai_addrlen);
-			*sok_return = sok6;
-			break;
-		default:
-			error = 1;
-		}
+			if (res->ai_family != families[i])
+				continue;
 
-		if (error == 0)
-			break;
+			if (families[i] == AF_INET6)
+			{
+				*sok_return = sok6;
+				error = connect (sok6, res->ai_addr, res->ai_addrlen);
+			}
+			else
+			{
+				*sok_return = sok4;
+				error = connect (sok4, res->ai_addr, res->ai_addrlen);
+			}
+
+			if (error == 0)
+				return error;
+		}
 	}
 
 	return error;
