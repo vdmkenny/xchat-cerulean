@@ -49,6 +49,25 @@ cd xchat-cerulean
 xcodebuild -project XChatAqua.xcodeproj -scheme 'XChat Cerulean' -configuration Release -derivedDataPath build build
 ```
 
+### Keychain prompts while developing
+
+Passwords live in the login keychain. "Always Allow" is bound to the exact
+signature that was granted it, and an ad-hoc signature is different on every
+build, so each rebuild makes macOS ask again. Create a fixed identity once:
+
+```bash
+tools/make_signing_identity.sh
+```
+
+then build with it:
+
+```bash
+xcodebuild -project XChatAqua.xcodeproj -scheme 'XChat Cerulean' -configuration Release CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" XA_CODE_SIGN_IDENTITY="XChat Cerulean Local Signing" build
+```
+
+Released builds are signed ad-hoc, so they ask once per password after each
+update.
+
 Open it:
 
 ```bash

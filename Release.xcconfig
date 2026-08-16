@@ -3,3 +3,7 @@
 
 HEADER_SEARCH_PATHS = $(inherited) $(SRCROOT)/Mac/Sources $(SRCROOT)/Mac/contrib/include $(DEP_HEADER_SEARCH_PATHS)
 LIBRARY_SEARCH_PATHS = $(inherited) $(DEP_LIBRARY_SEARCH_PATHS)
+
+// Ad-hoc by default. Override on the command line with a local identity so
+// keychain grants survive a rebuild; see tools/make_signing_identity.sh.
+XA_CODE_SIGN_IDENTITY = -
