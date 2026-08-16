@@ -24,6 +24,7 @@
 #include "cfgfiles.h"
 
 #import "LogViewWindow.h"
+#import "XALayout.h"
 
 @interface LogItem : NSObject
 {
@@ -134,6 +135,96 @@
 #endif
     
     [self refreshList:nil];
+}
+
+/* The nib stacks the controls down the left of the log text at fixed
+ * frames. This puts the list and its controls in one column, the log in the
+ * other, and lets the divider between them be dragged. */
+static NSButton *XAButtonForAction(NSView *root, SEL action)
+{
+    for (NSView *child in [root subviews]) {
+        if (![child isKindOfClass:[NSButton class]]) continue;
+        if ([(NSButton *)child action] == action) return (NSButton *)child;
+    }
+    return nil;
+}
+
+static void XAAddArranged(NSStackView *stack, NSView *view)
+{
+    if (view == nil) return;
+    [[view retain] autorelease];
+    [view removeFromSuperview];
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    [stack addArrangedSubview:view];
+}
+
+- (void)modernizeContents
+{
+    [super modernizeContents];
+
+    NSScrollView *listScroll = [logTableView enclosingScrollView];
+    NSScrollView *textScroll = [logTextView enclosingScrollView];
+    if (listScroll == nil || textScroll == nil) return;
+
+    NSButton *refresh = XAButtonForAction(self, @selector(refreshList:));
+    NSButton *openIn = XAButtonForAction(self, @selector(openInTextEdit:));
+    NSButton *reveal = XAButtonForAction(self, @selector(revealInFinder:));
+
+    NSStackView *controls = [[[NSStackView alloc] initWithFrame:NSZeroRect] autorelease];
+    controls.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+    controls.spacing = 8.0;
+    controls.alignment = NSLayoutAttributeCenterY;
+    XAAddArranged(controls, refresh);
+    XAAddArranged(controls, filterSearchField);
+    [filterSearchField setContentHuggingPriority:NSLayoutPriorityDefaultLow
+                                  forOrientation:NSLayoutConstraintOrientationHorizontal];
+
+    NSStackView *actions = [[[NSStackView alloc] initWithFrame:NSZeroRect] autorelease];
+    actions.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+    actions.spacing = 8.0;
+    actions.alignment = NSLayoutAttributeCenterY;
+    XAAddArranged(actions, openIn);
+    XAAddArranged(actions, reveal);
+
+    /* Absorbs the slack so the row sits against the leading edge rather than
+     * being centred under the list. */
+    NSView *spacer = [[[NSView alloc] initWithFrame:NSZeroRect] autorelease];
+    spacer.translatesAutoresizingMaskIntoConstraints = NO;
+    [spacer setContentHuggingPriority:NSLayoutPriorityDefaultLow - 1
+                       forOrientation:NSLayoutConstraintOrientationHorizontal];
+    [actions addArrangedSubview:spacer];
+
+    NSStackView *column = [[[NSStackView alloc] initWithFrame:NSZeroRect] autorelease];
+    column.orientation = NSUserInterfaceLayoutOrientationVertical;
+    column.spacing = 10.0;
+    column.alignment = NSLayoutAttributeWidth;
+    [column addArrangedSubview:controls];
+    XAAddArranged(column, listScroll);
+    [column addArrangedSubview:actions];
+    [listScroll setContentHuggingPriority:NSLayoutPriorityDefaultLow
+                           forOrientation:NSLayoutConstraintOrientationVertical];
+
+    [[textScroll retain] autorelease];
+    [textScroll removeFromSuperview];
+    textScroll.translatesAutoresizingMaskIntoConstraints = NO;
+
+    NSSplitView *split = [[[NSSplitView alloc] initWithFrame:[self bounds]] autorelease];
+    split.vertical = YES;
+    split.dividerStyle = NSSplitViewDividerStyleThin;
+    [split addSubview:column];
+    [split addSubview:textScroll];
+    [split setHoldingPriority:NSLayoutPriorityDefaultHigh forSubviewAtIndex:0];
+    [split setHoldingPriority:NSLayoutPriorityDefaultLow forSubviewAtIndex:1];
+
+    NSStackView *root = [[[NSStackView alloc] initWithFrame:[self bounds]] autorelease];
+    root.orientation = NSUserInterfaceLayoutOrientationVertical;
+    root.edgeInsets = NSEdgeInsetsMake(14.0, 20.0, 16.0, 20.0);
+    root.alignment = NSLayoutAttributeWidth;
+    root.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [root addArrangedSubview:split];
+
+    [self addSubview:root];
+    [[column.widthAnchor constraintGreaterThanOrEqualToConstant:260.0] setActive:YES];
 }
 
 #pragma mark Private method
