@@ -149,6 +149,10 @@ irc_login (server *serv, char *user, char *realname)
 	 * outside the exchange. */
 	if (serv->password[0] && !serv->use_sasl)
 		tcp_sendf (serv, "PASS %s\r\n", serv->password);
+
+	/* Registration waits on CAP END, and only the exchange that starts here
+	 * should send one. */
+	serv->cap_negotiating = TRUE;
 	tcp_sendf (serv, "CAP LS\r\n");
 
 	tcp_sendf (serv,
@@ -574,7 +578,11 @@ process_numeric (session * sess, int n,
 		if (serv->sasl_waiting)
 		{
 			serv->sasl_waiting = FALSE;
-			tcp_send_len (serv, "CAP END\r\n", 9);
+			if (serv->cap_negotiating)
+			{
+				serv->cap_negotiating = FALSE;
+				tcp_send_len (serv, "CAP END\r\n", 9);
+			}
 		}
 		goto def;
 
@@ -1291,13 +1299,13 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 			{
 				char *acked = word_eol[5][0] == ':' ? word_eol[5] + 1 : word_eol[5];
 
-				if (strstr (acked, "identify-msg") != NULL)
+				if (irc_cap_offered (acked, "identify-msg"))
 					serv->have_idmsg = TRUE;
 
-				if (strstr (acked, "server-time") != NULL)
+				if (irc_cap_offered (acked, "server-time"))
 					serv->have_server_time = TRUE;
 
-				if (strstr (acked, "sasl") != NULL)
+				if (irc_cap_offered (acked, "sasl"))
 				{
 					/* The exchange runs before CAP END, which is sent once
 					 * the server reports the outcome. */
@@ -1306,7 +1314,15 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 					return;
 				}
 
-				tcp_send_len(serv, "CAP END\r\n", 9);
+				/* Only the exchange that registration is waiting on. Since
+				 * cap-notify a server can offer a capability later and
+				 * acknowledge a request for it long after login, where
+				 * ending negotiation again would mean nothing. */
+				if (serv->cap_negotiating)
+				{
+					serv->cap_negotiating = FALSE;
+					tcp_send_len(serv, "CAP END\r\n", 9);
+				}
 			}
 			else if (strncasecmp(word[4], "LS", 2) == 0)
 			{
@@ -1318,8 +1334,11 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 
 				if (request[0])
 					tcp_sendf (serv, "CAP REQ :%s\r\n", request);
-				else
+				else if (serv->cap_negotiating)
+				{
+					serv->cap_negotiating = FALSE;
 					tcp_send_len(serv, "CAP END\r\n", 9);
+				}
 			}
 			else if (strncasecmp(word[4], "NEW", 3) == 0)
 			{
@@ -1343,7 +1362,13 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 			}
 			else if (strncasecmp(word[4], "NAK",3) == 0)
 			{
-				tcp_send_len(serv, "CAP END\r\n", 9);
+				/* The whole request was refused. Registration still has to
+				 * be let go of, but a refusal after login ends nothing. */
+				if (serv->cap_negotiating)
+				{
+					serv->cap_negotiating = FALSE;
+					tcp_send_len(serv, "CAP END\r\n", 9);
+				}
 			}
 			return;
 

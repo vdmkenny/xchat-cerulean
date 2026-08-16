@@ -522,6 +522,7 @@ typedef struct server
 	unsigned int inside_whois:1;
 	unsigned int doing_dns:1;			/* /dns has been done */
 	unsigned int end_of_motd:1;		/* end of motd reached (logged in) */
+	unsigned int cap_negotiating:1;	/* between CAP LS and CAP END */
 	unsigned int sent_quit:1;			/* sent a QUIT already? */
 	unsigned int use_listargs:1;		/* undernet and dalnet need /list >0,<10000 */
 	unsigned int is_away:1;
