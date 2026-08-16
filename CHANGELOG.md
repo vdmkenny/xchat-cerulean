@@ -5,6 +5,15 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.6] - 2026-08-16
+
+### Fixed
+
+- **Auto start did nothing for script plugins.** Ticking it called the binary
+  loader directly, which answered that a ruby or perl script is not a valid
+  executable. Loading now goes through the same path as the load command, so
+  the interpreters get the chance to claim their own files.
+
 ## [2.3.5] - 2026-08-16
 
 ### Fixed
