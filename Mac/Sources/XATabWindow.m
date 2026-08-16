@@ -31,13 +31,16 @@
 
 #pragma mark Toolbar
 
-static NSString * const XAToolbarIdentifier   = @"XAMainToolbar2";
+/* Bumped when the default set changes: an autosaved configuration pins the
+ * items it was saved with, so a new one never shows up under the old name. */
+static NSString * const XAToolbarIdentifier   = @"XAMainToolbar3";
 static NSString * const XAToolbarChannelList  = @"toggleChannelList";
 static NSString * const XAToolbarUserList     = @"toggleUserList";
 static NSString * const XAToolbarSidebarSplit = @"sidebarSeparator";
 static NSString * const XAToolbarNetworks     = @"networks";
 static NSString * const XAToolbarJoinChannel  = @"joinChannel";
 static NSString * const XAToolbarChannelWindow = @"channelWindow";
+static NSString * const XAToolbarTransfers    = @"transfers";
 static NSString * const XAToolbarSearch       = @"search";
 static NSString * const XAToolbarPreferences  = @"preferences";
 
@@ -92,6 +95,10 @@ static NSString * const XAToolbarPreferences  = @"preferences";
         symbol = @"list.bullet";
         label = NSLocalizedStringFromTable(@"Channel List", @"xchataqua", @"Toolbar item");
         action = @selector(showChannelWindow:);
+    } else if ([identifier isEqualToString:XAToolbarTransfers]) {
+        symbol = @"arrow.down.circle";
+        label = NSLocalizedStringFromTable(@"File Transfers", @"xchataqua", @"Toolbar item");
+        action = @selector(showDccReceiveWindow:);
     } else if ([identifier isEqualToString:XAToolbarSearch]) {
         symbol = @"magnifyingglass";
         label = NSLocalizedStringFromTable(@"Search", @"xchataqua", @"Toolbar item");
@@ -123,6 +130,7 @@ static NSString * const XAToolbarPreferences  = @"preferences";
              XAToolbarJoinChannel,
              XAToolbarChannelWindow,
              NSToolbarFlexibleSpaceItemIdentifier,
+             XAToolbarTransfers,
              XAToolbarSearch,
              XAToolbarPreferences,
              XAToolbarUserList];
@@ -135,6 +143,7 @@ static NSString * const XAToolbarPreferences  = @"preferences";
              XAToolbarNetworks,
              XAToolbarJoinChannel,
              XAToolbarChannelWindow,
+             XAToolbarTransfers,
              XAToolbarSearch,
              XAToolbarPreferences,
              NSToolbarFlexibleSpaceItemIdentifier,
