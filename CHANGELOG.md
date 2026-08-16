@@ -5,6 +5,53 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.1] - 2026-08-16
+
+### Changed
+
+- **The default network list was rebuilt and every entry tested.** It was
+  still xchat's from around 2010: 85 networks, most long gone. 2.0.0 only
+  renamed freenode to Libera.Chat rather than replacing the list. There are
+  23 networks now, each checked by connecting to it, and 20 of them use TLS.
+  Undernet, QuakeNet and GameSurge offer no TLS port at all and stay
+  plaintext.
+- The category list in Settings is a full-height source list on the same
+  material as the channel list, with a symbol per pane. The pane name moved
+  to the window subtitle, since it repeated the heading below it.
+- Buttons the nibs left touching are spaced apart, anchored to whichever
+  edge of their container they sit closest to.
+- Menus and help links carry this project's name and address rather than
+  X-Chat Aqua's.
+
+### Fixed
+
+- **The Undernet entry claimed TLS on a port with nothing listening**, so
+  anyone starting from the built-in list could not connect to it.
+- **A stalled connection worker could hang the interface for good.** Reading
+  its pipe blocks the main thread a byte at a time; each byte now waits on a
+  bounded poll. The buffer is terminated on entry as well, because the
+  caller switches on its first character without checking the read
+  succeeded. Upstream issue 40.
+- **macOS text substitutions corrupted input.** Smart quotes break a quoted
+  command argument, dash substitution turns `--flag` into an em dash, and
+  text replacement expands snippets inside nicks and URLs. All three are off
+  in the input field. Upstream issues 155 and 219.
+- The nick separator sat an inset's width left of the gap it marks, because
+  it is drawn in view coordinates while the indent is measured inside the
+  text container. Dragging it was off by the same amount.
+- Sidebar symbols drew black on the dark sidebar. A template image drawn
+  directly is not tinted, so the row's colour is baked in.
+- The dock badge never counted anything: no events were marked worth
+  alerting on unless a configuration already existed, which is never true on
+  a first run.
+- The chat view asked for an image that went away when the status bullets
+  became drawn orbs, warning on every launch.
+
+### Removed
+
+- `new_version_alert`, which had no callers and belonged to the crash
+  reporter that went in 2.0.0. Upstream issue 217 does not apply.
+
 ## [2.0.0] - 2026-08-15
 
 First release of the fork. X-Chat Aqua's last release was 1.18.11 in 2017;
@@ -109,3 +156,4 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 - The dead Crashlytics API key is no longer shipped.
 
 [2.0.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.0
+[2.0.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.1
