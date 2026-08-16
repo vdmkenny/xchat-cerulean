@@ -56,7 +56,7 @@
                                                 <imageView id="444">
                                                     <rect key="frame" x="1" y="10" width="11" height="11"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="green" id="505"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" id="505"/>
                                                 </imageView>
                                                 <textField verticalHuggingPriority="750" id="445">
                                                     <rect key="frame" x="17" y="7" width="66" height="17"/>
@@ -398,7 +398,4 @@
             </connections>
         </customView>
     </objects>
-    <resources>
-        <image name="green" width="10" height="11"/>
-    </resources>
 </document>
