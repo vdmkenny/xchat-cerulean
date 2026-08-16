@@ -3,11 +3,11 @@
     <channel>
         <title>XChat Cerulean</title>
         <item>
-            <title>2.2.1</title>
-            <pubDate>Sun, 16 Aug 2026 06:35:54 +0000</pubDate>
+            <title>2.3.0</title>
+            <pubDate>Sun, 16 Aug 2026 10:12:47 +0000</pubDate>
             <link>https://github.com/vdmkenny/xchat-cerulean</link>
-            <sparkle:version>2.2.1.1</sparkle:version>
-            <sparkle:shortVersionString>2.2.1</sparkle:shortVersionString>
+            <sparkle:version>2.3.0.1</sparkle:version>
+            <sparkle:shortVersionString>2.3.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<html><head><meta charset='utf-8'><style>
@@ -18,18 +18,28 @@ ul{margin:0 0 8px 18px;padding:0}li{margin:3px 0}
 code{font:11px ui-monospace,monospace;background:rgba(127,127,127,.15);
 padding:1px 4px;border-radius:3px}
 </style></head><body>
-<h2>Changed</h2>
+<h2>Added</h2>
 <ul>
-<li>The timestamp is a size down, dimmer, and no longer bracketed. It sits beside the conversation rather than competing with it.</li>
+<li><strong>IPv6 is preferred, with IPv4 as the fallback.</strong> Connections walked the resolver&#x27;s list in whatever order it came back, which puts IPv6 first only on a host with a global IPv6 address and a resolver that applies RFC 6724. Every IPv6 address is now tried before any IPv4 one.</li>
+<li><strong>DCC works over IPv6.</strong> The address in an offer is a 32 bit number, which a sender with no IPv4 cannot express, so it sends a literal address instead, as other clients do. That is now recognised and the transfer connects over IPv6. Proxied transfers stay IPv4 only, since the proxy types this client speaks cannot do anything else.</li>
+<li><strong>The received file is a link.</strong> The completion line named the file but gave no way to open it. The name is now clickable, with the full path in a tooltip. A name containing spaces survives, since the underlying URL is percent encoded.</li>
+<li><strong>Transfers are easy to reach:</strong> a toolbar button, a keyboard shortcut, and a Dock menu entry that shows how many are running.</li>
+<li><strong>Transfers keep the machine awake.</strong> A transfer is network and disk activity with no user input, so the system was free to idle sleep partway through one and cut the connection. Display sleep is still allowed.</li>
+<li><strong>A change of network is noticed.</strong> Sleep and wake were handled, but a Wi-Fi hop, a VPN going up or down, or an Ethernet cable being plugged in left sockets on a route that no longer worked, with nothing noticing until the ping timeout expired. Servers waiting to reconnect are retried at once and the ones still up are pinged.</li>
 </ul>
 <h2>Fixed</h2>
 <ul>
-<li><strong>A long nick ran over the separator.</strong> 2.2.0 sized the nick column for the timestamp but not for the name beside it, and the nick is right aligned on the indent, so anything that did not fit spilled past it. The column grows to the widest nick seen.</li>
-<li>The release job failed to publish the update feed the first time. It tested for changes before staging the file, and a file that is new to the tree shows no difference, so the very first publication was skipped.</li>
+<li><strong>Waking could connect twice.</strong> The wake handler cleared the reconnect timer&#x27;s tag without cancelling the timer, so a retry already scheduled still fired after the connection had been re-established.</li>
+<li>The Changelog and licence links on the site pointed at a branch name that no longer exists.</li>
+</ul>
+<h2>Changed</h2>
+<ul>
+<li>The default branch is <code>main</code>.</li>
+<li>The toolbar identifier changed, so that the new button reaches anyone with a saved layout. Toolbar customisation is reset once.</li>
 </ul>
 </body></html>
 ]]></description>
-            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.2.1/XChat-Cerulean-2.2.1.zip" length="7002417" type="application/octet-stream" sparkle:edSignature="fxUUM9ivxJSeVei7+MHaQCp6YuWIp5z8fEIfOyqV9V/f0jATS+/j71KRPSDkCiU1VXWt8ucgZc5qyenOu3Z9AA=="/>
+            <enclosure url="https://github.com/vdmkenny/xchat-cerulean/releases/download/2.3.0/XChat-Cerulean-2.3.0.zip" length="7004756" type="application/octet-stream" sparkle:edSignature="7J7eDWRsyxgPcyBf87gsy9KsVaQPVPDq2ghrQ90Go2r5D8PsLotRqXC92/fgKMsBOcW+lhkzQ/N3W8rjFnF9Dg=="/>
         </item>
     </channel>
 </rss>
