@@ -13,6 +13,7 @@
 
 #include "text.h"
 #include "plugin.h"
+#include "outbound.h"
 
 char *get_xdir_fs(void) {
     static NSString *applicationSupportDirectory = nil;
@@ -53,12 +54,15 @@ char *get_plugin_bundle_path(char *filename) {
 }
 
 void aqua_plugin_auto_load_item(struct session *ps, const char *filename) {
-    char *pMsg = plugin_load (ps, (char *)filename, NULL);
-	if (pMsg)
-	{
-		PrintTextf (ps, "AutoLoad failed for: %s\n", filename);
-		PrintText (ps, pMsg);
-	}
+    /* Going through the command rather than calling the loader straight off
+     * gives the script interpreters their chance to claim the file. They
+     * hook LOAD, and a .rb or .pl is not something the binary loader can
+     * open: it would report that the file is not a valid executable. The
+     * path is quoted because it runs through the application bundle, whose
+     * name contains a space. */
+    char *command = g_strdup_printf ("load \"%s\"", filename);
+    handle_command (ps, command, FALSE);
+    g_free (command);
 }
 
 void aqua_plugin_auto_load(struct session *ps) {
