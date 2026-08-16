@@ -5,6 +5,48 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.3.0] - 2026-08-16
+
+### Added
+
+- **IPv6 is preferred, with IPv4 as the fallback.** Connections walked the
+  resolver's list in whatever order it came back, which puts IPv6 first only
+  on a host with a global IPv6 address and a resolver that applies RFC 6724.
+  Every IPv6 address is now tried before any IPv4 one.
+- **DCC works over IPv6.** The address in an offer is a 32 bit number, which
+  a sender with no IPv4 cannot express, so it sends a literal address
+  instead, as other clients do. That is now recognised and the transfer
+  connects over IPv6. Proxied transfers stay IPv4 only, since the proxy
+  types this client speaks cannot do anything else.
+- **The received file is a link.** The completion line named the file but
+  gave no way to open it. The name is now clickable, with the full path in
+  a tooltip. A name containing spaces survives, since the underlying URL is
+  percent encoded.
+- **Transfers are easy to reach:** a toolbar button, a keyboard shortcut,
+  and a Dock menu entry that shows how many are running.
+- **Transfers keep the machine awake.** A transfer is network and disk
+  activity with no user input, so the system was free to idle sleep partway
+  through one and cut the connection. Display sleep is still allowed.
+- **A change of network is noticed.** Sleep and wake were handled, but a
+  Wi-Fi hop, a VPN going up or down, or an Ethernet cable being plugged in
+  left sockets on a route that no longer worked, with nothing noticing until
+  the ping timeout expired. Servers waiting to reconnect are retried at once
+  and the ones still up are pinged.
+
+### Fixed
+
+- **Waking could connect twice.** The wake handler cleared the reconnect
+  timer's tag without cancelling the timer, so a retry already scheduled
+  still fired after the connection had been re-established.
+- The Changelog and licence links on the site pointed at a branch name that
+  no longer exists.
+
+### Changed
+
+- The default branch is `main`.
+- The toolbar identifier changed, so that the new button reaches anyone with
+  a saved layout. Toolbar customisation is reset once.
+
 ## [2.2.1] - 2026-08-16
 
 ### Changed
