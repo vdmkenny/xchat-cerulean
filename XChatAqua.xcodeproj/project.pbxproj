@@ -199,6 +199,7 @@
 		7FFE4FDB185313A22ED195BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFD90A86D71ECC03F9E8BAB /* Security.framework */; };
 		853300D21F0D42A24A0F4840 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B3CE172C2DF4121EFB4FEC /* Network.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C511E71922BA2C24292D4E22 /* perl.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 38B20083183BDF56006C1EA1 /* perl.bundle */; };
 		D487239E128F9DBC00647D7B /* UtilityWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D487239D128F9DBC00647D7B /* UtilityWindow.m */; };
 		D4FBD93E12E449D5003EA441 /* ViewerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD93D12E449D5003EA441 /* ViewerWindow.xib */; };
 		D4FBD95912E44CD0003EA441 /* ViewerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD93912E44946003EA441 /* ViewerWindow.m */; };
@@ -242,6 +243,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2DDC6FD91231BCA00015A26C;
 			remoteInfo = Prebuild;
+		};
+		FEA9A0B894E5F41B26F4A665 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38B20078183BDF56006C1EA1;
+			remoteInfo = perl;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -290,6 +298,7 @@
 				38D501DB1593F51800C9B65D /* JBanner.rb in Copy Plugins */,
 				38D501DC1593F51A00C9B65D /* JFilter.rb in Copy Plugins */,
 				38D501DD1593F51D00C9B65D /* TimerSample.rb in Copy Plugins */,
+				C511E71922BA2C24292D4E22 /* perl.bundle in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2587,6 +2596,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38B20080183BDF56006C1EA1 /* Build configuration list for PBXNativeTarget "perl" */;
 			buildPhases = (
+				4C78865CAC092E35FE2EC41D /* Generate Perl Module Headers */,
 				38B2007A183BDF56006C1EA1 /* Resources */,
 				38B2007B183BDF56006C1EA1 /* Sources */,
 				38B2007D183BDF56006C1EA1 /* Frameworks */,
@@ -2638,6 +2648,7 @@
 				0FC8F5C30DEEEA3B00504F31 /* PBXTargetDependency */,
 				38BC97A9154A9937005894EF /* PBXTargetDependency */,
 				38BC97B3154A9937005894EF /* PBXTargetDependency */,
+				B6A8347BD8669240DF603A1D /* PBXTargetDependency */,
 			);
 			name = "XChat Cerulean";
 			packageProductDependencies = (
@@ -2901,6 +2912,24 @@
 			shellPath = /bin/bash;
 			shellScript = "cd \"$PROJECT_DIR/Mac/Plugins/ruby/src\"\n\n/usr/bin/ruby ../scripts/embedify.rb xchat-ruby-plugin.rb xchat-ruby-plugin.h";
 		};
+		4C78865CAC092E35FE2EC41D /* Generate Perl Module Headers */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Perl Module Headers";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/xchat/plugins/perl\" && perl generate_header";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -3058,6 +3087,12 @@
 			name = Prebuild;
 			target = 2DDC6FD91231BCA00015A26C /* Prebuild */;
 			targetProxy = 444F16F07AAB5480D8B06A3B /* PBXContainerItemProxy */;
+		};
+		B6A8347BD8669240DF603A1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = perl;
+			target = 38B20078183BDF56006C1EA1 /* perl */;
+			targetProxy = FEA9A0B894E5F41B26F4A665 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4292,10 +4327,7 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					Mac,
-					Mac/contrib/include,
-					xchat/src/common,
-					xchat/plugins/perl,
+					"$(XA_PERL_CORE)",
 				);
 				INFOPLIST_FILE = "Mac/Plugins/perl/perl-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
@@ -4303,6 +4335,7 @@
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
+					"$(XA_PERL_LDFLAGS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.vdmkenny.xchatcerulean.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = perl;
@@ -4325,10 +4358,7 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					Mac,
-					Mac/contrib/include,
-					xchat/src/common,
-					xchat/plugins/perl,
+					"$(XA_PERL_CORE)",
 				);
 				INFOPLIST_FILE = "Mac/Plugins/perl/perl-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
@@ -4336,6 +4366,7 @@
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
+					"$(XA_PERL_LDFLAGS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.vdmkenny.xchatcerulean.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = perl;

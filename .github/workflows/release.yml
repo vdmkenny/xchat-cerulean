@@ -43,6 +43,13 @@ jobs:
           tools/gen_buildnum_h.pl build_number.h BuildNumber.xcconfig
           cat BuildNumber.xcconfig
 
+      # Xcode reads the configuration files before any build phase runs, so
+      # this has to happen before xcodebuild rather than inside it.
+      - name: Point the perl plugin at this machine's perl
+        run: |
+          tools/gen_perl_xcconfig.sh Perl.xcconfig
+          cat Perl.xcconfig
+
       - name: Build
         run: |
           xcodebuild \

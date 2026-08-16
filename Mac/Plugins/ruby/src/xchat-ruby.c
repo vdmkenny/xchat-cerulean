@@ -240,6 +240,12 @@ static void static_init_ruby_environment( void )
 
   ruby_init();
 
+  /* Without this the embedded interpreter starts with an empty $LOAD_PATH,
+   * so nothing outside the plugin itself can be required. It fills the path
+   * in from the interpreter's own configuration, which is how the ruby on
+   * this machine is found without carrying one around. */
+  ruby_init_loadpath();
+
   /* "XCHAT_RUBY_PLUGIN" is a macro that contains all of the Ruby code needed to
    * define the core XChat-Ruby interface.  Once this has been defined, all we
    * need to do is extract the defined classes and add the C hooks to them.

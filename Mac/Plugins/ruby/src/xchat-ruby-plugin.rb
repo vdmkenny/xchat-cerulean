@@ -430,18 +430,22 @@ module XChatRuby
     end
 
     def XChatRubyEnvironment.initialize_ruby_environment
-      envfile = get_info( "xchatdir" ) + "/plugins-bundled/ruby.bundle/Contents/SharedSupport/rubyenv"
+      # The interpreter fills $LOAD_PATH in from its own configuration, so
+      # the ruby on this machine is found without carrying one around. A
+      # rubyenv file in the configuration directory can add to it, and is
+      # absent for almost everybody.
+      envfile = File.join( get_info( "xchatdir" ), "rubyenv" )
+      return unless File.readable?( envfile )
+
       begin
         File.open( envfile, "r" ) do |file|
           file.each do |line|
             line.chomp!
-            $LOAD_PATH.push line
+            $LOAD_PATH.push line unless line.empty?
           end
         end
       rescue Exception => detail
-        puts "The ruby environment file '#{envfile}' could not be found."
-        puts "Ruby modules will not be able to access any extension modules."
-        $LOAD_PATH.push "."
+        puts "Could not read the ruby environment file '#{envfile}': #{detail}"
       end
     end
 

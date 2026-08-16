@@ -26,3 +26,5 @@ Pods
 # checkout. Xcode rejects missing build inputs, so a clean checkout could not
 # build. They are committed instead.
 Resources/locale
+xchat/plugins/perl/xchat.pm.h
+xchat/plugins/perl/irc.pm.h
