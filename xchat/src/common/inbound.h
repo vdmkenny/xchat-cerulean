@@ -14,6 +14,8 @@ void inbound_topicnew (server *serv, char *nick, char *chan, char *topic);
 void inbound_join (server *serv, char *chan, char *user, char *ip);
 void inbound_ujoin (server *serv, char *chan, char *nick, char *ip);
 void inbound_topictime (server *serv, char *chan, char *nick, time_t stamp);
+void inbound_away_notify (server *serv, char *nick, unsigned int away);
+void inbound_chghost (server *serv, char *nick, char *user, char *host);
 void inbound_topic (server *serv, char *chan, char *topic_text);
 void inbound_user_info_start (session *sess, char *nick);
 void inbound_user_info (session *sess, char *chan, char *user, char *host, char *servname, char *nick, char *realname, unsigned int away);

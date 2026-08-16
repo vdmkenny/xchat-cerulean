@@ -966,6 +966,11 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 		/* this should compile to a bunch of: CMP.L, JE ... nice & fast */
 		switch (t)
 		{
+		case WORDL('A','W','A','Y'):
+			/* away-notify: a reason means away, its absence means back. */
+			inbound_away_notify (serv, nick, word[3][0] ? TRUE : FALSE);
+			return;
+
 		case WORDL('J','O','I','N'):
 			{
 				char *chan = word[3];
@@ -1130,6 +1135,15 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 			}
 			return;
 
+		case WORDL('C','H','G','H'):
+			if (!strcmp (type, "CHGHOST"))
+			{
+				/* chghost: the username and host changed in place. */
+				inbound_chghost (serv, nick, word[3], word[4]);
+				return;
+			}
+			break;
+
 		case WORDL('T','O','P','I'):
 			inbound_topicnew (serv, nick, word[3],
 									(word_eol[4][0] == ':') ? word_eol[4] + 1 : word_eol[4]);
@@ -1189,6 +1203,12 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 				 * access level it works out simply becomes complete. */
 				if (strstr (offered, "multi-prefix") != NULL)
 					irc_add_cap (request, sizeof (request), "multi-prefix");
+				/* Keeps the user list right between name replies: who is
+				 * away, and a host that changed without a reconnect. */
+				if (strstr (offered, "away-notify") != NULL)
+					irc_add_cap (request, sizeof (request), "away-notify");
+				if (strstr (offered, "chghost") != NULL)
+					irc_add_cap (request, sizeof (request), "chghost");
 				if (strstr (offered, "identify-msg") != NULL)
 					irc_add_cap (request, sizeof (request), "identify-msg");
 

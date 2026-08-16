@@ -657,6 +657,50 @@ inbound_nameslist (server *serv, char *chan, char *names)
 	}
 }
 
+/* away-notify: the away state of someone sharing a channel changed, so
+ * every channel we have in common is updated. userlist_set_away does
+ * nothing where the nick is not present. */
+void
+inbound_away_notify (server *serv, char *nick, unsigned int away)
+{
+	GSList *list;
+
+	for (list = sess_list; list; list = list->next)
+	{
+		session *sess = list->data;
+
+		if (sess->server == serv && sess->type == SESS_CHANNEL)
+			userlist_set_away (sess, nick, away);
+	}
+}
+
+/* chghost: a user's username or host changed without them reconnecting. */
+void
+inbound_chghost (server *serv, char *nick, char *user, char *host)
+{
+	GSList *list;
+	char mask[512];
+
+	snprintf (mask, sizeof (mask), "%s@%s", user, host);
+
+	for (list = sess_list; list; list = list->next)
+	{
+		session *sess = list->data;
+		struct User *found;
+
+		if (sess->server != serv || sess->type != SESS_CHANNEL)
+			continue;
+
+		found = userlist_find (sess, nick);
+		if (found == NULL)
+			continue;
+
+		free (found->hostname);
+		found->hostname = strdup (mask);
+		fe_userlist_rehash (sess, found);
+	}
+}
+
 void
 inbound_topic (server *serv, char *chan, char *topic_text)
 {
