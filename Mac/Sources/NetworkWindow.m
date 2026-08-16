@@ -471,6 +471,12 @@ static NSString *charsets[] =
     [self center];
 }
 
+- (void)modernizeContents
+{
+    [super modernizeContents];
+    [self rebuildFlatLayout];
+}
+
 #pragma mark notification
 
 - (void) close
