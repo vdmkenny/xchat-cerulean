@@ -21,6 +21,10 @@
 
 #define XA_BUNDLE_ID        "dev.vdmkenny.xchatcerulean"
 #define XA_HOMEPAGE         "https://github.com/vdmkenny/xchat-cerulean"
+#define XA_WEBSITE          "https://vdmkenny.github.io/xchat-cerulean/"
+#define XA_RELEASES_URL     XA_HOMEPAGE "/releases"
+#define XA_LATEST_URL       XA_HOMEPAGE "/releases/latest"
+#define XA_ISSUES_URL       XA_HOMEPAGE "/issues"
 
 /* What this fork descends from, for about boxes and attribution. */
 #define XA_UPSTREAM_NAME    "X-Chat Aqua"

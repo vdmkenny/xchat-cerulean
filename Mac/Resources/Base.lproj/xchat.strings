@@ -148,7 +148,7 @@
 /* No comment provided by engineer. */
 "XChat: Channel List (%s)" = "XChat: Channel List (%s)";
 
-/* Title of Window: MainMenu->X-Chat Aqua->Preference Lists->CTCP Replies... */
+/* Title of Window: MainMenu->XChat Cerulean->Preference Lists->CTCP Replies... */
 "XChat: CTCP Replies" = "XChat: CTCP Replies";
 
 /* No comment provided by engineer. */
@@ -175,16 +175,16 @@
 /* Title of Window: MainMenu->Window->URL Grabber... */
 "XChat: URL Grabber" = "XChat: URL Grabber";
 
-/* Title of Window: MainMenu->X-Chat Aqua->References Lists->URL Handler... */
+/* Title of Window: MainMenu->XChat Cerulean->References Lists->URL Handler... */
 "XChat: URL Handlers" = "XChat: URL Handlers";
 
 /* Title of Window: MainMenu->User Menu->Edit This Menu... */
 "XChat: User menu" = "XChat: User menu";
 
-/* Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Buttons... */
+/* Title of Window: MainMenu->XChat Cerulean->References Lists->Userlist Buttons... */
 "XChat: Userlist buttons" = "XChat: Userlist buttons";
 
-/* Title of Window: MainMenu->X-Chat Aqua->References Lists->Userlist Popup... */
+/* Title of Window: MainMenu->XChat Cerulean->References Lists->Userlist Popup... */
 "XChat: Userlist Popup menu" = "XChat: Userlist Popup menu";
 
 /* No comment provided by engineer. */

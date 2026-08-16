@@ -434,8 +434,8 @@
 /* Class = "NSTextFieldCell"; title = "S = Show indicator in the dock"; ObjectID = "573"; */
 "573.title" = "S = Show indicator in the dock";
 
-/* Class = "NSButtonCell"; title = "Perform when X-Chat Aqua is not in front"; ObjectID = "574"; */
-"574.title" = "Perform when X-Chat Aqua is not in front";
+/* Class = "NSButtonCell"; title = "Perform when XChat Cerulean is not in front"; ObjectID = "574"; */
+"574.title" = "Perform when XChat Cerulean is not in front";
 
 /* Class = "NSButtonCell"; title = "Perform always"; ObjectID = "575"; */
 "575.title" = "Perform always";

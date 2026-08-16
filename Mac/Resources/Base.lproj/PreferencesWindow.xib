@@ -1976,7 +1976,7 @@ Gw
                                                     <button id="368">
                                                         <rect key="frame" x="215" y="48" width="216" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Perform when X-Chat Aqua is not in front" bezelStyle="rounded" imagePosition="left" alignment="left" controlSize="mini" enabled="NO" state="on" inset="2" id="574">
+                                                        <buttonCell key="cell" type="check" title="Perform when XChat Cerulean is not in front" bezelStyle="rounded" imagePosition="left" alignment="left" controlSize="mini" enabled="NO" state="on" inset="2" id="574">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="miniSystem"/>
                                                         </buttonCell>

@@ -201,6 +201,5 @@ NSApplicationDelegate, XAEventChain, UNUserNotificationCenterDelegate> {
 - (IBAction) openDownload:(id)sender;
 - (IBAction) showReleaseNotes:(id)sender;
 - (IBAction) openIssues:(id)sender;
-- (IBAction) openIRCChannel:(id)sender;
 
 @end

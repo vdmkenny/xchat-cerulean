@@ -1,6 +1,6 @@
 
-/* Class = "NSMenuItem"; title = "About X-Chat Aqua"; ObjectID = "58"; */
-"58.title" = "About X-Chat Aqua";
+/* Class = "NSMenuItem"; title = "About XChat Cerulean"; ObjectID = "58"; */
+"58.title" = "About XChat Cerulean";
 
 /* Class = "NSMenuItem"; title = "Preferences..."; ObjectID = "129"; */
 "129.title" = "Preferences...";
@@ -8,8 +8,8 @@
 /* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
 "131.title" = "Services";
 
-/* Class = "NSMenuItem"; title = "Hide X-Chat Aqua"; ObjectID = "134"; */
-"134.title" = "Hide X-Chat Aqua";
+/* Class = "NSMenuItem"; title = "Hide XChat Cerulean"; ObjectID = "134"; */
+"134.title" = "Hide XChat Cerulean";
 
 /* Class = "NSMenuItem"; title = "Quit"; ObjectID = "136"; */
 "136.title" = "Quit";
@@ -74,8 +74,8 @@
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "460"; */
 "460.title" = "Help";
 
-/* Class = "NSMenuItem"; title = "X-Chat Aqua Homepage..."; ObjectID = "474"; */
-"474.title" = "X-Chat Aqua Homepage...";
+/* Class = "NSMenuItem"; title = "XChat Cerulean Homepage..."; ObjectID = "474"; */
+"474.title" = "XChat Cerulean Homepage...";
 
 /* Class = "NSMenuItem"; title = "Select All"; ObjectID = "770"; */
 "770.title" = "Select All";
@@ -185,8 +185,8 @@
 /* Class = "NSMenuItem"; title = "Friends List..."; ObjectID = "1187"; */
 "1187.title" = "Friends List...";
 
-/* Class = "NSMenuItem"; title = "X-Chat Aqua Download..."; ObjectID = "1229"; */
-"1229.title" = "X-Chat Aqua Download...";
+/* Class = "NSMenuItem"; title = "XChat Cerulean Download..."; ObjectID = "1229"; */
+"1229.title" = "XChat Cerulean Download...";
 
 /* Class = "NSMenuItem"; title = "Log List..."; ObjectID = "1286"; */
 "1286.title" = "Log List...";

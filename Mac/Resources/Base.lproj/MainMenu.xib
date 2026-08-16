@@ -17,7 +17,7 @@
                 <menuItem id="56">
                     <menu key="submenu" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About X-Chat Aqua" id="58">
+                            <menuItem title="About XChat Cerulean" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="1590"/>
@@ -86,7 +86,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide X-Chat Aqua" keyEquivalent="h" id="134">
+                            <menuItem title="Hide XChat Cerulean" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-2" id="1588"/>
                                 </connections>
@@ -603,12 +603,12 @@
                 <menuItem title="Help" id="460">
                     <menu key="submenu" title="Help" autoenablesItems="NO" id="456">
                         <items>
-                            <menuItem title="X-Chat Aqua Homepage..." id="474">
+                            <menuItem title="XChat Cerulean Homepage..." id="474">
                                 <connections>
                                     <action selector="openHomepage:" target="853" id="1465"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="X-Chat Aqua Download..." id="1229">
+                            <menuItem title="XChat Cerulean Download..." id="1229">
                                 <connections>
                                     <action selector="openDownload:" target="853" id="1464"/>
                                 </connections>

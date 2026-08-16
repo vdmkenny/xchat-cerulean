@@ -24,6 +24,7 @@
 #import "NSPanelAdditions.h"
 
 #import "AquaChat.h"
+#import "Branding.h"
 #import "AutoAwayController.h"
 #import "MenuMaker.h"
 #import "XATabWindow.h"
@@ -1124,29 +1125,25 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 // Open developer page
 - (void) openHomepage:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://xchataqua.github.io/"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@XA_WEBSITE]];
 }
 
 // Open the X-Chat Aqua download page (same as homepage for now).
 - (void) openDownload:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://github.com/xchataqua/xchataqua/downloads"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@XA_LATEST_URL]];
 }
 
 // Open the X-Chat Aqua Release Notes.
 - (void) showReleaseNotes:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/xchataqua/xchataqua/tags"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@XA_RELEASES_URL]];
 }
 
 // Open issue tracker
 - (void) openIssues:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://github.com/xchataqua/xchataqua/issues"]];
-}
-
-- (void)openIRCChannel:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"irc://irc.freenode.org/#xchat-aqua"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@XA_ISSUES_URL]];
 }
 
 #if ENABLE_GROWL
