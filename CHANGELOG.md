@@ -5,6 +5,45 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.2.0] - 2026-08-16
+
+### Added
+
+- **IRCv3 capabilities.** 2.1.0 added SASL; the negotiation now covers the
+  rest of what this client can act on.
+  - `message-tags`, the tag section ahead of a line, with the escaping the
+    specification lays out.
+  - `server-time`, so a message is shown as having happened when the server
+    saw it. Reconnects and bouncer playback stop being stamped with the
+    moment you reconnected.
+  - `multi-prefix`, so a user's full set of modes is known rather than only
+    the highest.
+  - `away-notify` and `chghost`, so who is away and whose host changed is
+    right between name replies instead of going stale until the next `WHO`.
+
+  `extended-join` and `account-notify` are deliberately not requested.
+  Neither carries anything this client can use, and `extended-join` moves the
+  channel out of the trailing parameter of `JOIN`, which the parser relies
+  on.
+- **Automatic updates.** Nothing told anyone a new version existed. Sparkle
+  checks a signed feed published with the site, once a day and from **Check
+  for Updates** in the application menu. Whether it looks on its own is a
+  preference under Other. The dialog shows that version's changelog.
+- **A finished download says so**, with a button that opens the Finder on the
+  file.
+
+### Changed
+
+- Notifications from one conversation share a thread, so several arriving
+  together stack into a group rather than a column of banners.
+- Being addressed directly or offered a file is marked time sensitive, so a
+  Focus lets those through while ordinary traffic waits.
+
+### Fixed
+
+- A timestamp format wider than the nick column ran over the separator and
+  into the message. The column grows to fit whatever format is set.
+
 ## [2.1.0] - 2026-08-16
 
 ### Added
@@ -195,3 +234,4 @@ The client is now **XChat Cerulean**, and runs natively on Apple Silicon.
 [2.0.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.0
 [2.0.1]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.0.1
 [2.1.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.1.0
+[2.2.0]: https://github.com/vdmkenny/xchat-cerulean/releases/tag/2.2.0
